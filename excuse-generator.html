@@ -89,13 +89,15 @@
       result.innerText = "Generating...";
 
       try {
-        const response = await fetch("/api/excuse", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ context, style, tone })
-        });
+        const prompt = `Write a ${style}, ${tone} excuse for this situation: ${context}. If believable, make it realistic and usable. If funny, make it amusing but still coherent.`;
+
+const response = await fetch("/api/generate", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({ prompt })
+});
 
         const data = await response.json();
 
