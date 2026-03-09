@@ -83,13 +83,15 @@
       result.innerText = "Generating...";
 
       try {
-        const response = await fetch("/api/apology", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ context, tone })
-        });
+        const prompt = `Write a ${tone} apology message for this situation: ${context}. Keep it natural, thoughtful, and concise.`;
+
+const response = await fetch("/api/generate", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({ prompt })
+});
 
         const data = await response.json();
 
