@@ -64,6 +64,9 @@
     <button onclick="generateMessage()">Generate Message</button>
 
     <div id="result">Your generated apology will appear here.</div>
+
+<button onclick="copyResult()">Copy Message</button>
+<button onclick="generateMessage()">Regenerate</button>
   </div>
 
   <script>
@@ -99,6 +102,13 @@
         result.innerText = "Error generating message. Please try again.";
       }
     }
+    function copyResult() {
+  const text = document.getElementById("result").innerText;
+
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Copied to clipboard!");
+  });
+}
   </script>
 </body>
 </html>
