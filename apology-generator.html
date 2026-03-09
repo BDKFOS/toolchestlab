@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Apology Message Generator | ToolChestLab</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    textarea, select, button {
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      padding: 12px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      text-align: left;
+      white-space: pre-wrap;
+      background: #fafafa;
+      padding: 20px;
+      border-radius: 8px;
+      min-height: 80px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Apology Message Generator</h1>
+    <p>Generate a thoughtful apology message in seconds.</p>
+
+    <label for="context">What happened?</label>
+    <textarea id="context" rows="5" placeholder="Example: I missed my friend's birthday dinner and forgot to text him."></textarea>
+
+    <label for="tone">Tone</label>
+    <select id="tone">
+      <option value="sincere">Sincere</option>
+      <option value="professional">Professional</option>
+      <option value="casual">Casual</option>
+    </select>
+
+    <button onclick="generateMessage()">Generate Message</button>
+
+    <div id="result">Your generated apology will appear here.</div>
+  </div>
+
+  <script>
+    async function generateMessage() {
+      const context = document.getElementById("context").value;
+      const tone = document.getElementById("tone").value;
+      const result = document.getElementById("result");
+
+      if (!context.trim()) {
+        result.innerText = "Please describe what happened.";
+        return;
+      }
+
+      result.innerText = "Generating...";
+
+      try {
+        const response = await fetch("/api/apology", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ context, tone })
+        });
+
+        const data = await response.json();
+
+        if (data.message) {
+          result.innerText = data.message;
+        } else {
+          result.innerText = "Something went wrong. Please try again.";
+        }
+      } catch (error) {
+        result.innerText = "Error generating message. Please try again.";
+      }
+    }
+  </script>
+</body>
+</html>
