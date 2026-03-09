@@ -4,7 +4,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { context, tone } = req.body;
+    const { context, tone } = req.body || {};
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -30,14 +30,19 @@ export default async function handler(req, res) {
 
     const data = await response.json();
 
-    if (!data.choices || !data.choices[0] || !data.choices[0].message) {
-      return res.status(500).json({ message: "OpenAI response error" });
+    if (!response.ok) {
+      return res.status(response.status).json({
+        message: data?.error?.message || "OpenAI API error",
+        debug: data
+      });
     }
 
     return res.status(200).json({
       message: data.choices[0].message.content
     });
   } catch (error) {
-    return res.status(500).json({ message: "Server error" });
+    return res.status(500).json({
+      message: error.message || "Server error"
+    });
   }
 }
