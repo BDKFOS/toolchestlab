@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Professional Apology Email Generator | ToolChestLab</title>
+  <meta
+    name="description"
+    content="Generate a professional apology email for work, clients, coworkers, or managers."
+  />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f6f7f9;
+      color: #222;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 48px 20px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    h1 {
+      margin-top: 0;
+      font-size: 2rem;
+      line-height: 1.2;
+    }
+
+    p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    label {
+      display: block;
+      margin-top: 18px;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    select,
+    textarea,
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 20px;
+      background: #0070f3;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 18px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.92;
+    }
+
+    .result-box {
+      margin-top: 28px;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 18px;
+      white-space: pre-wrap;
+      line-height: 1.6;
+      min-height: 120px;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: #0070f3;
+      text-decoration: none;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    .small-note {
+      font-size: 14px;
+      color: #666;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a class="back-link" href="/tools.html">← Back to Tools</a>
+
+    <div class="card">
+      <h1>Professional Apology Email Generator</h1>
+      <p>
+        Write a clear, respectful apology email for work or business situations.
+        Generate professional wording for clients, coworkers, managers, or other formal contexts.
+      </p>
+
+      <label for="recipient">Who is the email for?</label>
+      <select id="recipient">
+        <option value="Client">Client</option>
+        <option value="Boss">Boss</option>
+        <option value="Coworker">Coworker</option>
+        <option value="Manager">Manager</option>
+        <option value="Employee">Employee</option>
+        <option value="Professor or Teacher">Professor or Teacher</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="tone">Tone</label>
+      <select id="tone">
+        <option value="Professional">Professional</option>
+        <option value="Warm">Warm</option>
+        <option value="Formal">Formal</option>
+        <option value="Concise">Concise</option>
+      </select>
+
+      <label for="situation">What happened?</label>
+      <textarea
+        id="situation"
+        placeholder="Example: I missed an important client call this morning and need to apologize professionally while taking responsibility."
+      ></textarea>
+
+      <label for="name">Your name (optional)</label>
+      <input
+        id="name"
+        type="text"
+        placeholder="Example: Jesse"
+      />
+
+      <button onclick="generateEmail()">Generate Email</button>
+
+      <p class="small-note">This may take a few seconds.</p>
+
+      <div id="result" class="result-box">Your email will appear here.</div>
+    </div>
+  </div>
+
+  <script>
+    async function generateEmail() {
+      const recipient = document.getElementById("recipient").value;
+      const tone = document.getElementById("tone").value;
+      const situation = document.getElementById("situation").value.trim();
+      const name = document.getElementById("name").value.trim();
+      const resultBox = document.getElementById("result");
+
+      if (!situation) {
+        resultBox.textContent = "Please describe what happened first.";
+        return;
+      }
+
+      resultBox.textContent = "Generating...";
+
+      try {
+        const response = await fetch("/api/generate", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            tool: "professional-apology-email",
+            recipient,
+            tone,
+            situation,
+            name
+          })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+          resultBox.textContent = data.error || "Something went wrong.";
+          return;
+        }
+
+        resultBox.textContent = data.text || "No result returned.";
+      } catch (error) {
+        resultBox.textContent = "Something went wrong. Please try again.";
+      }
+    }
+  </script>
+</body>
+</html>
