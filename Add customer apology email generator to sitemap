@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Missed Deadline Apology Email Generator | ToolChestLab</title>
+<meta name="description" content="Generate a professional apology email for missing a deadline at work or in a project.">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WLQ0YR217T');
+</script>
+
+<style>
+body{
+font-family: Arial, sans-serif;
+background:#f5f5f5;
+padding:40px;
+text-align:center;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+textarea,select,input,button{
+width:100%;
+margin-top:10px;
+margin-bottom:20px;
+padding:12px;
+font-size:16px;
+box-sizing:border-box;
+}
+
+button{
+background:black;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+#result{
+margin-top:20px;
+text-align:left;
+white-space:pre-wrap;
+background:#fafafa;
+padding:20px;
+border-radius:8px;
+min-height:120px;
+}
+</style>
+</head>
+
+<body>
+
+<a href="/tools.html">← View all tools</a>
+
+<div class="container">
+
+<h1>Missed Deadline Apology Email Generator</h1>
+<p>Generate a professional apology email for missing a deadline.</p>
+
+<label for="tone">Tone</label>
+<select id="tone">
+<option>Professional</option>
+<option>Formal</option>
+<option>Respectful</option>
+<option>Concise</option>
+</select>
+
+<label for="context">What happened?</label>
+<textarea id="context" rows="5" placeholder="Example: I missed the deadline for submitting a project update to my manager and need to apologize professionally."></textarea>
+
+<label for="name">Your name (optional)</label>
+<input id="name" type="text" placeholder="Example: Jesse">
+
+<button onclick="generateEmail()">Generate Email</button>
+
+<div id="result">Your generated apology email will appear here.</div>
+
+<button onclick="copyResult()">Copy Email</button>
+<button onclick="generateEmail()">Regenerate</button>
+
+<hr style="margin:40px 0;">
+
+<h2>How do you apologize for missing a deadline?</h2>
+
+<p>
+Missing a deadline can happen for many reasons, but a professional apology
+should acknowledge the delay, take responsibility, and communicate how the
+issue will be corrected. A clear and respectful message helps maintain trust
+with managers, coworkers, and clients.
+</p>
+
+<p>
+This generator helps create professional apology emails for missed deadlines,
+late deliverables, or delayed project updates. Instead of struggling to find
+the right wording, you can generate a professional first draft instantly.
+</p>
+
+<p>
+Simply explain what happened and the tool will generate a clear apology email
+that you can send or edit to match your situation.
+</p>
+
+</div>
+
+<script>
+
+async function generateEmail(){
+
+const context=document.getElementById("context").value;
+const tone=document.getElementById("tone").value;
+const name=document.getElementById("name").value;
+const result=document.getElementById("result");
+
+if(!context.trim()){
+result.innerText="Please describe what happened.";
+return;
+}
+
+result.innerText="Generating...";
+
+const prompt=`Write a ${tone.toLowerCase()} apology email for missing a deadline.
+
+Situation:
+${context}
+
+Requirements:
+- Include a subject line
+- Take responsibility clearly
+- Avoid sounding defensive
+- Suggest a next step or correction
+- End politely
+
+Signed:
+${name || "Sender"}`;
+
+try{
+
+const response=await fetch("/api/generate",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({prompt})
+});
+
+const data=await response.json();
+
+if(data.message){
+result.innerText=data.message;
+}else{
+result.innerText="Something went wrong. Please try again.";
+}
+
+}catch(error){
+result.innerText="Error generating email. Please try again.";
+}
+
+}
+
+function copyResult(){
+
+const text=document.getElementById("result").innerText;
+
+navigator.clipboard.writeText(text).then(()=>{
+alert("Copied to clipboard!");
+});
+
+}
+
+</script>
+
+</body>
+</html>
