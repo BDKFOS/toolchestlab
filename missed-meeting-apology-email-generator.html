@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Missed Meeting Apology Email Generator | ToolChestLab</title>
+  <meta name="description" content="Generate a professional apology email for missing a meeting with a client, boss, coworker, or manager.">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WLQ0YR217T');
+  </script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    textarea, select, input, button {
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      padding: 12px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      text-align: left;
+      white-space: pre-wrap;
+      background: #fafafa;
+      padding: 20px;
+      border-radius: 8px;
+      min-height: 120px;
+    }
+  </style>
+</head>
+<body>
+  <a href="/tools.html">← View all tools</a>
+
+  <div class="container">
+    <h1>Missed Meeting Apology Email Generator</h1>
+    <p>Generate a professional apology email for missing a meeting.</p>
+
+    <label for="recipient">Who is the email for?</label>
+    <select id="recipient">
+      <option>Client</option>
+      <option>Boss</option>
+      <option>Manager</option>
+      <option>Coworker</option>
+      <option>Employee</option>
+      <option>Other</option>
+    </select>
+
+    <label for="tone">Tone</label>
+    <select id="tone">
+      <option>Professional</option>
+      <option>Formal</option>
+      <option>Warm</option>
+      <option>Concise</option>
+    </select>
+
+    <label for="context">What happened?</label>
+    <textarea id="context" rows="5" placeholder="Example: I missed a project check-in meeting with my manager this morning and need to apologize professionally."></textarea>
+
+    <label for="name">Your name (optional)</label>
+    <input id="name" type="text" placeholder="Example: Jesse">
+
+    <button onclick="generateEmail()">Generate Email</button>
+
+    <div id="result">Your generated missed meeting apology email will appear here.</div>
+
+    <button onclick="copyResult()">Copy Email</button>
+    <button onclick="generateEmail()">Regenerate</button>
+
+    <hr style="margin:40px 0;">
+
+    <h2>How do you apologize for missing a meeting professionally?</h2>
+
+    <p>
+      A good missed meeting apology email should be clear, respectful, and brief.
+      It should acknowledge the missed meeting, apologize directly, and show that
+      you take the situation seriously. When appropriate, it should also suggest
+      a next step such as rescheduling or providing the information that was missed.
+    </p>
+
+    <p>
+      This missed meeting apology email generator helps you create polished emails
+      for work, clients, managers, coworkers, or other professional situations.
+      Instead of overthinking the wording, you can generate a strong first draft
+      in seconds and edit it to fit your exact situation.
+    </p>
+
+    <p>
+      Simply describe what happened, choose the recipient and tone, and the tool
+      will generate a professional apology email you can use right away.
+    </p>
+  </div>
+
+  <script>
+    async function generateEmail() {
+      const context = document.getElementById("context").value;
+      const tone = document.getElementById("tone").value;
+      const recipient = document.getElementById("recipient").value;
+      const name = document.getElementById("name").value;
+      const result = document.getElementById("result");
+
+      if (!context.trim()) {
+        result.innerText = "Please describe what happened.";
+        return;
+      }
+
+      result.innerText = "Generating...";
+
+      const prompt = `Write a ${tone.toLowerCase()} apology email to a ${recipient} for missing a meeting.
+
+Situation:
+${context}
+
+Requirements:
+- Include a subject line
+- Sound natural, clear, and professional
+- Take responsibility without sounding robotic
+- Suggest a next step or rescheduling if appropriate
+- End politely
+
+Signed:
+${name || "Sender"}`;
+
+      try {
+        const response = await fetch("/api/generate", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ prompt })
+        });
+
+        const data = await response.json();
+
+        if (data.message) {
+          result.innerText = data.message;
+        } else {
+          result.innerText = "Something went wrong. Please try again.";
+        }
+      } catch (error) {
+        result.innerText = "Error generating email. Please try again.";
+      }
+    }
+
+    function copyResult() {
+      const text = document.getElementById("result").innerText;
+
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Copied to clipboard!");
+      });
+    }
+  </script>
+</body>
+</html>
