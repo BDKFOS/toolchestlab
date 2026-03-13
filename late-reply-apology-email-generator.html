@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Late Reply Apology Email Generator | ToolChestLab</title>
   <meta name="description" content="Generate a polished late reply apology email for work, clients, coworkers, or personal situations.">
 
@@ -14,36 +16,83 @@
   </script>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      padding: 40px;
-      text-align: center;
+      background: #f7f9fc;
+      color: #222;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    .page-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #0070f3;
+      text-decoration: none;
+      font-size: 15px;
     }
 
     .container {
-      max-width: 700px;
-      margin: auto;
       background: white;
       padding: 30px;
       border-radius: 12px;
+      border: 1px solid #e5e5e5;
       box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    p {
+      line-height: 1.7;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 8px;
+      font-weight: bold;
+      text-align: left;
     }
 
     textarea, select, input, button {
       width: 100%;
-      margin-top: 10px;
+      margin-top: 0;
       margin-bottom: 20px;
       padding: 12px;
       font-size: 16px;
       box-sizing: border-box;
+      border-radius: 8px;
+    }
+
+    textarea, select, input {
+      border: 1px solid #d9d9d9;
     }
 
     button {
-      background: black;
+      background: #0070f3;
       color: white;
       border: none;
       cursor: pointer;
+    }
+
+    button:hover {
+      background: #0059c7;
     }
 
     #result {
@@ -54,67 +103,132 @@
       padding: 20px;
       border-radius: 8px;
       min-height: 120px;
+      border: 1px solid #ececec;
+      line-height: 1.6;
+    }
+
+    .info-section {
+      margin-top: 40px;
+    }
+
+    .related-tools {
+      margin-top: 40px;
+      padding-top: 10px;
+    }
+
+    .related-tools ul {
+      padding-left: 20px;
+      line-height: 1.8;
+    }
+
+    .related-tools a {
+      color: #0070f3;
+      text-decoration: none;
+    }
+
+    .related-tools a:hover,
+    .back-link:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 20px 14px;
+      }
+
+      .container {
+        padding: 22px;
+      }
     }
   </style>
 </head>
 <body>
-  <a href="/tools.html">← View all tools</a>
+  <div class="page-wrap">
+    <a class="back-link" href="/">← Back to ToolChestLab</a>
 
-  <div class="container">
-    <h1>Late Reply Apology Email Generator</h1>
-    <p>Generate a polished apology email for responding late.</p>
+    <div class="container">
+      <h1>Late Reply Apology Email Generator</h1>
+      <p>Generate a polished apology email for responding late.</p>
 
-    <label for="recipient">Who is the email for?</label>
-    <select id="recipient">
-      <option>Client</option>
-      <option>Boss</option>
-      <option>Manager</option>
-      <option>Coworker</option>
-      <option>Friend</option>
-      <option>Other</option>
-    </select>
+      <label for="recipient">Who is the email for?</label>
+      <select id="recipient">
+        <option>Client</option>
+        <option>Boss</option>
+        <option>Manager</option>
+        <option>Coworker</option>
+        <option>Friend</option>
+        <option>Other</option>
+      </select>
 
-    <label for="tone">Tone</label>
-    <select id="tone">
-      <option>Professional</option>
-      <option>Formal</option>
-      <option>Warm</option>
-      <option>Concise</option>
-    </select>
+      <label for="tone">Tone</label>
+      <select id="tone">
+        <option>Professional</option>
+        <option>Formal</option>
+        <option>Warm</option>
+        <option>Concise</option>
+      </select>
 
-    <label for="context">What are you replying late to?</label>
-    <textarea id="context" rows="5" placeholder="Example: I am replying two days late to a client who asked for an update on their project."></textarea>
+      <label for="context">What are you replying late to?</label>
+      <textarea id="context" rows="5" placeholder="Example: I am replying two days late to a client who asked for an update on their project."></textarea>
 
-    <label for="name">Your name (optional)</label>
-    <input id="name" type="text" placeholder="Example: Jesse">
+      <label for="name">Your name (optional)</label>
+      <input id="name" type="text" placeholder="Example: Jesse">
 
-    <button onclick="generateEmail()">Generate Email</button>
+      <button onclick="generateEmail()">Generate Email</button>
 
-    <div id="result">Your generated late reply apology email will appear here.</div>
+      <div id="result">Your generated late reply apology email will appear here.</div>
 
-    <button onclick="copyResult()">Copy Email</button>
-    <button onclick="generateEmail()">Regenerate</button>
+      <button onclick="copyResult()">Copy Email</button>
+      <button onclick="generateEmail()">Regenerate</button>
 
-    <hr style="margin:40px 0;">
+      <div class="info-section">
+        <hr style="margin:40px 0;">
 
-    <h2>How do you apologize for a late reply professionally?</h2>
+        <h2>How do you apologize for a late reply professionally?</h2>
 
-    <p>
-      A good late reply apology email is brief, respectful, and clear. It should
-      acknowledge the delayed response, apologize without overexplaining, and move
-      the conversation forward with the information or reply the other person needs.
-    </p>
+        <p>
+          A good late reply apology email is brief, respectful, and clear. It should
+          acknowledge the delayed response, apologize without overexplaining, and move
+          the conversation forward with the information or reply the other person needs.
+        </p>
 
-    <p>
-      This late reply apology email generator helps you create polished messages
-      for work, clients, managers, coworkers, or personal situations. Instead of
-      overthinking the wording, you can generate a strong first draft in seconds.
-    </p>
+        <p>
+          This late reply apology email generator helps you create polished messages
+          for work, clients, managers, coworkers, or personal situations. Instead of
+          overthinking the wording, you can generate a strong first draft in seconds.
+        </p>
 
-    <p>
-      Simply describe the situation, choose the tone you want, and the tool will
-      generate a clear late reply apology email you can use right away.
-    </p>
+        <p>
+          Simply describe the situation, choose the tone you want, and the tool will
+          generate a clear late reply apology email you can use right away.
+        </p>
+      </div>
+
+      <div class="info-section">
+        <h2>When should you send a late reply apology email?</h2>
+
+        <p>
+          You should send a late reply apology email as soon as you realize your response
+          was delayed, especially in work, client, or professional situations. A quick,
+          respectful reply can help rebuild trust and keep the conversation moving.
+        </p>
+
+        <p>
+          In most cases, the best message is simple: acknowledge the delay, apologize
+          briefly, answer what was needed, and avoid making the apology longer than the
+          actual reply.
+        </p>
+      </div>
+
+      <div class="related-tools">
+        <h2>Related Tools</h2>
+        <ul>
+          <li><a href="/apology-email-to-boss-generator.html">Apology Email to Boss Generator</a></li>
+          <li><a href="/missed-meeting-apology-email-generator.html">Missed Meeting Apology Email Generator</a></li>
+          <li><a href="/professional-apology-email-generator.html">Professional Apology Email Generator</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 
   <script>
