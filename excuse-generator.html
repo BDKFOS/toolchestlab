@@ -1,300 +1,198 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Excuse Generator | ToolChestLab</title>
-  <meta name="description" content="Generate believable, funny, or professional excuses in seconds for work, school, missed events, late replies, and more.">
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-WLQ0YR217T');
-  </script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WLQ0YR217T');
+</script>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<title>Excuse Generator | ToolChestLab</title>
+<meta name="description" content="Generate believable, funny, or professional excuses in seconds for work, school, missed events, late replies, and more.">
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f9fc;
-      color: #222;
-      margin: 0;
-      min-height: 100vh;
-    }
+<style>
+body {
+font-family: Arial, sans-serif;
+background: #f5f5f5;
+padding: 40px;
+text-align: center;
+}
 
-    .page-header {
-      padding: 40px 20px;
-      text-align: center;
-      border-bottom: 1px solid #d8e2ee;
-      background-color: #eef4fb;
-      background-image:
-        linear-gradient(rgba(50, 90, 140, 0.10) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(50, 90, 140, 0.10) 1px, transparent 1px);
-      background-size: 32px 32px;
-    }
+.container {
+max-width: 700px;
+margin: auto;
+background: white;
+padding: 30px;
+border-radius: 12px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
 
-    .page-header h1 {
-      margin: 0 0 10px 0;
-      font-size: 2.2rem;
-    }
+textarea, select, button {
+width: 100%;
+margin-top: 10px;
+margin-bottom: 20px;
+padding: 12px;
+font-size: 16px;
+box-sizing: border-box;
+}
 
-    .page-header p {
-      margin: 0;
-      font-size: 1.05rem;
-      color: #555;
-    }
+button {
+background: black;
+color: white;
+border: none;
+cursor: pointer;
+}
 
-    .page-wrap {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 30px 20px 40px;
-    }
+#result {
+margin-top: 20px;
+text-align: left;
+white-space: pre-wrap;
+background: #fafafa;
+padding: 20px;
+border-radius: 8px;
+min-height: 80px;
+}
+</style>
 
-    .back-link {
-      display: inline-block;
-      margin-bottom: 18px;
-      color: #0070f3;
-      text-decoration: none;
-      font-size: 15px;
-    }
-
-    .back-link:hover {
-      text-decoration: underline;
-    }
-
-    .container {
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      border: 1px solid #e5e5e5;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    }
-
-    h2 {
-      margin-top: 0;
-    }
-
-    p {
-      line-height: 1.7;
-    }
-
-    label {
-      display: block;
-      margin-top: 10px;
-      margin-bottom: 8px;
-      font-weight: bold;
-      text-align: left;
-    }
-
-    textarea, select, button {
-      width: 100%;
-      margin-top: 0;
-      margin-bottom: 20px;
-      padding: 12px;
-      font-size: 16px;
-      border-radius: 8px;
-    }
-
-    textarea, select {
-      border: 1px solid #d9d9d9;
-      font-family: Arial, sans-serif;
-    }
-
-    button {
-      background: #0070f3;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #0059c7;
-    }
-
-    #result {
-      margin-top: 20px;
-      text-align: left;
-      white-space: pre-wrap;
-      background: #fafafa;
-      padding: 20px;
-      border-radius: 8px;
-      min-height: 80px;
-      border: 1px solid #ececec;
-      line-height: 1.6;
-    }
-
-    .info-section {
-      margin-top: 40px;
-    }
-
-    .related-tools {
-      margin-top: 40px;
-      padding-top: 10px;
-    }
-
-    .related-tools ul {
-      padding-left: 20px;
-      line-height: 1.8;
-    }
-
-    .related-tools a {
-      color: #0070f3;
-      text-decoration: none;
-    }
-
-    .related-tools a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 700px) {
-      .page-header h1 {
-        font-size: 1.9rem;
-      }
-
-      .page-wrap {
-        padding: 20px 14px 30px;
-      }
-
-      .container {
-        padding: 22px;
-      }
-    }
-  </style>
 </head>
+
 <body>
 
-  <header class="page-header">
-    <h1>Excuse Generator</h1>
-    <p>Generate believable or funny excuses in seconds.</p>
-  </header>
+<a href="/">← Back to ToolChestLab</a>
 
-  <div class="page-wrap">
-    <a class="back-link" href="/">← Back to ToolChestLab</a>
+<div class="container">
 
-    <div class="container">
-      <label for="context">What do you need an excuse for?</label>
-      <textarea id="context" rows="5" placeholder="Example: being late to work, missing dinner, skipping the gym"></textarea>
+<h1>Excuse Generator</h1>
+<p>Generate believable or funny excuses in seconds.</p>
 
-      <label for="style">Style</label>
-      <select id="style">
-        <option value="believable">Believable</option>
-        <option value="funny">Funny</option>
-      </select>
+<label for="context">What do you need an excuse for?</label>
+<textarea id="context" rows="5" placeholder="Example: being late to work, missing dinner, skipping the gym"></textarea>
 
-      <label for="tone">Tone</label>
-      <select id="tone">
-        <option value="professional">Professional</option>
-        <option value="casual">Casual</option>
-        <option value="dramatic">Dramatic</option>
-      </select>
+<label for="style">Style</label>
+<select id="style">
+<option value="believable">Believable</option>
+<option value="funny">Funny</option>
+</select>
 
-      <button onclick="generateExcuse()">Generate Excuse</button>
-      <button onclick="copyResult()">Copy Excuse</button>
-      <button onclick="generateExcuse()">Regenerate</button>
+<label for="tone">Tone</label>
+<select id="tone">
+<option value="professional">Professional</option>
+<option value="casual">Casual</option>
+<option value="dramatic">Dramatic</option>
+</select>
 
-      <div id="result">Your generated excuse will appear here.</div>
+<button onclick="generateExcuse()">Generate Excuse</button>
 
-      <div class="info-section">
-        <hr style="margin:40px 0;">
+<div id="result">Your generated excuse will appear here.</div>
 
-        <h2>What makes a believable excuse?</h2>
+<button onclick="copyResult()">Copy Excuse</button>
+<button onclick="generateExcuse()">Regenerate</button>
 
-        <p>
-          A believable excuse is specific, simple, and realistic. The best excuses avoid
-          too much detail while still sounding natural and appropriate for the situation.
-          Whether you need an excuse for work, school, a late reply, or a missed event,
-          the wording should match the tone you want to give.
-        </p>
+<hr style="margin:40px 0;">
 
-        <p>
-          This excuse generator helps you quickly create excuses that sound believable,
-          funny, or professional depending on your needs. Instead of overthinking what to
-          say, you can generate a response in seconds and adjust it to fit your situation.
-        </p>
+<h2>What makes a believable excuse?</h2>
 
-        <p>
-          Just describe what you need an excuse for, choose your style and tone, and the
-          tool will create a response you can use right away.
-        </p>
-      </div>
+<p>
+A believable excuse is specific, simple, and realistic. The best excuses avoid
+too much detail while still sounding natural and appropriate for the situation.
+Whether you need an excuse for work, school, a late reply, or a missed event,
+the wording should match the tone you want to give.
+</p>
 
-      <div class="info-section">
-        <h2>When should you use an excuse generator?</h2>
+<p>
+This excuse generator helps you quickly create excuses that sound believable,
+funny, or professional depending on your needs. Instead of overthinking what to
+say, you can generate a response in seconds and adjust it to fit your situation.
+</p>
 
-        <p>
-          An excuse generator can help when you need a quick starting point for a message,
-          response, or explanation and you are stuck on the wording. It works best when you
-          want something simple you can edit to sound more like yourself.
-        </p>
+<p>
+Just describe what you need an excuse for, choose your style and tone, and the
+tool will create a response you can use right away.
+</p>
 
-        <p>
-          For professional situations, the strongest excuses are usually brief and grounded.
-          For casual situations, you may want something lighter or funnier depending on the
-          context and your relationship with the other person.
-        </p>
-      </div>
+<hr style="margin:40px 0;">
 
-      <div class="related-tools">
-        <h2>Related Tools</h2>
-        <ul>
-          <li><a href="/apology-generator.html">Apology Generator</a></li>
-          <li><a href="/late-reply-apology-email-generator.html">Late Reply Apology Email Generator</a></li>
-          <li><a href="/professional-apology-email-generator.html">Professional Apology Email Generator</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<h2>When should you use an excuse generator?</h2>
 
-  <script>
-    async function generateExcuse() {
-      const context = document.getElementById("context").value;
-      const style = document.getElementById("style").value;
-      const tone = document.getElementById("tone").value;
-      const result = document.getElementById("result");
+<p>
+An excuse generator can help when you need a quick starting point for a message,
+response, or explanation and you are stuck on the wording. It works best when you
+want something simple you can edit to sound more like yourself.
+</p>
 
-      if (!context.trim()) {
-        result.innerText = "Please describe what you need an excuse for.";
-        return;
-      }
+<p>
+For professional situations, the strongest excuses are usually brief and grounded.
+For casual situations, you may want something lighter or funnier depending on the
+context and your relationship with the other person.
+</p>
 
-      result.innerText = "Generating...";
+<hr style="margin:40px 0;">
 
-      try {
-        const prompt = `Write a ${style}, ${tone} excuse for this situation: ${context}. If believable, make it realistic and usable. If funny, make it amusing but still coherent.`;
+<h3>Related Tools</h3>
 
-        const response = await fetch("/api/generate", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ prompt })
-        });
+<ul>
+<li><a href="/apology-generator.html">Apology Generator</a></li>
+<li><a href="/late-reply-apology-email-generator.html">Late Reply Apology Email Generator</a></li>
+<li><a href="/professional-apology-email-generator.html">Professional Apology Email Generator</a></li>
+</ul>
 
-        const data = await response.json();
+</div>
 
-        if (data.message) {
-          result.innerText = data.message;
-        } else {
-          result.innerText = "Something went wrong. Please try again.";
-        }
-      } catch (error) {
-        result.innerText = "Error generating excuse. Please try again.";
-      }
-    }
+<script>
+async function generateExcuse() {
 
-    function copyResult() {
-      const text = document.getElementById("result").innerText;
+const context = document.getElementById("context").value;
+const style = document.getElementById("style").value;
+const tone = document.getElementById("tone").value;
+const result = document.getElementById("result");
 
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Copied to clipboard!");
-      });
-    }
-  </script>
+if (!context.trim()) {
+result.innerText = "Please describe what you need an excuse for.";
+return;
+}
+
+result.innerText = "Generating...";
+
+try {
+
+const prompt = `Write a ${style}, ${tone} excuse for this situation: ${context}. If believable, make it realistic and usable. If funny, make it amusing but still coherent.`;
+
+const response = await fetch("/api/generate", {
+method: "POST",
+headers: {
+"Content-Type": "application/json"
+},
+body: JSON.stringify({ prompt })
+});
+
+const data = await response.json();
+
+if (data.message) {
+result.innerText = data.message;
+} else {
+result.innerText = "Something went wrong. Please try again.";
+}
+
+} catch (error) {
+result.innerText = "Error generating excuse. Please try again.";
+}
+
+}
+
+function copyResult() {
+
+const text = document.getElementById("result").innerText;
+
+navigator.clipboard.writeText(text).then(() => {
+alert("Copied to clipboard!");
+});
+
+}
+</script>
+
 </body>
 </html>
