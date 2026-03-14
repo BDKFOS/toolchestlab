@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Customer Apology Email Generator | ToolChestLab</title>
 <meta name="description" content="Generate a professional apology email to a customer for service issues, delays, or mistakes.">
 
-<!-- Google tag (gtag.js) -->
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -14,36 +17,88 @@ gtag('config', 'G-WLQ0YR217T');
 </script>
 
 <style>
+*{
+box-sizing:border-box;
+}
+
 body{
-font-family: Arial, sans-serif;
-background:#f5f5f5;
-padding:40px;
-text-align:center;
+font-family:Arial,sans-serif;
+color:#222;
+margin:0;
+padding:40px 20px;
+
+background-color:#eef4fb;
+
+background-image:
+linear-gradient(rgba(50,90,140,0.10) 1px, transparent 1px),
+linear-gradient(90deg, rgba(50,90,140,0.10) 1px, transparent 1px);
+
+background-size:32px 32px;
+}
+
+.page-wrap{
+max-width:760px;
+margin:0 auto;
+}
+
+.back-link{
+display:inline-block;
+margin-bottom:18px;
+color:#0070f3;
+text-decoration:none;
+font-size:15px;
 }
 
 .container{
-max-width:700px;
-margin:auto;
 background:white;
 padding:30px;
 border-radius:12px;
-box-shadow:0 2px 10px rgba(0,0,0,0.08);
+border:1px solid #e5e5e5;
+box-shadow:0 8px 24px rgba(0,0,0,0.10);
+}
+
+h1{
+margin-top:0;
+margin-bottom:10px;
+}
+
+h2{
+margin-top:0;
+}
+
+p{
+line-height:1.7;
+}
+
+label{
+display:block;
+margin-top:10px;
+margin-bottom:8px;
+font-weight:bold;
+text-align:left;
 }
 
 textarea,select,input,button{
 width:100%;
-margin-top:10px;
 margin-bottom:20px;
 padding:12px;
 font-size:16px;
-box-sizing:border-box;
+border-radius:8px;
+}
+
+textarea,select,input{
+border:1px solid #d9d9d9;
 }
 
 button{
-background:black;
+background:#0070f3;
 color:white;
 border:none;
 cursor:pointer;
+}
+
+button:hover{
+background:#0059c7;
 }
 
 #result{
@@ -54,13 +109,51 @@ background:#fafafa;
 padding:20px;
 border-radius:8px;
 min-height:120px;
+border:1px solid #ececec;
+line-height:1.6;
+}
+
+.info-section{
+margin-top:40px;
+}
+
+.related-tools{
+margin-top:40px;
+padding-top:10px;
+}
+
+.related-tools ul{
+padding-left:20px;
+line-height:1.8;
+}
+
+.related-tools a{
+color:#0070f3;
+text-decoration:none;
+}
+
+.related-tools a:hover,
+.back-link:hover{
+text-decoration:underline;
+}
+
+@media (max-width:700px){
+body{
+padding:20px 14px;
+}
+
+.container{
+padding:22px;
+}
 }
 </style>
 </head>
 
 <body>
 
-<a href="/">← Back to ToolChestLab</a>
+<div class="page-wrap">
+
+<a class="back-link" href="/">← Back to ToolChestLab</a>
 
 <div class="container">
 
@@ -88,6 +181,8 @@ min-height:120px;
 <button onclick="copyResult()">Copy Email</button>
 <button onclick="generateEmail()">Regenerate</button>
 
+<div class="info-section">
+
 <hr style="margin:40px 0;">
 
 <h2>How do you apologize to a customer professionally?</h2>
@@ -95,7 +190,7 @@ min-height:120px;
 <p>
 A professional customer apology email should acknowledge the issue,
 take responsibility, and reassure the customer that the problem is
-being addressed. Clear communication and respectful tone are essential
+being addressed. Clear communication and a respectful tone are essential
 to maintaining trust.
 </p>
 
@@ -110,19 +205,25 @@ customer trust.
 Simply describe the situation and the generator will produce a
 professional apology email you can send or edit as needed.
 </p>
-<hr style="margin:40px 0;">
 
-<h3>Related Tools</h3>
+</div>
+
+<div class="related-tools">
+
+<h2>Related Tools</h2>
 
 <ul>
 <li><a href="/professional-apology-email-generator.html">Professional Apology Email Generator</a></li>
 <li><a href="/apology-email-to-client-generator.html">Apology Email to Client Generator</a></li>
 <li><a href="/late-reply-apology-email-generator.html">Late Reply Apology Email Generator</a></li>
 </ul>
+
+</div>
+
+</div>
 </div>
 
 <script>
-
 async function generateEmail(){
 
 const context=document.getElementById("context").value;
@@ -185,7 +286,6 @@ alert("Copied to clipboard!");
 });
 
 }
-
 </script>
 
 </body>
