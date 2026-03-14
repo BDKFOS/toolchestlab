@@ -25,12 +25,35 @@
       background: #f7f9fc;
       color: #222;
       margin: 0;
+      min-height: 100vh;
+    }
+
+    .page-header {
       padding: 40px 20px;
+      text-align: center;
+      border-bottom: 1px solid #d8e2ee;
+      background-color: #eef4fb;
+      background-image:
+        linear-gradient(rgba(50, 90, 140, 0.10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(50, 90, 140, 0.10) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    .page-header h1 {
+      margin: 0 0 10px 0;
+      font-size: 2.2rem;
+    }
+
+    .page-header p {
+      margin: 0;
+      font-size: 1.05rem;
+      color: #555;
     }
 
     .page-wrap {
       max-width: 760px;
       margin: 0 auto;
+      padding: 30px 20px 40px;
     }
 
     .back-link {
@@ -51,11 +74,6 @@
       border-radius: 12px;
       border: 1px solid #e5e5e5;
       box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    }
-
-    h1 {
-      margin-top: 0;
-      margin-bottom: 10px;
     }
 
     h2 {
@@ -85,6 +103,7 @@
 
     textarea, select {
       border: 1px solid #d9d9d9;
+      font-family: Arial, sans-serif;
     }
 
     button {
@@ -134,8 +153,12 @@
     }
 
     @media (max-width: 700px) {
-      body {
-        padding: 20px 14px;
+      .page-header h1 {
+        font-size: 1.9rem;
+      }
+
+      .page-wrap {
+        padding: 20px 14px 30px;
       }
 
       .container {
@@ -145,13 +168,16 @@
   </style>
 </head>
 <body>
+
+  <header class="page-header">
+    <h1>Excuse Generator</h1>
+    <p>Generate believable or funny excuses in seconds.</p>
+  </header>
+
   <div class="page-wrap">
     <a class="back-link" href="/">← Back to ToolChestLab</a>
 
     <div class="container">
-      <h1>Excuse Generator</h1>
-      <p>Generate believable or funny excuses in seconds.</p>
-
       <label for="context">What do you need an excuse for?</label>
       <textarea id="context" rows="5" placeholder="Example: being late to work, missing dinner, skipping the gym"></textarea>
 
