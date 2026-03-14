@@ -22,10 +22,17 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #f7f9fc;
       color: #222;
       margin: 0;
       padding: 40px 20px;
+
+      background-color: #eef4fb;
+
+      background-image:
+        linear-gradient(rgba(50,90,140,0.10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(50,90,140,0.10) 1px, transparent 1px);
+
+      background-size: 32px 32px;
     }
 
     .page-wrap {
@@ -46,7 +53,7 @@
       padding: 30px;
       border-radius: 12px;
       border: 1px solid #e5e5e5;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
     }
 
     h1 {
@@ -169,10 +176,10 @@
       </select>
 
       <label for="context">What are you replying late to?</label>
-      <textarea id="context" rows="5" placeholder="Example: I am replying two days late to a client who asked for an update on their project."></textarea>
+      <textarea id="context" rows="5"></textarea>
 
       <label for="name">Your name (optional)</label>
-      <input id="name" type="text" placeholder="Example: Jesse">
+      <input id="name" type="text">
 
       <button onclick="generateEmail()">Generate Email</button>
 
@@ -194,13 +201,7 @@
 
         <p>
           This late reply apology email generator helps you create polished messages
-          for work, clients, managers, coworkers, or personal situations. Instead of
-          overthinking the wording, you can generate a strong first draft in seconds.
-        </p>
-
-        <p>
-          Simply describe the situation, choose the tone you want, and the tool will
-          generate a clear late reply apology email you can use right away.
+          for work, clients, managers, coworkers, or personal situations.
         </p>
       </div>
 
@@ -208,15 +209,8 @@
         <h2>When should you send a late reply apology email?</h2>
 
         <p>
-          You should send a late reply apology email as soon as you realize your response
-          was delayed, especially in work, client, or professional situations. A quick,
-          respectful reply can help rebuild trust and keep the conversation moving.
-        </p>
-
-        <p>
-          In most cases, the best message is simple: acknowledge the delay, apologize
-          briefly, answer what was needed, and avoid making the apology longer than the
-          actual reply.
+          Send a late reply apology email as soon as you realize your response was delayed,
+          especially in work or professional situations.
         </p>
       </div>
 
@@ -233,6 +227,7 @@
 
   <script>
     async function generateEmail() {
+
       const context = document.getElementById("context").value;
       const tone = document.getElementById("tone").value;
       const recipient = document.getElementById("recipient").value;
@@ -254,7 +249,7 @@ ${context}
 Requirements:
 - Include a subject line
 - Acknowledge the delayed reply
-- Sound natural, clear, and respectful
+- Sound natural and respectful
 - Briefly move the conversation forward
 - End politely
 
@@ -272,22 +267,17 @@ ${name || "Sender"}`;
 
         const data = await response.json();
 
-        if (data.message) {
-          result.innerText = data.message;
-        } else {
-          result.innerText = "Something went wrong. Please try again.";
-        }
+        result.innerText = data.message || "Something went wrong.";
+
       } catch (error) {
-        result.innerText = "Error generating email. Please try again.";
+        result.innerText = "Error generating email.";
       }
     }
 
     function copyResult() {
       const text = document.getElementById("result").innerText;
-
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Copied to clipboard!");
-      });
+      navigator.clipboard.writeText(text);
+      alert("Copied to clipboard!");
     }
   </script>
 </body>
