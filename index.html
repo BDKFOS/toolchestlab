@@ -12,19 +12,19 @@
 
   <meta charset="UTF-8">
   <title>ToolChestLab | Free AI Email, Apology & Message Generators</title>
-  <meta name="description" content="Free AI tools to help you write emails, apology messages, follow ups, job search emails, business communication, and professional messages faster.">
+  <meta name="description" content="Free AI tools to help you write emails, apology messages, follow ups, job search emails, workplace communication, and professional messages faster.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="canonical" href="https://toolchestlab.com/">
 
   <meta property="og:title" content="ToolChestLab | Free AI Email, Apology & Message Generators">
-  <meta property="og:description" content="Free AI tools to help you write emails, apology messages, follow ups, job search emails, business communication, and professional messages faster.">
+  <meta property="og:description" content="Free AI tools to help you write emails, apology messages, follow ups, job search emails, workplace communication, and professional messages faster.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://toolchestlab.com/">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="ToolChestLab | Free AI Email, Apology & Message Generators">
-  <meta name="twitter:description" content="Free AI tools to help you write emails, apology messages, follow ups, job search emails, business communication, and professional messages faster.">
+  <meta name="twitter:description" content="Free AI tools to help you write emails, apology messages, follow ups, job search emails, workplace communication, and professional messages faster.">
 
   <style>
     * {
@@ -44,7 +44,7 @@
     }
 
     header {
-      padding: 70px 20px;
+      padding: 64px 20px;
       text-align: center;
       border-bottom: 1px solid #d8e2ee;
       background-color: #eef4fb;
@@ -61,23 +61,40 @@
 
     header p {
       margin: 0 auto;
-      font-size: 1.1rem;
+      font-size: 1.08rem;
       color: #555;
-      max-width: 760px;
+      max-width: 780px;
       line-height: 1.6;
     }
 
+    .count-pill {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 8px 14px;
+      background: white;
+      border: 1px solid #dbe4ef;
+      border-radius: 999px;
+      color: #0070f3;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
     .container {
-      max-width: 1040px;
+      max-width: 1160px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 36px 20px 10px;
+    }
+
+    .intro {
+      line-height: 1.7;
+      margin-bottom: 18px;
     }
 
     .quick-nav {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 28px;
+      margin: 18px 0 6px;
     }
 
     .quick-nav a {
@@ -95,13 +112,8 @@
       background: #f3f8ff;
     }
 
-    .intro {
-      line-height: 1.7;
-      margin-bottom: 18px;
-    }
-
     .category {
-      margin-top: 44px;
+      margin-top: 42px;
     }
 
     .category h2 {
@@ -110,20 +122,20 @@
 
     .category p.category-intro {
       margin-top: 0;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       color: #555;
       line-height: 1.7;
     }
 
     .tools {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
     }
 
     .tool-card {
       background: white;
-      padding: 20px;
+      padding: 18px;
       border-radius: 10px;
       border: 1px solid #e5e5e5;
       transition: transform 0.15s ease, box-shadow 0.15s ease;
@@ -136,21 +148,26 @@
 
     .tool-card h3 {
       margin-top: 0;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+      line-height: 1.35;
     }
 
     .tool-card p {
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       line-height: 1.5;
+      font-size: 0.96rem;
+      color: #444;
     }
 
     a.button {
       display: inline-block;
-      padding: 10px 16px;
+      padding: 9px 14px;
       background: #0070f3;
       color: white;
       text-decoration: none;
       border-radius: 6px;
+      font-size: 14px;
     }
 
     a.button:hover {
@@ -158,8 +175,8 @@
     }
 
     .seo-section {
-      max-width: 1040px;
-      margin: 10px auto 40px auto;
+      max-width: 1160px;
+      margin: 12px auto 40px auto;
       padding: 0 20px;
       line-height: 1.7;
     }
@@ -189,13 +206,23 @@
       text-decoration: underline;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 980px) {
+      .tools {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 680px) {
       .tools {
         grid-template-columns: 1fr;
       }
 
       header h1 {
         font-size: 2rem;
+      }
+
+      header {
+        padding: 52px 16px;
       }
     }
   </style>
@@ -205,7 +232,8 @@
 
   <header>
     <h1>ToolChestLab</h1>
-    <p>Free AI tools that help you write difficult emails, apology messages, job search emails, business communication, and professional responses faster.</p>
+    <p>Free AI tools that help you write difficult emails, apology messages, job search emails, workplace communication, client outreach, and professional responses faster.</p>
+    <div class="count-pill">51 tools live</div>
   </header>
 
   <div class="container">
@@ -214,21 +242,29 @@
     </p>
 
     <div class="quick-nav">
-      <a href="#apology-tools">Apology Tools</a>
-      <a href="#job-career-tools">Job & Career Tools</a>
-      <a href="#business-email-tools">Business Email Tools</a>
-      <a href="#outreach-tools">Outreach & Networking</a>
+      <a href="#apology-tools">Apology & Difficult Conversations</a>
+      <a href="#job-career-tools">Job Search & Career</a>
+      <a href="#meetings-tools">Meetings & Scheduling</a>
+      <a href="#workplace-tools">Workplace & Team Communication</a>
+      <a href="#client-tools">Clients, Sales & Finance</a>
+      <a href="#outreach-tools">Outreach & Introductions</a>
     </div>
 
     <section class="category" id="apology-tools">
-      <h2>Apology Tools</h2>
-      <p class="category-intro">AI tools for apology messages, apology emails, missed deadlines, missed meetings, late replies, and other difficult professional communication situations.</p>
+      <h2>Apology & Difficult Conversations</h2>
+      <p class="category-intro">Tools for apology messages, apology emails, missed meetings, missed deadlines, late replies, client mistakes, and difficult professional communication.</p>
 
       <div class="tools">
         <div class="tool-card">
           <h3>Apology Message Generator</h3>
           <p>Generate thoughtful apologies for everyday situations.</p>
           <a class="button" href="/apology-generator.html">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Excuse Generator</h3>
+          <p>Create believable excuses for late replies, missed events, and more.</p>
+          <a class="button" href="/excuse-generator.html">Open Tool</a>
         </div>
 
         <div class="tool-card">
@@ -278,18 +314,12 @@
           <p>Generate a professional apology email to a client for delays, mistakes, or service issues.</p>
           <a class="button" href="/apology-email-to-client-generator.html">Open Tool</a>
         </div>
-
-        <div class="tool-card">
-          <h3>Excuse Generator</h3>
-          <p>Create believable excuses for late replies, missed events, and more.</p>
-          <a class="button" href="/excuse-generator.html">Open Tool</a>
-        </div>
       </div>
     </section>
 
     <section class="category" id="job-career-tools">
-      <h2>Job & Career Tools</h2>
-      <p class="category-intro">AI email generators for interviews, job offers, networking, compensation conversations, resignations, references, and other career-related writing.</p>
+      <h2>Job Search & Career</h2>
+      <p class="category-intro">Tools for interviews, recruiters, job offers, references, resignations, salary conversations, and professional career emails.</p>
 
       <div class="tools">
         <div class="tool-card">
@@ -339,14 +369,38 @@
           <p>Generate a professional job inquiry email to ask about openings, express interest, or contact a recruiter or hiring manager.</p>
           <a class="button" href="/job-inquiry-email-generator.html">Open Tool</a>
         </div>
+
+        <div class="tool-card">
+          <h3>Job Acceptance Email Generator</h3>
+          <p>Generate a professional email to accept a job offer.</p>
+          <a class="button" href="/job-acceptance-email-generator.html">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Job Application Follow Up Email Generator</h3>
+          <p>Generate a professional follow up email after applying for a job.</p>
+          <a class="button" href="/job-application-follow-up-email-generator.html">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Recruiter Outreach Email Generator</h3>
+          <p>Generate a professional recruiter outreach email for job opportunities, introductions, and career conversations.</p>
+          <a class="button" href="/recruiter-outreach-email-generator.html">Open Tool</a>
+        </div>
       </div>
     </section>
 
-    <section class="category" id="business-email-tools">
-      <h2>Business Email Tools</h2>
-      <p class="category-intro">Professional email generators for meetings, reminders, updates, deadline extensions, out-of-office replies, and everyday business communication.</p>
+    <section class="category" id="meetings-tools">
+      <h2>Meetings & Scheduling</h2>
+      <p class="category-intro">Tools for follow ups, reminders, check-ins, agenda emails, meeting requests, rescheduling, and time-sensitive workplace communication.</p>
 
       <div class="tools">
+        <div class="tool-card">
+          <h3>Follow Up Email Generator</h3>
+          <p>Generate a professional follow up email after meetings, interviews, proposals, or unanswered messages.</p>
+          <a class="button" href="/follow-up-email-generator.html">Open Tool</a>
+        </div>
+
         <div class="tool-card">
           <h3>Meeting Request Email Generator</h3>
           <p>Generate a professional email requesting a meeting with a client, manager, coworker, or business contact.</p>
@@ -366,11 +420,30 @@
         </div>
 
         <div class="tool-card">
-          <h3>Feedback Request Email Generator</h3>
-          <p>Generate a professional email asking for feedback from clients, customers, managers, or coworkers.</p>
-          <a class="button" href="/feedback-request-email-generator.html">Open Tool</a>
+          <h3>Check-In Email Generator</h3>
+          <p>Generate a professional check-in email for clients, coworkers, managers, or business contacts.</p>
+          <a class="button" href="/check-in-email-generator.html">Open Tool</a>
         </div>
 
+        <div class="tool-card">
+          <h3>Out of Office Message Generator</h3>
+          <p>Generate a professional out of office message or automatic email reply for vacations, leave, travel, or time away from work.</p>
+          <a class="button" href="/out-of-office-message-generator.html">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Meeting Agenda Email Generator</h3>
+          <p>Generate a professional meeting agenda email for clients, teams, managers, and business meetings.</p>
+          <a class="button" href="/meeting-agenda-email-generator.html">Open Tool</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" id="workplace-tools">
+      <h2>Workplace & Team Communication</h2>
+      <p class="category-intro">Tools for updates, feedback, time-off requests, WFH requests, internal communication, performance conversations, and team management emails.</p>
+
+      <div class="tools">
         <div class="tool-card">
           <h3>Project Update Email Generator</h3>
           <p>Generate a professional project update email for clients, managers, coworkers, or stakeholders.</p>
@@ -378,9 +451,9 @@
         </div>
 
         <div class="tool-card">
-          <h3>Check-In Email Generator</h3>
-          <p>Generate a professional check-in email for clients, coworkers, managers, or business contacts.</p>
-          <a class="button" href="/check-in-email-generator.html">Open Tool</a>
+          <h3>Feedback Request Email Generator</h3>
+          <p>Generate a professional email asking for feedback from clients, customers, managers, or coworkers.</p>
+          <a class="button" href="/feedback-request-email-generator.html">Open Tool</a>
         </div>
 
         <div class="tool-card">
@@ -390,28 +463,119 @@
         </div>
 
         <div class="tool-card">
-          <h3>Out of Office Message Generator</h3>
-          <p>Generate a professional out of office message or automatic email reply for vacations, leave, travel, or time away from work.</p>
-          <a class="button" href="/out-of-office-message-generator.html">Open Tool</a>
+          <h3>PTO Request Email Generator</h3>
+          <p>Generate a professional PTO request email to ask for time off from work clearly and respectfully.</p>
+          <a class="button" href="/pto-request-email-generator.html">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Sick Day Email Generator</h3>
+          <p>Generate a professional sick day email for work when you need to call out or notify your manager.</p>
+          <a class="button" href="/sick-day-email-generator.html">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Work From Home Request Email Generator</h3>
+          <p>Generate a professional work from home request email for managers, supervisors, or HR.</p>
+          <a class="button" href="/work-from-home-request-email-generator.html">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Internal Announcement Email Generator</h3>
+          <p>Generate a professional internal announcement email for teams, departments, company updates, and workplace communication.</p>
+          <a class="button" href="/internal-announcement-email-generator.html">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Employee Warning Email Generator</h3>
+          <p>Generate a professional employee warning email for performance, attendance, policy, or workplace conduct issues.</p>
+          <a class="button" href="/employee-warning-email-generator.html">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Performance Review Email Generator</h3>
+          <p>Generate a professional performance review email for employees, managers, feedback, and workplace evaluations.</p>
+          <a class="button" href="/performance-review-email-generator.html">Open Tool</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" id="client-tools">
+      <h2>Clients, Sales & Finance</h2>
+      <p class="category-intro">Tools for client communication, invoices, proposals, delays, contracts, refunds, cancellations, vendor coordination, and business finance emails.</p>
+
+      <div class="tools">
+        <div class="tool-card">
+          <h3>Client Follow Up Email Generator</h3>
+          <p>Generate a professional client follow up email for proposals, projects, check-ins, unanswered messages, and business communication.</p>
+          <a class="button" href="/client-follow-up-email-generator.html">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Invoice Reminder Email Generator</h3>
+          <p>Generate a professional invoice reminder email for overdue or upcoming payments.</p>
+          <a class="button" href="/invoice-reminder-email-generator.html">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Payment Reminder Email Generator</h3>
+          <p>Generate a professional payment reminder email for clients, customers, invoices, and overdue balances.</p>
+          <a class="button" href="/payment-reminder-email-generator.html">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Project Delay Email Generator</h3>
+          <p>Generate a professional project delay email for clients, managers, teams, or stakeholders.</p>
+          <a class="button" href="/project-delay-email-generator.html">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Proposal Follow Up Email Generator</h3>
+          <p>Generate a professional proposal follow up email after sending a proposal, quote, or estimate.</p>
+          <a class="button" href="/proposal-follow-up-email-generator.html">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Contract Renewal Email Generator</h3>
+          <p>Generate a professional contract renewal email for clients, vendors, freelancers, or business agreements.</p>
+          <a class="button" href="/contract-renewal-email-generator.html">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Vendor Email Generator</h3>
+          <p>Generate a professional vendor email for orders, updates, requests, delays, pricing, and business communication.</p>
+          <a class="button" href="/vendor-email-generator.html">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Refund Request Email Generator</h3>
+          <p>Generate a professional refund request email for orders, services, subscriptions, or purchases.</p>
+          <a class="button" href="/refund-request-email-generator.html">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Service Cancellation Email Generator</h3>
+          <p>Generate a professional service cancellation email for subscriptions, memberships, contracts, or services.</p>
+          <a class="button" href="/service-cancellation-email-generator.html">Open Tool</a>
         </div>
       </div>
     </section>
 
     <section class="category" id="outreach-tools">
-      <h2>Outreach & Networking Tools</h2>
-      <p class="category-intro">AI tools for follow ups, introductions, networking, cold emails, outreach, and first-contact professional messages.</p>
+      <h2>Outreach & Introductions</h2>
+      <p class="category-intro">Tools for networking, cold outreach, first-contact emails, business introductions, and partnership opportunities.</p>
 
       <div class="tools">
-        <div class="tool-card">
-          <h3>Follow Up Email Generator</h3>
-          <p>Generate a professional follow up email after meetings, interviews, proposals, or unanswered messages.</p>
-          <a class="button" href="/follow-up-email-generator.html">Open Tool</a>
-        </div>
-
         <div class="tool-card">
           <h3>Networking Email Generator</h3>
           <p>Generate a professional networking email for introductions, outreach, follow-ups, and career conversations.</p>
           <a class="button" href="/networking-email-generator.html">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Cold Email Generator</h3>
+          <p>Generate a professional cold email for outreach, introductions, sales, partnerships, or business opportunities.</p>
+          <a class="button" href="/cold-email-generator.html">Open Tool</a>
         </div>
 
         <div class="tool-card">
@@ -421,9 +585,15 @@
         </div>
 
         <div class="tool-card">
-          <h3>Cold Email Generator</h3>
-          <p>Generate a professional cold email for outreach, introductions, sales, partnerships, or business opportunities.</p>
-          <a class="button" href="/cold-email-generator.html">Open Tool</a>
+          <h3>Business Introduction Email Generator</h3>
+          <p>Generate a professional business introduction email for new clients, partnerships, networking, or first-time outreach.</p>
+          <a class="button" href="/business-introduction-email-generator.html">Open Tool</a>
+        </div>
+
+        <div class="tool-card">
+          <h3>Partnership Outreach Email Generator</h3>
+          <p>Generate a professional partnership outreach email for collaborations, strategic partnerships, and business opportunities.</p>
+          <a class="button" href="/partnership-outreach-email-generator.html">Open Tool</a>
         </div>
       </div>
     </section>
@@ -433,11 +603,11 @@
     <h2>AI Tools for Writing Emails, Apologies, and Professional Messages</h2>
 
     <p>
-      ToolChestLab is a collection of simple AI-powered generators designed to help you write difficult messages faster. Whether you are apologizing for a late reply, asking for a raise, following up after an interview, requesting a meeting, or writing a professional email, these tools help you find the right wording quickly.
+      ToolChestLab is a growing collection of AI-powered generators designed to help you write difficult messages faster. Whether you are apologizing for a late reply, asking for a raise, following up after an interview, requesting PTO, reminding a client about payment, or writing a professional email, these tools help you find the right wording quickly.
     </p>
 
     <p>
-      Instead of staring at a blank message, describe your situation and the tool will generate a clear starting point you can edit to match your voice. Each page is built around a specific real-world communication problem, which makes ToolChestLab useful for work, business, job search, and everyday life.
+      Instead of staring at a blank message, describe your situation and the tool will generate a clear starting point you can edit to match your voice. Each page is built around a specific real-world communication problem, which makes ToolChestLab useful for work, business, job search, management, client communication, and everyday professional life.
     </p>
   </section>
 
@@ -445,7 +615,7 @@
     <h2>Why ToolChestLab Exists</h2>
 
     <p>
-      Writing the right message is not always easy. A quick apology, a delayed response, a salary conversation, a networking email, or a difficult work message can take longer than it should.
+      Writing the right message is not always easy. A quick apology, a delayed response, a job search email, a payment follow up, a meeting request, or a difficult work conversation can take longer than it should.
     </p>
 
     <p>
