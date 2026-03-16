@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Apology Generator | ToolChestLab</title>
-<meta name="description" content="Generate a thoughtful apology message for personal, professional, or everyday situations.">
+<meta name="description" content="Generate a thoughtful apology message for personal, professional, or everyday situations in seconds.">
 <link rel="canonical" href="https://www.toolchestlab.com/apology-generator.html">
 
 <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -28,9 +28,11 @@ color:#222;
 margin:0;
 padding:40px 20px;
 background-color:#eef4fb;
+
 background-image:
 linear-gradient(rgba(50,90,140,0.10) 1px, transparent 1px),
 linear-gradient(90deg, rgba(50,90,140,0.10) 1px, transparent 1px);
+
 background-size:32px 32px;
 }
 
@@ -136,6 +138,7 @@ text-decoration:underline;
 }
 
 @media (max-width:700px){
+
 body{
 padding:20px 14px;
 }
@@ -143,6 +146,7 @@ padding:20px 14px;
 .container{
 padding:22px;
 }
+
 }
 </style>
 </head>
@@ -156,7 +160,10 @@ padding:22px;
 <div class="container">
 
 <h1>Apology Generator</h1>
-<p>Generate a thoughtful apology message for personal, professional, or everyday situations.</p>
+
+<p>
+Generate a thoughtful apology message for personal, professional, or everyday situations in seconds.
+</p>
 
 <label for="tone">Tone</label>
 <select id="tone">
@@ -172,12 +179,12 @@ padding:22px;
 <label for="name">Your name (optional)</label>
 <input id="name" type="text" placeholder="Example: Jesse">
 
-<button onclick="generateMessage()">Generate Apology</button>
+<button onclick="generateApology()">Generate Apology</button>
 
-<div id="result" aria-live="polite">Your generated apology message will appear here.</div>
+<div id="result">Your generated apology message will appear here.</div>
 
 <button onclick="copyResult()">Copy Message</button>
-<button onclick="generateMessage()">Regenerate</button>
+<button onclick="generateApology()">Regenerate</button>
 
 <div class="info-section">
 
@@ -186,20 +193,15 @@ padding:22px;
 <h2>How do you write a good apology message?</h2>
 
 <p>
-A good apology message should clearly acknowledge what happened, express sincere regret,
-and avoid sounding defensive. The best apologies are simple, honest, and focused on
-taking responsibility.
+A good apology message should clearly acknowledge what happened, express sincere regret, and avoid sounding defensive. The best apologies are simple, honest, and focused on taking responsibility.
 </p>
 
 <p>
-People often need help finding the right words after making a mistake, replying late,
-or disappointing someone. This apology generator helps you create thoughtful messages
-for personal, professional, or everyday situations.
+People often need help finding the right words after making a mistake, replying late, or disappointing someone. This apology generator helps you create thoughtful messages for personal, professional, or everyday situations.
 </p>
 
 <p>
-Describe what happened and the tool will generate an apology message you can send as is
-or edit to better match your voice and relationship.
+Describe what happened and the tool will generate an apology message you can send as is or edit to better match your voice and relationship.
 </p>
 
 <hr style="margin:40px 0;">
@@ -214,6 +216,7 @@ Usually no. A short and sincere apology is often more effective than a long expl
 
 <p><strong>What should you avoid in an apology?</strong><br>
 Avoid blaming others, making excuses, or over-explaining. The message should focus on taking responsibility and making things right when possible.</p>
+
 </div>
 
 <div class="related-tools">
@@ -232,7 +235,8 @@ Avoid blaming others, making excuses, or over-explaining. The message should foc
 </div>
 
 <script>
-async function generateMessage(){
+
+async function generateApology(){
 
 const context=document.getElementById("context").value;
 const tone=document.getElementById("tone").value;
@@ -252,8 +256,8 @@ Situation:
 ${context}
 
 Requirements:
-- Sound genuine and respectful
 - Acknowledge the mistake clearly
+- Sound genuine and respectful
 - Avoid sounding defensive
 - Keep it natural and clear
 - End appropriately for the situation
@@ -270,11 +274,6 @@ headers:{
 },
 body:JSON.stringify({prompt})
 });
-
-if(!response.ok){
-result.innerText="Something went wrong. Please try again.";
-return;
-}
 
 const data=await response.json();
 
@@ -296,11 +295,10 @@ const text=document.getElementById("result").innerText;
 
 navigator.clipboard.writeText(text).then(()=>{
 alert("Copied to clipboard!");
-}).catch(()=>{
-alert("Copy failed. Please copy manually.");
 });
 
 }
+
 </script>
 
 </body>
