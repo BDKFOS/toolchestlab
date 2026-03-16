@@ -6,6 +6,7 @@
 
 <title>Apology Email to Boss Generator | ToolChestLab</title>
 <meta name="description" content="Generate a professional apology email to your boss or manager for mistakes, missed meetings, or delays.">
+<link rel="canonical" href="https://www.toolchestlab.com/apology-email-to-boss-generator.html">
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
@@ -26,13 +27,10 @@ font-family:Arial,sans-serif;
 color:#222;
 margin:0;
 padding:40px 20px;
-
 background-color:#eef4fb;
-
 background-image:
 linear-gradient(rgba(50,90,140,0.10) 1px, transparent 1px),
 linear-gradient(90deg, rgba(50,90,140,0.10) 1px, transparent 1px);
-
 background-size:32px 32px;
 }
 
@@ -158,7 +156,7 @@ padding:22px;
 <div class="container">
 
 <h1>Apology Email to Boss Generator</h1>
-<p>Generate a professional apology email to your boss or manager.</p>
+<p>Generate a professional apology email to your boss or manager for mistakes, missed meetings, or delays.</p>
 
 <label for="tone">Tone</label>
 <select id="tone">
@@ -176,7 +174,7 @@ padding:22px;
 
 <button onclick="generateEmail()">Generate Email</button>
 
-<div id="result">Your generated apology email will appear here.</div>
+<div id="result" aria-live="polite">Your generated apology email will appear here.</div>
 
 <button onclick="copyResult()">Copy Email</button>
 <button onclick="generateEmail()">Regenerate</button>
@@ -217,6 +215,7 @@ In most workplaces, a respectful and professional tone works best. It does not n
 
 <p><strong>What should you avoid in an apology email to a boss?</strong><br>
 Avoid blaming others or over-explaining the situation. Focus on acknowledging the issue, apologizing clearly, and outlining the next step if needed.</p>
+
 </div>
 
 <div class="related-tools">
@@ -235,7 +234,6 @@ Avoid blaming others or over-explaining the situation. Focus on acknowledging th
 </div>
 
 <script>
-
 async function generateEmail(){
 
 const context=document.getElementById("context").value;
@@ -269,9 +267,16 @@ try{
 
 const response=await fetch("/api/generate",{
 method:"POST",
-headers:{"Content-Type":"application/json"},
+headers:{
+"Content-Type":"application/json"
+},
 body:JSON.stringify({prompt})
 });
+
+if(!response.ok){
+result.innerText="Something went wrong. Please try again.";
+return;
+}
 
 const data=await response.json();
 
@@ -293,10 +298,11 @@ const text=document.getElementById("result").innerText;
 
 navigator.clipboard.writeText(text).then(()=>{
 alert("Copied to clipboard!");
+}).catch(()=>{
+alert("Copy failed. Please copy manually.");
 });
 
 }
-
 </script>
 
 </body>
