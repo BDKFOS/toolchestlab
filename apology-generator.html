@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apology Message Generator | ToolChestLab</title>
-<meta name="description" content="Generate a thoughtful apology message for personal or professional situations. Use this free AI apology generator to write sincere apologies quickly.">
+
+<title>Apology Generator | ToolChestLab</title>
+<meta name="description" content="Generate a thoughtful apology message for personal, professional, or everyday situations.">
+<link rel="canonical" href="https://www.toolchestlab.com/apology-generator.html">
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
@@ -16,20 +18,19 @@ gtag('config', 'G-WLQ0YR217T');
 </script>
 
 <style>
-*{box-sizing:border-box;}
+*{
+box-sizing:border-box;
+}
 
 body{
 font-family:Arial,sans-serif;
 color:#222;
 margin:0;
 padding:40px 20px;
-
 background-color:#eef4fb;
-
 background-image:
 linear-gradient(rgba(50,90,140,0.10) 1px, transparent 1px),
 linear-gradient(90deg, rgba(50,90,140,0.10) 1px, transparent 1px);
-
 background-size:32px 32px;
 }
 
@@ -54,8 +55,18 @@ border:1px solid #e5e5e5;
 box-shadow:0 8px 24px rgba(0,0,0,0.10);
 }
 
-h1{margin-top:0;margin-bottom:10px;}
-p{line-height:1.7;}
+h1{
+margin-top:0;
+margin-bottom:10px;
+}
+
+h2{
+margin-top:0;
+}
+
+p{
+line-height:1.7;
+}
 
 label{
 display:block;
@@ -100,7 +111,14 @@ border:1px solid #ececec;
 line-height:1.6;
 }
 
-.info-section{margin-top:40px;}
+.info-section{
+margin-top:40px;
+}
+
+.related-tools{
+margin-top:40px;
+padding-top:10px;
+}
 
 .related-tools ul{
 padding-left:20px;
@@ -116,6 +134,16 @@ text-decoration:none;
 .back-link:hover{
 text-decoration:underline;
 }
+
+@media (max-width:700px){
+body{
+padding:20px 14px;
+}
+
+.container{
+padding:22px;
+}
+}
 </style>
 </head>
 
@@ -127,65 +155,77 @@ text-decoration:underline;
 
 <div class="container">
 
-<h1>Apology Message Generator</h1>
-<p>Generate a thoughtful apology message in seconds.</p>
+<h1>Apology Generator</h1>
+<p>Generate a thoughtful apology message for personal, professional, or everyday situations.</p>
 
 <label for="tone">Tone</label>
 <select id="tone">
 <option>Sincere</option>
 <option>Professional</option>
-<option>Casual</option>
+<option>Warm</option>
+<option>Concise</option>
 </select>
 
 <label for="context">What happened?</label>
-<textarea id="context" rows="5"></textarea>
+<textarea id="context" rows="5" placeholder="Example: I forgot to reply for several days and want to apologize sincerely."></textarea>
 
 <label for="name">Your name (optional)</label>
-<input id="name" type="text">
+<input id="name" type="text" placeholder="Example: Jesse">
 
-<button onclick="generateMessage()">Generate Message</button>
+<button onclick="generateMessage()">Generate Apology</button>
 
-<div id="result">Your generated apology will appear here.</div>
+<div id="result" aria-live="polite">Your generated apology message will appear here.</div>
 
 <button onclick="copyResult()">Copy Message</button>
 <button onclick="generateMessage()">Regenerate</button>
 
+<div class="info-section">
+
 <hr style="margin:40px 0;">
 
-<h2>What makes a good apology message?</h2>
+<h2>How do you write a good apology message?</h2>
 
 <p>
-A good apology message acknowledges the mistake, takes responsibility,
-and shows a genuine effort to make things right.
+A good apology message should clearly acknowledge what happened, express sincere regret,
+and avoid sounding defensive. The best apologies are simple, honest, and focused on
+taking responsibility.
 </p>
 
 <p>
-This apology message generator helps you quickly create a clear and
-natural response for personal or professional situations.
+People often need help finding the right words after making a mistake, replying late,
+or disappointing someone. This apology generator helps you create thoughtful messages
+for personal, professional, or everyday situations.
 </p>
 
-<hr style="margin:40px 0;">
+<p>
+Describe what happened and the tool will generate an apology message you can send as is
+or edit to better match your voice and relationship.
+</p>
 
 <hr style="margin:40px 0;">
 
 <h2>Frequently Asked Questions</h2>
 
-<p><strong>What makes a good apology message?</strong><br>
-A good apology message clearly acknowledges the mistake, expresses genuine regret, and avoids making excuses. Keeping the tone sincere and direct helps rebuild trust.</p>
+<p><strong>What should a good apology message include?</strong><br>
+A strong apology message should acknowledge the mistake, express regret sincerely, and show that you understand the impact of what happened.</p>
 
-<p><strong>How long should an apology message be?</strong><br>
-Most apology messages should be short and clear. A few sentences explaining the situation and offering a sincere apology is usually enough.</p>
+<p><strong>Should an apology message be long?</strong><br>
+Usually no. A short and sincere apology is often more effective than a long explanation. Focus on clarity, accountability, and respect.</p>
 
-<p><strong>Should an apology include a solution?</strong><br>
-When appropriate, it helps to include a corrective action or next step. This shows accountability and a willingness to improve the situation.</p>
+<p><strong>What should you avoid in an apology?</strong><br>
+Avoid blaming others, making excuses, or over-explaining. The message should focus on taking responsibility and making things right when possible.</p>
+</div>
 
 <div class="related-tools">
+
 <h2>Related Tools</h2>
+
 <ul>
-<li><a href="/apology-email-to-boss-generator.html">Apology Email to Boss Generator</a></li>
-<li><a href="/missed-meeting-apology-email-generator.html">Missed Meeting Apology Email Generator</a></li>
+<li><a href="/professional-apology-email-generator.html">Professional Apology Email Generator</a></li>
 <li><a href="/late-reply-apology-email-generator.html">Late Reply Apology Email Generator</a></li>
+<li><a href="/excuse-generator.html">Excuse Generator</a></li>
 </ul>
+
 </div>
 
 </div>
@@ -206,28 +246,60 @@ return;
 
 result.innerText="Generating...";
 
-const prompt=`Write a ${tone.toLowerCase()} apology message for this situation:
+const prompt=`Write a ${tone.toLowerCase()} apology message.
 
+Situation:
 ${context}
 
-End politely.
+Requirements:
+- Sound genuine and respectful
+- Acknowledge the mistake clearly
+- Avoid sounding defensive
+- Keep it natural and clear
+- End appropriately for the situation
 
 Signed:
 ${name || "Sender"}`;
 
+try{
+
 const response=await fetch("/api/generate",{
 method:"POST",
-headers:{"Content-Type":"application/json"},
+headers:{
+"Content-Type":"application/json"
+},
 body:JSON.stringify({prompt})
 });
 
+if(!response.ok){
+result.innerText="Something went wrong. Please try again.";
+return;
+}
+
 const data=await response.json();
-result.innerText=data.message || "Something went wrong.";
+
+if(data.message){
+result.innerText=data.message;
+}else{
+result.innerText="Something went wrong. Please try again.";
+}
+
+}catch(error){
+result.innerText="Error generating apology. Please try again.";
+}
+
 }
 
 function copyResult(){
-navigator.clipboard.writeText(document.getElementById("result").innerText);
+
+const text=document.getElementById("result").innerText;
+
+navigator.clipboard.writeText(text).then(()=>{
 alert("Copied to clipboard!");
+}).catch(()=>{
+alert("Copy failed. Please copy manually.");
+});
+
 }
 </script>
 
