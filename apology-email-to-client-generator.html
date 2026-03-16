@@ -27,13 +27,10 @@ font-family:Arial,sans-serif;
 color:#222;
 margin:0;
 padding:40px 20px;
-
 background-color:#eef4fb;
-
 background-image:
 linear-gradient(rgba(50,90,140,0.10) 1px, transparent 1px),
 linear-gradient(90deg, rgba(50,90,140,0.10) 1px, transparent 1px);
-
 background-size:32px 32px;
 }
 
@@ -139,7 +136,6 @@ text-decoration:underline;
 }
 
 @media (max-width:700px){
-
 body{
 padding:20px 14px;
 }
@@ -147,7 +143,6 @@ padding:20px 14px;
 .container{
 padding:22px;
 }
-
 }
 </style>
 </head>
@@ -161,148 +156,6 @@ padding:22px;
 <div class="container">
 
 <h1>Apology Email to Client Generator</h1>
-<p>Generate a professional apology email for a client.</p>
+<p>Generate a professional apology email to a client for delays, mistakes, or service issues.</p>
 
-<label for="tone">Tone</label>
-<select id="tone">
-<option>Professional</option>
-<option>Formal</option>
-<option>Friendly</option>
-<option>Concise</option>
-</select>
-
-<label for="context">What happened?</label>
-<textarea id="context" rows="5" placeholder="Example: I need to apologize to a client for a project delay."></textarea>
-
-<label for="name">Your name or company (optional)</label>
-<input id="name" type="text" placeholder="Example: ToolChestLab Support">
-
-<button onclick="generateEmail()">Generate Email</button>
-
-<div id="result">Your generated apology email will appear here.</div>
-
-<button onclick="copyResult()">Copy Email</button>
-<button onclick="generateEmail()">Regenerate</button>
-
-<div class="info-section">
-
-<hr style="margin:40px 0;">
-
-<h2>How do you apologize to a client professionally?</h2>
-
-<p>
-A professional client apology email should acknowledge the issue clearly,
-take responsibility, and reassure the client that the situation is being
-handled. Maintaining professionalism and transparency is key to preserving
-business relationships.
-</p>
-
-<p>
-Businesses often need to apologize to clients for delays, service issues,
-or unexpected problems. This generator helps create clear and respectful
-apology emails that maintain trust and professionalism.
-</p>
-
-<p>
-Describe the situation and the tool will generate a professional apology
-email you can send immediately or edit as needed.
-</p>
-
-<hr style="margin:40px 0;">
-
-<h2>Frequently Asked Questions</h2>
-
-<p><strong>How do you apologize to a client professionally?</strong><br>
-A client apology should acknowledge the issue clearly, express genuine regret, and explain how the situation will be corrected or prevented in the future.</p>
-
-<p><strong>Should client apology emails include a solution?</strong><br>
-Yes. When possible, offering a clear next step or solution helps rebuild trust and demonstrates professionalism.</p>
-
-<p><strong>How long should an apology email to a client be?</strong><br>
-Client apology emails should be concise but clear. A few well-written paragraphs explaining the issue and offering a resolution is usually enough.</p>
-</div>
-
-<div class="related-tools">
-
-<h2>Related Tools</h2>
-
-<ul>
-<li><a href="/professional-apology-email-generator.html">Professional Apology Email Generator</a></li>
-<li><a href="/customer-apology-email-generator.html">Customer Apology Email Generator</a></li>
-<li><a href="/late-reply-apology-email-generator.html">Late Reply Apology Email Generator</a></li>
-</ul>
-
-</div>
-
-</div>
-</div>
-
-<script>
-
-async function generateEmail(){
-
-const context=document.getElementById("context").value;
-const tone=document.getElementById("tone").value;
-const name=document.getElementById("name").value;
-const result=document.getElementById("result");
-
-if(!context.trim()){
-result.innerText="Please describe what happened.";
-return;
-}
-
-result.innerText="Generating...";
-
-const prompt=`Write a ${tone.toLowerCase()} apology email to a client.
-
-Situation:
-${context}
-
-Requirements:
-- Include a subject line
-- Acknowledge the issue clearly
-- Maintain a professional tone
-- Reassure the client
-- End politely
-
-Signed:
-${name || "Sender"}`;
-
-try{
-
-const response=await fetch("/api/generate",{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({prompt})
-});
-
-const data=await response.json();
-
-if(data.message){
-result.innerText=data.message;
-}else{
-result.innerText="Something went wrong. Please try again.";
-}
-
-}catch(error){
-result.innerText="Error generating email. Please try again.";
-}
-
-}
-
-function copyResult(){
-
-const text=document.getElementById("result").innerText;
-
-navigator.clipboard.writeText(text).then(()=>{
-alert("Copied to clipboard!");
-});
-
-}
-
-</script>
-
-</body>
-</html>
+<label for="tone">Tone</label
