@@ -71,12 +71,46 @@ line-height:1.75;
 margin-bottom:16px;
 }
 
-.contact-box{
-margin-top:22px;
-padding:18px;
-background:#fafafa;
-border:1px solid #ececec;
-border-radius:10px;
+label{
+display:block;
+margin-top:10px;
+margin-bottom:8px;
+font-weight:bold;
+}
+
+input, textarea, button{
+width:100%;
+padding:12px;
+font-size:16px;
+border-radius:8px;
+margin-bottom:18px;
+font-family:Arial,sans-serif;
+}
+
+input, textarea{
+border:1px solid #d9d9d9;
+}
+
+textarea{
+min-height:160px;
+resize:vertical;
+}
+
+button{
+background:#0070f3;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+button:hover{
+background:#0059c7;
+}
+
+.form-note{
+font-size:14px;
+color:#666;
+margin-top:4px;
 }
 
 a{
@@ -116,24 +150,27 @@ padding:22px;
 <div class="container">
 <h1>Contact ToolChestLab</h1>
 
-<p>If you have feedback, found an issue, or want to suggest a new tool, this is the place to reach out.</p>
+<p>If you have feedback, found an issue, or want to suggest a new tool, send a message below.</p>
 
 <p>ToolChestLab is built around practical communication tools, so useful feedback and real-world suggestions are especially valuable.</p>
 
-<div class="contact-box">
-<h2>Get in touch</h2>
-<p>For questions, suggestions, or feedback, email:</p>
-<p><strong>[your email here]</strong></p>
-</div>
+<form>
+<label for="name">Name</label>
+<input id="name" name="name" type="text" placeholder="Your name">
+
+<label for="email">Email</label>
+<input id="email" name="email" type="email" placeholder="you@example.com">
+
+<label for="message">Message</label>
+<textarea id="message" name="message" placeholder="Questions, feedback, bug report, or tool suggestion..."></textarea>
+
+<button type="submit">Send Message</button>
+</form>
+
+<p class="form-note">Note: this form still needs to be connected to your preferred form handler or backend endpoint before messages can be delivered.</p>
 
 <h2>Good things to send</h2>
-<p>You can reach out with:</p>
-<p>
-Tool ideas, bug reports, usability feedback, homepage suggestions, SEO observations, or general questions about the site.
-</p>
-
-<h2>Tool suggestions</h2>
-<p>If there is a specific email or message situation you want help with and you do not see a tool for it yet, send the idea along. New suggestions can help shape future tools and categories.</p>
+<p>Tool ideas, bug reports, usability feedback, homepage suggestions, SEO observations, or general questions about the site.</p>
 
 <div class="footer-links">
 <p>
