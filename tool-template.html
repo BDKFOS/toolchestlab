@@ -1,8 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
   <title>Late Reply Apology Email Generator | ToolChestLab</title>
   <meta name="description" content="Generate a polished late reply apology email for work, clients, coworkers, or personal situations.">
+<link rel="canonical" href="https://www.toolchestlab.com/tool-template.html">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
@@ -58,7 +59,7 @@
   </style>
 </head>
 <body>
-  <a href="/tools.html">← View all tools</a>
+  <a href="/tools.html">â† View all tools</a>
 
   <div class="container">
     <h1>Late Reply Apology Email Generator</h1>
@@ -90,7 +91,7 @@
 
     <button onclick="generateEmail()">Generate Email</button>
 
-    <div id="result">Your generated late reply apology email will appear here.</div>
+    <div id="result" aria-live="polite">Your generated late reply apology email will appear here.</div>
 
     <button onclick="copyResult()">Copy Email</button>
     <button onclick="generateEmail()">Regenerate</button>
@@ -156,7 +157,17 @@ ${name || "Sender"}`;
           body: JSON.stringify({ prompt })
         });
 
-        const data = await response.json();
+        if (!response.ok) {
+  result.innerText = "Something went wrong. Please try again.";
+  return;
+}
+
+const data = if (!response.ok) {
+  result.innerText = "Something went wrong. Please try again.";
+  return;
+}
+
+await response.json();
 
         if (data.message) {
           result.innerText = data.message;
@@ -178,3 +189,5 @@ ${name || "Sender"}`;
   </script>
 </body>
 </html>
+
+

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,6 +6,7 @@
 
 <title>Follow Up Email Generator | ToolChestLab</title>
 <meta name="description" content="Generate a professional follow up email after meetings, interviews, proposals, or unanswered messages.">
+<link rel="canonical" href="https://www.toolchestlab.com/follow-up-email-generator.html">
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
@@ -186,7 +187,7 @@ padding:22px;
 
 <button onclick="generateEmail()">Generate Email</button>
 
-<div id="result">Your generated follow up email will appear here.</div>
+<div id="result" aria-live="polite">Your generated follow up email will appear here.</div>
 
 <button onclick="copyResult()">Copy Email</button>
 <button onclick="generateEmail()">Regenerate</button>
@@ -291,6 +292,11 @@ headers:{
 body:JSON.stringify({prompt})
 });
 
+if(!response.ok){
+result.innerText="Something went wrong. Please try again.";
+return;
+}
+
 const data=await response.json();
 
 if(data.message){
@@ -316,3 +322,5 @@ alert("Copied to clipboard!");
 
 </body>
 </html>
+
+

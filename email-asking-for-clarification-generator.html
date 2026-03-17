@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,6 +6,7 @@
 
 <title>Email Asking for Clarification Generator | ToolChestLab</title>
 <meta name="description" content="Generate a polite email asking for clarification for work, projects, clients, instructions, or professional communication.">
+<link rel="canonical" href="https://www.toolchestlab.com/email-asking-for-clarification-generator.html">
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
@@ -186,7 +187,7 @@ padding:22px;
 
 <button onclick="generateEmail()">Generate Email</button>
 
-<div id="result">Your generated email will appear here.</div>
+<div id="result" aria-live="polite">Your generated email will appear here.</div>
 
 <button onclick="copyResult()">Copy Email</button>
 <button onclick="generateEmail()">Regenerate</button>
@@ -271,6 +272,11 @@ headers:{
 body:JSON.stringify({prompt})
 });
 
+if(!response.ok){
+result.innerText="Something went wrong. Please try again.";
+return;
+}
+
 const data=await response.json();
 
 if(data.message){
@@ -299,3 +305,5 @@ alert("Copied to clipboard!");
 
 </body>
 </html>
+
+

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -181,7 +181,7 @@ Generate a thoughtful apology message for personal, professional, or everyday si
 
 <button onclick="generateApology()">Generate Apology</button>
 
-<div id="result">Your generated apology message will appear here.</div>
+<div id="result" aria-live="polite">Your generated apology message will appear here.</div>
 
 <button onclick="copyResult()">Copy Message</button>
 <button onclick="generateApology()">Regenerate</button>
@@ -275,6 +275,11 @@ headers:{
 body:JSON.stringify({prompt})
 });
 
+if(!response.ok){
+result.innerText="Something went wrong. Please try again.";
+return;
+}
+
 const data=await response.json();
 
 if(data.message){
@@ -303,3 +308,5 @@ alert("Copied to clipboard!");
 
 </body>
 </html>
+
+

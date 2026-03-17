@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,6 +6,7 @@
 
 <title>Contract Renewal Email Generator | ToolChestLab</title>
 <meta name="description" content="Generate a professional contract renewal email for clients, vendors, freelancers, or business agreements.">
+<link rel="canonical" href="https://www.toolchestlab.com/contract-renewal-email-generator.html">
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
@@ -109,14 +110,14 @@ body{padding:20px 14px;}
 </select>
 
 <label for="context">What should the contract renewal email include?</label>
-<textarea id="context" rows="5" placeholder="Example: I want to email a client about renewing our monthly marketing services agreement for another six months and mention that I’m happy to discuss terms."></textarea>
+<textarea id="context" rows="5" placeholder="Example: I want to email a client about renewing our monthly marketing services agreement for another six months and mention that Iâ€™m happy to discuss terms."></textarea>
 
 <label for="name">Your name or company (optional)</label>
 <input id="name" type="text" placeholder="Example: Jesse">
 
 <button onclick="generateEmail()">Generate Email</button>
 
-<div id="result">Your generated contract renewal email will appear here.</div>
+<div id="result" aria-live="polite">Your generated contract renewal email will appear here.</div>
 
 <button onclick="copyResult()">Copy Email</button>
 <button onclick="generateEmail()">Regenerate</button>
@@ -183,6 +184,11 @@ method:"POST",
 headers:{"Content-Type":"application/json"},
 body:JSON.stringify({prompt})
 });
+if(!response.ok){
+result.innerText="Something went wrong. Please try again.";
+return;
+}
+
 const data=await response.json();
 result.innerText=data.message || "Something went wrong. Please try again.";
 }catch(error){
@@ -198,3 +204,5 @@ navigator.clipboard.writeText(text).then(()=>{alert("Copied to clipboard!");});
 
 </body>
 </html>
+
+

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,6 +6,7 @@
 
 <title>Availability Email Generator | ToolChestLab</title>
 <meta name="description" content="Generate a professional availability email to share your available times for a meeting, interview, or appointment.">
+<link rel="canonical" href="https://www.toolchestlab.com/availability-email-generator.html">
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
@@ -171,14 +172,14 @@ padding:22px;
 </select>
 
 <label for="context">What availability do you want to send?</label>
-<textarea id="context" rows="5" placeholder="Example: I need to reply to a client and let them know I’m available Wednesday after 1 PM, Thursday morning, or Friday at 3 PM for a call."></textarea>
+<textarea id="context" rows="5" placeholder="Example: I need to reply to a client and let them know Iâ€™m available Wednesday after 1 PM, Thursday morning, or Friday at 3 PM for a call."></textarea>
 
 <label for="name">Your name (optional)</label>
 <input id="name" type="text" placeholder="Example: Jesse">
 
 <button onclick="generateEmail()">Generate Email</button>
 
-<div id="result">Your generated availability email will appear here.</div>
+<div id="result" aria-live="polite">Your generated availability email will appear here.</div>
 
 <button onclick="copyResult()">Copy Email</button>
 <button onclick="generateEmail()">Regenerate</button>
@@ -209,7 +210,7 @@ Describe your situation and this tool will generate a polished availability emai
 Yes. Giving several options makes it easier for the other person to pick a time that works.</p>
 
 <p><strong>How specific should I be?</strong><br>
-Usually it is best to be specific with days and times instead of saying something broad like "I’m free this week."</p>
+Usually it is best to be specific with days and times instead of saying something broad like "Iâ€™m free this week."</p>
 
 <p><strong>Can I use this for interviews and client calls?</strong><br>
 Yes. Availability emails are common for interviews, meetings, consultations, and appointments.</p>
@@ -271,6 +272,11 @@ headers:{
 body:JSON.stringify({prompt})
 });
 
+if(!response.ok){
+result.innerText="Something went wrong. Please try again.";
+return;
+}
+
 const data=await response.json();
 
 if(data.message){
@@ -299,3 +305,5 @@ alert("Copied to clipboard!");
 
 </body>
 </html>
+
+

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,6 +6,7 @@
 
 <title>Second Follow Up Email After No Response Generator | ToolChestLab</title>
 <meta name="description" content="Generate a polite second follow up email after no response from a client, recruiter, manager, or business contact.">
+<link rel="canonical" href="https://www.toolchestlab.com/second-follow-up-email-after-no-response-generator.html">
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
@@ -171,14 +172,14 @@ padding:22px;
 </select>
 
 <label for="context">What are you following up about?</label>
-<textarea id="context" rows="5" placeholder="Example: I already sent one follow up about a proposal last week and still haven’t heard back. I want to check in one more time without sounding pushy."></textarea>
+<textarea id="context" rows="5" placeholder="Example: I already sent one follow up about a proposal last week and still havenâ€™t heard back. I want to check in one more time without sounding pushy."></textarea>
 
 <label for="name">Your name (optional)</label>
 <input id="name" type="text" placeholder="Example: Jesse">
 
 <button onclick="generateEmail()">Generate Email</button>
 
-<div id="result">Your generated second follow up email will appear here.</div>
+<div id="result" aria-live="polite">Your generated second follow up email will appear here.</div>
 
 <button onclick="copyResult()">Copy Email</button>
 <button onclick="generateEmail()">Regenerate</button>
@@ -272,6 +273,11 @@ headers:{
 body:JSON.stringify({prompt})
 });
 
+if(!response.ok){
+result.innerText="Something went wrong. Please try again.";
+return;
+}
+
 const data=await response.json();
 
 if(data.message){
@@ -300,3 +306,5 @@ alert("Copied to clipboard!");
 
 </body>
 </html>
+
+

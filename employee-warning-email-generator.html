@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,6 +6,7 @@
 
 <title>Employee Warning Email Generator | ToolChestLab</title>
 <meta name="description" content="Generate a professional employee warning email for performance, attendance, policy, or workplace conduct issues.">
+<link rel="canonical" href="https://www.toolchestlab.com/employee-warning-email-generator.html">
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
@@ -116,7 +117,7 @@ body{padding:20px 14px;}
 
 <button onclick="generateEmail()">Generate Email</button>
 
-<div id="result">Your generated employee warning email will appear here.</div>
+<div id="result" aria-live="polite">Your generated employee warning email will appear here.</div>
 
 <button onclick="copyResult()">Copy Email</button>
 <button onclick="generateEmail()">Regenerate</button>
@@ -183,6 +184,11 @@ method:"POST",
 headers:{"Content-Type":"application/json"},
 body:JSON.stringify({prompt})
 });
+if(!response.ok){
+result.innerText="Something went wrong. Please try again.";
+return;
+}
+
 const data=await response.json();
 result.innerText=data.message || "Something went wrong. Please try again.";
 }catch(error){
@@ -198,3 +204,5 @@ navigator.clipboard.writeText(text).then(()=>{alert("Copied to clipboard!");});
 
 </body>
 </html>
+
+

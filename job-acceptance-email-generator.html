@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,6 +6,7 @@
 
 <title>Job Acceptance Email Generator | ToolChestLab</title>
 <meta name="description" content="Generate a professional job acceptance email after receiving a job offer.">
+<link rel="canonical" href="https://www.toolchestlab.com/job-acceptance-email-generator.html">
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
@@ -127,7 +128,7 @@ line-height:1.6;
 
 <button onclick="generateEmail()">Generate Email</button>
 
-<div id="result">Your generated job acceptance email will appear here.</div>
+<div id="result" aria-live="polite">Your generated job acceptance email will appear here.</div>
 
 <button onclick="copyResult()">Copy Email</button>
 <button onclick="generateEmail()">Regenerate</button>
@@ -187,6 +188,11 @@ headers:{"Content-Type":"application/json"},
 body:JSON.stringify({prompt})
 });
 
+if(!response.ok){
+result.innerText="Something went wrong. Please try again.";
+return;
+}
+
 const data=await response.json();
 
 if(data.message){
@@ -208,3 +214,5 @@ navigator.clipboard.writeText(text).then(()=>{alert("Copied to clipboard!");});
 
 </body>
 </html>
+
+
