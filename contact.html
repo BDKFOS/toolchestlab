@@ -107,10 +107,14 @@ button:hover{
 background:#0059c7;
 }
 
-.form-note{
-font-size:14px;
-color:#666;
-margin-top:4px;
+#formStatus{
+margin-top:8px;
+padding:14px;
+border-radius:8px;
+background:#fafafa;
+border:1px solid #ececec;
+line-height:1.6;
+display:none;
 }
 
 a{
@@ -154,20 +158,20 @@ padding:22px;
 
 <p>ToolChestLab is built around practical communication tools, so useful feedback and real-world suggestions are especially valuable.</p>
 
-<form>
+<form id="contactForm">
 <label for="name">Name</label>
-<input id="name" name="name" type="text" placeholder="Your name">
+<input id="name" name="name" type="text" placeholder="Your name" maxlength="120" required>
 
 <label for="email">Email</label>
-<input id="email" name="email" type="email" placeholder="you@example.com">
+<input id="email" name="email" type="email" placeholder="you@example.com" maxlength="200" required>
 
 <label for="message">Message</label>
-<textarea id="message" name="message" placeholder="Questions, feedback, bug report, or tool suggestion..."></textarea>
+<textarea id="message" name="message" placeholder="Questions, feedback, bug report, or tool suggestion..." maxlength="5000" required></textarea>
 
-<button type="submit">Send Message</button>
+<button id="submitButton" type="submit">Send Message</button>
 </form>
 
-<p class="form-note">Note: this form still needs to be connected to your preferred form handler or backend endpoint before messages can be delivered.</p>
+<div id="formStatus" aria-live="polite"></div>
 
 <h2>Good things to send</h2>
 <p>Tool ideas, bug reports, usability feedback, homepage suggestions, SEO observations, or general questions about the site.</p>
@@ -181,5 +185,58 @@ padding:22px;
 </div>
 </div>
 </div>
+
+<script>
+const form = document.getElementById("contactForm");
+const statusBox = document.getElementById("formStatus");
+const submitButton = document.getElementById("submitButton");
+
+form.addEventListener("submit", async function(event){
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const message = document.getElementById("message").value.trim();
+
+  if(!name || !email || !message){
+    statusBox.style.display = "block";
+    statusBox.innerText = "Please fill out all fields.";
+    return;
+  }
+
+  submitButton.disabled = true;
+  submitButton.innerText = "Sending...";
+  statusBox.style.display = "block";
+  statusBox.innerText = "Sending your message...";
+
+  try{
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ name, email, message })
+    });
+
+    const data = await response.json();
+
+    if(!response.ok){
+      statusBox.innerText = data.message || "Something went wrong. Please try again.";
+      submitButton.disabled = false;
+      submitButton.innerText = "Send Message";
+      return;
+    }
+
+    statusBox.innerText = "Thanks — your message was sent successfully.";
+    form.reset();
+  }catch(error){
+    statusBox.innerText = "Error sending message. Please try again.";
+  }
+
+  submitButton.disabled = false;
+  submitButton.innerText = "Send Message";
+});
+</script>
+
 </body>
 </html>
