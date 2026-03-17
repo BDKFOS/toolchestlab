@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Apology Letter for Work Generator | ToolChestLab</title>
+<meta name="description" content="Generate a professional apology letter for work mistakes, delays, or issues. Fast, clear, and respectful.">
+<link rel="canonical" href="https://www.toolchestlab.com/apology-letter-for-work-generator.html">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WLQ0YR217T');
+</script>
+
+<style>
+*{box-sizing:border-box;}
+body{font-family:Arial,sans-serif;color:#222;margin:0;padding:40px 20px;background:#eef4fb;}
+.page-wrap{max-width:760px;margin:0 auto;}
+.container{background:white;padding:30px;border-radius:12px;border:1px solid #e5e5e5;box-shadow:0 8px 24px rgba(0,0,0,0.10);}
+button{background:#0070f3;color:white;border:none;padding:12px;border-radius:8px;cursor:pointer;}
+button:hover{background:#0059c7;}
+textarea,input,select{width:100%;padding:12px;margin-bottom:20px;border-radius:8px;border:1px solid #ddd;}
+#result{white-space:pre-wrap;background:#fafafa;padding:20px;border-radius:8px;border:1px solid #ececec;}
+</style>
+</head>
+
+<body>
+<div class="page-wrap">
+<div class="container">
+
+<h1>Apology Letter for Work Generator</h1>
+<p>Generate a professional apology letter for workplace mistakes, delays, or miscommunication.</p>
+
+<select id="tone">
+<option>Professional</option>
+<option>Formal</option>
+<option>Respectful</option>
+</select>
+
+<textarea id="context" placeholder="Describe the situation..."></textarea>
+<input id="name" placeholder="Your name (optional)">
+
+<button onclick="generate()">Generate Letter</button>
+
+<div id="result">Your apology letter will appear here.</div>
+
+<button onclick="copy()">Copy</button>
+
+</div>
+</div>
+
+<script>
+async function generate(){
+const context=document.getElementById("context").value;
+const tone=document.getElementById("tone").value;
+const name=document.getElementById("name").value;
+const result=document.getElementById("result");
+
+if(!context.trim()){
+result.innerText="Please describe what happened.";
+return;
+}
+
+result.innerText="Generating...";
+
+const prompt=`Write a ${tone.toLowerCase()} apology letter for a workplace situation.
+
+Context:
+${context}
+
+Include accountability, professionalism, and a forward-looking resolution.
+
+Signed:
+${name || "Sender"}`;
+
+try{
+const res=await fetch("/api/generate",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({prompt})});
+const data=await res.json();
+result.innerText=data.message || "Error.";
+}catch{
+result.innerText="Error generating.";
+}
+}
+
+function copy(){
+navigator.clipboard.writeText(document.getElementById("result").innerText);
+alert("Copied!");
+}
+</script>
+
+</body>
+</html>
