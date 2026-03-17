@@ -95,7 +95,7 @@ body{padding:20px 14px;}
 
 <body>
 <div class="page-wrap">
-<a class="back-link" href="/">â† Back to ToolChestLab</a>
+<a class="back-link" href="/">← Back to ToolChestLab</a>
 
 <div class="container">
 <h1>PTO Request Email Generator</h1>
@@ -198,12 +198,12 @@ method:"POST",
 headers:{"Content-Type":"application/json"},
 body:JSON.stringify({prompt})
 });
-const data=if (!response.ok) {
-  result.innerText = "Something went wrong. Please try again.";
-  return;
+if(!response.ok){
+result.innerText="Something went wrong. Please try again.";
+return;
 }
 
-await response.json();
+const data=await response.json();
 result.innerText=data.message || "Something went wrong. Please try again.";
 }catch(error){
 result.innerText="Error generating email. Please try again.";
@@ -218,4 +218,5 @@ navigator.clipboard.writeText(text).then(()=>{alert("Copied to clipboard!");});
 
 </body>
 </html>
+
 

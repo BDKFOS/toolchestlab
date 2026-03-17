@@ -99,7 +99,7 @@ text-decoration:none;
 
 <div class="page-wrap">
 
-<a class="back-link" href="/">â† Back to ToolChestLab</a>
+<a class="back-link" href="/">← Back to ToolChestLab</a>
 
 <div class="container">
 
@@ -176,12 +176,12 @@ headers:{"Content-Type":"application/json"},
 body:JSON.stringify({prompt})
 });
 
-const data=if (!response.ok) {
-  result.innerText = "Something went wrong. Please try again.";
-  return;
+if(!response.ok){
+result.innerText="Something went wrong. Please try again.";
+return;
 }
 
-await response.json();
+const data=await response.json();
 result.innerText=data.message || "Something went wrong.";
 }
 
@@ -193,4 +193,5 @@ alert("Copied to clipboard!");
 
 </body>
 </html>
+
 

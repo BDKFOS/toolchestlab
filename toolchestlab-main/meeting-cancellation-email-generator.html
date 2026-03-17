@@ -156,7 +156,7 @@ padding:22px;
 
 <div class="page-wrap">
 
-<a class="back-link" href="/">â† Back to ToolChestLab</a>
+<a class="back-link" href="/">← Back to ToolChestLab</a>
 
 <div class="container">
 
@@ -273,12 +273,12 @@ headers:{
 body:JSON.stringify({prompt})
 });
 
-const data=if (!response.ok) {
-  result.innerText = "Something went wrong. Please try again.";
-  return;
+if(!response.ok){
+result.innerText="Something went wrong. Please try again.";
+return;
 }
 
-await response.json();
+const data=await response.json();
 
 if(data.message){
 result.innerText=data.message;
@@ -306,4 +306,5 @@ alert("Copied to clipboard!");
 
 </body>
 </html>
+
 
