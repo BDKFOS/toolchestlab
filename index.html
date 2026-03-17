@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 
-<!-- Google tag -->
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -14,12 +14,14 @@ gtag('config', 'G-WLQ0YR217T');
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ToolChestLab | AI Email & Communication Generators</title>
-<meta name="description" content="AI tools to help you write apology emails, follow ups, job search emails, workplace communication, client messages, and school emails faster.">
+<title>ToolChestLab | Free AI Email & Communication Generators</title>
+<meta name="description" content="Free AI tools to help you write apology emails, follow ups, job search emails, workplace communication, client messages, school emails, and professional responses faster.">
 <link rel="canonical" href="https://www.toolchestlab.com/">
 
 <style>
-*{box-sizing:border-box;}
+*{
+box-sizing:border-box;
+}
 
 body{
 font-family:Arial,sans-serif;
@@ -65,6 +67,11 @@ margin:auto;
 padding:40px 20px;
 }
 
+.intro{
+line-height:1.6;
+margin-bottom:18px;
+}
+
 .quick-nav{
 display:flex;
 flex-wrap:wrap;
@@ -73,6 +80,7 @@ margin:0 0 24px 0;
 }
 
 .quick-nav a{
+display:inline-block;
 padding:10px 14px;
 background:white;
 border:1px solid #dbe4ef;
@@ -96,6 +104,40 @@ border:1px solid #d9d9d9;
 margin-bottom:30px;
 }
 
+.category{
+margin-top:50px;
+}
+
+.category h2{
+margin-bottom:10px;
+}
+
+.category-intro{
+margin-bottom:20px;
+line-height:1.6;
+color:#555;
+}
+
+.popular-tools{
+padding-left:18px;
+margin-top:10px;
+line-height:1.9;
+}
+
+.popular-tools li{
+margin-bottom:4px;
+}
+
+.popular-tools a{
+color:#0070f3;
+text-decoration:none;
+font-weight:500;
+}
+
+.popular-tools a:hover{
+text-decoration:underline;
+}
+
 .tools{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -107,7 +149,7 @@ background:white;
 padding:18px;
 border-radius:10px;
 border:1px solid #e5e5e5;
-transition:0.15s;
+transition:transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .tool-card:hover{
@@ -117,35 +159,72 @@ box-shadow:0 6px 18px rgba(0,0,0,0.08);
 
 .tool-card h3{
 margin-top:0;
+margin-bottom:8px;
 font-size:1.05rem;
+line-height:1.35;
 }
 
 .tool-card p{
+margin-bottom:12px;
 font-size:0.95rem;
+line-height:1.5;
 color:#444;
 }
 
-a.button{
+a.button,
+button.toggle-button{
 display:inline-block;
 padding:8px 14px;
 background:#0070f3;
 color:white;
-border-radius:6px;
 text-decoration:none;
+border-radius:6px;
 font-size:14px;
+border:none;
+cursor:pointer;
+font-family:Arial,sans-serif;
 }
 
-.category{
-margin-top:50px;
+a.button:hover,
+button.toggle-button:hover{
+background:#0059c7;
 }
 
-.category h2{
-margin-bottom:10px;
+.toggle-wrap{
+margin-top:18px;
 }
 
-.category-intro{
-margin-bottom:20px;
-color:#555;
+.extra-tools{
+display:none;
+margin-top:18px;
+}
+
+.extra-tools.is-open{
+display:grid;
+}
+
+.seo-section{
+max-width:1100px;
+margin:20px auto 40px auto;
+padding:0 20px;
+line-height:1.7;
+}
+
+.seo-section h2{
+margin-bottom:16px;
+}
+
+.seo-section p{
+margin-bottom:18px;
+}
+
+.seo-section a{
+color:#0070f3;
+text-decoration:none;
+}
+
+.seo-section a:hover{
+text-decoration:underline;
 }
 
 footer{
@@ -161,13 +240,26 @@ color:#0070f3;
 text-decoration:none;
 }
 
+footer a:hover{
+text-decoration:underline;
+}
+
 @media (max-width:900px){
-.tools{grid-template-columns:1fr 1fr;}
+.tools,
+.extra-tools{
+grid-template-columns:1fr 1fr;
+}
 }
 
 @media (max-width:600px){
-.tools{grid-template-columns:1fr;}
-header h1{font-size:2rem;}
+.tools,
+.extra-tools{
+grid-template-columns:1fr;
+}
+
+header h1{
+font-size:2rem;
+}
 }
 </style>
 </head>
@@ -176,142 +268,1045 @@ header h1{font-size:2rem;}
 
 <header>
 <h1>ToolChestLab</h1>
-<p>AI tools to help you write difficult emails and messages faster — no signup required.</p>
+<p>Free AI tools to help you write difficult emails and messages faster, no signup required.</p>
 <div class="tool-count">115+ tools live</div>
 </header>
 
 <div class="container">
 
-<input id="toolSearch" type="text" placeholder="Search tools (apology, interview, follow-up...)">
+<p class="intro">Browse our growing toolbox of practical email and communication tools for work, school, clients, meetings, job search, and everyday professional situations.</p>
+
+<input id="toolSearch" type="text" placeholder="Search tools (apology, interview, follow-up, invoice...)" aria-label="Search ToolChestLab tools">
 
 <div class="quick-nav">
+<a href="#popular-tools">Popular Tools</a>
 <a href="#start-here">Start Here</a>
-<a href="#most-used">Most Used</a>
-<a href="#newest">Newest</a>
-<a href="#categories">Browse Categories</a>
+<a href="#most-used-tools">Most Used Right Now</a>
+<a href="#newest-tools">Newest Tools</a>
+<a href="#apology-tools">Apology & Difficult Conversations</a>
+<a href="#job-career-tools">Job Search & Career</a>
+<a href="#school-tools">School & Professor Emails</a>
+<a href="#meetings-tools">Meetings & Scheduling</a>
+<a href="#workplace-tools">Workplace & Team Communication</a>
+<a href="#client-tools">Clients, Sales & Finance</a>
+<a href="#outreach-tools">Outreach & Introductions</a>
 </div>
 
-<!-- START HERE -->
+<section class="category" id="popular-tools" style="margin-top:20px;">
+<h2>Popular Tools</h2>
+<p class="category-intro">
+Some of the most useful tools for common workplace, school, and professional email situations.
+</p>
+
+<ul class="popular-tools">
+<li><a href="/professional-apology-email-generator.html">Professional Apology Email Generator</a></li>
+<li><a href="/follow-up-email-generator.html">Follow Up Email Generator</a></li>
+<li><a href="/meeting-request-email-generator.html">Meeting Request Email Generator</a></li>
+<li><a href="/salary-negotiation-email-generator.html">Salary Negotiation Email Generator</a></li>
+<li><a href="/interview-thank-you-email-generator.html">Interview Thank You Email Generator</a></li>
+<li><a href="/professional-email-rewrite-generator.html">Professional Email Rewrite Generator</a></li>
+</ul>
+</section>
+
 <section class="category" id="start-here">
 <h2>Start Here</h2>
+<p class="category-intro">
+Not sure where to begin? Pick the type of message you need help writing.
+</p>
 
 <div class="tools">
-
 <div class="tool-card">
 <h3>I need to apologize</h3>
-<p>Work mistakes, delays, missed deadlines, client issues.</p>
-<a class="button" href="#categories">View Tools</a>
+<p>Apology emails for work mistakes, delays, missed deadlines, clients, and difficult situations.</p>
+<a class="button" href="#apology-tools">View Tools</a>
 </div>
 
 <div class="tool-card">
 <h3>I need to follow up</h3>
-<p>Interviews, meetings, no responses, client check-ins.</p>
-<a class="button" href="#categories">View Tools</a>
+<p>Follow up emails after interviews, meetings, no responses, proposals, and client conversations.</p>
+<a class="button" href="#meetings-tools">View Tools</a>
 </div>
 
 <div class="tool-card">
 <h3>I need a work email</h3>
-<p>Managers, coworkers, PTO, updates, feedback.</p>
-<a class="button" href="#categories">View Tools</a>
+<p>Professional workplace communication for managers, coworkers, attendance, feedback, and updates.</p>
+<a class="button" href="#workplace-tools">View Tools</a>
 </div>
 
+<div class="tool-card">
+<h3>I need a job email</h3>
+<p>Interview replies, recruiter emails, salary negotiation, referrals, and other career communication.</p>
+<a class="button" href="#job-career-tools">View Tools</a>
+</div>
+
+<div class="tool-card">
+<h3>I need a school email</h3>
+<p>Emails to professors about grades, assignments, absences, meetings, and academic issues.</p>
+<a class="button" href="#school-tools">View Tools</a>
+</div>
+
+<div class="tool-card">
+<h3>I need a client email</h3>
+<p>Quotes, invoices, proposals, demos, payments, and client follow ups.</p>
+<a class="button" href="#client-tools">View Tools</a>
+</div>
 </div>
 </section>
 
-<!-- MOST USED -->
-<section class="category" id="most-used">
+<section class="category" id="most-used-tools">
 <h2>Most Used Right Now</h2>
+<p class="category-intro">
+A few of the highest-interest tool types based on the kinds of searches and early traction the site is already seeing.
+</p>
 
 <div class="tools">
-
 <div class="tool-card">
 <h3>Excuse Generator</h3>
+<p>Create believable excuses for late replies, missed events, awkward situations, and more.</p>
 <a class="button" href="/excuse-generator.html">Open Tool</a>
 </div>
 
 <div class="tool-card">
 <h3>AI Apology Email Generator</h3>
+<p>Generate apology emails instantly with AI for work, personal, school, client, or professional situations.</p>
 <a class="button" href="/ai-apology-email-generator.html">Open Tool</a>
 </div>
 
 <div class="tool-card">
-<h3>Follow Up Email Generator</h3>
-<a class="button" href="/follow-up-email-generator.html">Open Tool</a>
+<h3>Apology Letter for Work Generator</h3>
+<p>Generate a professional apology letter for work mistakes, missed deadlines, or workplace issues in seconds.</p>
+<a class="button" href="/apology-letter-for-work-generator.html">Open Tool</a>
 </div>
 
+<div class="tool-card">
+<h3>Email Asking for Update Generator</h3>
+<p>Generate a polite email asking for an update on projects, proposals, applications, and professional conversations.</p>
+<a class="button" href="/email-asking-for-update-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Make My Email More Professional Generator</h3>
+<p>Paste a rough email and instantly rewrite it to sound more polished, respectful, and professional.</p>
+<a class="button" href="/make-my-email-more-professional-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Professional Apology Email Generator</h3>
+<p>Write a professional apology email for work situations, business issues, and difficult conversations.</p>
+<a class="button" href="/professional-apology-email-generator.html">Open Tool</a>
+</div>
 </div>
 </section>
 
-<!-- NEWEST -->
-<section class="category" id="newest">
+<section class="category" id="newest-tools">
 <h2>Newest Tools</h2>
+<p class="category-intro">
+Recently added AI communication generators.
+</p>
 
 <div class="tools">
-
 <div class="tool-card">
 <h3>Proposal Rejection Email Generator</h3>
+<p>Generate a professional proposal rejection email to decline a quote, estimate, bid, or business proposal respectfully.</p>
 <a class="button" href="/proposal-rejection-email-generator.html">Open Tool</a>
 </div>
 
 <div class="tool-card">
+<h3>Email to Professor About Grades Generator</h3>
+<p>Generate a respectful email to a professor about grades, grading questions, score concerns, or academic clarification.</p>
+<a class="button" href="/email-to-professor-about-grades-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Follow Up Email After Demo Generator</h3>
+<p>Generate a professional follow up email after a demo call, product demo, software walkthrough, or sales presentation.</p>
+<a class="button" href="/follow-up-email-after-demo-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
 <h3>Job Referral Request Email Generator</h3>
+<p>Generate a professional job referral request email to ask a contact, colleague, friend, or former coworker for a referral.</p>
 <a class="button" href="/job-referral-request-email-generator.html">Open Tool</a>
 </div>
 
 <div class="tool-card">
 <h3>Call Out of Work Email Generator</h3>
+<p>Generate a professional call out of work email for illness, emergencies, family issues, or unexpected personal situations.</p>
 <a class="button" href="/call-out-of-work-email-generator.html">Open Tool</a>
 </div>
 
+<div class="tool-card">
+<h3>Client Delay Apology Email Generator</h3>
+<p>Generate a professional apology email to a client for delays in projects, timelines, responses, or deliverables.</p>
+<a class="button" href="/client-delay-apology-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Thank You Email After Meeting Generator</h3>
+<p>Generate a professional thank you email after a meeting with a client, manager, coworker, recruiter, or business contact.</p>
+<a class="button" href="/thank-you-email-after-meeting-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Request for Feedback Email Generator</h3>
+<p>Generate a professional email requesting feedback from a client, manager, coworker, customer, or business contact.</p>
+<a class="button" href="/request-for-feedback-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Email to Professor Requesting Meeting Generator</h3>
+<p>Generate a respectful email to a professor requesting a meeting, office hours appointment, or academic discussion.</p>
+<a class="button" href="/email-to-professor-requesting-meeting-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Overdue Invoice Follow Up Email Generator</h3>
+<p>Generate a professional overdue invoice follow up email to request payment while maintaining a strong client relationship.</p>
+<a class="button" href="/overdue-invoice-follow-up-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Email to Professor About Late Work Generator</h3>
+<p>Generate a respectful email to a professor about late work, missing assignments, overdue coursework, or delayed submissions.</p>
+<a class="button" href="/email-to-professor-about-late-work-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Final Follow Up Email Generator</h3>
+<p>Generate a professional final follow up email when you have not received a response and want to send one last check-in message.</p>
+<a class="button" href="/final-follow-up-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Email Accepting Interview Invitation Generator</h3>
+<p>Generate a professional email accepting an interview invitation from a recruiter, hiring manager, or employer.</p>
+<a class="button" href="/email-accepting-interview-invitation-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Emergency Day Off Email Generator</h3>
+<p>Generate a professional emergency day off email for unexpected situations, family emergencies, illness, or urgent personal matters.</p>
+<a class="button" href="/emergency-day-off-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Quote Follow Up Email Generator</h3>
+<p>Generate a professional quote follow up email for clients, estimates, pricing, proposals, and unanswered sales conversations.</p>
+<a class="button" href="/quote-follow-up-email-generator.html">Open Tool</a>
+</div>
 </div>
 </section>
 
-<!-- CATEGORIES -->
-<section class="category" id="categories">
-<h2>Browse by Category</h2>
+<section class="category" id="apology-tools">
+<h2>Apology & Difficult Conversations</h2>
+<p class="category-intro">
+Tools for apology emails, missed meetings, late replies, delays, client apologies, and difficult professional conversations.
+</p>
 
 <div class="tools">
-
 <div class="tool-card">
-<h3>Apology & Difficult Conversations</h3>
-<p>Apologies, delays, missed deadlines, client issues.</p>
-<a class="button" href="/apology-generator.html">Explore</a>
+<h3>Professional Apology Email Generator</h3>
+<p>Write a professional apology email for work situations.</p>
+<a class="button" href="/professional-apology-email-generator.html">Open Tool</a>
 </div>
 
 <div class="tool-card">
-<h3>Job Search & Career</h3>
-<p>Interviews, offers, recruiter emails, follow-ups.</p>
-<a class="button" href="/interview-thank-you-email-generator.html">Explore</a>
+<h3>AI Apology Email Generator</h3>
+<p>Generate apology emails instantly with AI for work, personal, school, client, or professional situations.</p>
+<a class="button" href="/ai-apology-email-generator.html">Open Tool</a>
 </div>
 
 <div class="tool-card">
-<h3>School & Professor Emails</h3>
-<p>Assignments, absences, grades, meetings.</p>
-<a class="button" href="/email-to-professor-about-grades-generator.html">Explore</a>
+<h3>Apology Letter for Work Generator</h3>
+<p>Generate a professional apology letter for work mistakes, missed deadlines, or workplace issues in seconds.</p>
+<a class="button" href="/apology-letter-for-work-generator.html">Open Tool</a>
 </div>
 
 <div class="tool-card">
-<h3>Meetings & Scheduling</h3>
-<p>Requests, confirmations, reminders, follow-ups.</p>
-<a class="button" href="/meeting-request-email-generator.html">Explore</a>
+<h3>Client Delay Apology Email Generator</h3>
+<p>Generate a professional apology email to a client for delays in projects, timelines, responses, or deliverables.</p>
+<a class="button" href="/client-delay-apology-email-generator.html">Open Tool</a>
 </div>
 
 <div class="tool-card">
-<h3>Workplace Communication</h3>
-<p>Updates, PTO, feedback, internal communication.</p>
-<a class="button" href="/project-update-email-generator.html">Explore</a>
+<h3>Apology Generator</h3>
+<p>Generate thoughtful apologies for everyday situations.</p>
+<a class="button" href="/apology-generator.html">Open Tool</a>
 </div>
 
 <div class="tool-card">
-<h3>Clients & Business</h3>
-<p>Invoices, proposals, client follow-ups.</p>
-<a class="button" href="/client-follow-up-email-generator.html">Explore</a>
+<h3>Excuse Generator</h3>
+<p>Create believable excuses for late replies or missed events.</p>
+<a class="button" href="/excuse-generator.html">Open Tool</a>
+</div>
 </div>
 
+<div class="extra-tools tools" id="extra-apology">
+<div class="tool-card">
+<h3>Late Reply Apology Email Generator</h3>
+<p>Generate an apology email for replying late.</p>
+<a class="button" href="/late-reply-apology-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Missed Meeting Apology Email Generator</h3>
+<p>Generate a professional apology email for missing a meeting.</p>
+<a class="button" href="/missed-meeting-apology-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Apology Email to Boss Generator</h3>
+<p>Generate a professional apology email to your manager.</p>
+<a class="button" href="/apology-email-to-boss-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Customer Apology Email Generator</h3>
+<p>Generate a professional apology email to a customer.</p>
+<a class="button" href="/customer-apology-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Missed Deadline Apology Email Generator</h3>
+<p>Generate a professional apology email for missing a deadline.</p>
+<a class="button" href="/missed-deadline-apology-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Late Payment Apology Email Generator</h3>
+<p>Generate a professional apology email for late payment.</p>
+<a class="button" href="/late-payment-apology-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Apology Email to Client Generator</h3>
+<p>Generate a professional apology email to a client.</p>
+<a class="button" href="/apology-email-to-client-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Apology Email for Mistake Generator</h3>
+<p>Generate a professional apology email for a mistake at work, with accountability, clarity, and a plan to fix the issue.</p>
+<a class="button" href="/apology-email-for-mistake-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Apology Email for Delay Generator</h3>
+<p>Generate a professional apology email for delays involving projects, work, responses, orders, or deliverables.</p>
+<a class="button" href="/apology-email-for-delay-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Apology Letter to Teacher Generator</h3>
+<p>Generate a respectful apology letter to a teacher for missed assignments, behavior, lateness, or school issues.</p>
+<a class="button" href="/apology-letter-to-teacher-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Last Minute Excuse Generator</h3>
+<p>Generate believable last minute excuses for work, school, plans, events, or awkward situations in seconds.</p>
+<a class="button" href="/last-minute-excuse-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Apology Email for Inconvenience Generator</h3>
+<p>Generate a professional apology email for inconvenience caused to a client, customer, coworker, manager, or business contact.</p>
+<a class="button" href="/apology-email-for-inconvenience-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Miscommunication Apology Email Generator</h3>
+<p>Generate a professional apology email for miscommunication with a client, coworker, manager, customer, or team.</p>
+<a class="button" href="/miscommunication-apology-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Apology for Not Responding Email Generator</h3>
+<p>Generate a professional apology email for not responding sooner to a client, coworker, manager, recruiter, or business contact.</p>
+<a class="button" href="/apology-for-not-responding-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Sorry for the Delay Email Generator</h3>
+<p>Generate a professional sorry for the delay email for work, client communication, projects, responses, orders, or missed timelines.</p>
+<a class="button" href="/sorry-for-the-delay-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Apology Email for Confusion Generator</h3>
+<p>Generate a professional apology email for confusion caused by unclear communication, mixed messages, wrong details, or misunderstandings.</p>
+<a class="button" href="/apology-email-for-confusion-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Apology Email for Short Notice Generator</h3>
+<p>Generate a professional apology email for short notice changes, cancellations, requests, schedule updates, or last-minute communication.</p>
+<a class="button" href="/apology-email-for-short-notice-generator.html">Open Tool</a>
+</div>
+</div>
+
+<div class="toggle-wrap">
+<button class="toggle-button" type="button" data-target="extra-apology">Show more tools</button>
+</div>
+</section>
+
+<section class="category" id="job-career-tools">
+<h2>Job Search & Career</h2>
+<p class="category-intro">
+Tools for interviews, recruiters, job offers, referrals, applications, references, resignations, salary conversations, and career emails.
+</p>
+
+<div class="tools">
+<div class="tool-card">
+<h3>Interview Thank You Email Generator</h3>
+<p>Generate a professional interview thank you email after a job interview or hiring conversation.</p>
+<a class="button" href="/interview-thank-you-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Salary Negotiation Email Generator</h3>
+<p>Generate a professional salary negotiation email for job offers, raises, or compensation discussions.</p>
+<a class="button" href="/salary-negotiation-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Job Application Follow Up Email Generator</h3>
+<p>Generate a professional follow up email after applying for a job.</p>
+<a class="button" href="/job-application-follow-up-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Job Referral Request Email Generator</h3>
+<p>Generate a professional job referral request email to ask a contact, colleague, friend, or former coworker for a referral.</p>
+<a class="button" href="/job-referral-request-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Email Accepting Interview Invitation Generator</h3>
+<p>Generate a professional email accepting an interview invitation from a recruiter, hiring manager, or employer.</p>
+<a class="button" href="/email-accepting-interview-invitation-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Follow Up Email After Interview No Response Generator</h3>
+<p>Generate a professional follow up email after an interview when you have not received a response from the recruiter, hiring manager, or employer.</p>
+<a class="button" href="/follow-up-email-after-interview-no-response-generator.html">Open Tool</a>
+</div>
+</div>
+
+<div class="extra-tools tools" id="extra-job">
+<div class="tool-card">
+<h3>Thank You Email Generator</h3>
+<p>Generate a thoughtful thank you email for interviews, meetings, networking, or professional situations.</p>
+<a class="button" href="/thank-you-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Raise Request Email Generator</h3>
+<p>Generate a professional raise request email to ask for a salary increase respectfully and clearly.</p>
+<a class="button" href="/raise-request-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Job Offer Rejection Email Generator</h3>
+<p>Generate a professional email to politely decline a job offer while maintaining a good relationship.</p>
+<a class="button" href="/job-offer-rejection-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Reference Request Email Generator</h3>
+<p>Generate a professional reference request email for jobs, promotions, school applications, or career opportunities.</p>
+<a class="button" href="/reference-request-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Resignation Letter Generator</h3>
+<p>Generate a professional resignation letter or resignation email for giving notice and leaving a job respectfully.</p>
+<a class="button" href="/resignation-letter-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Job Inquiry Email Generator</h3>
+<p>Generate a professional job inquiry email to ask about openings, express interest, or contact a recruiter or hiring manager.</p>
+<a class="button" href="/job-inquiry-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Job Acceptance Email Generator</h3>
+<p>Generate a professional email to accept a job offer.</p>
+<a class="button" href="/job-acceptance-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Recruiter Outreach Email Generator</h3>
+<p>Generate a professional recruiter outreach email for job opportunities, introductions, and career conversations.</p>
+<a class="button" href="/recruiter-outreach-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Follow Up Email After Phone Interview Generator</h3>
+<p>Generate a professional follow up email after a phone interview with a recruiter, hiring manager, or employer.</p>
+<a class="button" href="/follow-up-email-after-phone-interview-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Interview Confirmation Email Generator</h3>
+<p>Generate a professional email confirming an interview with a recruiter, hiring manager, or employer.</p>
+<a class="button" href="/interview-confirmation-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Interview Reschedule Email Generator</h3>
+<p>Generate a professional email to reschedule an interview with a recruiter, hiring manager, or employer.</p>
+<a class="button" href="/interview-reschedule-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Email to Recruiter After Applying Generator</h3>
+<p>Generate a professional email to a recruiter after applying for a job to express interest, follow up, and keep your application top of mind.</p>
+<a class="button" href="/email-to-recruiter-after-applying-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Withdrawal of Application Email Generator</h3>
+<p>Generate a professional withdrawal of application email to a recruiter, hiring manager, or employer when you need to step back from a job process.</p>
+<a class="button" href="/withdrawal-of-application-email-generator.html">Open Tool</a>
+</div>
+</div>
+
+<div class="toggle-wrap">
+<button class="toggle-button" type="button" data-target="extra-job">Show more tools</button>
+</div>
+</section>
+
+<section class="category" id="school-tools">
+<h2>School & Professor Emails</h2>
+<p class="category-intro">
+Tools for professors, assignments, extensions, missed class, grades, office hours, and respectful academic communication.
+</p>
+
+<div class="tools">
+<div class="tool-card">
+<h3>Late Assignment Email to Professor Generator</h3>
+<p>Generate a respectful late assignment email to a professor for missed deadlines, overdue homework, projects, essays, or coursework.</p>
+<a class="button" href="/late-assignment-email-to-professor-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Extension Request Email to Professor Generator</h3>
+<p>Generate a respectful extension request email to a professor for essays, projects, homework, exams, or other college assignments.</p>
+<a class="button" href="/extension-request-email-to-professor-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Email to Professor About Grades Generator</h3>
+<p>Generate a respectful email to a professor about grades, grading questions, score concerns, or academic clarification.</p>
+<a class="button" href="/email-to-professor-about-grades-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Email to Professor Requesting Meeting Generator</h3>
+<p>Generate a respectful email to a professor requesting a meeting, office hours appointment, or academic discussion.</p>
+<a class="button" href="/email-to-professor-requesting-meeting-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Late Submission Email Generator</h3>
+<p>Generate a professional late submission email for work, school, assignments, reports, projects, or missed deliverables.</p>
+<a class="button" href="/late-submission-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Email to Professor for Missed Class Generator</h3>
+<p>Generate a respectful email to a professor for missing class due to illness, an emergency, travel, or another academic situation.</p>
+<a class="button" href="/email-to-professor-for-missed-class-generator.html">Open Tool</a>
+</div>
+</div>
+
+<div class="extra-tools tools" id="extra-school">
+<div class="tool-card">
+<h3>Missed Exam Email to Professor Generator</h3>
+<p>Generate a respectful missed exam email to a professor for illness, emergencies, scheduling problems, or other academic situations.</p>
+<a class="button" href="/missed-exam-email-to-professor-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Email to Professor About Absence Generator</h3>
+<p>Generate a respectful email to a professor about an absence from class due to illness, emergencies, travel, or other academic situations.</p>
+<a class="button" href="/email-to-professor-about-absence-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Email to Professor About Late Work Generator</h3>
+<p>Generate a respectful email to a professor about late work, missing assignments, overdue coursework, or delayed submissions.</p>
+<a class="button" href="/email-to-professor-about-late-work-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Thank You Email to Professor Generator</h3>
+<p>Generate a respectful thank you email to a professor for help, feedback, recommendations, office hours, mentorship, or academic support.</p>
+<a class="button" href="/thank-you-email-to-professor-generator.html">Open Tool</a>
+</div>
+</div>
+
+<div class="toggle-wrap">
+<button class="toggle-button" type="button" data-target="extra-school">Show more tools</button>
+</div>
+</section>
+
+<section class="category" id="meetings-tools">
+<h2>Meetings & Scheduling</h2>
+<p class="category-intro">
+Tools for follow ups, reminders, check-ins, agenda emails, meeting requests, rescheduling, confirmations, and time-sensitive communication.
+</p>
+
+<div class="tools">
+<div class="tool-card">
+<h3>Follow Up Email Generator</h3>
+<p>Generate a professional follow up email after meetings, interviews, proposals, or unanswered messages.</p>
+<a class="button" href="/follow-up-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Meeting Request Email Generator</h3>
+<p>Generate a professional email requesting a meeting with a client, manager, coworker, or business contact.</p>
+<a class="button" href="/meeting-request-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Reschedule Meeting Email Generator</h3>
+<p>Generate a professional email to reschedule a meeting with a client, coworker, manager, or business contact.</p>
+<a class="button" href="/reschedule-meeting-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Thank You Email After Meeting Generator</h3>
+<p>Generate a professional thank you email after a meeting with a client, manager, coworker, recruiter, or business contact.</p>
+<a class="button" href="/thank-you-email-after-meeting-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Email Asking for Update Generator</h3>
+<p>Generate a polite email asking for an update on projects, proposals, applications, and professional conversations.</p>
+<a class="button" href="/email-asking-for-update-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Final Follow Up Email Generator</h3>
+<p>Generate a professional final follow up email when you have not received a response and want to send one last check-in message.</p>
+<a class="button" href="/final-follow-up-email-generator.html">Open Tool</a>
+</div>
+</div>
+
+<div class="extra-tools tools" id="extra-meetings">
+<div class="tool-card">
+<h3>Reminder Email Generator</h3>
+<p>Generate a professional reminder email for payments, meetings, deadlines, tasks, or follow ups.</p>
+<a class="button" href="/reminder-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Polite Reminder Email Generator</h3>
+<p>Generate a polite reminder email for deadlines, payments, tasks, meetings, and business communication.</p>
+<a class="button" href="/polite-reminder-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Check-In Email Generator</h3>
+<p>Generate a professional check-in email for clients, coworkers, managers, or business contacts.</p>
+<a class="button" href="/check-in-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Follow Up After No Response Generator</h3>
+<p>Generate a professional follow up email after no response from a client, recruiter, manager, or business contact.</p>
+<a class="button" href="/follow-up-after-no-response-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Out of Office Message Generator</h3>
+<p>Generate a professional out of office message or automatic email reply for vacations, leave, travel, or time away from work.</p>
+<a class="button" href="/out-of-office-message-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Meeting Agenda Email Generator</h3>
+<p>Generate a professional meeting agenda email for clients, teams, managers, and business meetings.</p>
+<a class="button" href="/meeting-agenda-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Meeting Follow Up Email Generator</h3>
+<p>Generate a professional meeting follow up email with recap notes, next steps, and action items.</p>
+<a class="button" href="/meeting-follow-up-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Decline Meeting Email Generator</h3>
+<p>Generate a polite and professional email to decline a meeting request.</p>
+<a class="button" href="/decline-meeting-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Second Follow Up Email After No Response Generator</h3>
+<p>Generate a professional second follow up email when your first message did not get a response.</p>
+<a class="button" href="/second-follow-up-email-after-no-response-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Meeting Cancellation Email Generator</h3>
+<p>Generate a polite and professional email to cancel a meeting while preserving the relationship.</p>
+<a class="button" href="/meeting-cancellation-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Meeting Confirmation Email Generator</h3>
+<p>Generate a professional email to confirm a meeting time, date, and purpose.</p>
+<a class="button" href="/meeting-confirmation-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Availability Email Generator</h3>
+<p>Generate a professional email sharing your availability for meetings, interviews, appointments, or calls.</p>
+<a class="button" href="/availability-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Schedule an Appointment Email Generator</h3>
+<p>Generate a professional email to schedule an appointment, consultation, meeting, or service.</p>
+<a class="button" href="/schedule-an-appointment-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Unable to Attend Meeting Email Generator</h3>
+<p>Generate a professional email explaining that you are unable to attend a meeting and need to decline, apologize, or suggest next steps.</p>
+<a class="button" href="/unable-to-attend-meeting-email-generator.html">Open Tool</a>
+</div>
+</div>
+
+<div class="toggle-wrap">
+<button class="toggle-button" type="button" data-target="extra-meetings">Show more tools</button>
+</div>
+</section>
+
+<section class="category" id="workplace-tools">
+<h2>Workplace & Team Communication</h2>
+<p class="category-intro">
+Tools for updates, feedback, attendance, lateness, time-off requests, internal communication, and team management emails.
+</p>
+
+<div class="tools">
+<div class="tool-card">
+<h3>Project Update Email Generator</h3>
+<p>Generate a professional project update email for clients, managers, coworkers, or stakeholders.</p>
+<a class="button" href="/project-update-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>PTO Request Email Generator</h3>
+<p>Generate a professional PTO request email to ask for time off from work clearly and respectfully.</p>
+<a class="button" href="/pto-request-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Professional Email Rewrite Generator</h3>
+<p>Rewrite a rough email draft into a polished, clear, and professional message.</p>
+<a class="button" href="/professional-email-rewrite-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Call Out of Work Email Generator</h3>
+<p>Generate a professional call out of work email for illness, emergencies, family issues, or unexpected personal situations.</p>
+<a class="button" href="/call-out-of-work-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Request for Feedback Email Generator</h3>
+<p>Generate a professional email requesting feedback from a client, manager, coworker, customer, or business contact.</p>
+<a class="button" href="/request-for-feedback-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Make My Email More Professional Generator</h3>
+<p>Paste a rough email and instantly rewrite it to sound more polished, respectful, and professional.</p>
+<a class="button" href="/make-my-email-more-professional-generator.html">Open Tool</a>
+</div>
+</div>
+
+<div class="extra-tools tools" id="extra-workplace">
+<div class="tool-card">
+<h3>Feedback Request Email Generator</h3>
+<p>Generate a professional email asking for feedback from clients, customers, managers, or coworkers.</p>
+<a class="button" href="/feedback-request-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Deadline Extension Email Generator</h3>
+<p>Generate a professional email asking for a deadline extension for work, school, projects, or deliverables.</p>
+<a class="button" href="/deadline-extension-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Email Asking for Clarification Generator</h3>
+<p>Generate a polite email asking for clarification about instructions, requests, deadlines, tasks, or project details.</p>
+<a class="button" href="/email-asking-for-clarification-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Sick Day Email Generator</h3>
+<p>Generate a professional sick day email for work when you need to call out or notify your manager.</p>
+<a class="button" href="/sick-day-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Work From Home Request Email Generator</h3>
+<p>Generate a professional work from home request email for managers, supervisors, or HR.</p>
+<a class="button" href="/work-from-home-request-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Internal Announcement Email Generator</h3>
+<p>Generate a professional internal announcement email for teams, departments, company updates, and workplace communication.</p>
+<a class="button" href="/internal-announcement-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Employee Warning Email Generator</h3>
+<p>Generate a professional employee warning email for performance, attendance, policy, or workplace conduct issues.</p>
+<a class="button" href="/employee-warning-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Performance Review Email Generator</h3>
+<p>Generate a professional performance review email for employees, managers, feedback, and workplace evaluations.</p>
+<a class="button" href="/performance-review-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Work Excuse Generator</h3>
+<p>Generate believable work excuses for being late, missing work, needing time off, or workplace situations.</p>
+<a class="button" href="/work-excuse-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Running Late Email Generator</h3>
+<p>Generate a professional running late email for work, meetings, interviews, appointments, or other time-sensitive situations.</p>
+<a class="button" href="/running-late-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Absent From Work Email Generator</h3>
+<p>Generate a professional absent from work email for illness, emergencies, family issues, or unexpected time away from work.</p>
+<a class="button" href="/absent-from-work-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Cannot Make It to Work Email Generator</h3>
+<p>Generate a professional cannot make it to work email for illness, emergencies, transportation issues, or unexpected absences.</p>
+<a class="button" href="/cannot-make-it-to-work-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Late to Work Email Generator</h3>
+<p>Generate a professional late to work email for traffic, emergencies, transportation issues, childcare, or other unexpected delays.</p>
+<a class="button" href="/late-to-work-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Emergency Day Off Email Generator</h3>
+<p>Generate a professional emergency day off email for unexpected situations, family emergencies, illness, or urgent personal matters.</p>
+<a class="button" href="/emergency-day-off-email-generator.html">Open Tool</a>
+</div>
+</div>
+
+<div class="toggle-wrap">
+<button class="toggle-button" type="button" data-target="extra-workplace">Show more tools</button>
+</div>
+</section>
+
+<section class="category" id="client-tools">
+<h2>Clients, Sales & Finance</h2>
+<p class="category-intro">
+Tools for client communication, invoices, proposals, demos, delays, contracts, refunds, cancellations, vendor coordination, and business finance emails.
+</p>
+
+<div class="tools">
+<div class="tool-card">
+<h3>Client Follow Up Email Generator</h3>
+<p>Generate a professional client follow up email for proposals, projects, check-ins, unanswered messages, and business communication.</p>
+<a class="button" href="/client-follow-up-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Payment Reminder Email Generator</h3>
+<p>Generate a professional payment reminder email for clients, customers, invoices, and overdue balances.</p>
+<a class="button" href="/payment-reminder-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Quote Follow Up Email Generator</h3>
+<p>Generate a professional quote follow up email for clients, estimates, pricing, proposals, and unanswered sales conversations.</p>
+<a class="button" href="/quote-follow-up-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Overdue Invoice Follow Up Email Generator</h3>
+<p>Generate a professional overdue invoice follow up email to request payment while maintaining a strong client relationship.</p>
+<a class="button" href="/overdue-invoice-follow-up-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Proposal Rejection Email Generator</h3>
+<p>Generate a professional proposal rejection email to decline a quote, estimate, bid, or business proposal respectfully.</p>
+<a class="button" href="/proposal-rejection-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Follow Up Email After Demo Generator</h3>
+<p>Generate a professional follow up email after a demo call, product demo, software walkthrough, or sales presentation.</p>
+<a class="button" href="/follow-up-email-after-demo-generator.html">Open Tool</a>
+</div>
+</div>
+
+<div class="extra-tools tools" id="extra-client">
+<div class="tool-card">
+<h3>Invoice Reminder Email Generator</h3>
+<p>Generate a professional invoice reminder email for overdue or upcoming payments.</p>
+<a class="button" href="/invoice-reminder-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Project Delay Email Generator</h3>
+<p>Generate a professional project delay email for clients, managers, teams, or stakeholders.</p>
+<a class="button" href="/project-delay-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Proposal Follow Up Email Generator</h3>
+<p>Generate a professional proposal follow up email after sending a proposal, quote, or estimate.</p>
+<a class="button" href="/proposal-follow-up-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Contract Renewal Email Generator</h3>
+<p>Generate a professional contract renewal email for clients, vendors, freelancers, or business agreements.</p>
+<a class="button" href="/contract-renewal-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Vendor Email Generator</h3>
+<p>Generate a professional vendor email for orders, updates, requests, delays, pricing, and business communication.</p>
+<a class="button" href="/vendor-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Refund Request Email Generator</h3>
+<p>Generate a professional refund request email for orders, services, subscriptions, or purchases.</p>
+<a class="button" href="/refund-request-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Service Cancellation Email Generator</h3>
+<p>Generate a professional service cancellation email for subscriptions, memberships, contracts, or services.</p>
+<a class="button" href="/service-cancellation-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Follow Up Email After Proposal Generator</h3>
+<p>Generate a professional follow up email after sending a proposal, estimate, quote, or business offer.</p>
+<a class="button" href="/follow-up-email-after-proposal-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Follow Up Email After Sales Call Generator</h3>
+<p>Generate a professional follow up email after a sales call with recap notes, next steps, and client follow through.</p>
+<a class="button" href="/follow-up-email-after-sales-call-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Follow Up Email After No Response From Client Generator</h3>
+<p>Generate a professional follow up email after no response from a client about a proposal, project, payment, quote, or unanswered message.</p>
+<a class="button" href="/follow-up-email-after-no-response-from-client-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Payment Plan Request Email Generator</h3>
+<p>Generate a professional payment plan request email for bills, invoices, balances, services, tuition, or other overdue payments.</p>
+<a class="button" href="/payment-plan-request-email-generator.html">Open Tool</a>
+</div>
+</div>
+
+<div class="toggle-wrap">
+<button class="toggle-button" type="button" data-target="extra-client">Show more tools</button>
+</div>
+</section>
+
+<section class="category" id="outreach-tools">
+<h2>Outreach & Introductions</h2>
+<p class="category-intro">
+Tools for networking, cold outreach, first-contact emails, business introductions, and partnership opportunities.
+</p>
+
+<div class="tools">
+<div class="tool-card">
+<h3>Networking Email Generator</h3>
+<p>Generate a professional networking email for introductions, outreach, follow-ups, and career conversations.</p>
+<a class="button" href="/networking-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Cold Email Generator</h3>
+<p>Generate a professional cold email for outreach, introductions, sales, partnerships, or business opportunities.</p>
+<a class="button" href="/cold-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Business Introduction Email Generator</h3>
+<p>Generate a professional business introduction email for new clients, partnerships, networking, or first-time outreach.</p>
+<a class="button" href="/business-introduction-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Partnership Outreach Email Generator</h3>
+<p>Generate a professional partnership outreach email for collaborations, strategic partnerships, and business opportunities.</p>
+<a class="button" href="/partnership-outreach-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Introduction Email Generator</h3>
+<p>Generate a professional introduction email for business, networking, job search, or first-time outreach situations.</p>
+<a class="button" href="/introduction-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Follow Up Email After Networking Event Generator</h3>
+<p>Generate a professional follow up email after a networking event, conference, meetup, or business introduction.</p>
+<a class="button" href="/follow-up-email-after-networking-event-generator.html">Open Tool</a>
+</div>
 </div>
 </section>
 
 </div>
+
+<section class="seo-section">
+<h2>AI Tools for Writing Emails, Apologies, and Professional Messages</h2>
+<p>
+ToolChestLab is a growing collection of AI-powered generators designed to help you write difficult messages faster. Whether you are apologizing for a late reply, asking for a raise, following up after an interview, requesting PTO, reminding a client about payment, emailing a professor, or writing a professional business message, these tools help you find the right wording quickly. Browse tools like the <a href="/professional-apology-email-generator.html">Professional Apology Email Generator</a>, <a href="/follow-up-email-generator.html">Follow Up Email Generator</a>, <a href="/salary-negotiation-email-generator.html">Salary Negotiation Email Generator</a>, <a href="/payment-reminder-email-generator.html">Payment Reminder Email Generator</a>, and <a href="/email-to-professor-about-grades-generator.html">Email to Professor About Grades Generator</a>.
+</p>
+<p>
+Instead of staring at a blank message, describe your situation and the tool will generate a clear starting point you can edit to match your voice. Each page is built around a specific real-world communication problem, which makes ToolChestLab useful for work, business, job search, sales, school, management, client communication, and everyday professional life.
+</p>
+</section>
+
+<section class="seo-section">
+<h2>Why ToolChestLab Exists</h2>
+<p>
+Writing the right message is not always easy. A quick apology, a delayed response, a job search email, a payment follow up, a meeting request, a professor email, or a difficult work conversation can take longer than it should.
+</p>
+<p>
+ToolChestLab is built to make those moments easier with practical communication tools you can use immediately and customize to your situation.
+</p>
+</section>
 
 <footer>
 <p>© ToolChestLab</p>
@@ -322,6 +1317,80 @@ header h1{font-size:2rem;}
 <a href="/sitemap.xml">Sitemap</a>
 </p>
 </footer>
+
+<script>
+const searchInput = document.getElementById("toolSearch");
+
+searchInput.addEventListener("input", function(){
+  const query = searchInput.value.toLowerCase().trim();
+  const categories = document.querySelectorAll(".category");
+
+  categories.forEach(category => {
+    const cards = category.querySelectorAll(".tool-card");
+    const popularItems = category.querySelectorAll(".popular-tools li");
+    const toggleWrap = category.querySelector(".toggle-wrap");
+
+    let hasVisible = false;
+
+    if(cards.length > 0){
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        if(text.includes(query)){
+          card.style.display = "";
+          hasVisible = true;
+        }else{
+          card.style.display = "none";
+        }
+      });
+    }
+
+    if(popularItems.length > 0){
+      popularItems.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        if(text.includes(query)){
+          item.style.display = "";
+          hasVisible = true;
+        }else{
+          item.style.display = "none";
+        }
+      });
+    }
+
+    if(toggleWrap){
+      toggleWrap.style.display = query === "" ? "" : "none";
+    }
+
+    if(query === ""){
+      category.style.display = "";
+    }else{
+      category.style.display = hasVisible ? "" : "none";
+    }
+  });
+});
+
+const toggleButtons = document.querySelectorAll(".toggle-button");
+
+toggleButtons.forEach(button => {
+  button.addEventListener("click", function(){
+    const targetId = this.getAttribute("data-target");
+    const target = document.getElementById(targetId);
+
+    if(!target){
+      return;
+    }
+
+    const isOpen = target.classList.contains("is-open");
+
+    if(isOpen){
+      target.classList.remove("is-open");
+      this.innerText = "Show more tools";
+    }else{
+      target.classList.add("is-open");
+      this.innerText = "Show fewer tools";
+    }
+  });
+});
+</script>
 
 </body>
 </html>
