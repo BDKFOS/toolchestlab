@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PTO Request Email Generator | ToolChestLab</title>
+<meta name="description" content="Generate a professional PTO request email to ask for time off from work clearly and respectfully.">
+<link rel="canonical" href="https://www.toolchestlab.com/pto-request-email-generator.html">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WLQ0YR217T');
+</script>
+
+<style>
+*{box-sizing:border-box;}
+body{
+font-family:Arial,sans-serif;
+color:#222;
+margin:0;
+padding:40px 20px;
+background-color:#eef4fb;
+background-image:
+linear-gradient(rgba(50,90,140,0.10) 1px, transparent 1px),
+linear-gradient(90deg, rgba(50,90,140,0.10) 1px, transparent 1px);
+background-size:32px 32px;
+}
+.page-wrap{max-width:760px;margin:0 auto;}
+.back-link{
+display:inline-block;
+margin-bottom:18px;
+color:#0070f3;
+text-decoration:none;
+font-size:15px;
+}
+.container{
+background:white;
+padding:30px;
+border-radius:12px;
+border:1px solid #e5e5e5;
+box-shadow:0 8px 24px rgba(0,0,0,0.10);
+}
+h1{margin-top:0;margin-bottom:10px;}
+h2{margin-top:0;}
+p{line-height:1.7;}
+label{
+display:block;
+margin-top:10px;
+margin-bottom:8px;
+font-weight:bold;
+text-align:left;
+}
+textarea,select,input,button{
+width:100%;
+margin-bottom:20px;
+padding:12px;
+font-size:16px;
+border-radius:8px;
+}
+textarea,select,input{border:1px solid #d9d9d9;}
+button{
+background:#0070f3;
+color:white;
+border:none;
+cursor:pointer;
+}
+button:hover{background:#0059c7;}
+#result{
+margin-top:20px;
+text-align:left;
+white-space:pre-wrap;
+background:#fafafa;
+padding:20px;
+border-radius:8px;
+min-height:120px;
+border:1px solid #ececec;
+line-height:1.6;
+}
+.info-section{margin-top:40px;}
+.related-tools{margin-top:40px;padding-top:10px;}
+.related-tools ul{padding-left:20px;line-height:1.8;}
+.related-tools a{color:#0070f3;text-decoration:none;}
+.related-tools a:hover,.back-link:hover{text-decoration:underline;}
+@media (max-width:700px){
+body{padding:20px 14px;}
+.container{padding:22px;}
+}
+</style>
+</head>
+
+<body>
+<div class="page-wrap">
+<a class="back-link" href="/">â† Back to ToolChestLab</a>
+
+<div class="container">
+<h1>PTO Request Email Generator</h1>
+<p>Generate a professional PTO request email in seconds.</p>
+
+<label for="recipient">Who is the email for?</label>
+<select id="recipient">
+<option>Manager</option>
+<option>Boss</option>
+<option>HR</option>
+<option>Supervisor</option>
+<option>Team Lead</option>
+<option>Other</option>
+</select>
+
+<label for="tone">Tone</label>
+<select id="tone">
+<option>Professional</option>
+<option>Respectful</option>
+<option>Formal</option>
+<option>Concise</option>
+</select>
+
+<label for="context">What are the PTO request details?</label>
+<textarea id="context" rows="5" placeholder="Example: I want to request PTO from July 8 through July 12 and mention that my current tasks will be covered before I leave."></textarea>
+
+<label for="name">Your name (optional)</label>
+<input id="name" type="text" placeholder="Example: Jesse">
+
+<button onclick="generateEmail()">Generate Email</button>
+
+<div id="result" aria-live="polite">Your generated PTO request email will appear here.</div>
+
+<button onclick="copyResult()">Copy Email</button>
+<button onclick="generateEmail()">Regenerate</button>
+
+<div class="info-section">
+<hr style="margin:40px 0;">
+<h2>How do you ask for PTO professionally?</h2>
+<p>
+A good PTO request email should be clear, respectful, and easy to approve. The
+best messages state the dates requested, give enough notice, and show that work
+coverage or planning has been considered.
+</p>
+<p>
+This PTO request email generator helps you create professional time-off requests
+for managers, HR, supervisors, and other workplace situations.
+</p>
+<p>
+Describe the dates and context, choose the tone you want, and the tool will
+generate a PTO request email you can send right away or edit as needed.
+</p>
+</div>
+
+<div class="related-tools">
+<h2>Related Tools</h2>
+<ul>
+<li><a href="/sick-day-email-generator.html">Sick Day Email Generator</a></li>
+<li><a href="/work-from-home-request-email-generator.html">Work From Home Request Email Generator</a></li>
+<li><a href="/out-of-office-message-generator.html">Out of Office Message Generator</a></li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<script>
+async function generateEmail(){
+const context=document.getElementById("context").value;
+const tone=document.getElementById("tone").value;
+const recipient=document.getElementById("recipient").value;
+const name=document.getElementById("name").value;
+const result=document.getElementById("result");
+
+if(!context.trim()){
+result.innerText="Please describe the PTO request.";
+return;
+}
+
+result.innerText="Generating...";
+
+const prompt=`Write a ${tone.toLowerCase()} PTO request email to a ${recipient}.
+
+Situation:
+${context}
+
+Requirements:
+- Include a subject line
+- Clearly state the requested time off
+- Sound respectful and professional
+- Mention planning or coverage if relevant
+- End politely
+
+Signed:
+${name || "Sender"}`;
+
+try{
+const response=await fetch("/api/generate",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({prompt})
+});
+const data=if (!response.ok) {
+  result.innerText = "Something went wrong. Please try again.";
+  return;
+}
+
+await response.json();
+result.innerText=data.message || "Something went wrong. Please try again.";
+}catch(error){
+result.innerText="Error generating email. Please try again.";
+}
+}
+
+function copyResult(){
+const text=document.getElementById("result").innerText;
+navigator.clipboard.writeText(text).then(()=>{alert("Copied to clipboard!");});
+}
+</script>
+
+</body>
+</html>
+

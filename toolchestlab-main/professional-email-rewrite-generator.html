@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Professional Email Rewrite Generator | ToolChestLab</title>
+<meta name="description" content="Paste any rough draft and instantly rewrite it into a clear, polished, professional email.">
+<link rel="canonical" href="https://www.toolchestlab.com/professional-email-rewrite-generator.html">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WLQ0YR217T');
+</script>
+
+<style>
+*{
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,sans-serif;
+color:#222;
+margin:0;
+padding:40px 20px;
+background-color:#eef4fb;
+background-image:
+linear-gradient(rgba(50,90,140,0.10) 1px, transparent 1px),
+linear-gradient(90deg, rgba(50,90,140,0.10) 1px, transparent 1px);
+background-size:32px 32px;
+}
+
+.page-wrap{
+max-width:760px;
+margin:0 auto;
+}
+
+.back-link{
+display:inline-block;
+margin-bottom:18px;
+color:#0070f3;
+text-decoration:none;
+font-size:15px;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:12px;
+border:1px solid #e5e5e5;
+box-shadow:0 8px 24px rgba(0,0,0,0.10);
+}
+
+h1{
+margin-top:0;
+margin-bottom:10px;
+}
+
+h2{
+margin-top:0;
+}
+
+p{
+line-height:1.7;
+}
+
+label{
+display:block;
+margin-top:10px;
+margin-bottom:8px;
+font-weight:bold;
+text-align:left;
+}
+
+textarea,select,input,button{
+width:100%;
+margin-bottom:20px;
+padding:12px;
+font-size:16px;
+border-radius:8px;
+}
+
+textarea,select,input{
+border:1px solid #d9d9d9;
+}
+
+button{
+background:#0070f3;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+button:hover{
+background:#0059c7;
+}
+
+#result{
+margin-top:20px;
+text-align:left;
+white-space:pre-wrap;
+background:#fafafa;
+padding:20px;
+border-radius:8px;
+min-height:120px;
+border:1px solid #ececec;
+line-height:1.6;
+}
+
+.info-section{
+margin-top:40px;
+}
+
+.related-tools{
+margin-top:40px;
+padding-top:10px;
+}
+
+.related-tools ul{
+padding-left:20px;
+line-height:1.8;
+}
+
+.related-tools a{
+color:#0070f3;
+text-decoration:none;
+}
+
+.related-tools a:hover,
+.back-link:hover{
+text-decoration:underline;
+}
+
+@media (max-width:700px){
+
+body{
+padding:20px 14px;
+}
+
+.container{
+padding:22px;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="page-wrap">
+
+<a class="back-link" href="/">â† Back to ToolChestLab</a>
+
+<div class="container">
+
+<h1>Professional Email Rewrite Generator</h1>
+<p>Paste any rough email draft and instantly rewrite it professionally.</p>
+
+<label for="tone">Tone</label>
+<select id="tone">
+<option>Professional</option>
+<option>Formal</option>
+<option>Warm</option>
+<option>Concise</option>
+<option>Confident</option>
+</select>
+
+<label for="goal">What should the rewrite do?</label>
+<select id="goal">
+<option>Make it more professional</option>
+<option>Make it clearer</option>
+<option>Make it more concise</option>
+<option>Make it more polite</option>
+<option>Make it more confident</option>
+</select>
+
+<label for="context">Paste your draft email</label>
+<textarea id="context" rows="8" placeholder="Example: hey just checking if you saw my last email because i need to know whatâ€™s going on with this project"></textarea>
+
+<label for="name">Your name (optional)</label>
+<input id="name" type="text" placeholder="Example: Jesse">
+
+<button onclick="generateEmail()">Rewrite Email</button>
+
+<div id="result" aria-live="polite">Your rewritten email will appear here.</div>
+
+<button onclick="copyResult()">Copy Email</button>
+<button onclick="generateEmail()">Rewrite Again</button>
+
+<div class="info-section">
+
+<hr style="margin:40px 0;">
+
+<h2>How do you rewrite an email professionally?</h2>
+
+<p>
+A professional email rewrite should improve clarity, tone, and structure without
+changing the main message. The goal is to make the email sound polished, natural,
+and appropriate for work or business communication.
+</p>
+
+<p>
+The strongest rewrites remove vague wording, awkward phrasing, and unnecessary
+emotion while keeping the original intent. A cleaner email is easier to read and
+usually gets a better response.
+</p>
+
+<p>
+Paste your draft, choose the tone and rewrite goal, and this tool will turn it
+into a more professional email that is ready to send or edit further.
+</p>
+
+</div>
+
+<div class="related-tools">
+
+<h2>Related Tools</h2>
+
+<ul>
+<li><a href="/introduction-email-generator.html">Introduction Email Generator</a></li>
+<li><a href="/email-asking-for-clarification-generator.html">Email Asking for Clarification Generator</a></li>
+<li><a href="/follow-up-email-generator.html">Follow Up Email Generator</a></li>
+</ul>
+
+</div>
+
+</div>
+</div>
+
+<script>
+
+async function generateEmail(){
+
+const context=document.getElementById("context").value;
+const tone=document.getElementById("tone").value;
+const goal=document.getElementById("goal").value;
+const name=document.getElementById("name").value;
+const result=document.getElementById("result");
+
+if(!context.trim()){
+result.innerText="Please paste your email draft.";
+return;
+}
+
+result.innerText="Generating...";
+
+const prompt=`Rewrite the email draft below in a ${tone.toLowerCase()} tone.
+
+Rewrite goal:
+${goal}
+
+Draft email:
+${context}
+
+Requirements:
+- Include a subject line if appropriate
+- Keep the original intent
+- Improve clarity and professionalism
+- Make the writing sound natural, not robotic
+- End politely
+- Sign it as ${name || "Sender"} if a sign-off makes sense`;
+
+try{
+
+const response=await fetch("/api/generate",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({prompt})
+});
+
+const data=if (!response.ok) {
+  result.innerText = "Something went wrong. Please try again.";
+  return;
+}
+
+await response.json();
+
+if(data.message){
+result.innerText=data.message;
+}else{
+result.innerText="Something went wrong. Please try again.";
+}
+
+}catch(error){
+result.innerText="Error rewriting email. Please try again.";
+}
+
+}
+
+function copyResult(){
+
+const text=document.getElementById("result").innerText;
+
+navigator.clipboard.writeText(text).then(()=>{
+alert("Copied to clipboard!");
+});
+
+}
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reminder Email Generator | ToolChestLab</title>
+<meta name="description" content="Generate a professional reminder email for payments, meetings, deadlines, tasks, or follow ups.">
+<link rel="canonical" href="https://www.toolchestlab.com/reminder-email-generator.html">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WLQ0YR217T');
+</script>
+
+<style>
+*{box-sizing:border-box;}
+
+body{
+font-family:Arial,sans-serif;
+color:#222;
+margin:0;
+padding:40px 20px;
+
+background-color:#eef4fb;
+
+background-image:
+linear-gradient(rgba(50,90,140,0.10) 1px, transparent 1px),
+linear-gradient(90deg, rgba(50,90,140,0.10) 1px, transparent 1px);
+
+background-size:32px 32px;
+}
+
+.page-wrap{
+max-width:760px;
+margin:0 auto;
+}
+
+.back-link{
+display:inline-block;
+margin-bottom:18px;
+color:#0070f3;
+text-decoration:none;
+font-size:15px;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:12px;
+border:1px solid #e5e5e5;
+box-shadow:0 8px 24px rgba(0,0,0,0.10);
+}
+
+label{
+display:block;
+margin-top:10px;
+margin-bottom:8px;
+font-weight:bold;
+text-align:left;
+}
+
+textarea,select,input,button{
+width:100%;
+margin-bottom:20px;
+padding:12px;
+font-size:16px;
+border-radius:8px;
+}
+
+textarea,select,input{
+border:1px solid #d9d9d9;
+}
+
+button{
+background:#0070f3;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+button:hover{
+background:#0059c7;
+}
+
+#result{
+margin-top:20px;
+text-align:left;
+white-space:pre-wrap;
+background:#fafafa;
+padding:20px;
+border-radius:8px;
+min-height:120px;
+border:1px solid #ececec;
+line-height:1.6;
+}
+
+.info-section{
+margin-top:40px;
+}
+
+.related-tools ul{
+padding-left:20px;
+line-height:1.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="page-wrap">
+
+<a class="back-link" href="/">â† Back to ToolChestLab</a>
+
+<div class="container">
+
+<h1>Reminder Email Generator</h1>
+<p>Generate a professional reminder email in seconds.</p>
+
+<label for="recipient">Who is the reminder for?</label>
+<select id="recipient">
+<option>Client</option>
+<option>Coworker</option>
+<option>Manager</option>
+<option>Customer</option>
+<option>Vendor</option>
+</select>
+
+<label for="tone">Tone</label>
+<select id="tone">
+<option>Professional</option>
+<option>Friendly</option>
+<option>Polite</option>
+<option>Concise</option>
+</select>
+
+<label for="context">What are you reminding them about?</label>
+<textarea id="context" rows="5" placeholder="Example: I want to remind a client about an unpaid invoice that was due last week."></textarea>
+
+<label for="name">Your name (optional)</label>
+<input id="name" type="text" placeholder="Example: Jesse">
+
+<button onclick="generateEmail()">Generate Email</button>
+
+<div id="result" aria-live="polite">Your reminder email will appear here.</div>
+
+<button onclick="copyResult()">Copy Email</button>
+<button onclick="generateEmail()">Regenerate</button>
+
+<div class="info-section">
+
+<hr style="margin:40px 0;">
+
+<h2>How do you send a professional reminder email?</h2>
+
+<p>
+A good reminder email should be polite, clear, and direct. The goal is to
+remind the recipient about something important without sounding demanding.
+</p>
+
+<p>
+Reminder emails are commonly used for unpaid invoices, upcoming meetings,
+deadlines, pending responses, or incomplete tasks.
+</p>
+
+</div>
+
+<div class="related-tools">
+
+<h2>Related Tools</h2>
+
+<ul>
+<li><a href="/follow-up-email-generator.html">Follow Up Email Generator</a></li>
+<li><a href="/meeting-request-email-generator.html">Meeting Request Email Generator</a></li>
+<li><a href="/late-payment-apology-email-generator.html">Late Payment Apology Email Generator</a></li>
+</ul>
+
+</div>
+
+</div>
+</div>
+
+<script>
+async function generateEmail(){
+
+const context=document.getElementById("context").value;
+const tone=document.getElementById("tone").value;
+const recipient=document.getElementById("recipient").value;
+const name=document.getElementById("name").value;
+const result=document.getElementById("result");
+
+if(!context.trim()){
+result.innerText="Please describe the reminder.";
+return;
+}
+
+result.innerText="Generating...";
+
+const prompt=`Write a ${tone.toLowerCase()} reminder email to a ${recipient}.
+
+Situation:
+${context}
+
+Requirements:
+- Include a subject line
+- Be polite and clear
+- Avoid sounding aggressive
+- Keep it concise
+- End professionally
+
+Signed:
+${name || "Sender"}`;
+
+try{
+
+const response=await fetch("/api/generate",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({prompt})
+});
+
+const data=if (!response.ok) {
+  result.innerText = "Something went wrong. Please try again.";
+  return;
+}
+
+await response.json();
+
+result.innerText=data.message || "Something went wrong.";
+
+}catch{
+result.innerText="Error generating email.";
+}
+}
+
+function copyResult(){
+navigator.clipboard.writeText(document.getElementById("result").innerText);
+alert("Copied to clipboard!");
+}
+</script>
+
+</body>
+</html>
+
