@@ -198,9 +198,7 @@ result.innerText="Error generating email. Please try again.";
 }
 
 function copyResult(){
-const 
-::contentReference[oaicite:1]{index=1}
-text=document.getElementById("result").innerText;
+const text=document.getElementById("result").innerText;
 navigator.clipboard.writeText(text).then(()=>{alert("Copied to clipboard!");});
 }
 </script>
