@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Thank You Email After Career Fair Generator | ToolChestLab</title>
+<meta name="description" content="Generate a professional thank you email after a career fair to a recruiter, company representative, or hiring manager.">
+<link rel="canonical" href="https://www.toolchestlab.com/thank-you-email-after-career-fair-generator.html">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WLQ0YR217T');
+</script>
+
+<style>
+*{box-sizing:border-box;}
+body{
+font-family:Arial,sans-serif;
+color:#222;
+margin:0;
+padding:40px 20px;
+background-color:#eef4fb;
+background-image:
+linear-gradient(rgba(50,90,140,0.10) 1px, transparent 1px),
+linear-gradient(90deg, rgba(50,90,140,0.10) 1px, transparent 1px);
+background-size:32px 32px;
+}
+.page-wrap{max-width:760px;margin:0 auto;}
+.back-link{
+display:inline-block;
+margin-bottom:18px;
+color:#0070f3;
+text-decoration:none;
+font-size:15px;
+}
+.container{
+background:white;
+padding:30px;
+border-radius:12px;
+border:1px solid #e5e5e5;
+box-shadow:0 8px 24px rgba(0,0,0,0.10);
+}
+h1{margin-top:0;margin-bottom:10px;}
+h2{margin-top:0;}
+p{line-height:1.7;}
+label{
+display:block;
+margin-top:10px;
+margin-bottom:8px;
+font-weight:bold;
+text-align:left;
+}
+textarea,select,input,button{
+width:100%;
+margin-bottom:20px;
+padding:12px;
+font-size:16px;
+border-radius:8px;
+}
+textarea,select,input{border:1px solid #d9d9d9;}
+button{
+background:#0070f3;
+color:white;
+border:none;
+cursor:pointer;
+}
+button:hover{background:#0059c7;}
+#result{
+margin-top:20px;
+text-align:left;
+white-space:pre-wrap;
+background:#fafafa;
+padding:20px;
+border-radius:8px;
+min-height:120px;
+border:1px solid #ececec;
+line-height:1.6;
+}
+.info-section{margin-top:40px;}
+.related-tools{margin-top:40px;padding-top:10px;}
+.related-tools ul{padding-left:20px;line-height:1.8;}
+.related-tools a{color:#0070f3;text-decoration:none;}
+.related-tools a:hover,.back-link:hover{text-decoration:underline;}
+@media (max-width:700px){
+body{padding:20px 14px;}
+.container{padding:22px;}
+}
+</style>
+</head>
+
+<body>
+<div class="page-wrap">
+<a class="back-link" href="/">← Back to ToolChestLab</a>
+
+<div class="container">
+<h1>Thank You Email After Career Fair Generator</h1>
+<p>Generate a professional thank you email after a career fair to a recruiter, company representative, or hiring manager.</p>
+
+<label for="tone">Tone</label>
+<select id="tone">
+<option>Professional</option>
+<option>Polite</option>
+<option>Friendly</option>
+<option>Confident</option>
+</select>
+
+<label for="context">What is the situation?</label>
+<textarea id="context" rows="5" placeholder="Example: I spoke with a recruiter at a university career fair and want to send a thank you email that references our conversation and my interest in the company."></textarea>
+
+<label for="name">Your name or role (optional)</label>
+<input id="name" type="text" placeholder="Example: Jesse Davis">
+
+<button onclick="generateEmail()">Generate Email</button>
+
+<div id="result" aria-live="polite">Your generated thank you email will appear here.</div>
+
+<button onclick="copyResult()">Copy Email</button>
+<button onclick="generateEmail()">Regenerate</button>
+
+<div class="info-section">
+<hr style="margin:40px 0;">
+<h2>How do you write a thank you email after a career fair?</h2>
+<p>
+A good career fair thank you email should thank the person for their time, mention something from the conversation, and reinforce your interest in the company or role. It should be warm, professional, and brief.
+</p>
+<p>
+This generator helps you write a polished thank you email after speaking with recruiters, employers, and hiring teams at a career fair or hiring event.
+</p>
+</div>
+
+<div class="related-tools">
+<h2>More Job Search Email Tools</h2>
+<ul>
+<li><a href="/follow-up-email-after-career-fair-generator.html">Follow Up Email After Career Fair Generator</a></li>
+<li><a href="/follow-up-email-after-networking-event-generator.html">Follow Up Email After Networking Event Generator</a></li>
+<li><a href="/interview-thank-you-email-generator.html">Interview Thank You Email Generator</a></li>
+<li><a href="/networking-email-generator.html">Networking Email Generator</a></li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<script>
+async function generateEmail(){
+const context=document.getElementById("context").value;
+const tone=document.getElementById("tone").value;
+const name=document.getElementById("name").value;
+const result=document.getElementById("result");
+
+if(!context.trim()){
+result.innerText="Please describe the career fair thank you situation.";
+return;
+}
+
+result.innerText="Generating...";
+
+const prompt=`Write a ${tone.toLowerCase()} thank you email after a career fair.
+
+Situation:
+${context}
+
+Requirements:
+- Include a subject line
+- Thank the recipient for their time
+- Reference the conversation briefly
+- Reinforce interest professionally
+- Keep the message warm and concise
+- End appropriately
+
+Signed:
+${name || "Sender"}`;
+
+try{
+const response=await fetch("/api/generate",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({prompt})
+});
+if(!response.ok){
+result.innerText="Something went wrong. Please try again.";
+return;
+}
+const data=await response.json();
+result.innerText=data.message || "Something went wrong. Please try again.";
+}catch(error){
+result.innerText="Error generating email. Please try again.";
+}
+}
+
+function copyResult(){
+const text=document.getElementById("result").innerText;
+navigator.clipboard.writeText(text).then(()=>{alert("Copied to clipboard!");});
+}
+</script>
+
+</body>
+</html>
