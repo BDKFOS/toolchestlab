@@ -46,7 +46,7 @@ export async function POST(request) {
     const { error } = await resend.emails.send({
       from: "ToolChestLab Contact <contact@send.toolchestlab.com>",
       to: [toEmail],
-      reply_to: email,
+      replyTo: email,
       subject: `New ToolChestLab contact form message from ${name}`,
       text: [
         `Name: ${name}`,
