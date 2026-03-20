@@ -107,7 +107,7 @@ body{padding:20px 14px;}
 <option>Family member</option>
 <option>Coworker</option>
 <option>Partner</option>
-<option>Someone I do not know very well</option>
+<option>Someone I care about</option>
 </select>
 
 <label for="tone">Tone</label>
@@ -120,4 +120,104 @@ body{padding:20px 14px;}
 </select>
 
 <label for="context">Optional details</label>
-<textarea id="context" rows="5" placeholder="Example: They have been sick for a few days and I want to check in with something kind
+<textarea id="context" rows="5" placeholder="Example: My friend is feeling really sick and I want to check in without being overbearing or sounding generic."></textarea>
+
+<button onclick="generateResponse()">Generate What to Say</button>
+
+<div id="result" aria-live="polite">Your generated wording will appear here.</div>
+
+<button onclick="copyResult()">Copy</button>
+<button onclick="generateResponse()">Regenerate</button>
+
+<div class="info-section">
+<hr style="margin:40px 0;">
+<h2>What do you say when someone is sick?</h2>
+<p>
+The best thing to say is usually kind, simple, and low-pressure. A short message that shows you care can feel much better than something long or overly serious.
+</p>
+<p>
+This generator helps you find natural wording for checking in, offering support, or letting someone know you are thinking of them while they are sick.
+</p>
+</div>
+
+<div class="info-section">
+<hr style="margin:40px 0;">
+<h2>Frequently Asked Questions</h2>
+
+<p><strong>Should I offer help?</strong><br>
+Yes, if it feels genuine. Simple offers usually work best and feel easier for the other person to accept.</p>
+
+<p><strong>Can I use this for a text message?</strong><br>
+Yes. The generated wording works well for texts, direct messages, or short personal check-ins.</p>
+</div>
+
+<div class="related-tools">
+<h2>Related What to Say Tools</h2>
+<ul>
+<li><a href="/what-to-say-when-someone-is-grieving.html">What to Say When Someone Is Grieving</a></li>
+<li><a href="/what-to-say-to-someone-going-through-a-hard-time.html">What to Say to Someone Going Through a Hard Time</a></li>
+<li><a href="/what-to-say-when-you-dont-know-what-to-say.html">What to Say When You Don’t Know What to Say</a></li>
+<li><a href="/what-to-say-to-someone-who-lost-their-job.html">What to Say to Someone Who Lost Their Job</a></li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<script>
+async function generateResponse(){
+const relationship=document.getElementById("relationship").value;
+const tone=document.getElementById("tone").value;
+const context=document.getElementById("context").value.trim();
+const result=document.getElementById("result");
+
+result.innerText="Generating...";
+
+const prompt=`Write natural, human things to say when someone is sick.
+
+Audience:
+The user is speaking to a ${relationship.toLowerCase()}.
+
+Tone:
+${tone}
+
+Extra context:
+${context || "No extra context provided."}
+
+Requirements:
+- Give 6 short things to say
+- Then give 3 slightly longer check-in style versions
+- Keep the wording caring, natural, and easy to send
+- Do not sound robotic, overly formal, or dramatic
+- Keep the tone supportive and low-pressure
+- Do not include email subject lines
+- Do not include sign-offs
+- Format clearly with simple labels`;
+
+try{
+const response=await fetch("/api/generate",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({prompt})
+});
+
+if(!response.ok){
+result.innerText="Something went wrong. Please try again.";
+return;
+}
+
+const data=await response.json();
+result.innerText=data.message || "Something went wrong. Please try again.";
+}catch(error){
+result.innerText="Error generating wording. Please try again.";
+}
+}
+
+function copyResult(){
+const text=document.getElementById("result").innerText;
+navigator.clipboard.writeText(text).then(()=>{alert("Copied to clipboard!");});
+}
+</script>
+
+</body>
+</html>
