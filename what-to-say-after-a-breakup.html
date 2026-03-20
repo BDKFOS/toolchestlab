@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>What to Say After a Breakup Generator | ToolChestLab</title>
+<meta name="description" content="Generate thoughtful things to say after a breakup, with natural wording for reaching out, expressing feelings, or handling an emotional conversation.">
+<link rel="canonical" href="https://www.toolchestlab.com/what-to-say-after-a-breakup.html">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WLQ0YR217T');
+</script>
+
+<style>
+*{box-sizing:border-box;}
+body{
+font-family:Arial,sans-serif;
+color:#222;
+margin:0;
+padding:40px 20px;
+background-color:#eef4fb;
+background-image:
+linear-gradient(rgba(50,90,140,0.10) 1px, transparent 1px),
+linear-gradient(90deg, rgba(50,90,140,0.10) 1px, transparent 1px);
+background-size:32px 32px;
+}
+.page-wrap{max-width:760px;margin:0 auto;}
+.back-link{
+display:inline-block;
+margin-bottom:18px;
+color:#0070f3;
+text-decoration:none;
+font-size:15px;
+}
+.container{
+background:white;
+padding:30px;
+border-radius:12px;
+border:1px solid #e5e5e5;
+box-shadow:0 8px 24px rgba(0,0,0,0.10);
+}
+h1{margin-top:0;margin-bottom:10px;}
+h2{margin-top:0;}
+p{line-height:1.7;}
+label{
+display:block;
+margin-top:10px;
+margin-bottom:8px;
+font-weight:bold;
+text-align:left;
+}
+textarea,select,input,button{
+width:100%;
+margin-bottom:20px;
+padding:12px;
+font-size:16px;
+border-radius:8px;
+}
+textarea,select,input{border:1px solid #d9d9d9;}
+button{
+background:#0070f3;
+color:white;
+border:none;
+cursor:pointer;
+}
+button:hover{background:#0059c7;}
+#result{
+margin-top:20px;
+text-align:left;
+white-space:pre-wrap;
+background:#fafafa;
+padding:20px;
+border-radius:8px;
+min-height:140px;
+border:1px solid #ececec;
+line-height:1.7;
+}
+.info-section{margin-top:40px;}
+.related-tools{margin-top:40px;padding-top:10px;}
+.related-tools ul{padding-left:20px;line-height:1.8;}
+.related-tools a{color:#0070f3;text-decoration:none;}
+.related-tools a:hover,.back-link:hover{text-decoration:underline;}
+@media (max-width:700px){
+body{padding:20px 14px;}
+.container{padding:22px;}
+}
+</style>
+</head>
+
+<body>
+<div class="page-wrap">
+<a class="back-link" href="/">← Back to ToolChestLab</a>
+
+<div class="container">
+<h1>What to Say After a Breakup Generator</h1>
+<p>Generate thoughtful things to say after a breakup, with natural wording for emotional conversations, closure, support, or trying to express how you feel clearly.</p>
+
+<label for="situation">What kind of breakup situation is it?</label>
+<select id="situation">
+<option>I want to say something for closure</option>
+<option>I want to be kind and respectful</option>
+<option>I still have feelings</option>
+<option>I want to reach out carefully</option>
+<option>I need something honest but calm</option>
+</select>
+
+<label for="tone">Tone</label>
+<select id="tone">
+<option>Sincere</option>
+<option>Gentle</option>
+<option>Honest</option>
+<option>Calm</option>
+<option>Warm</option>
+</select>
+
+<label for="context">Optional details</label>
+<textarea id="context" rows="5" placeholder="Example: We recently broke up and I want to send something thoughtful that expresses care without turning it into a dramatic or messy conversation."></textarea>
+
+<button onclick="generateResponse()">Generate What to Say</button>
+
+<div id="result" aria-live="polite">Your generated wording will appear here.</div>
+
+<button onclick="copyResult()">Copy</button>
+<button onclick="generateResponse()">Regenerate</button>
+
+<div class="info-section">
+<hr style="margin:40px 0;">
+<h2>What do you say after a breakup?</h2>
+<p>
+What you say after a breakup depends on what you are trying to do, whether that is closure, honesty, kindness, distance, or one final clear conversation. Usually the best wording is calm, direct, and emotionally real.
+</p>
+<p>
+This generator helps you find natural things to say after a breakup without sounding overly dramatic, vague, or forced.
+</p>
+</div>
+
+<div class="info-section">
+<hr style="margin:40px 0;">
+<h2>Frequently Asked Questions</h2>
+
+<p><strong>Should I keep it simple?</strong><br>
+Usually yes. Clear and sincere wording often works better than saying too much.</p>
+
+<p><strong>Can this help if I still care about them?</strong><br>
+Yes. You can use it for closure, honesty, or careful post-breakup communication.</p>
+</div>
+
+<div class="related-tools">
+<h2>Related What to Say Tools</h2>
+<ul>
+<li><a href="/what-to-say-after-a-fight.html">What to Say After a Fight</a></li>
+<li><a href="/what-to-say-to-apologize-sincerely.html">What to Say to Apologize Sincerely</a></li>
+<li><a href="/what-to-say-when-you-hurt-someone.html">What to Say When You Hurt Someone</a></li>
+<li><a href="/what-to-say-when-you-miss-someone.html">What to Say When You Miss Someone</a></li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<script>
+async function generateResponse(){
+const situation=document.getElementById("situation").value;
+const tone=document.getElementById("tone").value;
+const context=document.getElementById("context").value.trim();
+const result=document.getElementById("result");
+
+result.innerText="Generating...";
+
+const prompt=`Write natural, human things to say after a breakup.
+
+Situation:
+${situation}
+
+Tone:
+${tone}
+
+Extra context:
+${context || "No extra context provided."}
+
+Requirements:
+- Give 6 short things to say
+- Then give 3 slightly longer versions
+- Keep the wording sincere, emotionally real, and realistic
+- Do not sound robotic, overly dramatic, or overly formal
+- Keep the tone calm and clear
+- Do not include email subject lines
+- Do not include sign-offs
+- Format clearly with simple labels`;
+
+try{
+const response=await fetch("/api/generate",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({prompt})
+});
+
+if(!response.ok){
+result.innerText="Something went wrong. Please try again.";
+return;
+}
+
+const data=await response.json();
+result.innerText=data.message || "Something went wrong. Please try again.";
+}catch(error){
+result.innerText="Error generating wording. Please try again.";
+}
+}
+
+function copyResult(){
+const text=document.getElementById("result").innerText;
+navigator.clipboard.writeText(text).then(()=>{alert("Copied to clipboard!");});
+}
+</script>
+
+</body>
+</html>
