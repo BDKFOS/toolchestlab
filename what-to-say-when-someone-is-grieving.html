@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>What to Say When Someone Is Grieving Generator | ToolChestLab</title>
+<meta name="description" content="Generate comforting things to say when someone is grieving, with supportive wording for texts, conversations, and ongoing check-ins.">
+<link rel="canonical" href="https://www.toolchestlab.com/what-to-say-when-someone-is-grieving.html">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WLQ0YR217T');
+</script>
+
+<style>
+*{box-sizing:border-box;}
+body{
+font-family:Arial,sans-serif;
+color:#222;
+margin:0;
+padding:40px 20px;
+background-color:#eef4fb;
+background-image:
+linear-gradient(rgba(50,90,140,0.10) 1px, transparent 1px),
+linear-gradient(90deg, rgba(50,90,140,0.10) 1px, transparent 1px);
+background-size:32px 32px;
+}
+.page-wrap{max-width:760px;margin:0 auto;}
+.back-link{
+display:inline-block;
+margin-bottom:18px;
+color:#0070f3;
+text-decoration:none;
+font-size:15px;
+}
+.container{
+background:white;
+padding:30px;
+border-radius:12px;
+border:1px solid #e5e5e5;
+box-shadow:0 8px 24px rgba(0,0,0,0.10);
+}
+h1{margin-top:0;margin-bottom:10px;}
+h2{margin-top:0;}
+p{line-height:1.7;}
+label{
+display:block;
+margin-top:10px;
+margin-bottom:8px;
+font-weight:bold;
+text-align:left;
+}
+textarea,select,input,button{
+width:100%;
+margin-bottom:20px;
+padding:12px;
+font-size:16px;
+border-radius:8px;
+}
+textarea,select,input{border:1px solid #d9d9d9;}
+button{
+background:#0070f3;
+color:white;
+border:none;
+cursor:pointer;
+}
+button:hover{background:#0059c7;}
+#result{
+margin-top:20px;
+text-align:left;
+white-space:pre-wrap;
+background:#fafafa;
+padding:20px;
+border-radius:8px;
+min-height:140px;
+border:1px solid #ececec;
+line-height:1.7;
+}
+.info-section{margin-top:40px;}
+.related-tools{margin-top:40px;padding-top:10px;}
+.related-tools ul{padding-left:20px;line-height:1.8;}
+.related-tools a{color:#0070f3;text-decoration:none;}
+.related-tools a:hover,.back-link:hover{text-decoration:underline;}
+@media (max-width:700px){
+body{padding:20px 14px;}
+.container{padding:22px;}
+}
+</style>
+</head>
+
+<body>
+<div class="page-wrap">
+<a class="back-link" href="/">← Back to ToolChestLab</a>
+
+<div class="container">
+<h1>What to Say When Someone Is Grieving Generator</h1>
+<p>Generate supportive, natural things to say when someone is grieving, whether you are checking in, offering comfort, or trying to be there without saying the wrong thing.</p>
+
+<label for="relationship">Who are you speaking to?</label>
+<select id="relationship">
+<option>Friend</option>
+<option>Family member</option>
+<option>Coworker</option>
+<option>Partner</option>
+<option>Acquaintance</option>
+</select>
+
+<label for="tone">Tone</label>
+<select id="tone">
+<option>Supportive</option>
+<option>Gentle</option>
+<option>Sincere</option>
+<option>Warm</option>
+<option>Simple</option>
+</select>
+
+<label for="context">Optional details</label>
+<textarea id="context" rows="5" placeholder="Example: I want to check in a few days later and say something kind without making them feel pressured to respond."></textarea>
+
+<button onclick="generateResponse()">Generate What to Say</button>
+
+<div id="result" aria-live="polite">Your generated wording will appear here.</div>
+
+<button onclick="copyResult()">Copy</button>
+<button onclick="generateResponse()">Regenerate</button>
+
+<div class="info-section">
+<hr style="margin:40px 0;">
+<h2>How do you talk to someone who is grieving?</h2>
+<p>
+When someone is grieving, it usually helps to keep things simple, caring, and low-pressure. You do not need to fix anything. A short message that lets them know you are thinking of them can be enough.
+</p>
+<p>
+This tool helps you come up with natural wording for ongoing grief support, including check-ins, texts, and quiet messages of care.
+</p>
+</div>
+
+<div class="info-section">
+<hr style="margin:40px 0;">
+<h2>Frequently Asked Questions</h2>
+
+<p><strong>Should I keep it short?</strong><br>
+Usually, yes. A short and sincere message often feels more genuine and less overwhelming.</p>
+
+<p><strong>Can this help with ongoing support, not just the first message?</strong><br>
+Yes. This page is built for check-ins and supportive wording after the initial loss as well.</p>
+</div>
+
+<div class="related-tools">
+<h2>Related What to Say Tools</h2>
+<ul>
+<li><a href="/what-to-say-when-someone-dies.html">What to Say When Someone Dies</a></li>
+<li><a href="/what-to-say-to-someone-who-lost-a-loved-one.html">What to Say to Someone Who Lost a Loved One</a></li>
+<li><a href="/what-to-text-someone-who-is-grieving.html">What to Text Someone Who Is Grieving</a></li>
+<li><a href="/what-to-say-after-a-fight.html">What to Say After a Fight</a></li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<script>
+async function generateResponse(){
+const relationship=document.getElementById("relationship").value;
+const tone=document.getElementById("tone").value;
+const context=document.getElementById("context").value.trim();
+const result=document.getElementById("result");
+
+result.innerText="Generating...";
+
+const prompt=`Write natural, human things to say when someone is grieving.
+
+Audience:
+The user is speaking to a ${relationship.toLowerCase()}.
+
+Tone:
+${tone}
+
+Extra context:
+${context || "No extra context provided."}
+
+Requirements:
+- Give 5 short supportive things to say
+- Then give 3 check-in style messages
+- Keep the wording gentle, realistic, and emotionally appropriate
+- Avoid sounding clinical, robotic, or overly poetic
+- Avoid clichés when possible
+- Do not include email subject lines
+- Do not include sign-offs
+- Format clearly with simple labels`;
+
+try{
+const response=await fetch("/api/generate",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({prompt})
+});
+
+if(!response.ok){
+result.innerText="Something went wrong. Please try again.";
+return;
+}
+
+const data=await response.json();
+result.innerText=data.message || "Something went wrong. Please try again.";
+}catch(error){
+result.innerText="Error generating wording. Please try again.";
+}
+}
+
+function copyResult(){
+const text=document.getElementById("result").innerText;
+navigator.clipboard.writeText(text).then(()=>{alert("Copied to clipboard!");});
+}
+</script>
+
+</body>
+</html>
