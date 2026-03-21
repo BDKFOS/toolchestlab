@@ -14,8 +14,8 @@ gtag('config', 'G-WLQ0YR217T');
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ToolChestLab | Free AI Email, Communication & What To Say Generators</title>
-<meta name="description" content="Free AI tools to help you write emails, apologies, follow ups, professional messages, and real-life what to say responses for difficult, awkward, and emotional situations.">
+<title>ToolChestLab | Free AI What To Say, Email & Communication Generators</title>
+<meta name="description" content="Free AI tools to help you write professional emails, follow ups, apologies, and real-life what to say responses for grief, dating, texting, conflict, awkward moments, work conversations, and everyday communication.">
 <link rel="canonical" href="https://www.toolchestlab.com/">
 
 <style>
@@ -50,7 +50,7 @@ header p{
 margin:0 auto;
 font-size:1.1rem;
 color:#555;
-max-width:760px;
+max-width:800px;
 line-height:1.6;
 }
 
@@ -68,8 +68,9 @@ padding:40px 20px;
 }
 
 .intro{
-line-height:1.6;
+line-height:1.7;
 margin-bottom:18px;
+color:#444;
 }
 
 .quick-nav{
@@ -96,7 +97,7 @@ background:#f3f8ff;
 
 #toolSearch{
 width:100%;
-max-width:520px;
+max-width:560px;
 padding:12px;
 font-size:16px;
 border-radius:8px;
@@ -104,11 +105,25 @@ border:1px solid #d9d9d9;
 margin-bottom:30px;
 }
 
+.section-divider{
+margin:55px 0 15px 0;
+padding-top:10px;
+border-top:1px solid #e3ebf4;
+}
+
+.section-divider h2{
+margin:0 0 10px 0;
+}
+
 .category{
 margin-top:50px;
 }
 
 .category h2{
+margin-bottom:10px;
+}
+
+.category h3{
 margin-bottom:10px;
 }
 
@@ -190,6 +205,47 @@ button.toggle-button:hover{
 background:#0059c7;
 }
 
+.cluster-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:18px;
+margin-top:20px;
+}
+
+.cluster-card{
+background:white;
+padding:20px;
+border-radius:10px;
+border:1px solid #e5e5e5;
+}
+
+.cluster-card h3{
+margin-top:0;
+margin-bottom:8px;
+}
+
+.cluster-card p{
+margin-top:0;
+margin-bottom:12px;
+line-height:1.6;
+color:#444;
+}
+
+.cluster-links{
+padding-left:18px;
+line-height:1.8;
+margin:0;
+}
+
+.cluster-links a{
+color:#0070f3;
+text-decoration:none;
+}
+
+.cluster-links a:hover{
+text-decoration:underline;
+}
+
 .extra-tools{
 display:none;
 margin-top:18px;
@@ -248,14 +304,16 @@ text-decoration:underline;
 
 @media (max-width:900px){
 .tools,
-.extra-tools.is-open{
+.extra-tools.is-open,
+.cluster-grid{
 grid-template-columns:1fr 1fr;
 }
 }
 
 @media (max-width:600px){
 .tools,
-.extra-tools.is-open{
+.extra-tools.is-open,
+.cluster-grid{
 grid-template-columns:1fr;
 }
 
@@ -270,89 +328,233 @@ font-size:2rem;
 
 <header>
 <h1>ToolChestLab</h1>
-<p>Free AI tools to help you write difficult emails, messages, and real-life wording faster, no signup required.</p>
-<div class="tool-count">175 tools live</div>
+<p>Free AI tools to help you write the right words faster; from professional emails and follow ups to real-life what to say help for grief, dating, conflict, awkward moments, work conversations, and everyday situations.</p>
+<div class="tool-count">210 tools live</div>
 </header>
 
 <div class="container">
 
-<p class="intro">Browse a growing toolbox of practical AI generators for work emails, school messages, follow ups, apologies, client communication, documents, approvals, confirmations, and real-life what to say situations involving grief, conflict, awkward moments, texting, and everyday conversation.</p>
+<p class="intro">ToolChestLab is organized into two main areas: <strong>What To Say Tools</strong> for real-life human situations, and <strong>Email & Message Generators</strong> for work, school, clients, meetings, documents, and professional communication. Search below or browse by intent.</p>
 
-<input id="toolSearch" type="text" placeholder="Search tools (apology, interview, follow-up, invoice, what to say...)" aria-label="Search ToolChestLab tools">
+<input id="toolSearch" type="text" placeholder="Search tools (what to say, apology, interview, dating, follow-up, invoice...)" aria-label="Search ToolChestLab tools">
 
 <div class="quick-nav">
 <a href="#popular-tools">Popular Tools</a>
 <a href="#start-here">Start Here</a>
+<a href="#what-to-say-tools">What To Say</a>
+<a href="#email-message-tools">Email & Messages</a>
 <a href="#most-used-tools">Most Used Right Now</a>
 <a href="#newest-tools">Newest Tools</a>
-<a href="#what-to-say-tools">What To Say</a>
-<a href="#apology-tools">Apology</a>
 <a href="#job-career-tools">Job & Career</a>
 <a href="#school-tools">School</a>
-<a href="#meetings-tools">Meetings</a>
-<a href="#workplace-tools">Workplace</a>
 <a href="#client-tools">Clients</a>
-<a href="#documents-tools">Documents & Admin</a>
+<a href="#documents-tools">Documents</a>
 <a href="#outreach-tools">Outreach</a>
 </div>
 
 <section class="category" id="popular-tools" style="margin-top:20px;">
 <h2>Popular Tools</h2>
 <p class="category-intro">
-Some of the most useful tools for common workplace, school, professional, and real-life communication situations.
+Some of the most useful tools for common work, life, texting, and communication situations.
 </p>
 
 <ul class="popular-tools">
+<li><a href="/what-to-say-when-someone-dies.html">What to Say When Someone Dies Generator</a></li>
+<li><a href="/what-to-text-after-a-first-date.html">What to Text After a First Date Generator</a></li>
+<li><a href="/what-to-say-to-your-boss-when-overwhelmed.html">What to Say to Your Boss When Overwhelmed Generator</a></li>
 <li><a href="/professional-apology-email-generator.html">Professional Apology Email Generator</a></li>
 <li><a href="/follow-up-email-generator.html">Follow Up Email Generator</a></li>
 <li><a href="/meeting-request-email-generator.html">Meeting Request Email Generator</a></li>
-<li><a href="/salary-negotiation-email-generator.html">Salary Negotiation Email Generator</a></li>
-<li><a href="/what-to-say-when-someone-dies.html">What to Say When Someone Dies Generator</a></li>
-<li><a href="/what-to-text-after-a-first-date.html">What to Text After a First Date Generator</a></li>
 </ul>
 </section>
 
 <section class="category" id="start-here">
 <h2>Start Here</h2>
 <p class="category-intro">
-Not sure where to begin? Pick the type of message or wording help you need.
+Not sure where to begin? Pick the kind of help you need.
 </p>
 
 <div class="tools">
 <div class="tool-card">
-<h3>I need to apologize</h3>
-<p>Apology emails for work mistakes, delays, missed deadlines, clients, and difficult situations.</p>
-<a class="button" href="#apology-tools">View Tools</a>
+<h3>I need a work email</h3>
+<p>Professional workplace communication for managers, coworkers, attendance, approvals, updates, and difficult work messages.</p>
+<a class="button" href="#email-message-tools">View Tools</a>
 </div>
 
 <div class="tool-card">
 <h3>I need to follow up</h3>
-<p>Follow up emails after interviews, meetings, no responses, proposals, and client conversations.</p>
+<p>Follow up emails after interviews, meetings, proposals, no response situations, and client conversations.</p>
 <a class="button" href="#meetings-tools">View Tools</a>
 </div>
 
 <div class="tool-card">
-<h3>I need a work email</h3>
-<p>Professional workplace communication for managers, coworkers, attendance, feedback, updates, approvals, and project status.</p>
-<a class="button" href="#workplace-tools">View Tools</a>
+<h3>I need to apologize</h3>
+<p>Apology tools for mistakes, delays, missed responses, wrong emails, work problems, and difficult conversations.</p>
+<a class="button" href="#apology-tools">View Tools</a>
 </div>
 
 <div class="tool-card">
-<h3>I need a job email</h3>
-<p>Interview replies, recruiter emails, salary negotiation, referrals, and other career communication.</p>
+<h3>I need job or school help</h3>
+<p>Interview, recruiter, referral, professor, assignment, grade, and academic communication tools.</p>
 <a class="button" href="#job-career-tools">View Tools</a>
 </div>
 
 <div class="tool-card">
-<h3>I need a school email</h3>
-<p>Emails to professors about grades, assignments, absences, meetings, and academic issues.</p>
-<a class="button" href="#school-tools">View Tools</a>
+<h3>I need help knowing what to say</h3>
+<p>Real-life wording help for grief, conflict, emotional moments, awkward situations, support, and relationships.</p>
+<a class="button" href="#what-to-say-tools">View Tools</a>
 </div>
 
 <div class="tool-card">
-<h3>I need help with what to say</h3>
-<p>Real-life wording help for grief, conflict, awkward moments, texting, and everyday human situations.</p>
-<a class="button" href="#what-to-say-tools">View Tools</a>
+<h3>I need texting or dating help</h3>
+<p>Conversation starters, dating app messages, flirty texts, crush texts, first-date follow ups, and social wording help.</p>
+<a class="button" href="#wts-dating-texting">View Tools</a>
+</div>
+</div>
+</section>
+
+<section class="section-divider" id="what-to-say-tools">
+<h2>What To Say Tools</h2>
+<p class="category-intro">
+Real-life wording help for grief, dating, texting, conflict, awkward moments, work conversations, gratitude, and everyday human situations.
+</p>
+
+<div class="cluster-grid">
+<div class="cluster-card" id="wts-grief-support">
+<h3>Grief & Support</h3>
+<p>Words for loss, funerals, grief support, hard days, sickness, and difficult emotional moments.</p>
+<ul class="cluster-links">
+<li><a href="/what-to-say-when-someone-dies.html">What to Say When Someone Dies</a></li>
+<li><a href="/what-to-say-when-someone-is-grieving.html">What to Say When Someone Is Grieving</a></li>
+<li><a href="/what-to-say-to-someone-who-lost-a-loved-one.html">What to Say to Someone Who Lost a Loved One</a></li>
+<li><a href="/what-to-text-someone-who-is-grieving.html">What to Text Someone Who Is Grieving</a></li>
+<li><a href="/what-to-say-at-a-funeral.html">What to Say at a Funeral</a></li>
+<li><a href="/what-to-say-on-the-anniversary-of-a-death.html">What to Say on the Anniversary of a Death</a></li>
+<li><a href="/what-to-say-when-someone-is-sick.html">What to Say When Someone Is Sick</a></li>
+<li><a href="/what-to-say-to-someone-going-through-a-hard-time.html">What to Say to Someone Going Through a Hard Time</a></li>
+</ul>
+</div>
+
+<div class="cluster-card" id="wts-dating-texting">
+<h3>Dating & Texting</h3>
+<p>Conversation starters, dating apps, crush texts, flirting, asking someone out, and first-date follow ups.</p>
+<ul class="cluster-links">
+<li><a href="/what-to-text-after-a-first-date.html">What to Text After a First Date</a></li>
+<li><a href="/what-to-text-after-no-response.html">What to Text After No Response</a></li>
+<li><a href="/what-to-text-your-crush.html">What to Text Your Crush</a></li>
+<li><a href="/what-to-say-on-dating-apps.html">What to Say on Dating Apps</a></li>
+<li><a href="/what-to-say-to-start-a-conversation.html">What to Say to Start a Conversation</a></li>
+<li><a href="/what-to-say-to-keep-a-conversation-going.html">What to Say to Keep a Conversation Going</a></li>
+<li><a href="/what-to-say-to-flirt-without-being-awkward.html">What to Say to Flirt Without Being Awkward</a></li>
+<li><a href="/what-to-say-to-ask-someone-out.html">What to Say to Ask Someone Out</a></li>
+<li><a href="/what-to-say-when-youre-nervous-on-a-date.html">What to Say When You’re Nervous on a Date</a></li>
+</ul>
+</div>
+
+<div class="cluster-card" id="wts-conflict-repair">
+<h3>Conflict & Repair</h3>
+<p>Apologies, repairing relationships, rebuilding trust, post-fight wording, and saying hard honest things.</p>
+<ul class="cluster-links">
+<li><a href="/what-to-say-after-a-fight.html">What to Say After a Fight</a></li>
+<li><a href="/what-to-say-to-apologize-sincerely.html">What to Say to Apologize Sincerely</a></li>
+<li><a href="/what-to-say-when-you-hurt-someone.html">What to Say When You Hurt Someone</a></li>
+<li><a href="/what-to-say-after-a-breakup.html">What to Say After a Breakup</a></li>
+<li><a href="/what-to-say-to-someone-ignoring-you.html">What to Say to Someone Ignoring You</a></li>
+<li><a href="/what-to-say-when-you-miss-someone.html">What to Say When You Miss Someone</a></li>
+<li><a href="/what-to-say-to-rebuild-trust.html">What to Say to Rebuild Trust</a></li>
+<li><a href="/what-to-say-to-set-boundaries.html">What to Say to Set Boundaries</a></li>
+</ul>
+</div>
+
+<div class="cluster-card" id="wts-awkward-everyday">
+<h3>Awkward & Everyday Situations</h3>
+<p>Blank moments, awkward recovery, being late, canceling plans, ending conversations, and social friction.</p>
+<ul class="cluster-links">
+<li><a href="/what-to-say-when-you-dont-know-what-to-say.html">What to Say When You Don’t Know What to Say</a></li>
+<li><a href="/what-to-say-when-the-conversation-dies.html">What to Say When the Conversation Dies</a></li>
+<li><a href="/what-to-say-when-someone-is-rude.html">What to Say When Someone Is Rude</a></li>
+<li><a href="/what-to-say-when-youre-late.html">What to Say When You’re Late</a></li>
+<li><a href="/what-to-say-to-end-a-conversation.html">What to Say to End a Conversation</a></li>
+<li><a href="/what-to-say-when-you-feel-awkward.html">What to Say When You Feel Awkward</a></li>
+<li><a href="/what-to-say-when-you-cancel-plans.html">What to Say When You Cancel Plans</a></li>
+<li><a href="/what-to-say-when-you-forget-something-important.html">What to Say When You Forget Something Important</a></li>
+<li><a href="/what-to-say-when-you-interrupt-someone.html">What to Say When You Interrupt Someone</a></li>
+<li><a href="/what-to-say-when-someone-puts-you-on-the-spot.html">What to Say When Someone Puts You on the Spot</a></li>
+</ul>
+</div>
+
+<div class="cluster-card" id="wts-work-conversations">
+<h3>Work Conversations</h3>
+<p>Real-life workplace wording for meetings, overwhelm, disagreement, feedback, burnout, and mistakes.</p>
+<ul class="cluster-links">
+<li><a href="/what-to-say-to-your-boss-when-overwhelmed.html">What to Say to Your Boss When Overwhelmed</a></li>
+<li><a href="/what-to-say-in-a-meeting.html">What to Say in a Meeting</a></li>
+<li><a href="/what-to-say-when-you-disagree-at-work.html">What to Say When You Disagree at Work</a></li>
+<li><a href="/what-to-say-when-you-need-help-at-work.html">What to Say When You Need Help at Work</a></li>
+<li><a href="/what-to-say-when-you-mess-up-at-work.html">What to Say When You Mess Up at Work</a></li>
+<li><a href="/what-to-say-when-youre-burned-out.html">What to Say When You’re Burned Out</a></li>
+<li><a href="/what-to-say-to-give-constructive-feedback.html">What to Say to Give Constructive Feedback</a></li>
+<li><a href="/what-to-say-to-a-coworker-who-lost-their-job.html">What to Say to a Coworker Who Lost Their Job</a></li>
+<li><a href="/what-to-say-when-a-coworker-is-leaving.html">What to Say When a Coworker Is Leaving</a></li>
+</ul>
+</div>
+
+<div class="cluster-card" id="wts-appreciation-positive">
+<h3>Appreciation & Positive Moments</h3>
+<p>Gratitude, appreciation, congratulations, and warmer ways to say thank you or acknowledge someone.</p>
+<ul class="cluster-links">
+<li><a href="/what-to-say-to-show-appreciation.html">What to Say to Show Appreciation</a></li>
+<li><a href="/what-to-say-instead-of-thank-you.html">What to Say Instead of Thank You</a></li>
+<li><a href="/what-to-say-to-someone-who-helped-you.html">What to Say to Someone Who Helped You</a></li>
+<li><a href="/what-to-say-to-congratulate-someone.html">What to Say to Congratulate Someone</a></li>
+<li><a href="/what-to-say-to-someone-who-lost-their-job.html">What to Say to Someone Who Lost Their Job</a></li>
+<li><a href="/what-to-say-when-someone-is-stressed-or-overwhelmed.html">What to Say When Someone Is Stressed or Overwhelmed</a></li>
+</ul>
+</div>
+</div>
+</section>
+
+<section class="section-divider" id="email-message-tools">
+<h2>Email & Message Generators</h2>
+<p class="category-intro">
+Professional tools for work, job search, school, clients, documents, meetings, follow ups, and structured communication.
+</p>
+
+<div class="tools">
+<div class="tool-card">
+<h3>Apology & Difficult Conversations</h3>
+<p>Work apologies, missed meetings, delays, wrong emails, late replies, and difficult professional situations.</p>
+<a class="button" href="#apology-tools">Browse Category</a>
+</div>
+
+<div class="tool-card">
+<h3>Meetings & Scheduling</h3>
+<p>Follow ups, requests, confirmations, reschedules, next steps, notes, action items, and reminders.</p>
+<a class="button" href="#meetings-tools">Browse Category</a>
+</div>
+
+<div class="tool-card">
+<h3>Workplace & Team Communication</h3>
+<p>Project updates, approvals, task completion, feedback, internal messaging, and time-sensitive work communication.</p>
+<a class="button" href="#workplace-tools">Browse Category</a>
+</div>
+
+<div class="tool-card">
+<h3>Job & Career</h3>
+<p>Interview replies, recruiter follow ups, referrals, applications, salary emails, and career communication.</p>
+<a class="button" href="#job-career-tools">Browse Category</a>
+</div>
+
+<div class="tool-card">
+<h3>School & Professor Emails</h3>
+<p>Assignments, missed class, grades, extension requests, office hours, meetings, and academic communication.</p>
+<a class="button" href="#school-tools">Browse Category</a>
+</div>
+
+<div class="tool-card">
+<h3>Clients, Documents & Outreach</h3>
+<p>Clients, invoices, proposals, signatures, missing documents, submissions, introductions, and outreach emails.</p>
+<a class="button" href="#client-tools">Browse Categories</a>
 </div>
 </div>
 </section>
@@ -360,7 +562,7 @@ Not sure where to begin? Pick the type of message or wording help you need.
 <section class="category" id="most-used-tools">
 <h2>Most Used Right Now</h2>
 <p class="category-intro">
-A few of the highest-interest tool types based on the kinds of searches and early traction the site is already seeing.
+A mix of high-interest tools across both what to say and professional communication.
 </p>
 
 <div class="tools">
@@ -377,27 +579,27 @@ A few of the highest-interest tool types based on the kinds of searches and earl
 </div>
 
 <div class="tool-card">
-<h3>Excuse Generator</h3>
-<p>Create believable excuses for late replies, missed events, awkward situations, and more.</p>
-<a class="button" href="/excuse-generator.html">Open Tool</a>
-</div>
-
-<div class="tool-card">
-<h3>AI Apology Email Generator</h3>
-<p>Generate apology emails instantly with AI for work, personal, school, client, or professional situations.</p>
-<a class="button" href="/ai-apology-email-generator.html">Open Tool</a>
-</div>
-
-<div class="tool-card">
-<h3>Email Asking for Update Generator</h3>
-<p>Generate a polite email asking for an update on projects, proposals, applications, and professional conversations.</p>
-<a class="button" href="/email-asking-for-update-generator.html">Open Tool</a>
-</div>
-
-<div class="tool-card">
 <h3>What to Say to Your Boss When Overwhelmed Generator</h3>
 <p>Generate clear, professional things to say to your boss when overwhelmed, with respectful wording for workload, priorities, deadlines, and support.</p>
 <a class="button" href="/what-to-say-to-your-boss-when-overwhelmed.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Professional Apology Email Generator</h3>
+<p>Write a professional apology email for work situations, business issues, and difficult conversations.</p>
+<a class="button" href="/professional-apology-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Follow Up Email Generator</h3>
+<p>Generate a professional follow up email after meetings, interviews, proposals, or unanswered messages.</p>
+<a class="button" href="/follow-up-email-generator.html">Open Tool</a>
+</div>
+
+<div class="tool-card">
+<h3>Meeting Request Email Generator</h3>
+<p>Generate a professional email requesting a meeting with a client, manager, coworker, or business contact.</p>
+<a class="button" href="/meeting-request-email-generator.html">Open Tool</a>
 </div>
 </div>
 </section>
@@ -405,150 +607,45 @@ A few of the highest-interest tool types based on the kinds of searches and earl
 <section class="category" id="newest-tools">
 <h2>Newest Tools</h2>
 <p class="category-intro">
-Recently added AI communication generators.
+Recently added what to say and communication tools.
 </p>
 
 <div class="tools">
 <div class="tool-card">
-<h3>What to Say When Someone Dies Generator</h3>
-<p>Generate thoughtful, comforting things to say when someone dies, with simple wording for immediate condolences and hard moments.</p>
-<a class="button" href="/what-to-say-when-someone-dies.html">Open Tool</a>
+<h3>What to Say When You’re Burned Out Generator</h3>
+<p>Generate natural things to say when you’re burned out, with clear, honest wording for work, personal conversations, and asking for support.</p>
+<a class="button" href="/what-to-say-when-youre-burned-out.html">Open Tool</a>
 </div>
 
 <div class="tool-card">
-<h3>What to Say When Someone Is Grieving Generator</h3>
-<p>Generate supportive, natural things to say when someone is grieving, whether you are checking in, offering comfort, or trying to be there without saying the wrong thing.</p>
-<a class="button" href="/what-to-say-when-someone-is-grieving.html">Open Tool</a>
+<h3>What to Say to Show Appreciation Generator</h3>
+<p>Generate thoughtful things to say to show appreciation, with natural wording that feels warm, genuine, and not generic.</p>
+<a class="button" href="/what-to-say-to-show-appreciation.html">Open Tool</a>
 </div>
 
 <div class="tool-card">
-<h3>What to Say to Someone Who Lost a Loved One Generator</h3>
-<p>Generate kind, respectful things to say to someone who lost a loved one, with comforting wording for texts, cards, and real conversations.</p>
-<a class="button" href="/what-to-say-to-someone-who-lost-a-loved-one.html">Open Tool</a>
+<h3>What to Say Instead of Thank You Generator</h3>
+<p>Generate thoughtful things to say instead of thank you, with natural alternatives that feel more personal, warm, and specific.</p>
+<a class="button" href="/what-to-say-instead-of-thank-you.html">Open Tool</a>
 </div>
 
 <div class="tool-card">
-<h3>What to Text Someone Who Is Grieving Generator</h3>
-<p>Generate thoughtful text messages for someone who is grieving, with short supportive wording that feels natural, gentle, and easy to send.</p>
-<a class="button" href="/what-to-text-someone-who-is-grieving.html">Open Tool</a>
+<h3>What to Say to Someone Going Through a Hard Time Generator</h3>
+<p>Generate thoughtful things to say to someone going through a hard time, with supportive, natural wording that feels caring and real.</p>
+<a class="button" href="/what-to-say-to-someone-going-through-a-hard-time.html">Open Tool</a>
 </div>
 
 <div class="tool-card">
-<h3>What to Say After a Fight Generator</h3>
-<p>Generate calm, sincere things to say after a fight, whether you want to reconnect, apologize, clear the air, or restart the conversation in a better way.</p>
-<a class="button" href="/what-to-say-after-a-fight.html">Open Tool</a>
+<h3>What to Say at a Funeral Generator</h3>
+<p>Generate respectful things to say at a funeral, with simple, thoughtful wording for condolences, brief conversations, and difficult moments.</p>
+<a class="button" href="/what-to-say-at-a-funeral.html">Open Tool</a>
 </div>
 
 <div class="tool-card">
-<h3>What to Say to Apologize Sincerely Generator</h3>
-<p>Generate sincere things to say when you need to apologize, with natural wording that sounds accountable, honest, and genuinely human.</p>
-<a class="button" href="/what-to-say-to-apologize-sincerely.html">Open Tool</a>
+<h3>What to Say to Set Boundaries Generator</h3>
+<p>Generate clear things to say to set boundaries, with respectful wording that sounds firm, calm, and not overly harsh or apologetic.</p>
+<a class="button" href="/what-to-say-to-set-boundaries.html">Open Tool</a>
 </div>
-</div>
-</section>
-
-<section class="category" id="what-to-say-tools">
-<h2>What To Say Tools</h2>
-<p class="category-intro">
-Tools for real-life wording when you need help knowing what to say in grief, conflict, texting, awkward moments, stress, and everyday human situations.
-</p>
-
-<div class="tools">
-<div class="tool-card">
-<h3>What to Say When Someone Dies Generator</h3>
-<p>Generate thoughtful, comforting things to say when someone dies, with simple wording for immediate condolences and hard moments.</p>
-<a class="button" href="/what-to-say-when-someone-dies.html">Open Tool</a>
-</div>
-
-<div class="tool-card">
-<h3>What to Say When Someone Is Grieving Generator</h3>
-<p>Generate supportive, natural things to say when someone is grieving, whether you are checking in, offering comfort, or trying to be there without saying the wrong thing.</p>
-<a class="button" href="/what-to-say-when-someone-is-grieving.html">Open Tool</a>
-</div>
-
-<div class="tool-card">
-<h3>What to Say to Someone Who Lost a Loved One Generator</h3>
-<p>Generate kind, respectful things to say to someone who lost a loved one, with comforting wording for texts, cards, and real conversations.</p>
-<a class="button" href="/what-to-say-to-someone-who-lost-a-loved-one.html">Open Tool</a>
-</div>
-
-<div class="tool-card">
-<h3>What to Text Someone Who Is Grieving Generator</h3>
-<p>Generate thoughtful text messages for someone who is grieving, with short supportive wording that feels natural, gentle, and easy to send.</p>
-<a class="button" href="/what-to-text-someone-who-is-grieving.html">Open Tool</a>
-</div>
-</div>
-
-<div class="extra-tools" id="extra-what-to-say">
-<div class="tool-card">
-<h3>What to Say After a Fight Generator</h3>
-<p>Generate calm, sincere things to say after a fight, whether you want to reconnect, apologize, clear the air, or restart the conversation in a better way.</p>
-<a class="button" href="/what-to-say-after-a-fight.html">Open Tool</a>
-</div>
-
-<div class="tool-card">
-<h3>What to Say to Apologize Sincerely Generator</h3>
-<p>Generate sincere things to say when you need to apologize, with natural wording that sounds accountable, honest, and genuinely human.</p>
-<a class="button" href="/what-to-say-to-apologize-sincerely.html">Open Tool</a>
-</div>
-
-<div class="tool-card">
-<h3>What to Say When You Hurt Someone Generator</h3>
-<p>Generate thoughtful things to say when you hurt someone, with natural wording for remorse, accountability, and trying to make things right.</p>
-<a class="button" href="/what-to-say-when-you-hurt-someone.html">Open Tool</a>
-</div>
-
-<div class="tool-card">
-<h3>What to Text After a First Date Generator</h3>
-<p>Generate natural texts to send after a first date, with casual, flirty, and genuine options that feel confident without sounding forced.</p>
-<a class="button" href="/what-to-text-after-a-first-date.html">Open Tool</a>
-</div>
-
-<div class="tool-card">
-<h3>What to Say When the Conversation Dies Generator</h3>
-<p>Generate natural things to say when the conversation dies, with easy ways to restart a chat without sounding awkward, random, or forced.</p>
-<a class="button" href="/what-to-say-when-the-conversation-dies.html">Open Tool</a>
-</div>
-
-<div class="tool-card">
-<h3>What to Text After No Response Generator</h3>
-<p>Generate natural texts to send after no response, with calm, confident wording that follows up without sounding needy, awkward, or overdone.</p>
-<a class="button" href="/what-to-text-after-no-response.html">Open Tool</a>
-</div>
-
-<div class="tool-card">
-<h3>What to Say When You Don’t Know What to Say Generator</h3>
-<p>Generate natural things to say when you don’t know what to say, with thoughtful wording for awkward, emotional, uncertain, or hard-to-read moments.</p>
-<a class="button" href="/what-to-say-when-you-dont-know-what-to-say.html">Open Tool</a>
-</div>
-
-<div class="tool-card">
-<h3>What to Say When Someone Is Rude Generator</h3>
-<p>Generate calm, confident things to say when someone is rude, with wording that helps you respond clearly without escalating the situation.</p>
-<a class="button" href="/what-to-say-when-someone-is-rude.html">Open Tool</a>
-</div>
-
-<div class="tool-card">
-<h3>What to Say When You’re Late Generator</h3>
-<p>Generate natural things to say when you’re late, with short, respectful wording for texts, plans, meetings, casual situations, and awkward arrivals.</p>
-<a class="button" href="/what-to-say-when-youre-late.html">Open Tool</a>
-</div>
-
-<div class="tool-card">
-<h3>What to Say to Your Boss When Overwhelmed Generator</h3>
-<p>Generate clear, professional things to say to your boss when overwhelmed, with respectful wording for workload, priorities, deadlines, and support.</p>
-<a class="button" href="/what-to-say-to-your-boss-when-overwhelmed.html">Open Tool</a>
-</div>
-
-<div class="tool-card">
-<h3>What to Say to Someone Who Lost Their Job Generator</h3>
-<p>Generate supportive things to say to someone who lost their job, with kind, natural wording that feels encouraging without sounding fake or dismissive.</p>
-<a class="button" href="/what-to-say-to-someone-who-lost-their-job.html">Open Tool</a>
-</div>
-</div>
-
-<div class="toggle-wrap">
-<button class="toggle-button" type="button" data-target="extra-what-to-say">Show more tools</button>
 </div>
 </section>
 
@@ -1245,19 +1342,29 @@ Tools for networking, cold outreach, first-contact emails, business introduction
 </div>
 
 <section class="seo-section">
-<h2>AI Tools for Writing Emails, Apologies, Follow Ups, Professional Messages, and What to Say</h2>
+<h2>What To Say Tools for Real-Life Situations</h2>
 <p>
-ToolChestLab is a growing collection of AI-powered generators designed to help you write difficult messages faster. Whether you are apologizing for a late reply, asking for a raise, following up after an interview, requesting PTO, reminding a client about payment, emailing a professor, confirming next steps, requesting a signature, sharing meeting notes, confirming a submission, checking project status, sending the final version of a document, or figuring out <a href="/what-to-say-when-someone-dies.html">what to say when someone dies</a>, <a href="/what-to-text-after-a-first-date.html">what to text after a first date</a>, or <a href="/what-to-say-to-your-boss-when-overwhelmed.html">what to say to your boss when overwhelmed</a>, these tools help you find the right wording quickly.
+ToolChestLab includes a large and growing library of what to say tools built for real-life communication problems. Whether you need help with grief, awkward silence, texting your crush, dating app conversations, apologizing after a fight, rebuilding trust, setting boundaries, speaking up in a meeting, telling your boss you are overwhelmed, showing appreciation, or finding the right words on a hard day, these tools help you get unstuck fast. Browse tools like <a href="/what-to-say-when-someone-dies.html">What to Say When Someone Dies</a>, <a href="/what-to-text-after-a-first-date.html">What to Text After a First Date</a>, <a href="/what-to-say-to-your-boss-when-overwhelmed.html">What to Say to Your Boss When Overwhelmed</a>, <a href="/what-to-say-to-show-appreciation.html">What to Say to Show Appreciation</a>, and <a href="/what-to-say-to-set-boundaries.html">What to Say to Set Boundaries</a>.
 </p>
 <p>
-Instead of staring at a blank message, describe your situation and the tool will generate a clear starting point you can edit to match your voice. Each page is built around a specific real-world communication problem, which makes ToolChestLab useful for work, business, job search, sales, school, management, client communication, contracts, documentation, texting, conflict, grief, awkward moments, and everyday life.
+These pages are designed for real search intent and real moments; grief, conflict, dating, texting, awkward situations, work conversations, gratitude, and everyday life. Instead of staring at your phone trying to think of the right wording, you can describe the situation and get realistic options you can adapt to your own voice.
+</p>
+</section>
+
+<section class="seo-section">
+<h2>Email & Message Generators for Work, School, Clients, and Documents</h2>
+<p>
+ToolChestLab also includes professional email and message generators for work, job search, school, meetings, sales, documents, approvals, signatures, submissions, payment reminders, project updates, client communication, and follow ups. Browse tools like the <a href="/professional-apology-email-generator.html">Professional Apology Email Generator</a>, <a href="/follow-up-email-generator.html">Follow Up Email Generator</a>, <a href="/salary-negotiation-email-generator.html">Salary Negotiation Email Generator</a>, <a href="/payment-reminder-email-generator.html">Payment Reminder Email Generator</a>, and <a href="/email-confirming-receipt-of-documents-generator.html">Email Confirming Receipt of Documents Generator</a>.
+</p>
+<p>
+Each page is built around a specific communication problem so you can find a clearer starting point faster, edit it to match your tone, and move on without getting stuck on wording.
 </p>
 </section>
 
 <section class="seo-section">
 <h2>Why ToolChestLab Exists</h2>
 <p>
-Writing the right message is not always easy. A quick apology, a delayed response, a job search email, a payment follow up, a meeting request, a professor email, a document request, a signature reminder, a submission confirmation, or a difficult real-life conversation can take longer than it should.
+Writing the right message is not always easy. A difficult apology, a no-response follow up, a grieving text, a dating app opener, a boundary-setting conversation, a job search email, a professor request, a payment follow up, or a hard work conversation can take much longer than it should.
 </p>
 <p>
 ToolChestLab is built to make those moments easier with practical communication tools you can use immediately and customize to your situation.
@@ -1279,11 +1386,11 @@ const searchInput = document.getElementById("toolSearch");
 
 searchInput.addEventListener("input", function(){
   const query = searchInput.value.toLowerCase().trim();
-  const categories = document.querySelectorAll(".category");
+  const categories = document.querySelectorAll(".category, .section-divider");
 
   categories.forEach(category => {
     const cards = category.querySelectorAll(".tool-card");
-    const popularItems = category.querySelectorAll(".popular-tools li");
+    const popularItems = category.querySelectorAll(".popular-tools li, .cluster-links li");
     const toggleWrap = category.querySelector(".toggle-wrap");
 
     let hasVisible = false;
