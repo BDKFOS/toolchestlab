@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>What to Say When You’re Burned Out Generator | ToolChestLab</title>
+<meta name="description" content="Generate natural things to say when you’re burned out, with clear, honest wording for work, personal conversations, and asking for support.">
+<link rel="canonical" href="https://www.toolchestlab.com/what-to-say-when-youre-burned-out.html">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WLQ0YR217T');
+</script>
+
+<style>
+*{box-sizing:border-box;}
+body{
+font-family:Arial,sans-serif;
+color:#222;
+margin:0;
+padding:40px 20px;
+background-color:#eef4fb;
+background-image:
+linear-gradient(rgba(50,90,140,0.10) 1px, transparent 1px),
+linear-gradient(90deg, rgba(50,90,140,0.10) 1px, transparent 1px);
+background-size:32px 32px;
+}
+.page-wrap{max-width:760px;margin:0 auto;}
+.back-link{
+display:inline-block;
+margin-bottom:18px;
+color:#0070f3;
+text-decoration:none;
+font-size:15px;
+}
+.container{
+background:white;
+padding:30px;
+border-radius:12px;
+border:1px solid #e5e5e5;
+box-shadow:0 8px 24px rgba(0,0,0,0.10);
+}
+h1{margin-top:0;margin-bottom:10px;}
+h2{margin-top:0;}
+p{line-height:1.7;}
+label{
+display:block;
+margin-top:10px;
+margin-bottom:8px;
+font-weight:bold;
+text-align:left;
+}
+textarea,select,input,button{
+width:100%;
+margin-bottom:20px;
+padding:12px;
+font-size:16px;
+border-radius:8px;
+}
+textarea,select,input{border:1px solid #d9d9d9;}
+button{
+background:#0070f3;
+color:white;
+border:none;
+cursor:pointer;
+}
+button:hover{background:#0059c7;}
+#result{
+margin-top:20px;
+text-align:left;
+white-space:pre-wrap;
+background:#fafafa;
+padding:20px;
+border-radius:8px;
+min-height:140px;
+border:1px solid #ececec;
+line-height:1.7;
+}
+.info-section{margin-top:40px;}
+.related-tools{margin-top:40px;padding-top:10px;}
+.related-tools ul{padding-left:20px;line-height:1.8;}
+.related-tools a{color:#0070f3;text-decoration:none;}
+.related-tools a:hover,.back-link:hover{text-decoration:underline;}
+@media (max-width:700px){
+body{padding:20px 14px;}
+.container{padding:22px;}
+}
+</style>
+</head>
+
+<body>
+<div class="page-wrap">
+<a class="back-link" href="/">← Back to ToolChestLab</a>
+
+<div class="container">
+<h1>What to Say When You’re Burned Out Generator</h1>
+<p>Generate natural things to say when you’re burned out, with clear, honest wording for work, personal conversations, and asking for support.</p>
+
+<label for="situation">What kind of situation is it?</label>
+<select id="situation">
+<option>Talking to my boss</option>
+<option>Talking to a coworker</option>
+<option>Talking to someone close to me</option>
+<option>I need to be honest without sounding dramatic</option>
+<option>I need help expressing how bad it feels</option>
+</select>
+
+<label for="tone">Tone</label>
+<select id="tone">
+<option>Honest</option>
+<option>Calm</option>
+<option>Professional</option>
+<option>Direct</option>
+<option>Simple</option>
+</select>
+
+<label for="context">Optional details</label>
+<textarea id="context" rows="5" placeholder="Example: I feel burned out and need a clear way to explain it without sounding vague or overwhelmed in the moment."></textarea>
+
+<button onclick="generateResponse()">Generate What to Say</button>
+
+<div id="result" aria-live="polite">Your generated wording will appear here.</div>
+
+<button onclick="copyResult()">Copy</button>
+<button onclick="generateResponse()">Regenerate</button>
+
+<div class="info-section">
+<hr style="margin:40px 0;">
+<h2>What do you say when you’re burned out?</h2>
+<p>
+The best wording is usually clear, honest, and specific enough that the other person understands what is going on. It helps to focus on how things are affecting you and what kind of support or change you need.
+</p>
+<p>
+This generator helps you find natural ways to talk about burnout without sounding vague, overly dramatic, or completely shut down.
+</p>
+</div>
+
+<div class="info-section">
+<hr style="margin:40px 0;">
+<h2>Frequently Asked Questions</h2>
+
+<p><strong>Should I say I’m burned out directly?</strong><br>
+Sometimes yes, especially if that is the clearest and most accurate wording for what you are feeling.</p>
+
+<p><strong>Can this help at work and personally?</strong><br>
+Yes. The wording can work in professional conversations, personal check-ins, and honest discussions with people close to you.</p>
+</div>
+
+<div class="related-tools">
+<h2>Related What to Say Tools</h2>
+<ul>
+<li><a href="/what-to-say-to-your-boss-when-overwhelmed.html">What to Say to Your Boss When Overwhelmed</a></li>
+<li><a href="/what-to-say-when-you-need-help-at-work.html">What to Say When You Need Help at Work</a></li>
+<li><a href="/what-to-say-when-someone-is-stressed-or-overwhelmed.html">What to Say When Someone Is Stressed or Overwhelmed</a></li>
+<li><a href="/what-to-say-when-you-mess-up-at-work.html">What to Say When You Mess Up at Work</a></li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<script>
+async function generateResponse(){
+const situation=document.getElementById("situation").value;
+const tone=document.getElementById("tone").value;
+const context=document.getElementById("context").value.trim();
+const result=document.getElementById("result");
+
+result.innerText="Generating...";
+
+const prompt=`Write natural, human things to say when someone is burned out.
+
+Situation:
+${situation}
+
+Tone:
+${tone}
+
+Extra context:
+${context || "No extra context provided."}
+
+Requirements:
+- Give 6 short things to say
+- Then give 3 slightly longer versions
+- Keep the wording honest, clear, and realistic
+- Do not sound robotic, vague, dramatic, or overly formal
+- Help the person express burnout in a grounded way
+- Do not include email subject lines
+- Do not include sign-offs
+- Format clearly with simple labels`;
+
+try{
+const response=await fetch("/api/generate",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({prompt})
+});
+
+if(!response.ok){
+result.innerText="Something went wrong. Please try again.";
+return;
+}
+const data=await response.json();
+result.innerText=data.message || "Something went wrong. Please try again.";
+}catch(error){
+result.innerText="Error generating wording. Please try again.";
+}
+}
+
+function copyResult(){
+const text=document.getElementById("result").innerText;
+navigator.clipboard.writeText(text).then(()=>{alert("Copied to clipboard!");});
+}
+</script>
+
+</body>
+</html>
