@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Reaction Time Test | Measure Your Reflex Speed Online | ToolChestLab</title>
+<meta name="description" content="Test your reaction speed online with a simple reflex timer. Click as fast as you can when the screen turns green.">
+<link rel="canonical" href="https://www.toolchestlab.com/reaction-time-test.html">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WLQ0YR217T');
+</script>
+
+<style>
+*{
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,sans-serif;
+color:#222;
+margin:0;
+padding:40px 20px;
+background-color:#eef4fb;
+background-image:
+linear-gradient(rgba(50,90,140,0.10) 1px, transparent 1px),
+linear-gradient(90deg, rgba(50,90,140,0.10) 1px, transparent 1px);
+background-size:32px 32px;
+}
+
+.page-wrap{
+max-width:760px;
+margin:0 auto;
+}
+
+.back-link{
+display:inline-block;
+margin-bottom:18px;
+color:#0070f3;
+text-decoration:none;
+font-size:15px;
+}
+
+.container{
+background:white;
+padding:30px;
+border-radius:12px;
+border:1px solid #e5e5e5;
+box-shadow:0 8px 24px rgba(0,0,0,0.10);
+}
+
+h1{
+margin-top:0;
+margin-bottom:10px;
+}
+
+h2{
+margin-top:0;
+}
+
+p{
+line-height:1.7;
+}
+
+.button-row{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin:20px 0 20px;
+}
+
+button{
+padding:12px 16px;
+font-size:16px;
+border-radius:8px;
+border:none;
+background:#0070f3;
+color:white;
+cursor:pointer;
+font-family:Arial,sans-serif;
+}
+
+button:hover{
+background:#0059c7;
+}
+
+#gameBox{
+margin-top:20px;
+width:100%;
+min-height:260px;
+border-radius:12px;
+border:1px solid #d9d9d9;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+font-size:1.25rem;
+font-weight:bold;
+user-select:none;
+cursor:pointer;
+background:#fafafa;
+color:#222;
+transition:background-color 0.15s ease;
+}
+
+#statusText{
+margin-top:18px;
+font-size:1rem;
+color:#444;
+}
+
+#bestScore{
+margin-top:8px;
+font-size:0.98rem;
+color:#555;
+}
+
+.info-section{
+margin-top:40px;
+}
+
+.related-tools{
+margin-top:40px;
+padding-top:10px;
+}
+
+.related-tools ul{
+padding-left:20px;
+line-height:1.8;
+}
+
+.related-tools a{
+color:#0070f3;
+text-decoration:none;
+}
+
+.related-tools a:hover,
+.back-link:hover{
+text-decoration:underline;
+}
+
+@media (max-width:700px){
+body{
+padding:20px 14px;
+}
+
+.container{
+padding:22px;
+}
+
+.button-row{
+flex-direction:column;
+}
+
+button{
+width:100%;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="page-wrap">
+
+<a class="back-link" href="/">← Back to ToolChestLab</a>
+
+<div class="container">
+
+<h1>Reaction Time Test</h1>
+<p>Measure your reflex speed online. Click as fast as you can when the box turns green.</p>
+
+<div class="button-row">
+<button type="button" onclick="startTest()">Start Test</button>
+<button type="button" onclick="startTest()">Try Again</button>
+</div>
+
+<div id="gameBox" aria-live="polite">Click "Start Test" to begin.</div>
+<div id="statusText">Wait for the box to turn green, then click immediately.</div>
+<div id="bestScore">Best score: --</div>
+
+<div class="info-section">
+
+<hr style="margin:40px 0;">
+
+<h2>How this reaction test works</h2>
+
+<p>
+This reaction time test measures how quickly you respond after a visual change. When you start, the box will turn red first. After a random delay, it turns green. Click as soon as you see the green color.
+</p>
+
+<p>
+Your score is shown in milliseconds. Lower is faster. You can retry as many times as you want to compare attempts and track your best score.
+</p>
+
+<hr style="margin:40px 0;">
+
+<h2>Frequently Asked Questions</h2>
+
+<p><strong>What is a good reaction time?</strong><br>
+A common reaction time for simple visual tests is often around 200 to 300 milliseconds, though results vary depending on device, attention, and clicking speed.</p>
+
+<p><strong>Does device type affect the score?</strong><br>
+Yes. Mobile devices, trackpads, mice, browser performance, and screen refresh rate can all affect timing slightly.</p>
+
+<p><strong>Can I improve my score?</strong><br>
+Usually, yes. Repeating the test can help you get more comfortable with the timing and reduce hesitation.</p>
+
+</div>
+
+<div class="related-tools">
+<h2>Related ToolChestLab Tools</h2>
+<ul>
+<li><a href="/what-to-say-when-you-dont-know-what-to-say.html">What to Say When You Don’t Know What to Say</a></li>
+<li><a href="/what-to-say-when-the-conversation-dies.html">What to Say When the Conversation Dies</a></li>
+<li><a href="/what-to-say-to-start-a-conversation.html">What to Say to Start a Conversation</a></li>
+<li><a href="/what-to-say-to-keep-a-conversation-going.html">What to Say to Keep a Conversation Going</a></li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<script>
+let timeoutId = null;
+let startTime = 0;
+let gameState = "idle";
+let bestScore = null;
+
+const gameBox = document.getElementById("gameBox");
+const statusText = document.getElementById("statusText");
+const bestScoreText = document.getElementById("bestScore");
+
+function updateBestScore(score){
+  if(bestScore === null || score < bestScore){
+    bestScore = score;
+    bestScoreText.innerText = "Best score: " + bestScore + " ms";
+  }
+}
+
+function resetBoxStyles(){
+  gameBox.style.background = "#fafafa";
+  gameBox.style.color = "#222";
+}
+
+function startTest(){
+  clearTimeout(timeoutId);
+  gameState = "waiting";
+  resetBoxStyles();
+  gameBox.style.background = "#d93025";
+  gameBox.style.color = "white";
+  gameBox.innerText = "Wait for green...";
+  statusText.innerText = "Do not click yet.";
+
+  const delay = Math.floor(Math.random() * 3000) + 1200;
+
+  timeoutId = setTimeout(() => {
+    gameState = "ready";
+    startTime = Date.now();
+    gameBox.style.background = "#1e8e3e";
+    gameBox.style.color = "white";
+    gameBox.innerText = "CLICK!";
+    statusText.innerText = "Click now.";
+  }, delay);
+}
+
+gameBox.addEventListener("click", function(){
+  if(gameState === "idle"){
+    statusText.innerText = "Click Start Test to begin.";
+    return;
+  }
+
+  if(gameState === "waiting"){
+    clearTimeout(timeoutId);
+    gameState = "idle";
+    resetBoxStyles();
+    gameBox.innerText = "Too soon. Click Start Test to try again.";
+    statusText.innerText = "You clicked before green.";
+    return;
+  }
+
+  if(gameState === "ready"){
+    const reactionTime = Date.now() - startTime;
+    gameState = "idle";
+    resetBoxStyles();
+    gameBox.innerText = reactionTime + " ms";
+    statusText.innerText = "Nice. Click Try Again for another attempt.";
+    updateBestScore(reactionTime);
+  }
+});
+</script>
+
+</body>
+</html>
