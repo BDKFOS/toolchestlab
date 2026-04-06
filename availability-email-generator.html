@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Availability Email Generator | ToolChestLab</title>
-<meta name="description" content="Generate a professional availability email to share your available times for a meeting, interview, or appointment.">
+<title>Availability Email Generator (Availability + Appointment Confirmation) | ToolChestLab</title>
+<meta name="description" content="Generate a professional availability email or appointment confirmation email for meetings, interviews, consultations, and scheduled calls.">
 <link rel="canonical" href="https://www.toolchestlab.com/availability-email-generator.html">
 
 <!-- Google Analytics -->
@@ -114,6 +114,50 @@ border:1px solid #ececec;
 line-height:1.6;
 }
 
+.note-box{
+margin:18px 0 24px 0;
+padding:14px 16px;
+background:#f3f8ff;
+border:1px solid #dbe8fb;
+border-radius:10px;
+line-height:1.6;
+}
+
+.template-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+margin-top:20px;
+}
+
+.template-card{
+border:1px solid #e5e5e5;
+border-radius:10px;
+padding:18px;
+background:#fafafa;
+}
+
+.template-text{
+white-space:pre-wrap;
+background:white;
+border:1px solid #ececec;
+border-radius:8px;
+padding:14px;
+line-height:1.6;
+margin-bottom:12px;
+font-size:0.95rem;
+}
+
+.secondary-button{
+background:white;
+color:#0070f3;
+border:1px solid #cfe0fb;
+}
+
+.secondary-button:hover{
+background:#f3f8ff;
+}
+
 .info-section{
 margin-top:40px;
 }
@@ -148,6 +192,10 @@ padding:20px 14px;
 padding:22px;
 }
 
+.template-grid{
+grid-template-columns:1fr;
+}
+
 }
 </style>
 </head>
@@ -161,7 +209,11 @@ padding:22px;
 <div class="container">
 
 <h1>Availability Email Generator</h1>
-<p>Generate a professional availability email to share your available times for a meeting, interview, or appointment.</p>
+<p>Generate a professional availability email to share your available times for a meeting, interview, appointment, or scheduled call. This page also works for appointment confirmation emails when you need to confirm a time clearly and professionally.</p>
+
+<div class="note-box">
+This is the main scheduling tool. Use it to share your availability, confirm an appointment, coordinate a meeting time, or reduce back-and-forth around scheduling.
+</div>
 
 <label for="tone">Tone</label>
 <select id="tone">
@@ -171,8 +223,8 @@ padding:22px;
 <option>Concise</option>
 </select>
 
-<label for="context">What availability do you want to send?</label>
-<textarea id="context" rows="5" placeholder="Example: I need to reply to a client and let them know Iâ€™m available Wednesday after 1 PM, Thursday morning, or Friday at 3 PM for a call."></textarea>
+<label for="context">What availability or scheduling details do you want to send?</label>
+<textarea id="context" rows="5" placeholder="Example: I need to reply to a client and let them know I’m available Wednesday after 1 PM, Thursday morning, or Friday at 3 PM for a call."></textarea>
 
 <label for="name">Your name (optional)</label>
 <input id="name" type="text" placeholder="Example: Jesse">
@@ -185,6 +237,82 @@ padding:22px;
 <button onclick="generateEmail()">Regenerate</button>
 
 <div class="info-section">
+
+<hr style="margin:40px 0;">
+
+<h2>Copy and Paste Availability & Appointment Confirmation Examples</h2>
+
+<div class="template-grid">
+
+<div class="template-card">
+<h3>Availability Email</h3>
+<div class="template-text" id="t1">Subject: Availability
+
+Hi [Name],
+
+I’m available at the following times:
+
+- [Option 1]
+- [Option 2]
+- [Option 3]
+
+Please let me know what works best for you.
+
+Best,
+[Your Name]</div>
+<button class="secondary-button" onclick="copyTemplate('t1')">Copy Example</button>
+</div>
+
+<div class="template-card">
+<h3>Interview or Meeting Availability</h3>
+<div class="template-text" id="t2">Subject: Availability for [Meeting/Interview]
+
+Hi [Name],
+
+Thank you for reaching out. I’m available at the following times:
+
+- [Option 1]
+- [Option 2]
+- [Option 3]
+
+Please let me know which option works best.
+
+Best,
+[Your Name]</div>
+<button class="secondary-button" onclick="copyTemplate('t2')">Copy Example</button>
+</div>
+
+<div class="template-card">
+<h3>Appointment Confirmation</h3>
+<div class="template-text" id="t3">Subject: Appointment Confirmation
+
+Hi [Name],
+
+Just confirming our appointment on [day/date] at [time].
+
+Looking forward to it.
+
+Best,
+[Your Name]</div>
+<button class="secondary-button" onclick="copyTemplate('t3')">Copy Example</button>
+</div>
+
+<div class="template-card">
+<h3>Professional Appointment Confirmation</h3>
+<div class="template-text" id="t4">Subject: Confirming Our Appointment
+
+Hi [Name],
+
+I’m writing to confirm our appointment on [day/date] at [time] regarding [purpose].
+
+Please let me know if anything changes on your end. I look forward to meeting with you.
+
+Best,
+[Your Name]</div>
+<button class="secondary-button" onclick="copyTemplate('t4')">Copy Example</button>
+</div>
+
+</div>
 
 <hr style="margin:40px 0;">
 
@@ -204,16 +332,34 @@ Describe your situation and this tool will generate a polished availability emai
 
 <hr style="margin:40px 0;">
 
+<h2>How do you confirm an appointment by email?</h2>
+
+<p>
+A good appointment confirmation email should confirm the date and time, mention the purpose if needed, and keep the tone polite, clear, and organized.
+</p>
+
+<p>
+This page also works for appointment confirmations for meetings, services, interviews, calls, consultations, and other scheduled events. When confirming a time, it helps to repeat the exact date and time clearly to avoid confusion.
+</p>
+
+<hr style="margin:40px 0;">
+
 <h2>Frequently Asked Questions</h2>
 
 <p><strong>Should I list multiple time options?</strong><br>
 Yes. Giving several options makes it easier for the other person to pick a time that works.</p>
 
 <p><strong>How specific should I be?</strong><br>
-Usually it is best to be specific with days and times instead of saying something broad like "Iâ€™m free this week."</p>
+Usually it is best to be specific with days and times instead of saying something broad like "I’m free this week."</p>
 
 <p><strong>Can I use this for interviews and client calls?</strong><br>
 Yes. Availability emails are common for interviews, meetings, consultations, and appointments.</p>
+
+<p><strong>Should I repeat the date and time in a confirmation email?</strong><br>
+Yes. Repeating the exact date and time helps avoid confusion.</p>
+
+<p><strong>Can I use this for service or client appointments?</strong><br>
+Yes. It works for professional, client-facing, and internal scheduling situations.</p>
 </div>
 
 <div class="info-section">
@@ -228,12 +374,13 @@ Yes. You should personalize the draft so it matches your situation, relationship
 </div>
 
 <div class="related-tools">
-<h2>More Scheduling and Meeting Tools</h2>
+<h2>Related Master Tools</h2>
 <ul>
-<li><a href="/meeting-request-email-generator.html">Meeting Request Email Generator</a></li>
-<li><a href="/schedule-meeting-email-generator.html">Schedule Meeting Email Generator</a></li>
-<li><a href="/reschedule-meeting-email-generator.html">Reschedule Meeting Email Generator</a></li>
-<li><a href="/confirm-meeting-email-generator.html">Confirm Meeting Email Generator</a></li>
+<li><a href="/follow-up-email-generator.html">Follow-Up Email Generator</a></li>
+<li><a href="/professional-apology-email-generator.html">Professional Apology Email Generator</a></li>
+<li><a href="/absent-from-work-email-generator.html">Absent From Work Email Generator</a></li>
+<li><a href="/email-confirming-appointment-generator.html">Email Confirming Appointment Generator</a></li>
+<li><a href="/email-rewrite-tool.html">Email Rewrite Tool</a></li>
 </ul>
 </div>
 
@@ -250,21 +397,21 @@ const name=document.getElementById("name").value;
 const result=document.getElementById("result");
 
 if(!context.trim()){
-result.innerText="Please describe the availability you want to send.";
+result.innerText="Please describe the availability or appointment details you want to send.";
 return;
 }
 
 result.innerText="Generating...";
 
-const prompt=`Write a ${tone.toLowerCase()} availability email.
+const prompt=`Write a ${tone.toLowerCase()} scheduling email.
 
 Situation:
 ${context}
 
 Requirements:
 - Include a subject line
-- Clearly share available times or dates
-- Make it easy for the recipient to choose
+- This should work for sharing availability or confirming an appointment, depending on the situation
+- Clearly share times or confirm the scheduled date and time
 - Keep the message professional and concise
 - End politely
 
@@ -310,9 +457,15 @@ alert("Copied to clipboard!");
 
 }
 
+function copyTemplate(id){
+const text=document.getElementById(id).innerText;
+
+navigator.clipboard.writeText(text).then(()=>{
+alert("Copied to clipboard!");
+});
+}
+
 </script>
 
 </body>
 </html>
-
-
