@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Follow Up Email Generator (Update, Check-In, Reminder, No Response, Second, Final) | ToolChestLab</title>
-<meta name="description" content="Generate a professional follow up email for meetings, interviews, proposals, outreach, update requests, check-ins, reminders, task follow-ups, or unanswered messages — including no-response, polite, second, and final follow-up situations.">
+<title>Follow Up Email Generator (Update, Check-In, Reminder, Polite Reminder, No Response, Second, Final) | ToolChestLab</title>
+<meta name="description" content="Generate a professional follow up email for meetings, interviews, proposals, outreach, update requests, check-ins, reminders, polite reminder emails, task follow-ups, or unanswered messages — including no-response, polite, second, and final follow-up situations.">
 <link rel="canonical" href="https://www.toolchestlab.com/follow-up-email-generator.html">
 
 <!-- Google Analytics -->
@@ -207,10 +207,10 @@ grid-template-columns:1fr;
 <div class="container">
 
 <h1>Follow Up Email Generator</h1>
-<p>Generate a professional follow up email for meetings, interviews, proposals, outreach, update requests, check-ins, reminders, tasks, or unanswered messages when you need a broad general follow-up.</p>
+<p>Generate a professional follow up email for meetings, interviews, proposals, outreach, update requests, check-ins, reminders, polite reminders, tasks, or unanswered messages when you need a broad general follow-up.</p>
 
 <div class="note-box">
-This is the main follow-up tool. Use it for general follow-ups, follow-ups after no response, softer polite check-ins, second follow-up emails when you have already checked in once, final follow-up emails when you want to close the loop professionally, update requests, check-in emails, reminder emails, and task follow-ups.
+This is the main follow-up tool. Use it for general follow-ups, follow-ups after no response, softer polite check-ins, second follow-up emails when you have already checked in once, final follow-up emails when you want to close the loop professionally, update requests, check-in emails, reminder emails, polite reminder emails, and task follow-ups.
 </div>
 
 <label for="recipient">Who is the email for?</label>
@@ -223,6 +223,7 @@ This is the main follow-up tool. Use it for general follow-ups, follow-ups after
 <option>Recruiter</option>
 <option>Vendor</option>
 <option>Customer</option>
+<option>Employee</option>
 <option>Other</option>
 </select>
 
@@ -236,6 +237,7 @@ This is the main follow-up tool. Use it for general follow-ups, follow-ups after
 <option>Email asking for update</option>
 <option>Check-in email</option>
 <option>Reminder email</option>
+<option>Polite reminder email</option>
 <option>Task follow up</option>
 <option>Interview follow up</option>
 <option>Proposal or client follow up</option>
@@ -452,6 +454,21 @@ Best,
 <button class="secondary-button" onclick="copyTemplate('t12')">Copy Example</button>
 </div>
 
+<div class="template-card">
+<h3>Polite Reminder Email</h3>
+<div class="template-text" id="t13">Subject: Friendly Reminder
+
+Hi [Name],
+
+I just wanted to send a polite reminder about [task, deadline, invoice, meeting, or request].
+
+When you have a moment, please let me know if there are any updates or if anything is needed from me.
+
+Best,
+[Your Name]</div>
+<button class="secondary-button" onclick="copyTemplate('t13')">Copy Example</button>
+</div>
+
 </div>
 
 </div>
@@ -467,7 +484,7 @@ A good follow up email is clear, polite, and specific. It should briefly referen
 </p>
 
 <p>
-This page is the broad general follow-up option. It works for many situations, including interviews, meetings, proposals, outreach, check-ins, reminders, update requests, task follow-ups, and messages that have not received a reply yet.
+This page is the broad general follow-up option. It works for many situations, including interviews, meetings, proposals, outreach, check-ins, reminders, polite reminders, update requests, task follow-ups, and messages that have not received a reply yet.
 </p>
 
 <p>
@@ -485,7 +502,7 @@ You should send a follow up email when enough time has passed for the other pers
 </p>
 
 <p>
-This master page also covers follow-ups after no response, softer polite check-ins, second follow-up emails when you have already reached out once, final follow-up emails when you want to close the loop, update requests, task follow-ups, and reminder-style follow-up emails.
+This master page also covers follow-ups after no response, softer polite check-ins, second follow-up emails when you have already reached out once, final follow-up emails when you want to close the loop, update requests, task follow-ups, reminder emails, and more polite reminder-style follow-ups.
 </p>
 
 <p>
@@ -502,7 +519,7 @@ In many cases, the best version depends on tone. Sometimes you want a neutral fo
 Start with a clear subject line, reference the earlier conversation briefly, and keep the tone professional, direct, and easy to respond to.</p>
 
 <p><strong>How is this different from a no-response follow up email?</strong><br>
-This page is broader and includes no-response follow-up situations too. It works for general follow-ups, softer polite follow-ups, direct no-response check-ins, second follow-ups, final follow-up emails, update requests, reminders, and task follow-ups in one place.</p>
+This page is broader and includes no-response follow-up situations too. It works for general follow-ups, softer polite follow-ups, direct no-response check-ins, second follow-ups, final follow-up emails, update requests, reminders, polite reminders, and task follow-ups in one place.</p>
 
 <p><strong>When should I send an email asking for an update?</strong><br>
 Use it when you mainly want status information on a project, proposal, application, request, or decision and want the message to feel clear and respectful.</p>
@@ -512,6 +529,9 @@ Use a check-in email when you want a softer, lower-pressure way to reconnect and
 
 <p><strong>When should I send a reminder email?</strong><br>
 Use a reminder email when the point is to gently remind someone about a deadline, task, payment, meeting, or pending response while staying polite and professional.</p>
+
+<p><strong>When should I send a polite reminder email?</strong><br>
+Use a polite reminder when you want the reminder to feel especially respectful, low-pressure, and calm while still making the request or deadline clear.</p>
 
 <p><strong>When should I send a task follow-up email?</strong><br>
 Use a task follow-up when you need to check on a specific assignment, action item, deliverable, or responsibility and want a clear status update.</p>
@@ -565,8 +585,8 @@ ${context}
 Requirements:
 - Include a subject line
 - This should work as a broad general follow-up email
-- It may need to handle general follow-ups, follow-ups after no response, polite softer follow-ups, second follow-up emails, final follow-up emails, update requests, check-in emails, reminder emails, or task follow-ups when relevant
-- Reference the earlier conversation, message, meeting, task, or project
+- It may need to handle general follow-ups, follow-ups after no response, polite softer follow-ups, second follow-up emails, final follow-up emails, update requests, check-in emails, reminder emails, polite reminder emails, or task follow-ups when relevant
+- Reference the earlier conversation, message, meeting, task, project, invoice, deadline, or request
 - Sound natural and professional
 - Keep it concise
 - End politely
