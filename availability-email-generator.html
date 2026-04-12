@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Availability Email Generator (Availability + Appointment Confirmation) | ToolChestLab</title>
-<meta name="description" content="Generate a professional availability email or appointment confirmation email for meetings, interviews, consultations, and scheduled calls.">
+<title>Availability Email Generator (Availability, Appointment, Meeting, Attendance) | ToolChestLab</title>
+<meta name="description" content="Generate a professional availability email, scheduling email, appointment confirmation, meeting confirmation, or attendance confirmation for meetings, interviews, consultations, appointments, and scheduled calls.">
 <link rel="canonical" href="https://www.toolchestlab.com/availability-email-generator.html">
 
 <!-- Google Analytics -->
@@ -209,11 +209,20 @@ grid-template-columns:1fr;
 <div class="container">
 
 <h1>Availability Email Generator</h1>
-<p>Generate a professional availability email to share your available times for a meeting, interview, appointment, or scheduled call. This page also works for appointment confirmation emails when you need to confirm a time clearly and professionally.</p>
+<p>Generate a professional availability email to share your available times for a meeting, interview, appointment, or scheduled call. This page also works for appointment confirmation emails, meeting confirmation emails, attendance confirmations, and scheduling emails when you need to coordinate or confirm a time clearly and professionally.</p>
 
 <div class="note-box">
-This is the main scheduling tool. Use it to share your availability, confirm an appointment, coordinate a meeting time, or reduce back-and-forth around scheduling.
+This is the main scheduling tool. Use it to share your availability, schedule an appointment, confirm an appointment, confirm a meeting, confirm attendance, coordinate a meeting time, or reduce back-and-forth around scheduling.
 </div>
+
+<label for="scenario">What kind of scheduling email is this?</label>
+<select id="scenario">
+<option>Share availability</option>
+<option>Schedule an appointment</option>
+<option>Confirm an appointment</option>
+<option>Confirm a meeting</option>
+<option>Confirm attendance</option>
+</select>
 
 <label for="tone">Tone</label>
 <select id="tone">
@@ -231,7 +240,7 @@ This is the main scheduling tool. Use it to share your availability, confirm an 
 
 <button onclick="generateEmail()">Generate Email</button>
 
-<div id="result" aria-live="polite">Your generated availability email will appear here.</div>
+<div id="result" aria-live="polite">Your generated scheduling email will appear here.</div>
 
 <button onclick="copyResult()">Copy Email</button>
 <button onclick="generateEmail()">Regenerate</button>
@@ -240,7 +249,7 @@ This is the main scheduling tool. Use it to share your availability, confirm an 
 
 <hr style="margin:40px 0;">
 
-<h2>Copy and Paste Availability & Appointment Confirmation Examples</h2>
+<h2>Copy and Paste Availability, Scheduling, and Confirmation Examples</h2>
 
 <div class="template-grid">
 
@@ -312,6 +321,72 @@ Best,
 <button class="secondary-button" onclick="copyTemplate('t4')">Copy Example</button>
 </div>
 
+<div class="template-card">
+<h3>Meeting Confirmation</h3>
+<div class="template-text" id="t5">Subject: Confirming Our Meeting
+
+Hi [Name],
+
+I’m writing to confirm our meeting on [day/date] at [time].
+
+Please let me know if anything changes on your end. Looking forward to speaking with you.
+
+Best,
+[Your Name]</div>
+<button class="secondary-button" onclick="copyTemplate('t5')">Copy Example</button>
+</div>
+
+<div class="template-card">
+<h3>Schedule an Appointment</h3>
+<div class="template-text" id="t6">Subject: Scheduling an Appointment
+
+Hi [Name],
+
+I’d like to schedule an appointment regarding [purpose].
+
+I’m available at the following times:
+
+- [Option 1]
+- [Option 2]
+- [Option 3]
+
+Please let me know what works best for you.
+
+Best,
+[Your Name]</div>
+<button class="secondary-button" onclick="copyTemplate('t6')">Copy Example</button>
+</div>
+
+<div class="template-card">
+<h3>Confirming Attendance</h3>
+<div class="template-text" id="t7">Subject: Confirming Attendance
+
+Hi [Name],
+
+I’m writing to confirm that I will be attending [meeting/event/class/appointment] on [day/date] at [time].
+
+Thank you, and I look forward to it.
+
+Best,
+[Your Name]</div>
+<button class="secondary-button" onclick="copyTemplate('t7')">Copy Example</button>
+</div>
+
+<div class="template-card">
+<h3>Short Scheduling Confirmation</h3>
+<div class="template-text" id="t8">Subject: Confirmed
+
+Hi [Name],
+
+Just confirming [day/date] at [time].
+
+See you then.
+
+Best,
+[Your Name]</div>
+<button class="secondary-button" onclick="copyTemplate('t8')">Copy Example</button>
+</div>
+
 </div>
 
 <hr style="margin:40px 0;">
@@ -332,14 +407,38 @@ Describe your situation and this tool will generate a polished availability emai
 
 <hr style="margin:40px 0;">
 
-<h2>How do you confirm an appointment by email?</h2>
+<h2>How do you confirm an appointment or meeting by email?</h2>
 
 <p>
-A good appointment confirmation email should confirm the date and time, mention the purpose if needed, and keep the tone polite, clear, and organized.
+A good appointment or meeting confirmation email should confirm the date and time, mention the purpose if needed, and keep the tone polite, clear, and organized.
 </p>
 
 <p>
-This page also works for appointment confirmations for meetings, services, interviews, calls, consultations, and other scheduled events. When confirming a time, it helps to repeat the exact date and time clearly to avoid confusion.
+This page works for appointment confirmations, meeting confirmations, attendance confirmations, interviews, services, calls, consultations, and other scheduled events. When confirming a time, it helps to repeat the exact date and time clearly to avoid confusion.
+</p>
+
+<hr style="margin:40px 0;">
+
+<h2>How do you schedule an appointment by email?</h2>
+
+<p>
+A professional appointment scheduling email should briefly explain the reason for the appointment, offer available dates or times, and make it easy for the other person to respond. Clear scheduling emails reduce back-and-forth and help secure a time faster.
+</p>
+
+<p>
+People use scheduling emails for consultations, services, interviews, client meetings, vendor calls, and other scheduled conversations. The best messages are polite, direct, and easy to act on.
+</p>
+
+<hr style="margin:40px 0;">
+
+<h2>How do you confirm attendance by email?</h2>
+
+<p>
+A good attendance confirmation email should clearly state that you will attend, reference the date or time, and keep the wording polite and direct.
+</p>
+
+<p>
+Attendance confirmations are useful for meetings, interviews, school events, appointments, and other scheduled commitments. Repeating the details helps reduce confusion.
 </p>
 
 <hr style="margin:40px 0;">
@@ -360,6 +459,21 @@ Yes. Repeating the exact date and time helps avoid confusion.</p>
 
 <p><strong>Can I use this for service or client appointments?</strong><br>
 Yes. It works for professional, client-facing, and internal scheduling situations.</p>
+
+<p><strong>What should a meeting confirmation email include?</strong><br>
+It should usually include the date, time, meeting format or location, and a brief note about the purpose if needed.</p>
+
+<p><strong>Should I include a meeting link?</strong><br>
+Yes, if the meeting is virtual. Including the link makes the email more useful and reduces back-and-forth.</p>
+
+<p><strong>What should a scheduling email include?</strong><br>
+It should usually include the reason for the appointment, a few available time options, and a polite request for confirmation.</p>
+
+<p><strong>Should I offer multiple times when scheduling?</strong><br>
+Yes. Giving two or three options is often the easiest way to help the other person choose.</p>
+
+<p><strong>Should I restate the event details when confirming attendance?</strong><br>
+Yes. Mentioning the date, time, or event name makes the message clearer and reduces confusion.</p>
 </div>
 
 <div class="info-section">
@@ -393,6 +507,7 @@ async function generateEmail(){
 
 const context=document.getElementById("context").value;
 const tone=document.getElementById("tone").value;
+const scenario=document.getElementById("scenario").value;
 const name=document.getElementById("name").value;
 const result=document.getElementById("result");
 
@@ -405,13 +520,17 @@ result.innerText="Generating...";
 
 const prompt=`Write a ${tone.toLowerCase()} scheduling email.
 
+Scenario:
+${scenario}
+
 Situation:
 ${context}
 
 Requirements:
 - Include a subject line
-- This should work for sharing availability or confirming an appointment, depending on the situation
+- This should work for sharing availability, scheduling an appointment, confirming an appointment, confirming a meeting, or confirming attendance depending on the situation
 - Clearly share times or confirm the scheduled date and time
+- Mention the meeting format, location, purpose, or event if relevant
 - Keep the message professional and concise
 - End politely
 
