@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Follow Up Email Generator (No Response, Polite, Second Follow-Up) | ToolChestLab</title>
-<meta name="description" content="Generate a professional follow up email for meetings, interviews, proposals, outreach, or unanswered messages — including no-response, polite, and second follow-up situations.">
+<title>Follow Up Email Generator (No Response, Polite, Second, Final) | ToolChestLab</title>
+<meta name="description" content="Generate a professional follow up email for meetings, interviews, proposals, outreach, or unanswered messages — including no-response, polite, second, and final follow-up situations.">
 <link rel="canonical" href="https://www.toolchestlab.com/follow-up-email-generator.html">
 
 <!-- Google Analytics -->
@@ -210,7 +210,7 @@ grid-template-columns:1fr;
 <p>Generate a professional follow up email for meetings, interviews, proposals, outreach, or unanswered messages when you need a broad general follow-up.</p>
 
 <div class="note-box">
-This is the main follow-up tool. Use it for general follow-ups, follow-ups after no response, softer polite check-ins, and second follow-up emails when you have already checked in once.
+This is the main follow-up tool. Use it for general follow-ups, follow-ups after no response, softer polite check-ins, second follow-up emails when you have already checked in once, and final follow-up emails when you want to close the loop professionally.
 </div>
 
 <label for="recipient">Who is the email for?</label>
@@ -220,7 +220,19 @@ This is the main follow-up tool. Use it for general follow-ups, follow-ups after
 <option>Manager</option>
 <option>Coworker</option>
 <option>Recruiter</option>
+<option>Vendor</option>
 <option>Other</option>
+</select>
+
+<label for="scenario">What kind of follow up is this?</label>
+<select id="scenario">
+<option>General follow up</option>
+<option>Follow up after no response</option>
+<option>Polite no-response follow up</option>
+<option>Second follow up</option>
+<option>Final follow up</option>
+<option>Interview follow up</option>
+<option>Proposal or client follow up</option>
 </select>
 
 <label for="tone">Tone</label>
@@ -342,6 +354,36 @@ Best,
 <button class="secondary-button" onclick="copyTemplate('t6')">Copy Example</button>
 </div>
 
+<div class="template-card">
+<h3>Final Follow Up</h3>
+<div class="template-text" id="t7">Subject: Closing the Loop
+
+Hi [Name],
+
+I wanted to send one last follow up on my earlier messages regarding [topic].
+
+If now is not the right time, no problem at all. If I do not hear back, I will assume timing is not right and will close the loop for now.
+
+Best,
+[Your Name]</div>
+<button class="secondary-button" onclick="copyTemplate('t7')">Copy Example</button>
+</div>
+
+<div class="template-card">
+<h3>Direct No-Response Follow Up</h3>
+<div class="template-text" id="t8">Subject: Following Up
+
+Hi [Name],
+
+I wanted to check back in on my earlier message regarding [topic].
+
+Just following up to see if you had a chance to review it. Please let me know when you have a moment.
+
+Best,
+[Your Name]</div>
+<button class="secondary-button" onclick="copyTemplate('t8')">Copy Example</button>
+</div>
+
 </div>
 
 </div>
@@ -375,11 +417,11 @@ You should send a follow up email when enough time has passed for the other pers
 </p>
 
 <p>
-This master page now also covers follow-ups after no response, softer polite check-ins, and second follow-up emails when you have already reached out once and still need an answer.
+This master page now also covers follow-ups after no response, softer polite check-ins, second follow-up emails when you have already reached out once, and final follow-up emails when you want to close the loop without sounding frustrated or aggressive.
 </p>
 
 <p>
-In many cases, the best version depends on tone. Sometimes you want a neutral follow-up after silence, sometimes a softer polite nudge, and sometimes a second follow-up that is still respectful but slightly more direct.
+In many cases, the best version depends on tone. Sometimes you want a neutral follow-up after silence, sometimes a softer polite nudge, sometimes a second follow-up that is still respectful but slightly more direct, and sometimes a final follow-up that clearly signals closure.
 </p>
 
 </div>
@@ -392,13 +434,16 @@ In many cases, the best version depends on tone. Sometimes you want a neutral fo
 Start with a clear subject line, reference the earlier conversation briefly, and keep the tone professional, direct, and easy to respond to.</p>
 
 <p><strong>How is this different from a no-response follow up email?</strong><br>
-This page is broader and now includes no-response follow-up situations too. It works for general follow-ups, softer polite follow-ups, and staged second follow-ups in one place.</p>
+This page is broader and includes no-response follow-up situations too. It works for general follow-ups, softer polite follow-ups, direct no-response check-ins, second follow-ups, and final follow-up emails in one place.</p>
 
 <p><strong>When should I send a polite no-response follow-up?</strong><br>
 Use a polite no-response follow-up when you want your message to feel gentle, low-pressure, and respectful, especially early in the follow-up process.</p>
 
 <p><strong>When is a second follow up email appropriate?</strong><br>
 A second follow up is appropriate when you have already checked in once and still have not received a response. It should stay respectful, but it can be a little more direct than the first check-in.</p>
+
+<p><strong>When should I send a final follow up email?</strong><br>
+Use a final follow up when you have already reached out before and want to send one last message that closes the loop professionally if there is still no reply.</p>
 
 <p><strong>Can I edit the generated email?</strong><br>
 Yes. You should personalize the draft so it matches your situation, relationship, and tone.</p>
@@ -424,6 +469,7 @@ async function generateEmail(){
 const context=document.getElementById("context").value;
 const tone=document.getElementById("tone").value;
 const recipient=document.getElementById("recipient").value;
+const scenario=document.getElementById("scenario").value;
 const name=document.getElementById("name").value;
 const result=document.getElementById("result");
 
@@ -434,7 +480,7 @@ return;
 
 result.innerText="Generating...";
 
-const prompt=`Write a ${tone.toLowerCase()} follow up email to a ${recipient}.
+const prompt=`Write a ${tone.toLowerCase()} ${scenario.toLowerCase()} email to a ${recipient}.
 
 Situation:
 ${context}
@@ -442,7 +488,7 @@ ${context}
 Requirements:
 - Include a subject line
 - This should work as a broad general follow-up email
-- It may need to handle general follow-ups, follow-ups after no response, polite softer follow-ups, or second follow-up emails when relevant
+- It may need to handle general follow-ups, follow-ups after no response, polite softer follow-ups, second follow-up emails, or final follow-up emails when relevant
 - Reference the earlier conversation, message, or meeting
 - Sound natural and professional
 - Keep it concise
