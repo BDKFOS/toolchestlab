@@ -99,7 +99,14 @@ body{padding:20px 14px;}
 
 <div class="container">
 <h1>Email Confirming Next Steps Generator</h1>
-<p>Generate a professional email confirming next steps after a meeting, call, project discussion, interview, or client conversation.</p>
+<p>Generate a professional email confirming next steps, action items, or completion updates after a meeting, call, project discussion, interview, or client conversation.</p>
+
+<label for="emailType">What do you need to confirm?</label>
+<select id="emailType">
+<option>Next steps</option>
+<option>Action items</option>
+<option>Completion of task</option>
+</select>
 
 <label for="tone">Tone</label>
 <select id="tone">
@@ -107,17 +114,18 @@ body{padding:20px 14px;}
 <option>Polite</option>
 <option>Clear</option>
 <option>Concise</option>
+<option>Friendly</option>
 </select>
 
-<label for="context">What next steps are you confirming?</label>
-<textarea id="context" rows="5" placeholder="Example: After a call with a prospective client, I want to send a summary confirming that I will send a proposal Friday and they will review it next week."></textarea>
+<label for="context">What are you confirming?</label>
+<textarea id="context" rows="5" placeholder="Example: After a team call, I want to send a short recap confirming that I will update the deck, my manager will review it Thursday, and the final version will be ready Friday morning."></textarea>
 
 <label for="name">Your name or role (optional)</label>
 <input id="name" type="text" placeholder="Example: Jesse Davis">
 
 <button onclick="generateEmail()">Generate Email</button>
 
-<div id="result" aria-live="polite">Your generated next steps email will appear here.</div>
+<div id="result" aria-live="polite">Your generated email will appear here.</div>
 
 <button onclick="copyResult()">Copy Email</button>
 <button onclick="generateEmail()">Regenerate</button>
@@ -126,10 +134,21 @@ body{padding:20px 14px;}
 <hr style="margin:40px 0;">
 <h2>How do you confirm next steps by email?</h2>
 <p>
-A good next steps email should clearly summarize what was agreed, who is doing what, and when the next action will happen. The best version is organized, professional, and easy to scan.
+A good confirmation email should clearly summarize what was agreed, who is doing what, and what happens next. The strongest version is organized, professional, and easy to scan.
 </p>
 <p>
-This generator helps you write a professional follow-up email confirming next steps after meetings, interviews, projects, sales calls, and other business conversations.
+This tool helps you write a professional recap email after meetings, client calls, project discussions, interviews, and internal conversations. You can use it to confirm next steps, document action items, or confirm that a task or deliverable has been completed.
+</p>
+</div>
+
+<div class="info-section">
+<hr style="margin:40px 0;">
+<h2>When should you use this tool?</h2>
+<p>
+Use this type of email when you want to create clarity after a conversation or update someone on follow-through. It works well when responsibilities, timing, deliverables, or completion status need to be documented in writing.
+</p>
+<p>
+If you are mainly sharing a broader project progress update, a project update email may be a better fit. If you are following up more generally without confirming decisions or actions, use a follow up email instead.
 </p>
 </div>
 
@@ -137,20 +156,24 @@ This generator helps you write a professional follow-up email confirming next st
 <hr style="margin:40px 0;">
 <h2>Frequently Asked Questions</h2>
 
-<p><strong>How do I write this type of email?</strong><br>
-Start with a clear subject line, explain the situation briefly, and keep the tone professional and direct.</p>
+<p><strong>What should I include in a next steps email?</strong><br>
+Summarize the agreed next actions clearly, mention responsibilities if relevant, and make timing easy to understand.</p>
 
-<p><strong>Can I edit the generated email?</strong><br>
-Yes. You should personalize the draft so it matches your situation, relationship, and tone.</p>
+<p><strong>How do I confirm action items clearly?</strong><br>
+List what needs to happen, who owns each item, and any deadlines or expected timing.</p>
+
+<p><strong>How do I confirm completion of a task by email?</strong><br>
+State what was completed, mention any important files or deliverables, and note whether any next step is needed from the recipient.</p>
 </div>
 
 <div class="related-tools">
-<h2>More Meeting and Follow Up Tools</h2>
+<h2>Related Tools</h2>
 <ul>
-<li><a href="/meeting-follow-up-email-generator.html">Meeting Follow Up Email Generator</a></li>
-<li><a href="/thank-you-email-after-meeting-generator.html">Thank You Email After Meeting Generator</a></li>
-<li><a href="/email-sending-additional-information-generator.html">Email Sending Additional Information Generator</a></li>
 <li><a href="/project-update-email-generator.html">Project Update Email Generator</a></li>
+<li><a href="/email-sharing-meeting-notes-generator.html">Email Sharing Meeting Notes Generator</a></li>
+<li><a href="/follow-up-email-generator.html">Follow Up Email Generator</a></li>
+<li><a href="/professional-email-rewrite-generator.html">Professional Email Rewrite Generator</a></li>
+<li><a href="/meeting-request-email-generator.html">Meeting Request Email Generator</a></li>
 </ul>
 </div>
 
@@ -161,27 +184,28 @@ Yes. You should personalize the draft so it matches your situation, relationship
 async function generateEmail(){
 const context=document.getElementById("context").value;
 const tone=document.getElementById("tone").value;
+const emailType=document.getElementById("emailType").value;
 const name=document.getElementById("name").value;
 const result=document.getElementById("result");
 
 if(!context.trim()){
-result.innerText="Please describe the next steps you want to confirm.";
+result.innerText="Please describe what you want to confirm.";
 return;
 }
 
 result.innerText="Generating...";
 
-const prompt=`Write a ${tone.toLowerCase()} email confirming next steps.
+const prompt=`Write a ${tone.toLowerCase()} email confirming ${emailType.toLowerCase()}.
 
 Situation:
 ${context}
 
 Requirements:
 - Include a subject line
-- Clearly summarize the agreed next steps
-- Mention responsibilities or timing if relevant
+- Clearly summarize what is being confirmed
+- Mention responsibilities, timing, deliverables, or next actions if relevant
 - Keep the message professional and organized
-- Make the next action easy to understand
+- Make the next action or status easy to understand
 - End appropriately
 
 Signed:
