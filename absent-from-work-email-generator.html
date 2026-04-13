@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Absent From Work Email Generator | Formal Work Absence Notification | ToolChestLab</title>
-<meta name="description" content="Generate a formal absent from work email for notifying managers, HR, or teams about an absence with a clear, professional, and documentation-ready tone.">
+<title>Absent From Work Email Generator | ToolChestLab</title>
+<meta name="description" content="Generate a professional absent from work email for formal notifications, same-day call outs, sick days, emergencies, or general work absence situations.">
 <link rel="canonical" href="https://www.toolchestlab.com/absent-from-work-email-generator.html">
 
 <!-- Google Analytics -->
@@ -99,7 +99,16 @@ body{padding:20px 14px;}
 
 <div class="container">
 <h1>Absent From Work Email Generator</h1>
-<p>Generate a formal absent from work email to notify your manager, HR, or team with a clear, professional, and documentation-ready message.</p>
+<p>Generate a professional absent from work email for formal notifications, same-day call outs, sick days, emergencies, or general work absence situations.</p>
+
+<label for="emailType">What type of absence is this?</label>
+<select id="emailType">
+<option>General absence</option>
+<option>Same-day call out</option>
+<option>Sick day</option>
+<option>Emergency day off</option>
+<option>Cannot make it to work</option>
+</select>
 
 <label for="tone">Tone</label>
 <select id="tone">
@@ -107,17 +116,18 @@ body{padding:20px 14px;}
 <option>Polite</option>
 <option>Concise</option>
 <option>Formal</option>
+<option>Respectful</option>
 </select>
 
 <label for="context">Why are you absent from work?</label>
-<textarea id="context" rows="5" placeholder="Example: I need to formally notify my manager that I will be absent from work today and will provide an update on my return timeline."></textarea>
+<textarea id="context" rows="5" placeholder="Example: I need to notify my manager that I will be out sick today and will provide an update tomorrow morning."></textarea>
 
 <label for="name">Your name or role (optional)</label>
 <input id="name" type="text" placeholder="Example: Jesse Davis">
 
 <button onclick="generateEmail()">Generate Email</button>
 
-<div id="result" aria-live="polite">Your generated absent from work email will appear here.</div>
+<div id="result" aria-live="polite">Your generated absence email will appear here.</div>
 
 <button onclick="copyResult()">Copy Email</button>
 <button onclick="generateEmail()">Regenerate</button>
@@ -126,29 +136,21 @@ body{padding:20px 14px;}
 <hr style="margin:40px 0;">
 <h2>How do you write an absent from work email?</h2>
 <p>
-A good absent from work email should be clear, structured, and professional. It
-should confirm that you will be absent, include any necessary dates or timing,
-and provide relevant updates about availability or return.
+A good absence email should be clear, structured, and professional. It should confirm that you will be absent, include any relevant timing, and provide a simple update on availability or next steps if needed.
 </p>
 <p>
-This tool is best for more formal absence communication, especially when the
-message may be referenced later, shared with HR, or used for attendance
-tracking.
+This tool helps you handle a range of absence situations, including formal notifications, same-day call outs, illness-related absences, emergencies, and general situations where you cannot attend work.
 </p>
 </div>
 
 <div class="info-section">
 <hr style="margin:40px 0;">
-<h2>When should you use an absent from work email?</h2>
+<h2>When should you use this type of email?</h2>
 <p>
-Use this type of email when you need a more formal or documented way to notify
-your workplace that you will be absent. It works well for attendance records,
-HR communication, or situations where clarity and structure matter.
+Use this email when you need to notify your workplace that you will be absent. It works for both planned and unplanned situations, including illness, personal issues, emergencies, and scheduling conflicts.
 </p>
 <p>
-If your message is more urgent or same-day, a call out of work email may be a
-better fit. If you are sick, a sick day email is more specific. If the situation
-is urgent or serious, an emergency day off email may be more appropriate.
+The tone and level of detail can vary depending on the situation. More formal absences may require structure and clarity, while same-day call outs should be brief and direct.
 </p>
 </div>
 
@@ -156,23 +158,24 @@ is urgent or serious, an emergency day off email may be more appropriate.
 <hr style="margin:40px 0;">
 <h2>Frequently Asked Questions</h2>
 
-<p><strong>How do I write this type of email?</strong><br>
-Start with a clear subject line, state that you will be absent, include timing or return details if possible, and keep the tone professional and structured.</p>
+<p><strong>How do I write a same-day call out email?</strong><br>
+Keep it short, clearly state that you will not be coming in, and maintain a respectful and professional tone.</p>
 
-<p><strong>How is this different from a call out of work email?</strong><br>
-An absent from work email is more formal and documentation-focused. A call out of work email is usually more casual and used for quick same-day notice.</p>
+<p><strong>What should I include in a sick day email?</strong><br>
+Mention that you are sick, confirm that you will be out, and avoid unnecessary detail.</p>
 
-<p><strong>Can I edit the generated email?</strong><br>
-Yes. You should personalize the draft so it matches your situation, workplace expectations, and tone.</p>
+<p><strong>How do I handle an emergency absence?</strong><br>
+State that something urgent has come up, keep the explanation brief, and communicate that you are unavailable.</p>
 </div>
 
 <div class="related-tools">
-<h2>More Workplace Email Tools</h2>
+<h2>Related Tools</h2>
 <ul>
-<li><a href="/call-out-of-work-email-generator.html">Call Out of Work Email Generator</a></li>
-<li><a href="/cannot-make-it-to-work-email-generator.html">Cannot Make It to Work Email Generator</a></li>
-<li><a href="/sick-day-email-generator.html">Sick Day Email Generator</a></li>
 <li><a href="/late-to-work-email-generator.html">Late to Work Email Generator</a></li>
+<li><a href="/pto-request-email-generator.html">PTO Request Email Generator</a></li>
+<li><a href="/professional-email-rewrite-generator.html">Professional Email Rewrite Generator</a></li>
+<li><a href="/project-update-email-generator.html">Project Update Email Generator</a></li>
+<li><a href="/email-confirming-next-steps-generator.html">Email Confirming Next Steps Generator</a></li>
 </ul>
 </div>
 
@@ -183,27 +186,28 @@ Yes. You should personalize the draft so it matches your situation, workplace ex
 async function generateEmail(){
 const context=document.getElementById("context").value;
 const tone=document.getElementById("tone").value;
+const emailType=document.getElementById("emailType").value;
 const name=document.getElementById("name").value;
 const result=document.getElementById("result");
 
 if(!context.trim()){
-result.innerText="Please describe why you are absent from work.";
+result.innerText="Please describe your absence.";
 return;
 }
 
 result.innerText="Generating...";
 
-const prompt=`Write a ${tone.toLowerCase()} absent from work email.
+const prompt=`Write a ${tone.toLowerCase()} ${emailType.toLowerCase()} absent from work email.
 
 Situation:
 ${context}
 
 Requirements:
 - Include a subject line
-- Clearly state that you will be absent from work
-- Use a more formal, structured, and documentation-friendly tone
+- Clearly state the absence
+- Match tone and urgency appropriately
 - Keep the message clear and professional
-- Mention next steps, return timing, or availability if relevant
+- Mention timing or availability if relevant
 - End appropriately
 
 Signed:
@@ -219,7 +223,6 @@ if(!response.ok){
 result.innerText="Something went wrong. Please try again.";
 return;
 }
-
 const data=await response.json();
 result.innerText=data.message || "Something went wrong. Please try again.";
 }catch(error){
