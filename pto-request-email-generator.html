@@ -1,11 +1,249 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta http-equiv="refresh" content="0; url=/time-off-and-remote-work-email-generator.html">
-<link rel="canonical" href="https://www.toolchestlab.com/time-off-and-remote-work-email-generator.html">
-<title>Redirecting...</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Time Off and Remote Work Email Generator | ToolChestLab</title>
+<meta name="description" content="Generate professional emails for PTO requests, work from home requests, and out of office messages for work in one place.">
+<link rel="canonical" href="https://www.toolchestlab.com/pto-request-email-generator.html">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WLQ0YR217T');
+</script>
+
+<style>
+*{box-sizing:border-box;}
+body{
+font-family:Arial,sans-serif;
+color:#222;
+margin:0;
+padding:40px 20px;
+background-color:#eef4fb;
+background-image:
+linear-gradient(rgba(50,90,140,0.10) 1px, transparent 1px),
+linear-gradient(90deg, rgba(50,90,140,0.10) 1px, transparent 1px);
+background-size:32px 32px;
+}
+.page-wrap{max-width:760px;margin:0 auto;}
+.back-link{
+display:inline-block;
+margin-bottom:18px;
+color:#0070f3;
+text-decoration:none;
+font-size:15px;
+}
+.container{
+background:white;
+padding:30px;
+border-radius:12px;
+border:1px solid #e5e5e5;
+box-shadow:0 8px 24px rgba(0,0,0,0.10);
+}
+h1{margin-top:0;margin-bottom:10px;}
+h2{margin-top:0;}
+p{line-height:1.7;}
+label{
+display:block;
+margin-top:10px;
+margin-bottom:8px;
+font-weight:bold;
+text-align:left;
+}
+textarea,select,input,button{
+width:100%;
+margin-bottom:20px;
+padding:12px;
+font-size:16px;
+border-radius:8px;
+}
+textarea,select,input{border:1px solid #d9d9d9;}
+button{
+background:#0070f3;
+color:white;
+border:none;
+cursor:pointer;
+}
+button:hover{background:#0059c7;}
+#result{
+margin-top:20px;
+text-align:left;
+white-space:pre-wrap;
+background:#fafafa;
+padding:20px;
+border-radius:8px;
+min-height:120px;
+border:1px solid #ececec;
+line-height:1.6;
+}
+.info-section{margin-top:40px;}
+.related-tools{margin-top:40px;padding-top:10px;}
+.related-tools ul{padding-left:20px;line-height:1.8;}
+.related-tools a{color:#0070f3;text-decoration:none;}
+.related-tools a:hover,.back-link:hover{text-decoration:underline;}
+@media (max-width:700px){
+body{padding:20px 14px;}
+.container{padding:22px;}
+}
+</style>
 </head>
+
 <body>
-Redirecting...
+<div class="page-wrap">
+<a class="back-link" href="/">← Back to ToolChestLab</a>
+
+<div class="container">
+<h1>Time Off and Remote Work Email Generator</h1>
+<p>Generate professional emails for PTO requests, work from home requests, and out of office messages in one place.</p>
+
+<label for="emailType">What type of email do you need?</label>
+<select id="emailType">
+<option>PTO request</option>
+<option>Work from home request</option>
+<option>Out of office message</option>
+</select>
+
+<label for="recipient">Who is the email for?</label>
+<select id="recipient">
+<option>Manager</option>
+<option>Boss</option>
+<option>Supervisor</option>
+<option>HR</option>
+<option>Team</option>
+<option>Other</option>
+</select>
+
+<label for="tone">Tone</label>
+<select id="tone">
+<option>Professional</option>
+<option>Respectful</option>
+<option>Formal</option>
+<option>Concise</option>
+<option>Friendly</option>
+</select>
+
+<label for="context">What are the details?</label>
+<textarea id="context" rows="5" placeholder="Example: I want to request PTO from July 8 through July 12 and mention that my work will be completed before I leave."></textarea>
+
+<label for="name">Your name (optional)</label>
+<input id="name" type="text" placeholder="Example: Jesse">
+
+<button onclick="generateEmail()">Generate Email</button>
+
+<div id="result" aria-live="polite">Your generated email will appear here.</div>
+
+<button onclick="copyResult()">Copy Email</button>
+<button onclick="generateEmail()">Regenerate</button>
+
+<div class="info-section">
+<hr style="margin:40px 0;">
+<h2>How do you request time off or remote work professionally?</h2>
+<p>
+A good request email should be clear, respectful, and easy to approve. The best messages explain the request briefly, include timing details, and show that responsibilities are handled.
+</p>
+<p>
+This tool helps you write professional emails for requesting PTO, asking to work from home, or setting an out of office message. It combines common workplace request situations into one streamlined generator.
+</p>
+</div>
+
+<div class="info-section">
+<hr style="margin:40px 0;">
+<h2>When should you use this tool?</h2>
+<p>
+Use this tool when you need to request time off, ask to work remotely, or notify others that you will be unavailable. It works well for planned leave, short absences, flexible work requests, and setting expectations while away.
+</p>
+<p>
+If you are only sending a quick absence notice or call out, an absent from work email may be more appropriate. If you are confirming next steps or updates, use a project or follow up email instead.
+</p>
+</div>
+
+<div class="info-section">
+<hr style="margin:40px 0;">
+<h2>Frequently Asked Questions</h2>
+
+<p><strong>How do I write a PTO request email?</strong><br>
+Clearly state the dates requested, keep the tone respectful, and mention any planning or coverage if relevant.</p>
+
+<p><strong>How do I ask to work from home professionally?</strong><br>
+Explain the request clearly, reassure that work will still be completed, and keep the message concise.</p>
+
+<p><strong>What should an out of office message include?</strong><br>
+State that you are away, give a return timeframe if possible, and include a backup contact if needed.</p>
+</div>
+
+<div class="related-tools">
+<h2>Related Tools</h2>
+<ul>
+<li><a href="/absent-from-work-email-generator.html">Absent From Work Email Generator</a></li>
+<li><a href="/late-to-work-email-generator.html">Late to Work Email Generator</a></li>
+<li><a href="/running-late-email-generator.html">Running Late Email Generator</a></li>
+<li><a href="/email-confirming-next-steps-generator.html">Email Confirming Next Steps Generator</a></li>
+<li><a href="/professional-email-rewrite-generator.html">Professional Email Rewrite Generator</a></li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<script>
+async function generateEmail(){
+const context=document.getElementById("context").value;
+const tone=document.getElementById("tone").value;
+const recipient=document.getElementById("recipient").value;
+const emailType=document.getElementById("emailType").value;
+const name=document.getElementById("name").value;
+const result=document.getElementById("result");
+
+if(!context.trim()){
+result.innerText="Please describe your request.";
+return;
+}
+
+result.innerText="Generating...";
+
+const prompt=`Write a ${tone.toLowerCase()} ${emailType.toLowerCase()} email to a ${recipient}.
+
+Situation:
+${context}
+
+Requirements:
+- Include a subject line
+- Clearly state the request or message
+- Match the tone requested
+- Keep it professional and easy to understand
+- Mention timing, availability, or coverage if relevant
+- End appropriately
+
+Signed:
+${name || "Sender"}`;
+
+try{
+const response=await fetch("/api/generate",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({prompt})
+});
+if(!response.ok){
+result.innerText="Something went wrong. Please try again.";
+return;
+}
+const data=await response.json();
+result.innerText=data.message || "Something went wrong. Please try again.";
+}catch(error){
+result.innerText="Error generating email. Please try again.";
+}
+}
+
+function copyResult(){
+const text=document.getElementById("result").innerText;
+navigator.clipboard.writeText(text).then(()=>{alert("Copied to clipboard!");});
+}
+</script>
+
 </body>
 </html>
