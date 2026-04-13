@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Email Sharing Meeting Notes Generator | ToolChestLab</title>
-<meta name="description" content="Generate a professional email sharing meeting notes, discussion summaries, recaps, or takeaways after a meeting or call.">
+<meta name="description" content="Generate a professional email sharing meeting notes, discussion summaries, recaps, takeaways, or internal updates after a meeting, call, or workplace discussion.">
 <link rel="canonical" href="https://www.toolchestlab.com/email-sharing-meeting-notes-generator.html">
 
 <!-- Google Analytics -->
@@ -99,7 +99,15 @@ body{padding:20px 14px;}
 
 <div class="container">
 <h1>Email Sharing Meeting Notes Generator</h1>
-<p>Generate a professional email sharing meeting notes, discussion summaries, recaps, or takeaways after a meeting or call.</p>
+<p>Generate a professional email sharing meeting notes, discussion summaries, recaps, takeaways, or internal updates after a meeting, call, or workplace discussion.</p>
+
+<label for="emailType">What are you sharing?</label>
+<select id="emailType">
+<option>Meeting notes</option>
+<option>Discussion summary</option>
+<option>Recap with takeaways</option>
+<option>Internal update or announcement</option>
+</select>
 
 <label for="tone">Tone</label>
 <select id="tone">
@@ -107,9 +115,11 @@ body{padding:20px 14px;}
 <option>Clear</option>
 <option>Polite</option>
 <option>Concise</option>
+<option>Friendly</option>
+<option>Formal</option>
 </select>
 
-<label for="context">What notes are you sharing?</label>
+<label for="context">What are you sharing?</label>
 <textarea id="context" rows="5" placeholder="Example: I want to send a short follow-up email after a client call with the main discussion points, decisions made, and next steps."></textarea>
 
 <label for="name">Your name or role (optional)</label>
@@ -117,19 +127,30 @@ body{padding:20px 14px;}
 
 <button onclick="generateEmail()">Generate Email</button>
 
-<div id="result" aria-live="polite">Your generated meeting notes email will appear here.</div>
+<div id="result" aria-live="polite">Your generated email will appear here.</div>
 
 <button onclick="copyResult()">Copy Email</button>
 <button onclick="generateEmail()">Regenerate</button>
 
 <div class="info-section">
 <hr style="margin:40px 0;">
-<h2>How do you share meeting notes by email?</h2>
+<h2>How do you share meeting notes or internal updates by email?</h2>
 <p>
-A good meeting notes email should summarize the important discussion points clearly, highlight any decisions, and make it easy for others to reference what was covered. The best version is organized and easy to scan.
+A good recap email should summarize the important points clearly, highlight decisions or changes, and make it easy for others to understand what was covered. The best version is organized, easy to scan, and useful to reference later.
 </p>
 <p>
-This generator helps you write a professional email for sharing meeting notes after client calls, team meetings, internal discussions, interviews, and project check-ins.
+This generator helps you write professional emails for sharing meeting notes after client calls, team meetings, internal discussions, interviews, project check-ins, and workplace announcements. You can use it for simple recaps, structured discussion summaries, or broader internal updates that need to be communicated clearly.
+</p>
+</div>
+
+<div class="info-section">
+<hr style="margin:40px 0;">
+<h2>When should you use this tool?</h2>
+<p>
+Use this tool when you need to document what was discussed, share key takeaways, or communicate an internal update in a clear written format. It works well when people need a record of decisions, reminders about changes, or a summary they can review later.
+</p>
+<p>
+If your main goal is to confirm responsibilities or next actions, an email confirming next steps may be a better fit. If you are sending a broader project status message, use a project update email instead.
 </p>
 </div>
 
@@ -137,20 +158,24 @@ This generator helps you write a professional email for sharing meeting notes af
 <hr style="margin:40px 0;">
 <h2>Frequently Asked Questions</h2>
 
-<p><strong>How do I write this type of email?</strong><br>
-Start with a clear subject line, explain the situation briefly, and keep the tone professional and direct.</p>
+<p><strong>What should I include in a meeting notes email?</strong><br>
+Summarize the main discussion points, decisions, and any takeaways or follow-up items that matter.</p>
 
-<p><strong>Can I edit the generated email?</strong><br>
-Yes. You should personalize the draft so it matches your situation, relationship, and tone.</p>
+<p><strong>How do I keep a recap email easy to scan?</strong><br>
+Keep the wording clear and organized, and focus only on the most important points people need to remember.</p>
+
+<p><strong>Can I use this for internal announcement emails?</strong><br>
+Yes. It also works for internal updates and workplace announcements when you need to explain a change, share timing, or communicate what people need to know.</p>
 </div>
 
 <div class="related-tools">
-<h2>More Meeting and Follow Up Tools</h2>
+<h2>Related Tools</h2>
 <ul>
-<li><a href="/meeting-follow-up-email-generator.html">Meeting Follow Up Email Generator</a></li>
-<li><a href="/email-confirming-action-items-generator.html">Email Confirming Action Items Generator</a></li>
 <li><a href="/email-confirming-next-steps-generator.html">Email Confirming Next Steps Generator</a></li>
 <li><a href="/project-update-email-generator.html">Project Update Email Generator</a></li>
+<li><a href="/follow-up-email-generator.html">Follow Up Email Generator</a></li>
+<li><a href="/professional-email-rewrite-generator.html">Professional Email Rewrite Generator</a></li>
+<li><a href="/email-requesting-approval-generator.html">Email Requesting Approval Generator</a></li>
 </ul>
 </div>
 
@@ -161,27 +186,29 @@ Yes. You should personalize the draft so it matches your situation, relationship
 async function generateEmail(){
 const context=document.getElementById("context").value;
 const tone=document.getElementById("tone").value;
+const emailType=document.getElementById("emailType").value;
 const name=document.getElementById("name").value;
 const result=document.getElementById("result");
 
 if(!context.trim()){
-result.innerText="Please describe the meeting notes you want to share.";
+result.innerText="Please describe what you want to share.";
 return;
 }
 
 result.innerText="Generating...";
 
-const prompt=`Write a ${tone.toLowerCase()} email sharing meeting notes.
+const prompt=`Write a ${tone.toLowerCase()} email sharing ${emailType.toLowerCase()}.
 
 Situation:
 ${context}
 
 Requirements:
 - Include a subject line
-- Summarize the main notes clearly
+- Clearly summarize the key points
 - Keep the message organized and easy to scan
-- Mention decisions or takeaways if relevant
-- Include next steps if appropriate
+- Mention decisions, takeaways, timing, or changes if relevant
+- Include next steps only if appropriate
+- Sound professional and natural
 - End appropriately
 
 Signed:
