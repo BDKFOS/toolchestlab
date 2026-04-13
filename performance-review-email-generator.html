@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Performance Review Email Generator | ToolChestLab</title>
-<meta name="description" content="Generate a professional performance review email for employees, managers, feedback, and workplace evaluations.">
+<meta name="description" content="Generate a professional performance review email or employee warning email for feedback, evaluations, performance issues, attendance, or workplace expectations.">
 <link rel="canonical" href="https://www.toolchestlab.com/performance-review-email-generator.html">
 
 <!-- Google Analytics -->
@@ -99,7 +99,13 @@ body{padding:20px 14px;}
 
 <div class="container">
 <h1>Performance Review Email Generator</h1>
-<p>Generate a professional performance review email in seconds.</p>
+<p>Generate a professional performance review email or employee warning email for feedback, evaluations, performance issues, attendance, or workplace expectations.</p>
+
+<label for="emailType">What type of email do you need?</label>
+<select id="emailType">
+<option>Performance review email</option>
+<option>Employee warning email</option>
+</select>
 
 <label for="tone">Tone</label>
 <select id="tone">
@@ -107,32 +113,41 @@ body{padding:20px 14px;}
 <option>Constructive</option>
 <option>Formal</option>
 <option>Concise</option>
+<option>Direct</option>
 </select>
 
-<label for="context">What should the performance review email include?</label>
-<textarea id="context" rows="5" placeholder="Example: I need to send a performance review email summarizing an employeeâ€™s strengths, progress, and one area for improvement before our review meeting."></textarea>
+<label for="context">What should the email include?</label>
+<textarea id="context" rows="5" placeholder="Example: I need to send a performance review email summarizing an employee’s strengths, progress, and one area for improvement before our review meeting."></textarea>
 
 <label for="name">Your name or title (optional)</label>
 <input id="name" type="text" placeholder="Example: Jesse">
 
 <button onclick="generateEmail()">Generate Email</button>
 
-<div id="result" aria-live="polite">Your generated performance review email will appear here.</div>
+<div id="result" aria-live="polite">Your generated email will appear here.</div>
 
 <button onclick="copyResult()">Copy Email</button>
 <button onclick="generateEmail()">Regenerate</button>
 
 <div class="info-section">
 <hr style="margin:40px 0;">
-<h2>How do you write a performance review email professionally?</h2>
+<h2>How do you write a performance review or warning email professionally?</h2>
 <p>
-A good performance review email should be clear, balanced, and constructive.
-The best messages highlight strengths, address improvement areas respectfully,
-and keep the tone professional and useful.
+A good workplace feedback email should be clear, balanced, and professional. The strongest messages explain the situation directly, use factual language, and make expectations easy to understand.
 </p>
 <p>
-This generator helps create polished performance review emails for employees,
-managers, HR, and workplace evaluation situations.
+This tool helps with both performance review emails and employee warning emails. You can use it for strengths and improvement feedback, attendance issues, conduct concerns, workplace expectations, and other management situations that require clear written communication.
+</p>
+</div>
+
+<div class="info-section">
+<hr style="margin:40px 0;">
+<h2>When should you use this tool?</h2>
+<p>
+Use this tool when you need a written email for employee feedback, evaluation, or formal workplace correction. It works when you want to prepare for a review conversation, document performance concerns, or outline expectations going forward.
+</p>
+<p>
+A performance review email should stay constructive and balanced. A warning email should stay direct and professional without becoming emotional or hostile.
 </p>
 </div>
 
@@ -140,19 +155,24 @@ managers, HR, and workplace evaluation situations.
 <hr style="margin:40px 0;">
 <h2>Frequently Asked Questions</h2>
 
-<p><strong>How do I write this type of email?</strong><br>
-Start with a clear subject line, explain the situation briefly, and keep the tone professional and direct.</p>
+<p><strong>What should a performance review email include?</strong><br>
+It should summarize strengths, progress, improvement areas, and any relevant next steps in a clear and professional way.</p>
 
-<p><strong>Can I edit the generated email?</strong><br>
-Yes. You should personalize the draft so it matches your situation, relationship, and tone.</p>
+<p><strong>What should an employee warning email include?</strong><br>
+It should explain the issue factually, set clear expectations, and outline next steps or consequences if appropriate.</p>
+
+<p><strong>Should these emails be direct?</strong><br>
+Yes. Clear and respectful language is usually more effective than vague or overly emotional wording.</p>
 </div>
 
 <div class="related-tools">
 <h2>Related Tools</h2>
 <ul>
-<li><a href="/employee-warning-email-generator.html">Employee Warning Email Generator</a></li>
-<li><a href="/feedback-request-email-generator.html">Feedback Request Email Generator</a></li>
-<li><a href="/internal-announcement-email-generator.html">Internal Announcement Email Generator</a></li>
+<li><a href="/professional-email-rewrite-generator.html">Professional Email Rewrite Generator</a></li>
+<li><a href="/email-requesting-approval-generator.html">Email Requesting Approval Generator</a></li>
+<li><a href="/email-confirming-next-steps-generator.html">Email Confirming Next Steps Generator</a></li>
+<li><a href="/project-update-email-generator.html">Project Update Email Generator</a></li>
+<li><a href="/follow-up-email-generator.html">Follow Up Email Generator</a></li>
 </ul>
 </div>
 
@@ -163,26 +183,28 @@ Yes. You should personalize the draft so it matches your situation, relationship
 async function generateEmail(){
 const context=document.getElementById("context").value;
 const tone=document.getElementById("tone").value;
+const emailType=document.getElementById("emailType").value;
 const name=document.getElementById("name").value;
 const result=document.getElementById("result");
 
 if(!context.trim()){
-result.innerText="Please describe the performance review email.";
+result.innerText="Please describe the email situation.";
 return;
 }
 
 result.innerText="Generating...";
 
-const prompt=`Write a ${tone.toLowerCase()} performance review email.
+const prompt=`Write a ${tone.toLowerCase()} ${emailType.toLowerCase()}.
 
 Situation:
 ${context}
 
 Requirements:
 - Include a subject line
-- Keep the tone constructive and professional
-- Highlight strengths and improvement areas appropriately
-- Make the message clear and respectful
+- Keep the tone professional and appropriate for the situation
+- If it is a performance review, highlight strengths and improvement areas clearly
+- If it is a warning email, explain the issue factually and state expectations clearly
+- Make the message respectful and useful
 - End appropriately
 
 Signed:
@@ -214,5 +236,3 @@ navigator.clipboard.writeText(text).then(()=>{alert("Copied to clipboard!");});
 
 </body>
 </html>
-
-
