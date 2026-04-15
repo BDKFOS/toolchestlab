@@ -14,11 +14,13 @@ gtag('config', 'G-WLQ0YR217T');
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ToolChestLab | Understand Messages & Know What To Say</title>
-<meta name="description" content="Understand messages, rewrite emails, and know what to say in real-life situations with simple AI tools.">
+<meta name="description" content="Understand messages, rewrite emails, and know what to say in real-life situations with focused AI tools.">
 <link rel="canonical" href="https://www.toolchestlab.com/">
 
 <style>
-*{box-sizing:border-box;}
+*{
+box-sizing:border-box;
+}
 
 body{
 font-family:Arial,sans-serif;
@@ -30,79 +32,174 @@ background:#f7f9fc;
 header{
 padding:80px 20px;
 text-align:center;
-background:#eef4fb;
 border-bottom:1px solid #d8e2ee;
+background-color:#eef4fb;
+background-image:
+linear-gradient(rgba(50,90,140,0.10) 1px, transparent 1px),
+linear-gradient(90deg, rgba(50,90,140,0.10) 1px, transparent 1px);
+background-size:32px 32px;
 }
 
 header h1{
-margin:0 0 10px 0;
+margin:0 0 12px 0;
 font-size:2.8rem;
+line-height:1.15;
 }
 
 header p{
-max-width:700px;
+max-width:760px;
 margin:0 auto;
+font-size:1.1rem;
 color:#555;
-line-height:1.6;
+line-height:1.7;
 }
 
 .container{
 max-width:1100px;
 margin:auto;
-padding:40px 20px;
+padding:40px 20px 60px 20px;
 }
 
 .hero{
 background:white;
-padding:30px;
-border-radius:12px;
-border:1px solid #e5e5e5;
-box-shadow:0 8px 24px rgba(0,0,0,0.08);
-margin-bottom:30px;
-text-align:center;
+padding:34px;
+border-radius:14px;
+border:1px solid #dbe4ef;
+box-shadow:0 8px 24px rgba(0,0,0,0.06);
+margin:-42px auto 34px auto;
+max-width:900px;
+position:relative;
 }
 
 .hero h2{
-margin-top:0;
+margin:0 0 12px 0;
+font-size:2rem;
+line-height:1.2;
 }
 
-.tools{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
+.hero p{
+margin:0 0 18px 0;
+color:#444;
+line-height:1.7;
+max-width:720px;
 }
 
-.tool-card{
-background:white;
-padding:22px;
-border-radius:12px;
-border:1px solid #e5e5e5;
-box-shadow:0 6px 18px rgba(0,0,0,0.06);
+.hero-points{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin:0 0 20px 0;
+padding:0;
+}
+
+.hero-points span{
+display:inline-block;
+padding:8px 12px;
+background:#f3f8ff;
+border:1px solid #dbe8fb;
+border-radius:999px;
+font-size:14px;
+color:#2b5d9a;
 }
 
 .button{
 display:inline-block;
-margin-top:10px;
-padding:10px 16px;
+padding:11px 17px;
 background:#0070f3;
 color:white;
 text-decoration:none;
 border-radius:8px;
+font-size:15px;
+font-weight:bold;
 }
 
 .button:hover{
 background:#0059c7;
 }
 
-.fun{
-margin-top:40px;
+.section-intro{
+max-width:760px;
+margin:0 auto 24px auto;
 text-align:center;
-font-size:14px;
+color:#555;
+line-height:1.7;
 }
 
-@media (max-width:800px){
+.tools{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+max-width:900px;
+margin:0 auto;
+}
+
+.tool-card{
+background:white;
+padding:24px;
+border-radius:12px;
+border:1px solid #e5e5e5;
+box-shadow:0 6px 18px rgba(0,0,0,0.06);
+}
+
+.tool-card h3{
+margin:0 0 10px 0;
+font-size:1.2rem;
+line-height:1.35;
+}
+
+.tool-card p{
+margin:0 0 16px 0;
+font-size:0.97rem;
+line-height:1.7;
+color:#444;
+}
+
+.fun{
+margin-top:42px;
+text-align:center;
+font-size:15px;
+}
+
+.fun a{
+color:#0070f3;
+text-decoration:none;
+font-weight:bold;
+}
+
+.fun a:hover{
+text-decoration:underline;
+}
+
+footer{
+margin-top:55px;
+text-align:center;
+font-size:14px;
+color:#666;
+padding:20px;
+}
+
+@media (max-width:900px){
 .tools{
 grid-template-columns:1fr;
+}
+}
+
+@media (max-width:700px){
+header{
+padding:64px 18px;
+}
+
+header h1{
+font-size:2.2rem;
+}
+
+.hero{
+padding:24px;
+margin:-28px auto 28px auto;
+}
+
+.hero h2{
+font-size:1.65rem;
 }
 }
 </style>
@@ -112,36 +209,52 @@ grid-template-columns:1fr;
 
 <header>
 <h1>ToolChestLab</h1>
-<p>Understand messages and know exactly what to say next.</p>
+<p>Understand difficult messages, rewrite professional emails, and figure out what to say next with a smaller set of focused AI tools.</p>
 </header>
 
 <div class="container">
 
 <div class="hero">
 <h2>Analyze This Message AI</h2>
-<p>Paste any message to understand tone, intent, and what to say next.</p>
-<a class="button" href="/analyze-this-message.html">Open Tool</a>
+<p>Paste any text, email, DM, or awkward situation to understand tone, likely intent, emotional signals, and realistic ways to respond.</p>
+
+<div class="hero-points">
+<span>Understand tone</span>
+<span>See likely intent</span>
+<span>Spot emotional risk</span>
+<span>Get response ideas</span>
 </div>
 
-<div class="tools">
+<a class="button" href="/analyze-this-message.html">Open Analyze This Message</a>
+</div>
+
+<p class="section-intro">
+ToolChestLab is being simplified into a smaller number of stronger tools. Start with the analyzer, then use one of the focused tools below for professional or personal communication.
+</p>
+
+<section class="tools">
 
 <div class="tool-card">
 <h3>Email Rewrite Generator</h3>
-<p>Rewrite any email for clarity, tone, and professionalism.</p>
+<p>Rewrite any email for clarity, tone, and professionalism when your draft feels rough, awkward, unclear, or too blunt.</p>
 <a class="button" href="/professional-email-rewrite-generator.html">Open Tool</a>
 </div>
 
 <div class="tool-card">
 <h3>What To Text Your Crush</h3>
-<p>Get ideas for what to say in real-life texting situations.</p>
+<p>Get natural ideas for what to say in personal texting situations, whether you want to start a conversation, keep it playful, or show interest.</p>
 <a class="button" href="/what-to-text-your-crush.html">Open Tool</a>
 </div>
 
-</div>
+</section>
 
 <div class="fun">
 <p><a href="/reaction-time-test.html">Try the Reaction Time Test →</a></p>
 </div>
+
+<footer>
+<p>© ToolChestLab</p>
+</footer>
 
 </div>
 
