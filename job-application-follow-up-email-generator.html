@@ -1,11 +1,11 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Job Application Follow Up Email Generator | ToolChestLab</title>
-<meta name="description" content="Generate a professional job application follow up email after applying for a role.">
+<title>Job Follow Up Email Generator | ToolChestLab</title>
+<meta name="description" content="Generate professional job follow up emails after applying, sending a resume, contacting a recruiter, or waiting for a response.">
 <link rel="canonical" href="https://www.toolchestlab.com/job-application-follow-up-email-generator.html">
 
 <!-- Google Analytics -->
@@ -98,35 +98,35 @@ body{padding:20px 14px;}
 <a class="back-link" href="/">← Back to ToolChestLab</a>
 
 <div class="container">
-<h1>Job Application Follow Up Email Generator</h1>
-<p>Generate a professional follow up email after applying for a job.</p>
+<h1>Job Follow Up Email Generator</h1>
+<p>Generate professional follow up emails after applying, sending a resume, contacting a recruiter, or waiting for a response.</p>
 
-<label for="recipient">Who is the email for?</label>
-<select id="recipient">
-<option>Hiring Manager</option>
-<option>Recruiter</option>
-<option>HR</option>
-<option>Department Head</option>
-<option>Other</option>
+<label for="emailType">What type of follow up do you need?</label>
+<select id="emailType">
+<option>Follow up after job application</option>
+<option>Ask for update on application</option>
+<option>Email recruiter after applying</option>
+<option>Follow up after sending resume</option>
+<option>Follow up after no response</option>
 </select>
 
 <label for="tone">Tone</label>
 <select id="tone">
 <option>Professional</option>
-<option>Warm</option>
-<option>Formal</option>
+<option>Polite</option>
+<option>Confident</option>
 <option>Concise</option>
 </select>
 
-<label for="context">What is the job application follow up about?</label>
-<textarea id="context" rows="5" placeholder="Example: I applied for a project coordinator role last week and want to follow up politely to express continued interest."></textarea>
+<label for="context">What is your situation?</label>
+<textarea id="context" rows="5" placeholder="Example: I applied for a marketing role two weeks ago and want to follow up politely to check on my application status and express continued interest."></textarea>
 
 <label for="name">Your name (optional)</label>
 <input id="name" type="text" placeholder="Example: Jesse">
 
 <button onclick="generateEmail()">Generate Email</button>
 
-<div id="result" aria-live="polite">Your generated job application follow up email will appear here.</div>
+<div id="result" aria-live="polite">Your generated follow up email will appear here.</div>
 
 <button onclick="copyResult()">Copy Email</button>
 <button onclick="generateEmail()">Regenerate</button>
@@ -135,13 +135,21 @@ body{padding:20px 14px;}
 <hr style="margin:40px 0;">
 <h2>How do you follow up on a job application professionally?</h2>
 <p>
-A good job application follow up email should be respectful, concise, and
-specific. The best messages briefly reference the role, express continued
-interest, and avoid sounding impatient.
+A strong job follow up email should be polite, concise, and specific. The best messages reference the original application or outreach, express continued interest, and make it easy for the recipient to respond.
 </p>
 <p>
-This generator helps create polished follow up emails after job applications,
-especially when you want to check in without sounding pushy.
+This tool combines multiple job follow up scenarios into one place, including checking application status, following up after sending a resume, emailing a recruiter, and reaching out after no response.
+</p>
+</div>
+
+<div class="info-section">
+<hr style="margin:40px 0;">
+<h2>When should you send a follow up email?</h2>
+<p>
+In most cases, waiting about one to two weeks before following up is appropriate. This gives the employer or recruiter time to review applications while still keeping you visible.
+</p>
+<p>
+If you are following up after a conversation or resume submission, shorter timing may make sense depending on the situation.
 </p>
 </div>
 
@@ -149,20 +157,23 @@ especially when you want to check in without sounding pushy.
 <hr style="margin:40px 0;">
 <h2>Frequently Asked Questions</h2>
 
-<p><strong>How do I write this type of email?</strong><br>
-Start with a clear subject line, explain the situation briefly, and keep the tone professional and direct.</p>
+<p><strong>What should a job follow up email include?</strong><br>
+It should reference the original application or message, express continued interest, and remain professional and concise.</p>
 
-<p><strong>Can I edit the generated email?</strong><br>
-Yes. You should personalize the draft so it matches your situation, relationship, and tone.</p>
+<p><strong>How do I follow up without sounding annoying?</strong><br>
+Keep the message short, respectful, and spaced out appropriately. Avoid sending multiple messages too quickly.</p>
+
+<p><strong>Should I follow up more than once?</strong><br>
+In most cases, one or two follow ups are appropriate depending on the situation.</p>
 </div>
 
 <div class="related-tools">
-<h2>More Job Follow Up Tools</h2>
+<h2>Related Tools</h2>
 <ul>
-<li><a href="/email-to-recruiter-after-applying-generator.html">Email to Recruiter After Applying Generator</a></li>
-<li><a href="/follow-up-email-after-sending-resume-generator.html">Follow Up After Sending Resume Generator</a></li>
-<li><a href="/follow-up-email-after-no-response-from-recruiter-generator.html">Follow Up After No Response from Recruiter Generator</a></li>
-<li><a href="/email-asking-for-update-on-job-application-generator.html">Email Asking for Update on Job Application Generator</a></li>
+<li><a href="/job-inquiry-email-generator.html">Job Inquiry Email Generator</a></li>
+<li><a href="/recruiter-outreach-email-generator.html">Recruiter Outreach Email Generator</a></li>
+<li><a href="/networking-email-generator.html">Networking Email Generator</a></li>
+<li><a href="/cold-email-generator.html">Cold Email Generator</a></li>
 </ul>
 </div>
 
@@ -173,28 +184,28 @@ Yes. You should personalize the draft so it matches your situation, relationship
 async function generateEmail(){
 const context=document.getElementById("context").value;
 const tone=document.getElementById("tone").value;
-const recipient=document.getElementById("recipient").value;
+const emailType=document.getElementById("emailType").value;
 const name=document.getElementById("name").value;
 const result=document.getElementById("result");
 
 if(!context.trim()){
-result.innerText="Please describe the job application follow up.";
+result.innerText="Please describe your situation.";
 return;
 }
 
 result.innerText="Generating...";
 
-const prompt=`Write a ${tone.toLowerCase()} follow up email to a ${recipient} after a job application.
+const prompt=`Write a ${tone.toLowerCase()} ${emailType.toLowerCase()} email.
 
 Situation:
 ${context}
 
 Requirements:
 - Include a subject line
-- Reference the role or application clearly
-- Express continued interest
-- Sound professional and natural
-- Keep it concise
+- Reference the original application or outreach
+- Express continued interest clearly
+- Keep the message concise and professional
+- Avoid sounding pushy
 - End politely
 
 Signed:
@@ -210,21 +221,18 @@ if(!response.ok){
 result.innerText="Something went wrong. Please try again.";
 return;
 }
-
 const data=await response.json();
-result.innerText=data.message || "Something went wrong. Please try again.";
+result.innerText=data.message || "Something went wrong.";
 }catch(error){
-result.innerText="Error generating email. Please try again.";
+result.innerText="Error generating email.";
 }
 }
 
 function copyResult(){
-const text=document.getElementById("result").innerText;
-navigator.clipboard.writeText(text).then(()=>{alert("Copied to clipboard!");});
+navigator.clipboard.writeText(document.getElementById("result").innerText);
+alert("Copied to clipboard!");
 }
 </script>
 
 </body>
 </html>
-
-
