@@ -248,7 +248,7 @@
 
     footer {
       border-top: 1px solid var(--border);
-      padding: 30px 0;
+      padding: 38px 0;
       color: var(--muted);
       font-size: 0.95rem;
     }
@@ -256,8 +256,42 @@
     .footer-inner {
       display: flex;
       justify-content: space-between;
+      align-items: flex-start;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-weight: 650;
+      color: #333946;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .footer-tagline {
+      max-width: 380px;
+      text-align: right;
+      color: #5f6673;
+      font-weight: 600;
+    }
+
+    .footer-bottom {
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
       gap: 18px;
       flex-wrap: wrap;
+      color: #8a9099;
+      font-size: 0.9rem;
     }
 
     @media (max-width: 1000px) {
@@ -304,6 +338,15 @@
       .category-card {
         min-height: 220px;
         padding: 26px;
+      }
+
+      .footer-inner {
+        display: block;
+      }
+
+      .footer-tagline {
+        text-align: left;
+        margin-top: 18px;
       }
     }
   </style>
@@ -442,9 +485,27 @@
   </main>
 
   <footer>
-    <div class="container footer-inner">
-      <div>© 2026 ToolChestLab</div>
-      <div>Helpful tools for real-life communication.</div>
+    <div class="container">
+
+      <div class="footer-inner">
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="/about.html">About</a>
+          <a href="/faq.html">FAQ</a>
+          <a href="/contact.html">Contact</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/terms.html">Terms</a>
+        </nav>
+
+        <div class="footer-tagline">
+          Better words for the conversations modern life throws at you.
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 ToolChestLab</div>
+        <div>Helpful tools for real-life communication.</div>
+      </div>
+
     </div>
   </footer>
 
