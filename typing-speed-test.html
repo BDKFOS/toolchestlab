@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WLQ0YR217T');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Typing Speed Test | ToolChestLab</title>
+<meta name="description" content="Test your typing speed with a clean typing speed test that measures words per minute, accuracy, time, and mistakes." />
+<link rel="canonical" href="https://www.toolchestlab.com/typing-speed-test.html" />
+
+<style>
+:root {
+  --bg: #fbfbfc;
+  --card: #ffffff;
+  --text: #151821;
+  --muted: #6b7280;
+  --border: #e7e7ea;
+  --dark: #11131b;
+  --yellow: #fff1b8;
+  --soft: #f5f7fa;
+  --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  --radius: 22px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1160px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(16px);
+  background: rgba(251, 251, 252, 0.88);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 1.12rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.brand-mark {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #1a1d29, #090b10);
+  color: white;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.22);
+  font-size: 0.96rem;
+  font-weight: 950;
+  letter-spacing: -0.12em;
+}
+
+.brand-mark::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  right: 12px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.38);
+}
+
+.brand-mark span {
+  position: relative;
+  z-index: 2;
+  transform: translateY(2px);
+}
+
+.nav-links {
+  display: flex;
+  gap: 6px;
+  color: #2f3440;
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+
+.nav-links a {
+  padding: 10px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  background: white;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.nav-cta {
+  background: var(--dark);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-size: 0.94rem;
+  font-weight: 800;
+}
+
+.hero {
+  padding: 86px 0 44px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: #fff7d6;
+  color: #9b6b00;
+  font-size: 0.88rem;
+  font-weight: 850;
+  margin-bottom: 24px;
+}
+
+h1 {
+  max-width: 860px;
+  margin: 0 auto 22px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 7vw, 5.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.07em;
+}
+
+.lede {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: clamp(1.06rem, 2vw, 1.28rem);
+}
+
+.test-section {
+  padding: 34px 0 86px;
+}
+
+.test-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 30px;
+}
+
+.prompt-box {
+  background: var(--soft);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
+  margin-bottom: 18px;
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: #303746;
+}
+
+textarea {
+  width: 100%;
+  min-height: 170px;
+  resize: vertical;
+  border: 1px solid var(--border);
+  background: #fbfbfc;
+  padding: 16px;
+  color: var(--text);
+  outline: none;
+  border-radius: 18px;
+  font-family: inherit;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+textarea:focus {
+  border-color: #e8b820;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(245, 197, 66, 0.16);
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.stat-card {
+  background: var(--soft);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+}
+
+.stat-card strong {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.stat-card span {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: var(--text);
+}
+
+.button-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+button {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  border-radius: 14px;
+  padding: 15px 18px;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.primary-button {
+  background: var(--dark);
+  color: white;
+  border: none;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.16);
+}
+
+.secondary-button {
+  background: white;
+  color: var(--dark);
+  border: 1px solid var(--border);
+}
+
+.status-message {
+  margin-top: 18px;
+  background: var(--yellow);
+  border: 1px solid #f3df91;
+  border-radius: 18px;
+  padding: 16px;
+  color: #4b3b14;
+  font-weight: 650;
+}
+
+.info-section {
+  padding: 0 0 90px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.info-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+.info-card h2 {
+  margin: 0 0 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.65rem;
+  letter-spacing: -0.04em;
+}
+
+.info-card p {
+  margin: 0;
+  color: #5f6673;
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 38px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  color: #333946;
+  font-weight: 650;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.footer-tagline {
+  max-width: 390px;
+  text-align: right;
+  color: #5f6673;
+  font-weight: 600;
+}
+
+.footer-bottom {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  color: #8a9099;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1000px) {
+  .nav-links { display: none; }
+  .info-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+  .stats-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .container { width: min(100% - 28px, 1160px); }
+  .nav { height: 72px; }
+  .nav-cta { display: none; }
+  .hero { padding: 70px 0 40px; }
+  .test-card { padding: 22px; }
+  .stats-row,
+  .button-row {
+    grid-template-columns: 1fr;
+  }
+  .footer-tagline { text-align: left; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+
+    <a href="/" class="brand" aria-label="ToolChestLab home">
+      <span class="brand-mark"><span>TCL</span></span>
+      <span>ToolChestLab</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/work.html">Work</a>
+      <a href="/dating-social.html">Dating & Social</a>
+      <a href="/friends-group-chats.html">Friends & Group Chats</a>
+      <a href="/difficult-conversations.html">Difficult Conversations</a>
+      <a href="/school.html">School</a>
+      <a href="/everyday-life.html">Everyday Life</a>
+    </nav>
+
+    <a href="/fun-quick-tests.html" class="nav-cta">Fun & Quick Tests</a>
+
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">Fun & Quick Tests</div>
+      <h1>Typing Speed Test</h1>
+      <p class="lede">
+        Test your typing speed, accuracy, and focus with a clean one-minute typing challenge.
+      </p>
+    </div>
+  </section>
+
+  <section class="test-section">
+    <div class="container">
+
+      <div class="test-card">
+
+        <div id="promptBox" class="prompt-box">
+          Clear communication starts with simple words, steady focus, and the confidence to say what you mean without overcomplicating the message.
+        </div>
+
+        <textarea id="typingInput" placeholder="Press start, then type the text above here..." disabled></textarea>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <strong>WPM</strong>
+            <span id="wpm">0</span>
+          </div>
+
+          <div class="stat-card">
+            <strong>Accuracy</strong>
+            <span id="accuracy">100%</span>
+          </div>
+
+          <div class="stat-card">
+            <strong>Time left</strong>
+            <span id="timeLeft">60s</span>
+          </div>
+
+          <div class="stat-card">
+            <strong>Mistakes</strong>
+            <span id="mistakes">0</span>
+          </div>
+        </div>
+
+        <div class="button-row">
+          <button id="startButton" class="primary-button" type="button">Start test</button>
+          <button id="resetButton" class="secondary-button" type="button">Reset</button>
+        </div>
+
+        <div id="statusMessage" class="status-message">
+          Press start when you are ready. The timer begins when you start typing.
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="info-section">
+    <div class="container">
+
+      <div class="info-grid">
+
+        <div class="info-card">
+          <h2>How it works</h2>
+          <p>Press start, type the displayed text, and see your words per minute, accuracy, mistakes, and remaining time.</p>
+        </div>
+
+        <div class="info-card">
+          <h2>What WPM means</h2>
+          <p>WPM stands for words per minute. This test estimates speed using standard five-character word calculations.</p>
+        </div>
+
+        <div class="info-card">
+          <h2>Accuracy matters</h2>
+          <p>Fast typing is useful, but clean typing is better. A strong result balances speed with fewer mistakes.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+
+    <div class="footer-inner">
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/about.html">About</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </nav>
+
+      <div class="footer-tagline">
+        Better words for modern life.
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 ToolChestLab</div>
+      <div>Helpful tools for real-life communication.</div>
+    </div>
+
+  </div>
+</footer>
+
+<script>
+const prompts = [
+  "Clear communication starts with simple words, steady focus, and the confidence to say what you mean without overcomplicating the message.",
+  "Modern life moves quickly, but a thoughtful message can still make a conversation feel easier, calmer, and more human.",
+  "Good writing is not always about sounding impressive. Sometimes it is about being clear, specific, kind, and easy to understand.",
+  "The best tools help you move from hesitation to action without removing your own voice from the final message.",
+  "Typing well is a small skill that supports almost everything online, from work and school to creative projects and daily communication."
+];
+
+const promptBox = document.getElementById("promptBox");
+const typingInput = document.getElementById("typingInput");
+const startButton = document.getElementById("startButton");
+const resetButton = document.getElementById("resetButton");
+const wpmDisplay = document.getElementById("wpm");
+const accuracyDisplay = document.getElementById("accuracy");
+const timeLeftDisplay = document.getElementById("timeLeft");
+const mistakesDisplay = document.getElementById("mistakes");
+const statusMessage = document.getElementById("statusMessage");
+
+let currentPrompt = prompts[0];
+let timer = null;
+let timeLeft = 60;
+let testStarted = false;
+let countdownStarted = false;
+let startTime = null;
+
+function choosePrompt() {
+  currentPrompt = prompts[Math.floor(Math.random() * prompts.length)];
+  promptBox.textContent = currentPrompt;
+}
+
+function calculateStats() {
+  const typed = typingInput.value;
+  const target = currentPrompt;
+
+  let mistakes = 0;
+
+  for (let i = 0; i < typed.length; i++) {
+    if (typed[i] !== target[i]) {
+      mistakes++;
+    }
+  }
+
+  const correctChars = Math.max(typed.length - mistakes, 0);
+  const elapsedSeconds = startTime ? Math.max((Date.now() - startTime) / 1000, 1) : 1;
+  const minutes = elapsedSeconds / 60;
+  const wpm = Math.round((correctChars / 5) / minutes);
+  const accuracy = typed.length > 0 ? Math.round((correctChars / typed.length) * 100) : 100;
+
+  wpmDisplay.textContent = isFinite(wpm) ? wpm : 0;
+  accuracyDisplay.textContent = accuracy + "%";
+  mistakesDisplay.textContent = mistakes;
+
+  if (typed === target) {
+    finishTest("Finished. Nice work.");
+  }
+}
+
+function startCountdown() {
+  if (countdownStarted) return;
+
+  countdownStarted = true;
+  startTime = Date.now();
+
+  timer = setInterval(() => {
+    timeLeft--;
+    timeLeftDisplay.textContent = timeLeft + "s";
+
+    if (timeLeft <= 0) {
+      finishTest("Time is up. Reset to try again.");
+    }
+  }, 1000);
+}
+
+function startTest() {
+  clearInterval(timer);
+
+  choosePrompt();
+
+  timeLeft = 60;
+  testStarted = true;
+  countdownStarted = false;
+  startTime = null;
+
+  typingInput.value = "";
+  typingInput.disabled = false;
+  typingInput.focus();
+
+  wpmDisplay.textContent = "0";
+  accuracyDisplay.textContent = "100%";
+  timeLeftDisplay.textContent = "60s";
+  mistakesDisplay.textContent = "0";
+
+  startButton.textContent = "Restart test";
+  statusMessage.textContent = "Start typing. The timer begins with your first keystroke.";
+}
+
+function finishTest(message) {
+  clearInterval(timer);
+  testStarted = false;
+  typingInput.disabled = true;
+  statusMessage.textContent = message;
+}
+
+function resetTest() {
+  clearInterval(timer);
+
+  currentPrompt = prompts[0];
+  promptBox.textContent = currentPrompt;
+
+  timeLeft = 60;
+  testStarted = false;
+  countdownStarted = false;
+  startTime = null;
+
+  typingInput.value = "";
+  typingInput.disabled = true;
+
+  wpmDisplay.textContent = "0";
+  accuracyDisplay.textContent = "100%";
+  timeLeftDisplay.textContent = "60s";
+  mistakesDisplay.textContent = "0";
+
+  startButton.textContent = "Start test";
+  statusMessage.textContent = "Press start when you are ready. The timer begins when you start typing.";
+}
+
+typingInput.addEventListener("input", () => {
+  if (!testStarted) return;
+  startCountdown();
+  calculateStats();
+});
+
+startButton.addEventListener("click", startTest);
+resetButton.addEventListener("click", resetTest);
+</script>
+
+</body>
+</html>
