@@ -15,7 +15,7 @@ gtag('config', 'G-WLQ0YR217T');
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Bumble Opener Generator | ToolChestLab</title>
-<meta name="description" content="Write a natural Bumble opening message based on someone’s profile, vibe, and the kind of first message you want to send." />
+<meta name="description" content="Write a natural Bumble opening message based on profile details, vibe, and the kind of first message you want to send." />
 <link rel="canonical" href="https://www.toolchestlab.com/bumble-opener-generator.html" />
 
 <style>
@@ -26,12 +26,10 @@ gtag('config', 'G-WLQ0YR217T');
   --muted: #6b7280;
   --border: #e7e7ea;
   --dark: #11131b;
-
   --bumble: #ffcb37;
   --bumble-soft: #fff4c7;
   --bumble-pale: #fff9df;
   --soft: #f5f7fa;
-
   --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
   --radius: 22px;
 }
@@ -48,10 +46,7 @@ body {
   line-height: 1.6;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+a { color: inherit; text-decoration: none; }
 
 .container {
   width: min(1160px, calc(100% - 40px));
@@ -457,9 +452,9 @@ footer {
           <form id="toolForm">
 
             <div class="form-group">
-              <label for="profileDetail">What stood out from their profile?</label>
-              <p class="helper">Mention a prompt, photo, hobby, location, job, pet, travel detail, or anything you noticed.</p>
-              <textarea id="profileDetail" placeholder="Example: She has a golden retriever, likes hiking, and one of her prompts says she loves sushi."></textarea>
+              <label for="profileDetail">Paste a few profile details</label>
+              <p class="helper">Use short details, not a full sentence. Example: loves labradors, into hiking, sarcastic sense of humor</p>
+              <textarea id="profileDetail" placeholder="loves labradors, likes cozy nights, has a funny prompt about sushi"></textarea>
             </div>
 
             <div class="form-group">
@@ -508,7 +503,7 @@ footer {
       </div>
 
       <div class="note-panel">
-        <strong>Tip:</strong> The best Bumble openers usually feel specific, relaxed, and easy to answer. If the message could be sent to anyone, it probably needs one more detail from their profile.
+        <strong>Tip:</strong> The best Bumble openers usually feel specific, relaxed, and easy to answer. Use short profile details instead of full sentences so the result sounds more natural.
       </div>
 
     </div>
@@ -526,7 +521,7 @@ footer {
 
         <div class="info-card">
           <h2>What works best</h2>
-          <p>Use a real profile detail. A specific opener usually feels more confident than a random joke or recycled pickup line.</p>
+          <p>Use real profile details. A specific opener usually feels more confident than a random joke or recycled pickup line.</p>
         </div>
 
         <div class="info-card">
@@ -575,36 +570,40 @@ const copyButton = document.getElementById("copyButton");
 const clearButton = document.getElementById("clearButton");
 
 function buildFallbackOpeners(profileDetail, vibe, style, avoid) {
-  const cleanDetail = profileDetail.trim();
-  const avoidText = avoid ? ` Avoid: ${avoid}.` : "";
+  const detail = profileDetail
+    .replace(/^her profile says\s+/i, "")
+    .replace(/^their profile says\s+/i, "")
+    .replace(/^she says\s+/i, "")
+    .replace(/^they say\s+/i, "")
+    .trim();
 
   if (style === "multiple") {
     return `Here are a few Bumble opener options:
 
-1. Okay, I have to ask about ${cleanDetail}. What’s the story there?
+1. Okay, ${detail} is a pretty strong start. Which part of that are you most serious about?
 
-2. I was going to send something normal, but ${cleanDetail} feels way more interesting. Tell me more.
+2. I saw ${detail} and immediately had questions. What’s the story there?
 
-3. Strong profile. I’m especially curious about ${cleanDetail}.
+3. ${detail} feels like it deserves a better opener than “hey,” so here we are.
 
-4. Quick question: is ${cleanDetail} actually as fun as it sounds?
+4. I need to know more about ${detail}. Is this a casual interest or a core personality trait?
 
-5. I feel like ${cleanDetail} deserves a better opener than “hey,” so here I am asking about it.`;
+5. Honestly, ${detail} is doing a lot of heavy lifting on your profile.`;
   }
 
   if (style === "playful") {
-    return `I was going to pretend to be smooth, but honestly ${cleanDetail} caught my attention. What’s the story there?`;
+    return `Okay, ${detail} is a pretty elite profile detail. Should I be impressed, concerned, or both?`;
   }
 
   if (style === "comment") {
-    return `${cleanDetail} immediately stood out. That feels like the kind of thing that needs a story behind it.`;
+    return `${detail} is honestly a strong profile detail. I feel like there’s a story there.`;
   }
 
   if (style === "short") {
-    return `${cleanDetail} caught my attention. Tell me more?`;
+    return `${detail} caught my attention. Tell me more?`;
   }
 
-  return `Okay, I have to ask about ${cleanDetail}. What’s the story there?`;
+  return `Okay, I need to know more about ${detail}. What’s the story there?`;
 }
 
 form.addEventListener("submit", async function(event) {
@@ -616,19 +615,16 @@ form.addEventListener("submit", async function(event) {
   const avoid = document.getElementById("avoid").value.trim();
 
   if (!profileDetail) {
-    output.textContent = "Add one detail from their Bumble profile first. The opener will be much better if it has something specific to respond to.";
+    output.textContent = "Add a few short profile details first. Example: loves labradors, into hiking, sarcastic sense of humor.";
     return;
   }
 
   output.textContent = "Generating your opener...";
 
   const prompt = `
-Write Bumble opening messages.
+You are writing Bumble openers.
 
-Goal:
-Create a natural first message for Bumble based on the profile detail provided.
-
-Profile detail:
+The user gave these profile details:
 ${profileDetail}
 
 Desired vibe:
@@ -640,14 +636,26 @@ ${style}
 Things to avoid:
 ${avoid || "No special restrictions"}
 
-Rules:
-- Make it sound human and natural.
-- Do not sound robotic.
-- Do not be overly sexual.
-- Do not use cheesy pickup lines.
-- Keep it easy to respond to.
+Important rules:
+- Do not copy the profile details awkwardly into a sentence.
+- Do not say "her profile says" or "their profile says" unless it sounds completely natural.
+- Treat the profile details as raw material, not exact wording.
+- Rewrite the details into a smooth, natural opener.
+- Make it sound like a real person texting on Bumble.
+- Keep it casual, confident, and easy to respond to.
+- No cheesy pickup lines.
+- No overly sexual messages.
+- No robotic explanations.
+- If giving one opener, return only the opener.
 - If giving multiple options, give 5 concise options.
-- If giving one opener, give only the opener and no extra explanation.
+
+Good example:
+Input: loves labradors and snuggles
+Output: Labradors and snuggles is honestly a pretty elite combination. Which one are you more serious about?
+
+Bad example:
+Input: her profile says she loves snuggles and labradors
+Output: Her profile says she loves snuggles and labradors caught my attention.
 `;
 
   try {
