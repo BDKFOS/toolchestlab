@@ -243,6 +243,24 @@ h1 {
   font-size: 0.92rem;
 }
 
+  .live{
+background:#f3faf5;
+border:1px solid #cfe8d6;
+transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.live:hover{
+transform:translateY(-3px);
+border-color:#9bcfac;
+box-shadow:0 18px 42px rgba(47,107,70,.12);
+}
+
+.tool-link{
+margin-top:24px;
+font-weight:800;
+font-size:.98rem;
+color:#2f6b46;
+}
 .note-panel {
   margin-top: 28px;
   background: var(--purple);
@@ -375,14 +393,21 @@ footer {
 
       <div class="tool-grid">
 
-        <div class="tool-card">
-          <div>
-            <h3>Professor Email Writer</h3>
+        <a class="tool-card live" href="/email-a-professor.html">
 
-            <p>
-              Write respectful emails to professors about assignments, meetings, questions, or class issues.
-            </p>
-          </div>
+  <div>
+    <h3>Email a Professor</h3>
+
+    <p>
+      Write respectful, clear emails for extensions, missed class, office hours, recommendation requests, assignment questions, and more.
+    </p>
+  </div>
+
+  <div class="tool-link">
+    Open Tool →
+  </div>
+
+</a>
 
           <div class="status">
             Coming soon
