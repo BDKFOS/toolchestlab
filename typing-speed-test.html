@@ -453,6 +453,12 @@ footer {
             <strong>Mistakes</strong>
             <span id="mistakes">0</span>
           </div>
+
+          <div class="stat-card">
+            <strong>Rating</strong>
+            <span id="rating">—</span>
+          </div>
+          
         </div>
 
         <div class="button-row">
@@ -486,8 +492,15 @@ footer {
 
         <div class="info-card">
           <h2>Accuracy matters</h2>
-          <p>Fast typing is useful, but clean typing is better. A strong result balances speed with fewer mistakes.</p>
-        </div>
+
+           <p>
+             Fast typing is useful, but clean typing is better. A strong result balances speed with fewer mistakes.
+          </p>
+
+            <p style="margin-top:12px;">
+            Results can vary depending on keyboard type, screen size, device performance, focus, and typing familiarity.
+            </p>
+          </div>
 
       </div>
 
@@ -540,6 +553,7 @@ const wpmDisplay = document.getElementById("wpm");
 const accuracyDisplay = document.getElementById("accuracy");
 const timeLeftDisplay = document.getElementById("timeLeft");
 const mistakesDisplay = document.getElementById("mistakes");
+const ratingDisplay = document.getElementById("rating");
 const statusMessage = document.getElementById("statusMessage");
 
 let currentPrompt = prompts[0];
@@ -573,8 +587,26 @@ function calculateStats() {
   const accuracy = typed.length > 0 ? Math.round((correctChars / typed.length) * 100) : 100;
 
   wpmDisplay.textContent = isFinite(wpm) ? wpm : 0;
-  accuracyDisplay.textContent = accuracy + "%";
-  mistakesDisplay.textContent = mistakes;
+accuracyDisplay.textContent = accuracy + "%";
+mistakesDisplay.textContent = mistakes;
+
+let rating = "";
+
+if (wpm >= 110) {
+  rating = "Elite";
+} else if (wpm >= 90) {
+  rating = "Excellent";
+} else if (wpm >= 70) {
+  rating = "Very good";
+} else if (wpm >= 50) {
+  rating = "Average";
+} else if (wpm >= 35) {
+  rating = "Below average";
+} else {
+  rating = "Beginner";
+}
+
+ratingDisplay.textContent = rating;
 
   if (typed === target) {
     finishTest("Finished. Nice work.");
@@ -615,6 +647,7 @@ function startTest() {
   accuracyDisplay.textContent = "100%";
   timeLeftDisplay.textContent = "60s";
   mistakesDisplay.textContent = "0";
+  ratingDisplay.textContent = "—";
 
   startButton.textContent = "Restart test";
   statusMessage.textContent = "Start typing. The timer begins with your first keystroke.";
