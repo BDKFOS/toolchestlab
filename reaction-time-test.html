@@ -445,6 +445,11 @@ footer {
             <strong>Attempts</strong>
             <span id="attempts">0</span>
           </div>
+
+          <div class="result-card">
+            <strong>Rating</strong>
+            <span id="rating">—</span>
+          </div>
         </div>
 
         <div class="button-row">
@@ -472,9 +477,15 @@ footer {
           <p>If you click before the screen turns green, the test counts it as an early click and asks you to restart.</p>
         </div>
 
-        <div class="info-card">
+       <div class="info-card">
           <h2>Try a few times</h2>
-          <p>Reaction time can vary from attempt to attempt. Your best score is usually more useful than one single result.</p>
+          <p>
+            Reaction time can vary from attempt to attempt. Your best score is usually more useful than one single result.
+          </p>
+
+          <p style="margin-top:12px;">
+            Results can vary depending on device, display refresh rate, mouse, touch latency, and browser performance.
+          </p>
         </div>
 
       </div>
@@ -520,6 +531,7 @@ const resetButton = document.getElementById("resetButton");
 const lastResult = document.getElementById("lastResult");
 const bestResult = document.getElementById("bestResult");
 const attemptsDisplay = document.getElementById("attempts");
+const ratingDisplay = document.getElementById("rating");
 
 let state = "idle";
 let timeoutId = null;
@@ -575,6 +587,24 @@ function handleZoneClick() {
     bestResult.textContent = bestTime + " ms";
     attemptsDisplay.textContent = attempts;
 
+let rating = "";
+
+if (reactionTime < 170) {
+  rating = "Elite";
+} else if (reactionTime < 210) {
+  rating = "Excellent";
+} else if (reactionTime < 250) {
+  rating = "Very good";
+} else if (reactionTime < 300) {
+  rating = "Average";
+} else if (reactionTime < 370) {
+  rating = "Below average";
+} else {
+  rating = "Slow";
+}
+
+ratingDisplay.textContent = rating;
+
     state = "idle";
     startButton.textContent = "Start again";
     setZone("", reactionTime + " ms", "Nice. Press start to try again.");
@@ -592,6 +622,7 @@ function resetScores() {
   lastResult.textContent = "—";
   bestResult.textContent = "—";
   attemptsDisplay.textContent = "0";
+  ratingDisplay.textContent = "—";
   startButton.textContent = "Start test";
   setZone("", "Ready?", "Press start, wait for green, then click as fast as you can.");
 }
