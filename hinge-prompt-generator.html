@@ -671,7 +671,7 @@ Format exactly like this:
     }
 
     const data = await response.json();
-    output.textContent = data.result || data.text || data.output || "No result came back. Try again with a little more detail.";
+    output.textContent = data.result || data.text || data.output || data.response || JSON.stringify(data);
   } catch (error) {
     output.textContent = "Something went wrong generating your Hinge answers. Check that /api/generate is connected, then try again.";
   } finally {
