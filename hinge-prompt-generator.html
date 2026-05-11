@@ -659,21 +659,38 @@ Format exactly like this:
 4. [answer]
 5. [answer]`;
 
-  try {
+try {
     const response = await fetch("/api/generate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ prompt: aiPrompt })
     });
 
+    const rawText = await response.text();
+
     if (!response.ok) {
-      throw new Error("Request failed");
+      output.textContent = `API error ${response.status}:\n\n${rawText}`;
+      return;
     }
 
-    const data = await response.json();
-    output.textContent = data.result || data.text || data.output || data.response || JSON.stringify(data);
+    let data;
+
+    try {
+      data = JSON.parse(rawText);
+    } catch (parseError) {
+      output.textContent = rawText || "The API responded, but it was not valid JSON.";
+      return;
+    }
+
+    output.textContent =
+      data.result ||
+      data.text ||
+      data.output ||
+      data.response ||
+      JSON.stringify(data, null, 2);
+
   } catch (error) {
-    output.textContent = "Something went wrong generating your Hinge answers. Check that /api/generate is connected, then try again.";
+    output.textContent = `Fetch error:\n\n${error.message}`;
   } finally {
     generateButton.disabled = false;
     generateButton.textContent = "Generate Hinge answers";
