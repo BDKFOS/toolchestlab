@@ -26,9 +26,14 @@ gtag('config', 'G-WLQ0YR217T');
 --muted:#6b7280;
 --border:#e7e7ea;
 --dark:#11131b;
---work:#2563eb;
---work-soft:#f4f9ff;
---work-border:#cfe3ff;
+
+/* WORK CATEGORY COLORS */
+--work:#4f46e5;
+--work-deep:#312e81;
+--work-soft:#f3f4ff;
+--work-border:#c7d2fe;
+--work-panel:#eef2ff;
+
 --shadow:0 20px 50px rgba(15,23,42,.08);
 --radius:22px;
 }
@@ -212,8 +217,8 @@ border-color:var(--work-border);
 }
 
 .tool-card.live:hover{
-border-color:#9fc5ff;
-box-shadow:0 18px 42px rgba(59,130,246,.12);
+border-color:#a5b4fc;
+box-shadow:0 18px 42px rgba(79,70,229,.14);
 }
 
 .tool-status{
@@ -233,8 +238,8 @@ color:#6b7280;
 }
 
 .tool-card.live .tool-status{
-background:#dcebff;
-color:var(--work);
+background:#e0e7ff;
+color:var(--work-deep);
 }
 
 .tool-card h2{
@@ -258,11 +263,11 @@ color:var(--work);
 
 .note-panel{
 margin-top:28px;
-background:var(--work-soft);
+background:var(--work-panel);
 border:1px solid var(--work-border);
 border-radius:var(--radius);
 padding:24px;
-color:#35507a;
+color:#3b4266;
 }
 
 .note-panel strong{
