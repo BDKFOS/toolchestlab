@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WLQ0YR217T');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Work Request Writer | ToolChestLab</title>
+<meta name="description" content="Write clear, professional workplace requests for help, approvals, time off, clarification, schedule changes, deadline changes, and other work situations." />
+<link rel="canonical" href="https://www.toolchestlab.com/work-request-writer.html" />
+
+<style>
+:root {
+  --bg: #fbfbfc;
+  --card: #ffffff;
+  --text: #151821;
+  --muted: #6b7280;
+  --border: #e7e7ea;
+  --dark: #11131b;
+  --soft: #f5f7fa;
+  --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  --radius: 22px;
+  --bg-accent: #f3f4ff;
+  --accent-soft: #eef2ff;
+  --accent: #4f46e5;
+  --accent-dark: #312e81;
+  --accent-border: #c7d2fe;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(79, 70, 229, 0.10), transparent 32%),
+    radial-gradient(circle at top right, rgba(199, 210, 254, 0.44), transparent 30%),
+    var(--bg);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+.container { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(16px);
+  background: rgba(251, 251, 252, 0.88);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 1.12rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.brand-mark {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #1a1d29, #090b10);
+  color: white;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.22);
+  font-size: 0.96rem;
+  font-weight: 950;
+  letter-spacing: -0.12em;
+}
+
+.brand-mark::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  right: 12px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.38);
+}
+
+.brand-mark span { position: relative; z-index: 2; transform: translateY(2px); }
+
+.nav-links {
+  display: flex;
+  gap: 6px;
+  color: #2f3440;
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+
+.nav-links a {
+  padding: 10px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  background: white;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.nav-cta {
+  background: var(--dark);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-size: 0.94rem;
+  font-weight: 800;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.16);
+}
+
+.nav-cta:hover { transform: translateY(-1px); }
+
+.hero { padding: 86px 0 44px; text-align: center; }
+
+.eyebrow {
+  display: inline-flex;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-size: 0.88rem;
+  font-weight: 850;
+  margin-bottom: 24px;
+  border: 1px solid var(--accent-border);
+}
+
+h1 {
+  max-width: 900px;
+  margin: 0 auto 22px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 7vw, 5.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.07em;
+}
+
+.lede {
+  max-width: 770px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: clamp(1.06rem, 2vw, 1.28rem);
+}
+
+.tool-section { padding: 34px 0 86px; }
+
+.tool-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.tool-card,
+.output-card,
+.info-card {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.tool-card { padding: 30px; }
+.output-card { padding: 30px; position: sticky; top: 106px; }
+.form-group { margin-bottom: 20px; }
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 850;
+  color: #20242e;
+}
+
+.helper {
+  margin: -2px 0 10px;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+input,
+textarea,
+select,
+button {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  border-radius: 14px;
+}
+
+input,
+textarea,
+select {
+  border: 1px solid var(--border);
+  background: #fffefd;
+  padding: 14px 15px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+textarea { min-height: 142px; resize: vertical; }
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.13);
+}
+
+button {
+  margin-top: 8px;
+  background: var(--dark);
+  color: white;
+  border: none;
+  padding: 15px 18px;
+  font-weight: 850;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.16);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+button:hover { transform: translateY(-1px); box-shadow: 0 16px 34px rgba(15, 23, 42, 0.18); }
+button:disabled { cursor: not-allowed; opacity: 0.72; transform: none; }
+
+.secondary-button {
+  background: white;
+  color: var(--dark);
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+.secondary-button:hover {
+  border-color: var(--accent-border);
+  background: var(--bg-accent);
+  box-shadow: none;
+}
+
+.output-card h2,
+.info-card h2 {
+  margin: 0 0 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.65rem;
+  letter-spacing: -0.04em;
+}
+
+.output-card p { margin: 0 0 16px; color: var(--muted); }
+
+.output-box {
+  min-height: 330px;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #ffffff, var(--bg-accent));
+  color: #343b49;
+  white-space: pre-wrap;
+}
+
+.output-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.info-section { padding: 0 0 90px; }
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.info-card { padding: 24px; }
+.info-card p { margin: 0; color: #5f6673; }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 38px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  color: #333946;
+  font-weight: 650;
+}
+
+.footer-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.footer-tagline {
+  max-width: 390px;
+  text-align: right;
+  color: #5f6673;
+  font-weight: 600;
+}
+
+.footer-bottom {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  color: #8a9099;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1100px) {
+  .nav-links { display: none; }
+  .tool-layout, .info-grid { grid-template-columns: 1fr; }
+  .output-card { position: static; }
+}
+
+@media (max-width: 640px) {
+  .container { width: min(100% - 28px, 1160px); }
+  .nav { height: 72px; }
+  .nav-cta { display: none; }
+  .hero { padding: 70px 0 40px; }
+  .tool-card, .output-card { padding: 24px; }
+  .output-actions { grid-template-columns: 1fr; }
+  .footer-tagline { text-align: left; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="/" class="brand" aria-label="ToolChestLab home">
+      <span class="brand-mark"><span>TCL</span></span>
+      <span>ToolChestLab</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/work.html">Work</a>
+      <a href="/dating-social.html">Dating & Social</a>
+      <a href="/friends-group-chats.html">Friends & Group Chats</a>
+      <a href="/difficult-conversations.html">Difficult Conversations</a>
+      <a href="/school.html">School</a>
+      <a href="/everyday-life.html">Everyday Life</a>
+    </nav>
+
+    <a href="/work.html" class="nav-cta">Work Tools</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">Work Communication Tool</div>
+      <h1>Work Request Writer.</h1>
+      <p class="lede">Write a clear, professional request for help, approval, clarification, time off, schedule changes, deadline adjustments, and everyday workplace needs.</p>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <div class="container">
+      <div class="tool-layout">
+
+        <div class="tool-card">
+          <form id="toolForm">
+
+            <div class="form-group">
+              <label for="requestType">What kind of request is this?</label>
+              <select id="requestType">
+                <option value="asking for help">Asking for help</option>
+                <option value="asking for clarification">Asking for clarification</option>
+                <option value="requesting approval">Requesting approval</option>
+                <option value="requesting time off">Requesting time off</option>
+                <option value="asking for a deadline extension">Asking for a deadline extension</option>
+                <option value="asking to reschedule">Asking to reschedule</option>
+                <option value="requesting resources or access">Requesting resources or access</option>
+                <option value="asking for feedback">Asking for feedback</option>
+                <option value="requesting a decision">Requesting a decision</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="recipient">Who is this going to?</label>
+              <select id="recipient">
+                <option value="boss or manager">Boss or manager</option>
+                <option value="coworker">Coworker</option>
+                <option value="team">Team</option>
+                <option value="client">Client</option>
+                <option value="HR">HR</option>
+                <option value="vendor or external contact">Vendor or external contact</option>
+                <option value="professor or advisor">Professor or advisor</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="format">Message format</label>
+              <select id="format">
+                <option value="email">Email</option>
+                <option value="Slack or Teams message">Slack or Teams message</option>
+                <option value="short text message">Short text message</option>
+                <option value="formal email">Formal email</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="tone">Tone</label>
+              <select id="tone">
+                <option value="professional and calm">Professional and calm</option>
+                <option value="warm and respectful">Warm and respectful</option>
+                <option value="brief and direct">Brief and direct</option>
+                <option value="confident but polite">Confident but polite</option>
+                <option value="formal">Formal</option>
+                <option value="friendly but clear">Friendly but clear</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="details">Details/context</label>
+              <p class="helper">Explain what you need and why, using plain language.</p>
+              <textarea id="details" placeholder="Example: I need approval to move the client meeting from Thursday to Friday because the final report will not be ready until Thursday afternoon."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="specificAsk">Specific request</label>
+              <input id="specificAsk" type="text" placeholder="Example: Can I move the meeting to Friday morning?" />
+            </div>
+
+            <div class="form-group">
+              <label for="deadline">Optional deadline or timing</label>
+              <input id="deadline" type="text" placeholder="Example: I’d need approval by end of day today." />
+            </div>
+
+            <button id="generateButton" type="submit">Generate work request</button>
+
+          </form>
+        </div>
+
+        <div class="output-card">
+          <h2>Your request</h2>
+          <p>Use this as a polished starting point. Adjust names, dates, and details before sending.</p>
+          <div id="output" class="output-box">Your work request will appear here.</div>
+
+          <div class="output-actions">
+            <button class="secondary-button" type="button" id="copyButton">Copy</button>
+            <button class="secondary-button" type="button" id="clearButton">Clear</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <div class="container">
+      <div class="info-grid">
+
+        <div class="info-card">
+          <h2>Make the ask obvious</h2>
+          <p>A good work request should make it easy for the recipient to understand what you need, why you need it, and what decision or action comes next.</p>
+        </div>
+
+        <div class="info-card">
+          <h2>Give useful context</h2>
+          <p>Include enough background to make the request reasonable, but avoid burying the ask in a long explanation.</p>
+        </div>
+
+        <div class="info-card">
+          <h2>Stay confident and polite</h2>
+          <p>You do not need to sound nervous or overly apologetic. Clear, respectful wording usually works better than over-explaining.</p>
+        </div>
+
+        <div class="info-card">
+          <h2>Include timing when needed</h2>
+          <p>If a decision has a deadline, include it clearly. This helps managers, coworkers, and clients respond faster.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/about.html">About</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </nav>
+      <div class="footer-tagline">Better words for modern life.</div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 ToolChestLab</div>
+      <div>Helpful tools for real-life communication.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const form = document.getElementById("toolForm");
+const output = document.getElementById("output");
+const copyButton = document.getElementById("copyButton");
+const clearButton = document.getElementById("clearButton");
+const generateButton = document.getElementById("generateButton");
+
+function cleanGeneratedText(text) {
+  let cleaned = String(text || "").trim();
+
+  cleaned = cleaned
+    .replace(/^```(?:text|email|markdown)?\s*/i, "")
+    .replace(/```$/i, "")
+    .trim();
+
+  try {
+    const parsed = JSON.parse(cleaned);
+    if (typeof parsed === "string") cleaned = parsed;
+    if (parsed && typeof parsed === "object") {
+      cleaned = parsed.result || parsed.text || parsed.output || parsed.response || parsed.message || cleaned;
+    }
+  } catch (error) {}
+
+  return String(cleaned)
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+form.addEventListener("submit", async function(event) {
+  event.preventDefault();
+
+  const requestType = document.getElementById("requestType").value;
+  const recipient = document.getElementById("recipient").value;
+  const format = document.getElementById("format").value;
+  const tone = document.getElementById("tone").value;
+  const details = document.getElementById("details").value.trim();
+  const specificAsk = document.getElementById("specificAsk").value.trim();
+  const deadline = document.getElementById("deadline").value.trim();
+
+  if (!details) {
+    output.textContent = "Add a little context first, then generate your work request.";
+    return;
+  }
+
+  const aiPrompt = `
+You are writing a professional workplace request.
+
+Create one complete, ready-to-send message based on the user's situation.
+
+Input:
+- Request type: ${requestType}
+- Recipient: ${recipient}
+- Message format: ${format}
+- Tone: ${tone}
+- Details/context: ${details}
+- Specific request: ${specificAsk || "Not provided"}
+- Deadline or timing: ${deadline || "Not provided"}
+
+Requirements:
+- Write in the selected format.
+- If the format is email or formal email, include a subject line, greeting, body, and signoff.
+- If the format is Slack, Teams, or text message, keep it concise and message-like without a formal email structure.
+- Make the request clear, professional, and easy to answer.
+- Sound modern, natural, and human.
+- Avoid robotic wording, corporate cringe, passive-aggressive language, and excessive apology.
+- Avoid sounding entitled, demanding, vague, or desperate.
+- Include the specific ask clearly.
+- Include timing or deadline naturally if provided.
+- Match the recipient and tone.
+- Output only the finished message. Do not include commentary, alternatives, JSON, markdown code blocks, or analysis.
+`;
+
+  output.textContent = "Generating your request...";
+  generateButton.disabled = true;
+  generateButton.textContent = "Generating...";
+
+  try {
+    const response = await fetch("/api/generate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ prompt: aiPrompt })
+    });
+
+    if (!response.ok) throw new Error("Request failed");
+
+    const data = await response.json();
+    const result = data.result || data.text || data.output || data.response || data.message;
+
+    if (!result) throw new Error("No result returned");
+
+    output.textContent = cleanGeneratedText(result);
+  } catch (error) {
+    output.textContent = "Something went wrong while generating your request. Please try again.";
+  } finally {
+    generateButton.disabled = false;
+    generateButton.textContent = "Generate work request";
+  }
+});
+
+copyButton.addEventListener("click", async function() {
+  const text = output.textContent.trim();
+  if (!text || text === "Your work request will appear here." || text === "Generating your request...") return;
+
+  try {
+    await navigator.clipboard.writeText(text);
+    copyButton.textContent = "Copied";
+    setTimeout(() => copyButton.textContent = "Copy", 1200);
+  } catch (error) {
+    copyButton.textContent = "Copy failed";
+    setTimeout(() => copyButton.textContent = "Copy", 1200);
+  }
+});
+
+clearButton.addEventListener("click", function() {
+  output.textContent = "Your work request will appear here.";
+  form.reset();
+});
+</script>
+
+</body>
+</html>
