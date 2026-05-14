@@ -15,305 +15,353 @@ gtag('config', 'G-WLQ0YR217T');
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>AI Guides & Prompt Tools | ToolChestLab</title>
-
-<meta
-  name="description"
-  content="Explore AI guides, prompt tools, prompt writing help, ChatGPT prompts, image prompts, coding prompts, and practical AI workflows."
-/>
-
-<link
-  rel="canonical"
-  href="https://www.toolchestlab.com/ai-guides-prompts.html"
-/>
+<meta name="description" content="Browse AI prompt tools and practical guides for improving prompts, building image prompts, writing better instructions, and getting clearer results from AI tools." />
+<link rel="canonical" href="https://www.toolchestlab.com/ai-guides-prompts.html" />
 
 <style>
-:root {
-  --bg: #fbfbfc;
-  --card: #ffffff;
-  --text: #151821;
-  --muted: #6b7280;
-  --border: #e7e7ea;
-  --dark: #11131b;
-  --teal: #dffaf6;
+:root{
+--bg:#fbfbfc;
+--card:#ffffff;
+--text:#151821;
+--muted:#6b7280;
+--border:#e7e7ea;
+--dark:#11131b;
+--soft:#f5f7fa;
+--shadow:0 20px 50px rgba(15,23,42,.08);
+--radius:22px;
 
-  --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
-  --radius: 22px;
+--ai:#7c3aed;
+--ai-dark:#5b21b6;
+--ai-soft:#f8f5ff;
+--ai-panel:#eee7ff;
+--ai-border:#ddd6fe;
 }
 
-* {
-  box-sizing: border-box;
+*{
+box-sizing:border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+html{
+scroll-behavior:smooth;
 }
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system,
-    BlinkMacSystemFont, "Segoe UI", sans-serif;
-  line-height: 1.6;
+body{
+margin:0;
+background:
+radial-gradient(circle at top left, rgba(124,58,237,.11), transparent 32%),
+radial-gradient(circle at top right, rgba(221,214,254,.48), transparent 30%),
+var(--bg);
+color:var(--text);
+font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+line-height:1.6;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+a{
+color:inherit;
+text-decoration:none;
 }
 
-.container {
-  width: min(1160px, calc(100% - 40px));
-  margin: 0 auto;
+.container{
+width:min(1160px,calc(100% - 40px));
+margin:0 auto;
 }
 
-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  backdrop-filter: blur(16px);
-  background: rgba(251, 251, 252, 0.88);
-  border-bottom: 1px solid var(--border);
+header{
+position:sticky;
+top:0;
+z-index:50;
+backdrop-filter:blur(16px);
+background:rgba(251,251,252,.88);
+border-bottom:1px solid var(--border);
 }
 
-.nav {
-  height: 82px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+.nav{
+height:82px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:24px;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  font-size: 1.12rem;
-  font-weight: 900;
-  letter-spacing: -0.04em;
+.brand{
+display:flex;
+align-items:center;
+gap:14px;
+font-size:1.12rem;
+font-weight:900;
+letter-spacing:-0.04em;
 }
 
-.brand-mark {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
-  background: linear-gradient(145deg, #1a1d29, #090b10);
-  color: white;
-  display: grid;
-  place-items: center;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.22);
-  font-size: 0.96rem;
-  font-weight: 950;
-  letter-spacing: -0.12em;
+.brand-mark{
+width:46px;
+height:46px;
+border-radius:14px;
+background:linear-gradient(145deg,#1a1d29,#090b10);
+color:white;
+display:grid;
+place-items:center;
+position:relative;
+overflow:hidden;
+box-shadow:0 14px 34px rgba(15,23,42,.22);
+font-size:.96rem;
+font-weight:950;
+letter-spacing:-0.12em;
 }
 
-.brand-mark::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 12px;
-  right: 12px;
-  height: 3px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.38);
+.brand-mark::before{
+content:"";
+position:absolute;
+top:10px;
+left:12px;
+right:12px;
+height:3px;
+border-radius:999px;
+background:rgba(255,255,255,.38);
 }
 
-.brand-mark span {
-  position: relative;
-  z-index: 2;
-  transform: translateY(2px);
+.brand-mark span{
+position:relative;
+z-index:2;
+transform:translateY(2px);
 }
 
-.nav-links {
-  display: flex;
-  gap: 6px;
-  color: #2f3440;
-  font-size: 0.95rem;
-  font-weight: 650;
+.nav-links{
+display:flex;
+gap:6px;
+color:#2f3440;
+font-size:.95rem;
+font-weight:650;
 }
 
-.nav-links a {
-  padding: 10px 12px;
-  border-radius: 999px;
-  white-space: nowrap;
+.nav-links a{
+padding:10px 12px;
+border-radius:999px;
+white-space:nowrap;
 }
 
-.nav-links a:hover {
-  background: white;
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+.nav-links a:hover{
+background:white;
+box-shadow:0 8px 20px rgba(15,23,42,.06);
 }
 
-.nav-cta {
-  background: var(--dark);
-  color: white;
-  padding: 12px 18px;
-  border-radius: 14px;
-  font-size: 0.94rem;
-  font-weight: 800;
+.nav-cta{
+background:var(--dark);
+color:white;
+padding:12px 18px;
+border-radius:14px;
+font-size:.94rem;
+font-weight:800;
+box-shadow:0 12px 26px rgba(15,23,42,.16);
 }
 
-.page-hero {
-  padding: 92px 0 54px;
-  text-align: center;
+.nav-cta:hover{
+transform:translateY(-1px);
 }
 
-.eyebrow {
-  display: inline-flex;
-  padding: 9px 14px;
-  border-radius: 999px;
-  background: #ecfffb;
-  color: #0c8571;
-  font-size: 0.88rem;
-  font-weight: 850;
-  margin-bottom: 24px;
+.hero{
+padding:92px 0 54px;
+text-align:center;
 }
 
-h1 {
-  max-width: 860px;
-  margin: 0 auto 22px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(3rem, 7vw, 5.6rem);
-  line-height: 0.95;
-  letter-spacing: -0.07em;
+.eyebrow{
+display:inline-flex;
+padding:9px 14px;
+border-radius:999px;
+background:var(--ai-panel);
+color:var(--ai-dark);
+font-size:.88rem;
+font-weight:850;
+margin-bottom:24px;
+border:1px solid var(--ai-border);
 }
 
-.lede {
-  max-width: 720px;
-  margin: 0 auto;
-  color: var(--muted);
-  font-size: clamp(1.06rem, 2vw, 1.28rem);
+h1{
+max-width:930px;
+margin:0 auto 22px;
+font-family:Georgia,"Times New Roman",serif;
+font-size:clamp(3rem,7vw,5.6rem);
+line-height:.95;
+letter-spacing:-0.07em;
 }
 
-.tools-section {
-  padding: 36px 0 90px;
+.lede{
+max-width:800px;
+margin:0 auto;
+color:var(--muted);
+font-size:clamp(1.06rem,2vw,1.28rem);
 }
 
-.section-heading {
-  margin-bottom: 24px;
+.tools-section{
+padding:10px 0 90px;
 }
 
-.section-heading h2 {
-  margin: 0 0 8px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 2rem;
-  letter-spacing: -0.04em;
+.tools-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
 }
 
-.section-heading p {
-  margin: 0;
-  color: var(--muted);
-  max-width: 700px;
+.tool-card{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:var(--radius);
+padding:26px;
+box-shadow:var(--shadow);
+transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+min-height:220px;
 }
 
-.tool-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+.tool-card:hover{
+transform:translateY(-3px);
+box-shadow:0 26px 60px rgba(15,23,42,.12);
 }
 
-.tool-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 26px;
-  min-height: 200px;
-  box-shadow: var(--shadow);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.tool-card.live{
+background:var(--ai-soft);
+border-color:var(--ai-border);
 }
 
-.tool-card h3 {
-  margin: 0 0 9px;
-  font-size: 1.2rem;
-  letter-spacing: -0.03em;
+.tool-card.live:hover{
+border-color:#c4b5fd;
+box-shadow:0 18px 42px rgba(124,58,237,.15);
 }
 
-.tool-card p {
-  margin: 0;
-  color: #5f6673;
+.tool-status{
+display:inline-flex;
+width:max-content;
+margin-bottom:14px;
+padding:6px 10px;
+border-radius:999px;
+font-size:.76rem;
+font-weight:800;
+letter-spacing:.04em;
 }
 
-.status {
-  margin-top: 22px;
-  color: #0c8571;
-  font-weight: 800;
-  font-size: 0.92rem;
+.tool-status.muted{
+background:#f3f4f6;
+color:#6b7280;
 }
 
-.note-panel {
-  margin-top: 28px;
-  background: var(--teal);
-  border: 1px solid #c8f0e8;
-  border-radius: var(--radius);
-  padding: 26px;
-  color: #22453f;
+.tool-card.live .tool-status{
+background:var(--ai-panel);
+color:var(--ai-dark);
 }
 
-.note-panel strong {
-  color: #11131b;
+.tool-card h2{
+margin:0 0 10px;
+font-size:1.35rem;
+line-height:1.15;
+letter-spacing:-0.04em;
 }
 
-footer {
-  border-top: 1px solid var(--border);
-  padding: 38px 0;
-  color: var(--muted);
-  font-size: 0.95rem;
+.tool-card p{
+margin:0;
+color:#5f6673;
+font-size:.98rem;
 }
 
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  flex-wrap: wrap;
+.tool-link{
+margin-top:18px;
+font-weight:800;
+color:var(--ai-dark);
 }
 
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  color: #333946;
-  font-weight: 650;
+.note-panel{
+margin-top:28px;
+background:var(--ai-soft);
+border:1px solid var(--ai-border);
+border-radius:var(--radius);
+padding:24px;
+color:#51446e;
 }
 
-.footer-links a:hover {
-  text-decoration: underline;
-  text-underline-offset: 4px;
+.note-panel strong{
+color:#11131b;
 }
 
-.footer-tagline {
-  max-width: 390px;
-  text-align: right;
-  color: #5f6673;
-  font-weight: 600;
+footer{
+border-top:1px solid var(--border);
+padding:38px 0;
+color:var(--muted);
+font-size:.95rem;
 }
 
-.footer-bottom {
-  margin-top: 26px;
-  padding-top: 22px;
-  border-top: 1px solid var(--border);
-  display: flex;
-  justify-content: space-between;
-  gap: 18px;
-  flex-wrap: wrap;
-  color: #8a9099;
-  font-size: 0.9rem;
+.footer-inner{
+display:flex;
+justify-content:space-between;
+gap:30px;
+flex-wrap:wrap;
 }
 
-@media (max-width: 1000px) {
-  .nav-links { display: none; }
-  .tool-grid { grid-template-columns: repeat(2, 1fr); }
+.footer-links{
+display:flex;
+flex-wrap:wrap;
+gap:16px;
+color:#333946;
+font-weight:650;
 }
 
-@media (max-width: 640px) {
-  .container { width: min(100% - 28px, 1160px); }
-  .nav { height: 72px; }
-  .nav-cta { display: none; }
-  .page-hero { padding: 70px 0 40px; }
-  .tool-grid { grid-template-columns: 1fr; }
-  .footer-tagline { text-align: left; }
+.footer-links a:hover{
+text-decoration:underline;
+text-underline-offset:4px;
+}
+
+.footer-tagline{
+max-width:390px;
+text-align:right;
+color:#5f6673;
+font-weight:600;
+}
+
+.footer-bottom{
+margin-top:26px;
+padding-top:22px;
+border-top:1px solid var(--border);
+display:flex;
+justify-content:space-between;
+gap:18px;
+flex-wrap:wrap;
+color:#8a9099;
+font-size:.9rem;
+}
+
+@media (max-width:1000px){
+
+.nav-links{
+display:none;
+}
+
+.tools-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+@media (max-width:640px){
+
+.container{
+width:min(100% - 28px,1160px);
+}
+
+.nav{
+height:72px;
+}
+
+.nav-cta{
+display:none;
+}
+
+.hero{
+padding:72px 0 40px;
+}
+
+.footer-tagline{
+text-align:left;
+}
+
 }
 </style>
 </head>
@@ -321,140 +369,205 @@ footer {
 <body>
 
 <header>
-  <div class="container nav">
+<div class="container nav">
 
-    <a href="/" class="brand" aria-label="ToolChestLab home">
-      <span class="brand-mark"><span>TCL</span></span>
-      <span>ToolChestLab</span>
-    </a>
+<a href="/" class="brand" aria-label="ToolChestLab home">
+<span class="brand-mark"><span>TCL</span></span>
+<span>ToolChestLab</span>
+</a>
 
-    <nav class="nav-links" aria-label="Main navigation">
-      <a href="/work.html">Work</a>
-      <a href="/dating-social.html">Dating & Social</a>
-      <a href="/friends-group-chats.html">Friends & Group Chats</a>
-      <a href="/difficult-conversations.html">Difficult Conversations</a>
-      <a href="/school.html">School</a>
-      <a href="/everyday-life.html">Everyday Life</a>
-    </nav>
+<nav class="nav-links" aria-label="Main navigation">
+<a href="/work.html">Work</a>
+<a href="/dating-social.html">Dating & Social</a>
+<a href="/friends-group-chats.html">Friends & Group Chats</a>
+<a href="/difficult-conversations.html">Difficult Conversations</a>
+<a href="/school.html">School</a>
+<a href="/everyday-life.html">Everyday Life</a>
+</nav>
 
-    <a href="/" class="nav-cta">Home</a>
+<a href="/prompt-improver.html" class="nav-cta">
+Try Prompt Improver
+</a>
 
-  </div>
+</div>
 </header>
 
 <main>
 
-  <section class="page-hero">
-    <div class="container">
+<section class="hero">
+<div class="container">
 
-      <div class="eyebrow">
-        AI Guides & Prompts
-      </div>
+<div class="eyebrow">AI Guides & Prompt Tools</div>
 
-      <h1>
-        Learn how to communicate with AI more effectively.
-      </h1>
+<h1>
+Practical tools for better prompts, clearer instructions, and stronger AI results.
+</h1>
 
-      <p class="lede">
-        Tools, prompts, and practical guides for getting better results from AI systems like ChatGPT, Claude, image generators, coding assistants, and more.
-      </p>
+<p class="lede">
+Browse tools designed to help you improve prompts, build image prompts, write clearer instructions, avoid vague outputs, and get more useful results from AI tools.
+</p>
 
-    </div>
-  </section>
+</div>
+</section>
 
-  <section class="tools-section">
-    <div class="container">
+<section class="tools-section">
+<div class="container">
 
-      <div class="section-heading">
-        <h2>AI guides & prompt tools</h2>
+<div class="tools-grid">
 
-        <p>
-          This section will hold practical tools and frameworks for writing better prompts and using AI more effectively.
-        </p>
-      </div>
+<a class="tool-card live" href="/prompt-improver.html">
 
-      <div class="tool-grid">
+<div>
+<div class="tool-status">
+LIVE NOW
+</div>
 
-        <div class="tool-card">
-          <div>
-            <h3>Prompt Improver</h3>
+<h2>
+Prompt Improver
+</h2>
 
-            <p>
-              Rewrite vague prompts into clearer instructions that produce stronger AI outputs.
-            </p>
-          </div>
+<p>
+Turn vague or messy prompts into clearer, more useful prompts for writing, research, coding, image generation, planning, and everyday AI work.
+</p>
+</div>
 
-          <div class="status">
-            Coming soon
-          </div>
-        </div>
+<div class="tool-link">
+Open Tool →
+</div>
 
-        <div class="tool-card">
-          <div>
-            <h3>Image Prompt Builder</h3>
+</a>
 
-            <p>
-              Create better prompts for image generators with improved detail, structure, and style guidance.
-            </p>
-          </div>
+<a class="tool-card live" href="/image-prompt-builder.html">
 
-          <div class="status">
-            Coming soon
-          </div>
-        </div>
+<div>
+<div class="tool-status">
+LIVE NOW
+</div>
 
-        <div class="tool-card">
-          <div>
-            <h3>AI Workflow Guides</h3>
+<h2>
+Image Prompt Builder
+</h2>
 
-            <p>
-              Learn practical systems for using AI tools for writing, coding, design, productivity, and research.
-            </p>
-          </div>
+<p>
+Build detailed image generation prompts with subject, style, lighting, composition, background, mood, and useful visual constraints.
+</p>
+</div>
 
-          <div class="status">
-            Coming soon
-          </div>
-        </div>
+<div class="tool-link">
+Open Tool →
+</div>
 
-      </div>
+</a>
 
-      <div class="note-panel">
-        <strong>Built around practical AI usage.</strong>
+<div class="tool-card coming-soon">
 
-        AI systems work best when instructions are clear. This section is focused on helping people communicate more effectively with modern AI tools.
-      </div>
+<div>
+<div class="tool-status muted">
+COMING SOON
+</div>
 
-    </div>
-  </section>
+<h2>
+ChatGPT Prompt Template Builder
+</h2>
+
+<p>
+Create reusable prompt templates for writing, planning, analysis, business tasks, study workflows, and repeated AI requests.
+</p>
+</div>
+
+</div>
+
+<div class="tool-card coming-soon">
+
+<div>
+<div class="tool-status muted">
+COMING SOON
+</div>
+
+<h2>
+AI Writing Style Prompt Generator
+</h2>
+
+<p>
+Describe the writing style you want and turn it into a reusable prompt for tone, voice, pacing, structure, and audience.
+</p>
+</div>
+
+</div>
+
+<div class="tool-card coming-soon">
+
+<div>
+<div class="tool-status muted">
+COMING SOON
+</div>
+
+<h2>
+Coding Prompt Helper
+</h2>
+
+<p>
+Write clearer prompts for debugging, feature requests, code reviews, refactors, and technical explanations.
+</p>
+</div>
+
+</div>
+
+<div class="tool-card coming-soon">
+
+<div>
+<div class="tool-status muted">
+COMING SOON
+</div>
+
+<h2>
+Research Prompt Builder
+</h2>
+
+<p>
+Create structured research prompts that ask for sources, summaries, comparisons, counterpoints, and practical takeaways.
+</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="note-panel">
+<strong>Built for better AI outputs.</strong>
+Most AI results improve when the prompt gives clear context, constraints, format, and goals. These tools help you ask better questions and get more useful answers.
+</div>
+
+</div>
+</section>
 
 </main>
 
 <footer>
-  <div class="container">
+<div class="container">
 
-    <div class="footer-inner">
+<div class="footer-inner">
 
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="/about.html">About</a>
-        <a href="/faq.html">FAQ</a>
-        <a href="/contact.html">Contact</a>
-        <a href="/privacy.html">Privacy</a>
-        <a href="/terms.html">Terms</a>
-      </nav>
+<nav class="footer-links" aria-label="Footer navigation">
+<a href="/about.html">About</a>
+<a href="/faq.html">FAQ</a>
+<a href="/contact.html">Contact</a>
+<a href="/privacy.html">Privacy</a>
+<a href="/terms.html">Terms</a>
+</nav>
 
-      <div class="footer-tagline">
-        Better words for modern life.
-      </div>
+<div class="footer-tagline">
+Better words for modern life.
+</div>
 
-    </div>
+</div>
 
-    <div class="footer-bottom">
-      <div>© 2026 ToolChestLab</div>
-      <div>Helpful tools for real-life communication.</div>
-    </div>
+<div class="footer-bottom">
+<div>© 2026 ToolChestLab</div>
+<div>Helpful tools for real-life communication.</div>
+</div>
 
-  </div>
+</div>
 </footer>
 
 </body>
