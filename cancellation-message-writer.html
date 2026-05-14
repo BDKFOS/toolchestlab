@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WLQ0YR217T');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Cancellation Message Writer | ToolChestLab</title>
+<meta name="description" content="Write clear, polite cancellation messages for appointments, subscriptions, bookings, plans, services, memberships, and everyday life situations." />
+<link rel="canonical" href="https://www.toolchestlab.com/cancellation-message-writer.html" />
+
+<style>
+:root {
+  --bg: #fbfbfc;
+  --card: #ffffff;
+  --text: #151821;
+  --muted: #6b7280;
+  --border: #e7e7ea;
+  --dark: #11131b;
+  --soft: #f5f7fa;
+  --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  --radius: 22px;
+  --bg-accent: #f6f7f8;
+  --accent-soft: #eceef1;
+  --accent: #667085;
+  --accent-dark: #475467;
+  --accent-border: #d9dde3;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(102, 112, 133, 0.10), transparent 32%),
+    radial-gradient(circle at top right, rgba(217, 221, 227, 0.45), transparent 30%),
+    var(--bg);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+.container { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(16px);
+  background: rgba(251, 251, 252, 0.88);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav { height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { display: flex; align-items: center; gap: 14px; font-size: 1.12rem; font-weight: 900; letter-spacing: -0.04em; }
+
+.brand-mark {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #1a1d29, #090b10);
+  color: white;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.22);
+  font-size: 0.96rem;
+  font-weight: 950;
+  letter-spacing: -0.12em;
+}
+
+.brand-mark::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  right: 12px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.38);
+}
+
+.brand-mark span { position: relative; z-index: 2; transform: translateY(2px); }
+
+.nav-links { display: flex; gap: 6px; color: #2f3440; font-size: 0.95rem; font-weight: 650; }
+.nav-links a { padding: 10px 12px; border-radius: 999px; white-space: nowrap; }
+.nav-links a:hover { background: white; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06); }
+
+.nav-cta {
+  background: var(--dark);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-size: 0.94rem;
+  font-weight: 800;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.16);
+}
+
+.nav-cta:hover { transform: translateY(-1px); }
+.hero { padding: 86px 0 44px; text-align: center; }
+
+.eyebrow {
+  display: inline-flex;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-size: 0.88rem;
+  font-weight: 850;
+  margin-bottom: 24px;
+  border: 1px solid var(--accent-border);
+}
+
+h1 {
+  max-width: 900px;
+  margin: 0 auto 22px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 7vw, 5.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.07em;
+}
+
+.lede { max-width: 770px; margin: 0 auto; color: var(--muted); font-size: clamp(1.06rem, 2vw, 1.28rem); }
+.tool-section { padding: 34px 0 86px; }
+
+.tool-layout { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 24px; align-items: start; }
+
+.tool-card,
+.output-card,
+.info-card {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.tool-card { padding: 30px; }
+.output-card { padding: 30px; position: sticky; top: 106px; }
+.form-group { margin-bottom: 20px; }
+
+label { display: block; margin-bottom: 8px; font-weight: 850; color: #20242e; }
+.helper { margin: -2px 0 10px; color: var(--muted); font-size: 0.94rem; }
+
+input,
+textarea,
+select,
+button { width: 100%; font-family: inherit; font-size: 1rem; border-radius: 14px; }
+
+input,
+textarea,
+select {
+  border: 1px solid var(--border);
+  background: #fffefd;
+  padding: 14px 15px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+textarea { min-height: 142px; resize: vertical; }
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(102, 112, 133, 0.13);
+}
+
+button {
+  margin-top: 8px;
+  background: var(--dark);
+  color: white;
+  border: none;
+  padding: 15px 18px;
+  font-weight: 850;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.16);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+button:hover { transform: translateY(-1px); box-shadow: 0 16px 34px rgba(15, 23, 42, 0.18); }
+button:disabled { cursor: not-allowed; opacity: 0.72; transform: none; }
+
+.secondary-button { background: white; color: var(--dark); border: 1px solid var(--border); box-shadow: none; }
+.secondary-button:hover { border-color: var(--accent-border); background: var(--bg-accent); box-shadow: none; }
+
+.output-card h2,
+.info-card h2 { margin: 0 0 12px; font-family: Georgia, "Times New Roman", serif; font-size: 1.65rem; letter-spacing: -0.04em; }
+
+.output-card p { margin: 0 0 16px; color: var(--muted); }
+
+.output-box {
+  min-height: 330px;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #ffffff, var(--bg-accent));
+  color: #343b49;
+  white-space: pre-wrap;
+}
+
+.output-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.info-section { padding: 0 0 90px; }
+.info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.info-card { padding: 24px; }
+.info-card p { margin: 0; color: #5f6673; }
+
+footer { border-top: 1px solid var(--border); padding: 38px 0; color: var(--muted); font-size: 0.95rem; }
+.footer-inner { display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 16px; color: #333946; font-weight: 650; }
+.footer-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.footer-tagline { max-width: 390px; text-align: right; color: #5f6673; font-weight: 600; }
+
+.footer-bottom {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  color: #8a9099;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1100px) {
+  .nav-links { display: none; }
+  .tool-layout, .info-grid { grid-template-columns: 1fr; }
+  .output-card { position: static; }
+}
+
+@media (max-width: 640px) {
+  .container { width: min(100% - 28px, 1160px); }
+  .nav { height: 72px; }
+  .nav-cta { display: none; }
+  .hero { padding: 70px 0 40px; }
+  .tool-card, .output-card { padding: 24px; }
+  .output-actions { grid-template-columns: 1fr; }
+  .footer-tagline { text-align: left; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="/" class="brand" aria-label="ToolChestLab home">
+      <span class="brand-mark"><span>TCL</span></span>
+      <span>ToolChestLab</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/work.html">Work</a>
+      <a href="/dating-social.html">Dating & Social</a>
+      <a href="/friends-group-chats.html">Friends & Group Chats</a>
+      <a href="/difficult-conversations.html">Difficult Conversations</a>
+      <a href="/school.html">School</a>
+      <a href="/everyday-life.html">Everyday Life</a>
+    </nav>
+
+    <a href="/everyday-life.html" class="nav-cta">Everyday Tools</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">Everyday Life Tool</div>
+      <h1>Cancellation Message Writer.</h1>
+      <p class="lede">Write a clear, polite cancellation message for appointments, subscriptions, bookings, services, plans, memberships, and everyday life admin.</p>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <div class="container">
+      <div class="tool-layout">
+
+        <div class="tool-card">
+          <form id="toolForm">
+
+            <div class="form-group">
+              <label for="cancelType">What are you cancelling?</label>
+              <select id="cancelType">
+                <option value="appointment">Appointment</option>
+                <option value="subscription">Subscription</option>
+                <option value="membership">Membership</option>
+                <option value="service">Service</option>
+                <option value="booking or reservation">Booking or reservation</option>
+                <option value="event plans">Event plans</option>
+                <option value="meeting">Meeting</option>
+                <option value="order">Order</option>
+                <option value="contract or agreement">Contract or agreement</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="recipient">Who is this going to?</label>
+              <select id="recipient">
+                <option value="customer support">Customer support</option>
+                <option value="business or service provider">Business or service provider</option>
+                <option value="landlord or property manager">Landlord or property manager</option>
+                <option value="doctor or office staff">Doctor or office staff</option>
+                <option value="seller or merchant">Seller or merchant</option>
+                <option value="friend or family member">Friend or family member</option>
+                <option value="coworker or professional contact">Coworker or professional contact</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="tone">Tone</label>
+              <select id="tone">
+                <option value="polite and simple">Polite and simple</option>
+                <option value="brief and direct">Brief and direct</option>
+                <option value="friendly and respectful">Friendly and respectful</option>
+                <option value="formal">Formal</option>
+                <option value="firm but polite">Firm but polite</option>
+                <option value="apologetic but not dramatic">Apologetic but not dramatic</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="urgency">Timing</label>
+              <select id="urgency">
+                <option value="normal timing">Normal timing</option>
+                <option value="short notice">Short notice</option>
+                <option value="same day">Same day</option>
+                <option value="after a missed deadline or cancellation window">After a missed deadline or cancellation window</option>
+                <option value="not sure">Not sure</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="details">Details/context</label>
+              <p class="helper">Include dates, order numbers, appointment details, or the reason if you want it mentioned.</p>
+              <textarea id="details" placeholder="Example: I need to cancel my haircut appointment for Friday at 2 PM because something came up at work."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="request">Optional request</label>
+              <input id="request" type="text" placeholder="Example: Please confirm the cancellation and let me know if there are any fees." />
+            </div>
+
+            <div class="form-group">
+              <label for="avoid">Anything to avoid?</label>
+              <input id="avoid" type="text" placeholder="Example: don’t over-explain, keep it short, no apology, sound firm." />
+            </div>
+
+            <button id="generateButton" type="submit">Generate cancellation message</button>
+
+          </form>
+        </div>
+
+        <div class="output-card">
+          <h2>Your message</h2>
+          <p>Use this as a polished starting point. Add exact dates, names, or account details before sending.</p>
+          <div id="output" class="output-box">Your cancellation message will appear here.</div>
+
+          <div class="output-actions">
+            <button class="secondary-button" type="button" id="copyButton">Copy</button>
+            <button class="secondary-button" type="button" id="clearButton">Clear</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <div class="container">
+      <div class="info-grid">
+
+        <div class="info-card">
+          <h2>Be clear about the cancellation</h2>
+          <p>Name what you are cancelling and include the relevant date, time, order number, or account detail so the recipient knows exactly what to do.</p>
+        </div>
+
+        <div class="info-card">
+          <h2>Keep it polite but simple</h2>
+          <p>Most cancellations do not need a long explanation. A clear request, a useful detail, and a polite closing are usually enough.</p>
+        </div>
+
+        <div class="info-card">
+          <h2>Ask for confirmation</h2>
+          <p>When money, reservations, or services are involved, it helps to ask for written confirmation so you have a clear record.</p>
+        </div>
+
+        <div class="info-card">
+          <h2>Use a firmer tone when needed</h2>
+          <p>If a business makes cancellation difficult, a firm but polite message can keep the request focused without sounding rude or emotional.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/about.html">About</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </nav>
+      <div class="footer-tagline">Better words for modern life.</div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 ToolChestLab</div>
+      <div>Helpful tools for real-life communication.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const form = document.getElementById("toolForm");
+const output = document.getElementById("output");
+const copyButton = document.getElementById("copyButton");
+const clearButton = document.getElementById("clearButton");
+const generateButton = document.getElementById("generateButton");
+
+function cleanGeneratedText(text) {
+  let cleaned = String(text || "").trim();
+
+  cleaned = cleaned
+    .replace(/^```(?:text|email|markdown)?\s*/i, "")
+    .replace(/```$/i, "")
+    .trim();
+
+  try {
+    const parsed = JSON.parse(cleaned);
+    if (typeof parsed === "string") cleaned = parsed;
+    if (parsed && typeof parsed === "object") {
+      cleaned = parsed.result || parsed.text || parsed.output || parsed.response || parsed.message || cleaned;
+    }
+  } catch (error) {}
+
+  return String(cleaned)
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+form.addEventListener("submit", async function(event) {
+  event.preventDefault();
+
+  const cancelType = document.getElementById("cancelType").value;
+  const recipient = document.getElementById("recipient").value;
+  const tone = document.getElementById("tone").value;
+  const urgency = document.getElementById("urgency").value;
+  const details = document.getElementById("details").value.trim();
+  const request = document.getElementById("request").value.trim();
+  const avoid = document.getElementById("avoid").value.trim();
+
+  if (!details) {
+    output.textContent = "Add a little context first, then generate your cancellation message.";
+    return;
+  }
+
+  const aiPrompt = `
+You are writing a clear, polite cancellation message for an everyday life situation.
+
+Create one complete, ready-to-send cancellation message based on the user's situation.
+
+Input:
+- What is being cancelled: ${cancelType}
+- Recipient: ${recipient}
+- Tone: ${tone}
+- Timing: ${urgency}
+- Details/context: ${details}
+- Optional request: ${request || "Not provided"}
+- Anything to avoid: ${avoid || "Not provided"}
+
+Requirements:
+- Write one complete message.
+- Include a subject line if the message is likely to be sent as an email.
+- Include greeting/body/signoff when appropriate.
+- If it is more like a text message, keep it text-friendly and natural.
+- Make it sound modern, believable, and human.
+- Keep it clear, practical, and easy to send.
+- Avoid robotic wording.
+- Avoid over-explaining.
+- Avoid sounding rude, entitled, passive-aggressive, or overly emotional.
+- If the timing is short notice or same day, acknowledge that briefly without becoming dramatic.
+- If an optional request is provided, include it naturally.
+- If the user asked to avoid something, respect that fully.
+- Format cleanly with proper line breaks.
+- Output only the finished message. Do not include commentary, alternatives, JSON, markdown code blocks, or analysis.
+`;
+
+  output.textContent = "Generating cancellation message...";
+  generateButton.disabled = true;
+  generateButton.textContent = "Generating...";
+
+  try {
+    const response = await fetch("/api/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ prompt: aiPrompt })
+    });
+
+    if (!response.ok) throw new Error("Request failed");
+
+    const data = await response.json();
+    const result = data.result || data.text || data.output || data.response || data.message;
+
+    if (!result) throw new Error("No result returned");
+
+    output.textContent = cleanGeneratedText(result);
+  } catch (error) {
+    output.textContent = "Something went wrong while generating your message. Please try again.";
+  } finally {
+    generateButton.disabled = false;
+    generateButton.textContent = "Generate cancellation message";
+  }
+});
+
+copyButton.addEventListener("click", async function() {
+  const text = output.textContent.trim();
+  if (!text || text === "Your cancellation message will appear here." || text === "Generating cancellation message...") return;
+
+  try {
+    await navigator.clipboard.writeText(text);
+    copyButton.textContent = "Copied";
+    setTimeout(() => copyButton.textContent = "Copy", 1200);
+  } catch (error) {
+    copyButton.textContent = "Copy failed";
+    setTimeout(() => copyButton.textContent = "Copy", 1200);
+  }
+});
+
+clearButton.addEventListener("click", function() {
+  output.textContent = "Your cancellation message will appear here.";
+  form.reset();
+});
+</script>
+
+</body>
+</html>
