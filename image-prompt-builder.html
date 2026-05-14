@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WLQ0YR217T');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Image Prompt Builder | ToolChestLab</title>
+<meta name="description" content="Build detailed image generation prompts for portraits, product shots, logos, thumbnails, artwork, scenes, and realistic visuals with clearer style, lighting, composition, and constraints." />
+<link rel="canonical" href="https://www.toolchestlab.com/image-prompt-builder.html" />
+
+<style>
+:root {
+  --bg: #fbfbfc;
+  --card: #ffffff;
+  --text: #151821;
+  --muted: #6b7280;
+  --border: #e7e7ea;
+  --dark: #11131b;
+  --soft: #f5f7fa;
+  --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  --radius: 22px;
+  --bg-accent: #f8f5ff;
+  --accent-soft: #eee7ff;
+  --accent: #7c3aed;
+  --accent-dark: #5b21b6;
+  --accent-border: #ddd6fe;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(124, 58, 237, 0.11), transparent 32%),
+    radial-gradient(circle at top right, rgba(221, 214, 254, 0.48), transparent 30%),
+    var(--bg);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+.container { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(16px);
+  background: rgba(251, 251, 252, 0.88);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 1.12rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+.brand-mark {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #1a1d29, #090b10);
+  color: white;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.22);
+  font-size: 0.96rem;
+  font-weight: 950;
+  letter-spacing: -0.12em;
+}
+
+.brand-mark::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  right: 12px;
+  height: 3px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.38);
+}
+
+.brand-mark span { position: relative; z-index: 2; transform: translateY(2px); }
+
+.nav-links {
+  display: flex;
+  gap: 6px;
+  color: #2f3440;
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+
+.nav-links a {
+  padding: 10px 12px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  background: white;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.nav-cta {
+  background: var(--dark);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-size: 0.94rem;
+  font-weight: 800;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.16);
+}
+
+.nav-cta:hover { transform: translateY(-1px); }
+
+.hero { padding: 86px 0 44px; text-align: center; }
+
+.eyebrow {
+  display: inline-flex;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  font-size: 0.88rem;
+  font-weight: 850;
+  margin-bottom: 24px;
+  border: 1px solid var(--accent-border);
+}
+
+h1 {
+  max-width: 920px;
+  margin: 0 auto 22px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 7vw, 5.6rem);
+  line-height: 0.95;
+  letter-spacing: -0.07em;
+}
+
+.lede {
+  max-width: 790px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: clamp(1.06rem, 2vw, 1.28rem);
+}
+
+.tool-section { padding: 34px 0 86px; }
+
+.tool-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.tool-card,
+.output-card,
+.info-card {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.tool-card { padding: 30px; }
+.output-card { padding: 30px; position: sticky; top: 106px; }
+.form-group { margin-bottom: 20px; }
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 850;
+  color: #20242e;
+}
+
+.helper {
+  margin: -2px 0 10px;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+input,
+textarea,
+select,
+button {
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  border-radius: 14px;
+}
+
+input,
+textarea,
+select {
+  border: 1px solid var(--border);
+  background: #fffefd;
+  padding: 14px 15px;
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+textarea { min-height: 142px; resize: vertical; }
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent);
+  background: white;
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.13);
+}
+
+button {
+  margin-top: 8px;
+  background: var(--dark);
+  color: white;
+  border: none;
+  padding: 15px 18px;
+  font-weight: 850;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.16);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease;
+}
+
+button:hover { transform: translateY(-1px); box-shadow: 0 16px 34px rgba(15, 23, 42, 0.18); }
+button:disabled { cursor: not-allowed; opacity: 0.72; transform: none; }
+
+.secondary-button {
+  background: white;
+  color: var(--dark);
+  border: 1px solid var(--border);
+  box-shadow: none;
+}
+
+.secondary-button:hover {
+  border-color: var(--accent-border);
+  background: var(--bg-accent);
+  box-shadow: none;
+}
+
+.output-card h2,
+.info-card h2 {
+  margin: 0 0 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.65rem;
+  letter-spacing: -0.04em;
+}
+
+.output-card p { margin: 0 0 16px; color: var(--muted); }
+
+.output-box {
+  min-height: 410px;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #ffffff, var(--bg-accent));
+  color: #343b49;
+  white-space: pre-wrap;
+}
+
+.output-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.info-section { padding: 0 0 90px; }
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.info-card { padding: 24px; }
+.info-card p { margin: 0; color: #5f6673; }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 38px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  color: #333946;
+  font-weight: 650;
+}
+
+.footer-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.footer-tagline {
+  max-width: 390px;
+  text-align: right;
+  color: #5f6673;
+  font-weight: 600;
+}
+
+.footer-bottom {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  color: #8a9099;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1100px) {
+  .nav-links { display: none; }
+  .tool-layout, .info-grid { grid-template-columns: 1fr; }
+  .output-card { position: static; }
+}
+
+@media (max-width: 640px) {
+  .container { width: min(100% - 28px, 1160px); }
+  .nav { height: 72px; }
+  .nav-cta { display: none; }
+  .hero { padding: 70px 0 40px; }
+  .tool-card, .output-card { padding: 24px; }
+  .output-actions { grid-template-columns: 1fr; }
+  .footer-tagline { text-align: left; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="/" class="brand" aria-label="ToolChestLab home">
+      <span class="brand-mark"><span>TCL</span></span>
+      <span>ToolChestLab</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/work.html">Work</a>
+      <a href="/dating-social.html">Dating & Social</a>
+      <a href="/friends-group-chats.html">Friends & Group Chats</a>
+      <a href="/difficult-conversations.html">Difficult Conversations</a>
+      <a href="/school.html">School</a>
+      <a href="/everyday-life.html">Everyday Life</a>
+    </nav>
+
+    <a href="/ai-guides-prompt-tools.html" class="nav-cta">Prompt Tools</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">AI Guides & Prompt Tools</div>
+      <h1>Image Prompt Builder.</h1>
+      <p class="lede">Build clearer, more detailed prompts for image generators with stronger subject detail, style, lighting, composition, background, and visual constraints.</p>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <div class="container">
+      <div class="tool-layout">
+
+        <div class="tool-card">
+          <form id="toolForm">
+
+            <div class="form-group">
+              <label for="imageType">What are you creating?</label>
+              <select id="imageType">
+                <option value="realistic portrait">Realistic portrait</option>
+                <option value="product photo">Product photo</option>
+                <option value="social media image">Social media image</option>
+                <option value="YouTube thumbnail">YouTube thumbnail</option>
+                <option value="logo or brand concept">Logo / brand concept</option>
+                <option value="fantasy or sci-fi artwork">Fantasy / sci-fi artwork</option>
+                <option value="interior or room design">Interior / room design</option>
+                <option value="fashion or outfit image">Fashion / outfit image</option>
+                <option value="character design">Character design</option>
+                <option value="general image">General image</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Main subject</label>
+              <p class="helper">Describe the person, object, scene, product, character, or idea you want the image to focus on.</p>
+              <textarea id="subject" placeholder="Example: A premium black coffee tumbler on a marble counter with morning light coming through a kitchen window."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="style">Visual style</label>
+              <select id="style">
+                <option value="photorealistic">Photorealistic</option>
+                <option value="cinematic">Cinematic</option>
+                <option value="editorial">Editorial</option>
+                <option value="minimal and premium">Minimal and premium</option>
+                <option value="playful and colorful">Playful and colorful</option>
+                <option value="moody and dramatic">Moody and dramatic</option>
+                <option value="clean commercial">Clean commercial</option>
+                <option value="illustrated">Illustrated</option>
+                <option value="3D render">3D render</option>
+                <option value="vintage">Vintage</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="lighting">Lighting</label>
+              <select id="lighting">
+                <option value="natural light">Natural light</option>
+                <option value="soft studio lighting">Soft studio lighting</option>
+                <option value="dramatic cinematic lighting">Dramatic cinematic lighting</option>
+                <option value="golden hour lighting">Golden hour lighting</option>
+                <option value="bright clean lighting">Bright clean lighting</option>
+                <option value="low light moody lighting">Low-light moody lighting</option>
+                <option value="neon lighting">Neon lighting</option>
+                <option value="not sure">Not sure</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="composition">Composition</label>
+              <select id="composition">
+                <option value="centered composition">Centered</option>
+                <option value="close-up">Close-up</option>
+                <option value="wide shot">Wide shot</option>
+                <option value="portrait orientation">Portrait orientation</option>
+                <option value="landscape orientation">Landscape orientation</option>
+                <option value="flat lay">Flat lay</option>
+                <option value="rule of thirds">Rule of thirds</option>
+                <option value="clean negative space">Clean negative space</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="background">Background / setting</label>
+              <input id="background" type="text" placeholder="Example: modern apartment, clean studio, city street, forest trail, plain white background." />
+            </div>
+
+            <div class="form-group">
+              <label for="avoid">Things to avoid</label>
+              <input id="avoid" type="text" placeholder="Example: blurry, extra fingers, warped text, cluttered background, cartoon style, low resolution." />
+            </div>
+
+            <button id="generateButton" type="submit">Build image prompt</button>
+
+          </form>
+        </div>
+
+        <div class="output-card">
+          <h2>Your image prompt</h2>
+          <p>Copy this into your preferred image generator, then adjust any style, ratio, or subject details for the exact result you want.</p>
+          <div id="output" class="output-box">Your image prompt will appear here.</div>
+
+          <div class="output-actions">
+            <button class="secondary-button" type="button" id="copyButton">Copy</button>
+            <button class="secondary-button" type="button" id="clearButton">Clear</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <div class="container">
+      <div class="info-grid">
+
+        <div class="info-card">
+          <h2>Start with the subject</h2>
+          <p>A strong image prompt clearly describes the main subject first. The image generator needs to know what the viewer should notice immediately.</p>
+        </div>
+
+        <div class="info-card">
+          <h2>Style changes everything</h2>
+          <p>Words like photorealistic, cinematic, editorial, minimal, or illustrated can dramatically change the final image, even with the same subject.</p>
+        </div>
+
+        <div class="info-card">
+          <h2>Lighting adds realism</h2>
+          <p>Lighting helps define mood and quality. Natural light, studio light, golden hour, and neon lighting all create very different visual results.</p>
+        </div>
+
+        <div class="info-card">
+          <h2>Use constraints wisely</h2>
+          <p>Adding what to avoid can reduce common problems like clutter, blur, distorted hands, warped text, or the wrong visual style.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/about.html">About</a>
+        <a href="/faq.html">FAQ</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </nav>
+      <div class="footer-tagline">Better words for modern life.</div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© 2026 ToolChestLab</div>
+      <div>Helpful tools for real-life communication.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const form = document.getElementById("toolForm");
+const output = document.getElementById("output");
+const copyButton = document.getElementById("copyButton");
+const clearButton = document.getElementById("clearButton");
+const generateButton = document.getElementById("generateButton");
+
+function cleanGeneratedText(text) {
+  let cleaned = String(text || "").trim();
+
+  cleaned = cleaned
+    .replace(/^```(?:text|markdown)?\s*/i, "")
+    .replace(/```$/i, "")
+    .trim();
+
+  try {
+    const parsed = JSON.parse(cleaned);
+    if (typeof parsed === "string") cleaned = parsed;
+    if (parsed && typeof parsed === "object") {
+      cleaned = parsed.result || parsed.text || parsed.output || parsed.response || parsed.message || cleaned;
+    }
+  } catch (error) {}
+
+  return String(cleaned)
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+form.addEventListener("submit", async function(event) {
+  event.preventDefault();
+
+  const imageType = document.getElementById("imageType").value;
+  const subject = document.getElementById("subject").value.trim();
+  const style = document.getElementById("style").value;
+  const lighting = document.getElementById("lighting").value;
+  const composition = document.getElementById("composition").value;
+  const background = document.getElementById("background").value.trim();
+  const avoid = document.getElementById("avoid").value.trim();
+
+  if (!subject) {
+    output.textContent = "Describe the image subject first, then build your prompt.";
+    return;
+  }
+
+  const aiPrompt = `
+You are an expert image prompt builder. Create a copy-ready image generation prompt based on the user's inputs.
+
+Input:
+- Image type: ${imageType}
+- Main subject: ${subject}
+- Visual style: ${style}
+- Lighting: ${lighting}
+- Composition: ${composition}
+- Background/setting: ${background || "Not provided"}
+- Things to avoid: ${avoid || "Not provided"}
+
+Requirements:
+- Create a detailed, copy-ready image prompt.
+- Make the prompt visually specific and useful for modern image generators.
+- Include subject, composition, style, lighting, background, mood, camera/framing where appropriate, and quality details.
+- Include a short Negative Prompt section for things to avoid.
+- Avoid copyrighted artist names, living artist style imitation, celebrity lookalike requests, or brand trademark misuse.
+- Do not include unsafe, explicit, hateful, or harassing content.
+- If the image type is logo or brand concept, keep it clean, scalable, and avoid pretending to create a final trademark-ready logo.
+- If the image type is product photo, emphasize clarity, realistic lighting, commercial composition, and accurate product focus.
+- If the user provided things to avoid, include them in the Negative Prompt section.
+- Output in this exact format:
+Image Prompt:
+[copy-ready image prompt]
+
+Negative Prompt:
+[short list of things to avoid]
+
+Optional Tweaks:
+- [short useful tweak]
+- [short useful tweak]
+- [short useful tweak]
+- Do not include JSON, markdown code blocks, or extra commentary.
+`;
+
+  output.textContent = "Building your image prompt...";
+  generateButton.disabled = true;
+  generateButton.textContent = "Building...";
+
+  try {
+    const response = await fetch("/api/generate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ prompt: aiPrompt })
+    });
+
+    if (!response.ok) throw new Error("Request failed");
+
+    const data = await response.json();
+    const result = data.result || data.text || data.output || data.response || data.message;
+
+    if (!result) throw new Error("No result returned");
+
+    output.textContent = cleanGeneratedText(result);
+  } catch (error) {
+    output.textContent = "Something went wrong while building your image prompt. Please try again.";
+  } finally {
+    generateButton.disabled = false;
+    generateButton.textContent = "Build image prompt";
+  }
+});
+
+copyButton.addEventListener("click", async function() {
+  const text = output.textContent.trim();
+  if (!text || text === "Your image prompt will appear here." || text === "Building your image prompt...") return;
+
+  try {
+    await navigator.clipboard.writeText(text);
+    copyButton.textContent = "Copied";
+    setTimeout(() => copyButton.textContent = "Copy", 1200);
+  } catch (error) {
+    copyButton.textContent = "Copy failed";
+    setTimeout(() => copyButton.textContent = "Copy", 1200);
+  }
+});
+
+clearButton.addEventListener("click", function() {
+  output.textContent = "Your image prompt will appear here.";
+  form.reset();
+});
+</script>
+
+</body>
+</html>
