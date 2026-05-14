@@ -197,7 +197,7 @@ border:1px solid var(--border);
 border-radius:var(--radius);
 padding:26px;
 box-shadow:var(--shadow);
-transition:transform .18s ease, box-shadow .18s ease;
+transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
 }
 
 .tool-card:hover{
@@ -206,8 +206,27 @@ box-shadow:0 26px 60px rgba(15,23,42,.12);
 }
 
 .tool-card.live{
-border-color:#f3d36a;
+background:var(--card);
+border-color:var(--border);
+}
+
+.bumble-card.live{
 background:#fffdf4;
+border-color:#f3d36a;
+}
+
+.bumble-card.live .tool-status{
+background:#fff1b8;
+color:#8a6200;
+}
+
+.bumble-card.live .tool-link{
+color:#8a6200;
+}
+
+.bumble-card.live:hover{
+border-color:#e8c24b;
+box-shadow:0 18px 42px rgba(243,211,106,.20);
 }
 
 .hinge-card.live{
@@ -220,9 +239,32 @@ background:#f6dfe4;
 color:#9b5563;
 }
 
-.hinge-card:hover{
+.hinge-card.live .tool-link{
+color:#9b5563;
+}
+
+.hinge-card.live:hover{
 border-color:#e7bcc5;
 box-shadow:0 14px 34px rgba(216,139,152,.12);
+}
+
+.bio-card.live{
+background:#fff5f4;
+border-color:#edc8c8;
+}
+
+.bio-card.live .tool-status{
+background:#f8dedd;
+color:#8e3f3f;
+}
+
+.bio-card.live .tool-link{
+color:#8e3f3f;
+}
+
+.bio-card.live:hover{
+border-color:#d9a5a5;
+box-shadow:0 18px 42px rgba(196,90,90,.14);
 }
 
 .tool-status{
@@ -238,16 +280,6 @@ letter-spacing:.04em;
 .tool-status.muted{
 background:#f3f4f6;
 color:#6b7280;
-}
-
-.tool-card.live .tool-status{
-background:#fff1b8;
-color:#8a6200;
-}
-
-.hinge-card.live .tool-status{
-background:#f6dfe4;
-color:#9b5563;
 }
   
 .tool-card h2{
@@ -415,7 +447,7 @@ Browse tools designed to help with openers, responses, bios, reconnecting, confi
 
 <div class="tools-grid">
 
-<a class="tool-card live" href="/bumble-opener-generator.html">
+<a class="tool-card live bumble-card" href="/bumble-opener-generator.html">
 
 <div class="tool-status">
 LIVE NOW
