@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-WLQ0YR217T"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-WLQ0YR217T');
+</script>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Manager Update Writer | ToolChestLab</title>
+<meta name="description" content="Turn scattered work notes into a clear, professional manager update for progress, blockers, priorities, risks, timelines, and next steps." />
+<link rel="canonical" href="https://www.toolchestlab.com/manager-update-writer.html" />
+
+<style>
+:root {
+  --bg: #fbfbfc;
+  --card: #ffffff;
+  --text: #151821;
+  --muted: #6b7280;
+  --border: #e7e7ea;
+  --dark: #11131b;
+  --soft: #f5f7fa;
+  --shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+  --radius: 22px;
+  --bg-accent: #f3f4ff;
+  --accent-soft: #eef2ff;
+  --accent: #4f46e5;
+  --accent-dark: #312e81;
+  --accent-border: #c7d2fe;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(79, 70, 229, 0.10), transparent 32%),
+    radial-gradient(circle at top right, rgba(199, 210, 254, 0.42), transparent 30%),
+    var(--bg);
+  color: var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+.container { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+
+header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(16px); background: rgba(251, 251, 252, 0.88); border-bottom: 1px solid var(--border); }
+.nav { height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { display: flex; align-items: center; gap: 14px; font-size: 1.12rem; font-weight: 900; letter-spacing: -0.04em; }
+.brand-mark { width: 46px; height: 46px; border-radius: 14px; background: linear-gradient(145deg, #1a1d29, #090b10); color: white; display: grid; place-items: center; position: relative; overflow: hidden; box-shadow: 0 14px 34px rgba(15, 23, 42, 0.22); font-size: 0.96rem; font-weight: 950; letter-spacing: -0.12em; }
+.brand-mark::before { content: ""; position: absolute; top: 10px; left: 12px; right: 12px; height: 3px; border-radius: 999px; background: rgba(255,255,255,0.38); }
+.brand-mark span { position: relative; z-index: 2; transform: translateY(2px); }
+.nav-links { display: flex; gap: 6px; color: #2f3440; font-size: 0.95rem; font-weight: 650; }
+.nav-links a { padding: 10px 12px; border-radius: 999px; white-space: nowrap; }
+.nav-links a:hover { background: white; box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06); }
+.nav-cta { background: var(--dark); color: white; padding: 12px 18px; border-radius: 14px; font-size: 0.94rem; font-weight: 800; box-shadow: 0 12px 26px rgba(15, 23, 42, 0.16); }
+.nav-cta:hover { transform: translateY(-1px); }
+
+.hero { padding: 86px 0 44px; text-align: center; }
+.eyebrow { display: inline-flex; padding: 9px 14px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-dark); font-size: 0.88rem; font-weight: 850; margin-bottom: 24px; border: 1px solid var(--accent-border); }
+h1 { max-width: 900px; margin: 0 auto 22px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(3rem, 7vw, 5.6rem); line-height: 0.95; letter-spacing: -0.07em; }
+.lede { max-width: 780px; margin: 0 auto; color: var(--muted); font-size: clamp(1.06rem, 2vw, 1.28rem); }
+
+.tool-section { padding: 34px 0 86px; }
+.tool-layout { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 24px; align-items: start; }
+.tool-card, .output-card, .info-card { background: rgba(255, 255, 255, 0.94); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+.tool-card { padding: 30px; }
+.output-card { padding: 30px; position: sticky; top: 106px; }
+.form-group { margin-bottom: 20px; }
+label { display: block; margin-bottom: 8px; font-weight: 850; color: #20242e; }
+.helper { margin: -2px 0 10px; color: var(--muted); font-size: 0.94rem; }
+input, textarea, select, button { width: 100%; font-family: inherit; font-size: 1rem; border-radius: 14px; }
+input, textarea, select { border: 1px solid var(--border); background: #fffefd; padding: 14px 15px; color: var(--text); outline: none; transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease; }
+textarea { min-height: 142px; resize: vertical; }
+input:focus, textarea:focus, select:focus { border-color: var(--accent); background: white; box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.13); }
+button { margin-top: 8px; background: var(--dark); color: white; border: none; padding: 15px 18px; font-weight: 850; cursor: pointer; box-shadow: 0 12px 28px rgba(15, 23, 42, 0.16); transition: transform 0.18s ease, box-shadow 0.18s ease, opacity 0.18s ease; }
+button:hover { transform: translateY(-1px); box-shadow: 0 16px 34px rgba(15, 23, 42, 0.18); }
+button:disabled { cursor: not-allowed; opacity: 0.72; transform: none; }
+.secondary-button { background: white; color: var(--dark); border: 1px solid var(--border); box-shadow: none; }
+.secondary-button:hover { border-color: var(--accent-border); background: var(--bg-accent); box-shadow: none; }
+.output-card h2, .info-card h2 { margin: 0 0 12px; font-family: Georgia, "Times New Roman", serif; font-size: 1.65rem; letter-spacing: -0.04em; }
+.output-card p { margin: 0 0 16px; color: var(--muted); }
+.output-box { min-height: 330px; padding: 18px; border-radius: 18px; border: 1px solid var(--border); background: linear-gradient(180deg, #ffffff, var(--bg-accent)); color: #343b49; white-space: pre-wrap; }
+.output-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.info-section { padding: 0 0 90px; }
+.info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.info-card { padding: 24px; }
+.info-card p { margin: 0; color: #5f6673; }
+footer { border-top: 1px solid var(--border); padding: 38px 0; color: var(--muted); font-size: 0.95rem; }
+.footer-inner { display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 16px; color: #333946; font-weight: 650; }
+.footer-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.footer-tagline { max-width: 390px; text-align: right; color: #5f6673; font-weight: 600; }
+.footer-bottom { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; color: #8a9099; font-size: 0.9rem; }
+@media (max-width: 1100px) { .nav-links { display: none; } .tool-layout, .info-grid { grid-template-columns: 1fr; } .output-card { position: static; } }
+@media (max-width: 640px) { .container { width: min(100% - 28px, 1160px); } .nav { height: 72px; } .nav-cta { display: none; } .hero { padding: 70px 0 40px; } .tool-card, .output-card { padding: 24px; } .output-actions { grid-template-columns: 1fr; } .footer-tagline { text-align: left; } }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="/" class="brand" aria-label="ToolChestLab home"><span class="brand-mark"><span>TCL</span></span><span>ToolChestLab</span></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="/work.html">Work</a>
+      <a href="/dating-social.html">Dating & Social</a>
+      <a href="/friends-group-chats.html">Friends & Group Chats</a>
+      <a href="/difficult-conversations.html">Difficult Conversations</a>
+      <a href="/school.html">School</a>
+      <a href="/everyday-conversations.html">Everyday Life</a>
+    </nav>
+    <a href="/work.html" class="nav-cta">Work Tools</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">Work Communication Tool</div>
+      <h1>Manager Update Writer.</h1>
+      <p class="lede">Turn scattered notes into a clear, professional update for your manager with progress, priorities, blockers, risks, timelines, and next steps.</p>
+    </div>
+  </section>
+
+  <section class="tool-section">
+    <div class="container">
+      <div class="tool-layout">
+        <div class="tool-card">
+          <form id="toolForm">
+            <div class="form-group">
+              <label for="updateType">What kind of update is this?</label>
+              <select id="updateType">
+                <option value="weekly status update">Weekly status update</option>
+                <option value="project progress update">Project progress update</option>
+                <option value="blocker or delay update">Blocker or delay update</option>
+                <option value="priority update">Priority update</option>
+                <option value="quick check-in">Quick check-in</option>
+                <option value="end-of-day update">End-of-day update</option>
+                <option value="risk or issue update">Risk or issue update</option>
+                <option value="handoff update">Handoff update</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="format">Output format</label>
+              <select id="format">
+                <option value="email">Email</option>
+                <option value="Slack or Teams message">Slack or Teams message</option>
+                <option value="bullet-point update">Bullet-point update</option>
+                <option value="brief paragraph">Brief paragraph</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="tone">Tone</label>
+              <select id="tone">
+                <option value="professional and concise">Professional and concise</option>
+                <option value="calm and transparent">Calm and transparent</option>
+                <option value="confident and proactive">Confident and proactive</option>
+                <option value="brief and direct">Brief and direct</option>
+                <option value="polished and executive">Polished and executive</option>
+                <option value="accountable but not anxious">Accountable but not anxious</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="audience">Who is this going to?</label>
+              <select id="audience">
+                <option value="direct manager">Direct manager</option>
+                <option value="senior manager">Senior manager</option>
+                <option value="team lead">Team lead</option>
+                <option value="executive or leadership">Executive or leadership</option>
+                <option value="project stakeholder">Project stakeholder</option>
+                <option value="team">Team</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="notes">Your notes</label>
+              <p class="helper">Paste rough notes, progress, blockers, timelines, open questions, or anything your manager needs to know.</p>
+              <textarea id="notes" placeholder="Example: Finished draft of Q2 report, waiting on sales numbers from Erin, design review moved to Thursday, risk is that final version may slip by one day if numbers are late."></textarea>
+            </div>
+            <div class="form-group">
+              <label for="nextStep">Optional next step or ask</label>
+              <input id="nextStep" type="text" placeholder="Example: Please confirm whether I should prioritize the report or the client deck first." />
+            </div>
+            <button id="generateButton" type="submit">Generate manager update</button>
+          </form>
+        </div>
+        <div class="output-card">
+          <h2>Your update</h2>
+          <p>Use this as a polished starting point. Adjust names, deadlines, and any internal context before sending.</p>
+          <div id="output" class="output-box">Your manager update will appear here.</div>
+          <div class="output-actions">
+            <button class="secondary-button" type="button" id="copyButton">Copy</button>
+            <button class="secondary-button" type="button" id="clearButton">Clear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="info-section">
+    <div class="container">
+      <div class="info-grid">
+        <div class="info-card"><h2>Lead with the point</h2><p>A good manager update makes the current status obvious fast. Start with progress, blockers, risk, or the decision needed.</p></div>
+        <div class="info-card"><h2>Separate facts from noise</h2><p>Managers need useful signal. Keep the update focused on what changed, what matters, and what happens next.</p></div>
+        <div class="info-card"><h2>Show ownership</h2><p>The best updates sound proactive. Mention what you have done, what you are watching, and where you need input.</p></div>
+        <div class="info-card"><h2>Make next steps clear</h2><p>If you need a decision, approval, resource, or priority call, state it clearly so the recipient knows how to respond.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <nav class="footer-links" aria-label="Footer navigation"><a href="/about.html">About</a><a href="/faq.html">FAQ</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a></nav>
+      <div class="footer-tagline">Better words for modern life.</div>
+    </div>
+    <div class="footer-bottom"><div>© 2026 ToolChestLab</div><div>Helpful tools for real-life communication.</div></div>
+  </div>
+</footer>
+
+<script>
+const form = document.getElementById("toolForm");
+const output = document.getElementById("output");
+const copyButton = document.getElementById("copyButton");
+const clearButton = document.getElementById("clearButton");
+const generateButton = document.getElementById("generateButton");
+
+function cleanGeneratedText(text) {
+  let cleaned = String(text || "").trim();
+  cleaned = cleaned.replace(/^```(?:text|markdown|email)?\s*/i, "").replace(/```$/i, "").trim();
+  try {
+    const parsed = JSON.parse(cleaned);
+    if (typeof parsed === "string") cleaned = parsed;
+    if (parsed && typeof parsed === "object") cleaned = parsed.result || parsed.text || parsed.output || parsed.response || parsed.message || cleaned;
+  } catch (error) {}
+  return String(cleaned).replace(/\n{3,}/g, "\n\n").trim();
+}
+
+form.addEventListener("submit", async function(event) {
+  event.preventDefault();
+  const updateType = document.getElementById("updateType").value;
+  const format = document.getElementById("format").value;
+  const tone = document.getElementById("tone").value;
+  const audience = document.getElementById("audience").value;
+  const notes = document.getElementById("notes").value.trim();
+  const nextStep = document.getElementById("nextStep").value.trim();
+  if (!notes) { output.textContent = "Add your rough notes first, then generate your manager update."; return; }
+
+  const aiPrompt = `
+You are writing a clear, professional workplace manager update.
+
+Create one polished update based on the user's notes.
+
+Input:
+- Update type: ${updateType}
+- Output format: ${format}
+- Recipient: ${audience}
+- Tone: ${tone}
+- Rough notes: ${notes}
+- Optional next step or ask: ${nextStep || "Not provided"}
+
+Requirements:
+- Make the update clear, concise, and easy for a manager to scan.
+- Sound modern, professional, calm, and human.
+- Avoid robotic phrasing, corporate cringe, filler, and over-explaining.
+- Do not invent facts that are not in the notes.
+- Organize scattered notes into a useful structure.
+- Include progress, blockers, risks, priorities, timeline, and next steps only when relevant.
+- If there is a blocker or delay, phrase it transparently without sounding panicked or defensive.
+- If there is an ask or next step, make it clear.
+- If the format is email, include a subject line, greeting, body, and signoff.
+- If the format is Slack or Teams message, make it sendable as a workplace chat message.
+- If the format is bullet-point update, use clean bullets with short labels.
+- If the format is brief paragraph, keep it concise and polished.
+- Output only the finished update. Do not include commentary, JSON, markdown code blocks, or analysis.
+`;
+
+  output.textContent = "Generating your manager update...";
+  generateButton.disabled = true;
+  generateButton.textContent = "Generating...";
+
+  try {
+    const response = await fetch("/api/generate", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ prompt: aiPrompt }) });
+    if (!response.ok) throw new Error("Request failed");
+    const data = await response.json();
+    const result = data.result || data.text || data.output || data.response || data.message;
+    if (!result) throw new Error("No result returned");
+    output.textContent = cleanGeneratedText(result);
+  } catch (error) {
+    output.textContent = "Something went wrong while generating your update. Please try again.";
+  } finally {
+    generateButton.disabled = false;
+    generateButton.textContent = "Generate manager update";
+  }
+});
+
+copyButton.addEventListener("click", async function() {
+  const text = output.textContent.trim();
+  if (!text || text === "Your manager update will appear here." || text === "Generating your manager update...") return;
+  try { await navigator.clipboard.writeText(text); copyButton.textContent = "Copied"; setTimeout(() => copyButton.textContent = "Copy", 1200); }
+  catch (error) { copyButton.textContent = "Copy failed"; setTimeout(() => copyButton.textContent = "Copy", 1200); }
+});
+
+clearButton.addEventListener("click", function() { output.textContent = "Your manager update will appear here."; form.reset(); });
+</script>
+
+</body>
+</html>
